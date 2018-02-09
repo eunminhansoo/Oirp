@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<div>
-			<input type="text">
+			<input type="text" name="">
 		</div>
 	</body>
 </html>
