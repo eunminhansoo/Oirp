@@ -18,10 +18,24 @@
 	        
 			<input type="text" name="student_id" placeholder="Enter Email"/>
 			<br>
-			<input type="password" name="password" placeholder="Enter Email"/>
+			<input type="password" name="password" placeholder="Enter Password"/>
 			<br>
-			<input type="password" name="ret_try_pass" class="" placeholder="Enter Email"/>
+			<input type="password" name="ret_try_pass" class="" placeholder="Re-Enter Password"/>
 			<br>
+			<input type="text" name="family_name" class="" placeholder="Enter Surname"/>
+			<br>
+			<input type="text" name="given_name" class="" placeholder="Enter Given Name"/>
+			<br>
+			<input type="text" name="middle_name" class="" placeholder="Enter Middle Name"/>
+			<br>
+			<select name="gender" class="">
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</select>
+			<br>
+			<input type="date" name="birthday" class="" />
+			<br>
+			
 		</div>
 	</body>
 </html>	

@@ -24,7 +24,7 @@
 					<input type="text" name="userName" class="input form-control" placeholder="Enter Password"/>
 				</div>
 				<div>
-					<p>New user? <a href="#">Create new account</a></p>
+					<p>New user? <a href="register.php">Create new account</a></p>
 				</div>
 				<button type="submit" class="btn button_style">Submit</button>
 			</form>
