@@ -20,7 +20,7 @@
 			<br>
 			<input type="password" name="password" placeholder="Enter Email"/>
 			<br>
-			<input type="password" name="ret_try_pass" placeholder="Enter Email"/>
+			<input type="password" name="ret_try_pass" class="" placeholder="Enter Email"/>
 			<br>
 		</div>
 	</body>
