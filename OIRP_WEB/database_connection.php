@@ -1,6 +1,6 @@
 <?php
 	$conn = mysqli_connect("localhost", "root", "");
-    $db = mysqli_select_db($conn, "oixrp_db");
+    $db = mysqli_select_db($conn, "oirp_db");
     
     if(!$db){
     	echo '<script>console.log("error connection to database")';

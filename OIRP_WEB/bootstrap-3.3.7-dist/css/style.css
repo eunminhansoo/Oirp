@@ -1,7 +1,20 @@
 @CHARSET "ISO-8859-1";
-.div_center{
+.div_center_signIn{
 	padding: 400px 0;
 }
 .button_style{
 	background-color: #F8D618;
+}
+.div_center_signUp{
+	padding: 70px 0;
+}
+.selectpicker{
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	width: 100px;
+	height: 40px;
+}
+.no_space_betweem{
+	margin-top: 15px;
 }
