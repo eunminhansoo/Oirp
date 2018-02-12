@@ -60,117 +60,124 @@ $pdf->Cell(1,5,'','',1);
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,'I. PERSONAL INFORMATION','TB',2);
 
-$pdf->Cell(30,7,'Family Name','BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(30,7,'FAMILY NAME','BR',0);
 $pdf->Cell(85,7,'','BR',0);
-$pdf->Cell(20,7,'Gender','BR',0);
+$pdf->Cell(20,7,'GENDER','BR',0);
 $pdf->Cell(60,7,'','B',1);
-$pdf->Cell(30,7,'Given Name','BR',0);
+$pdf->Cell(30,7,'GIVEN NAME','BR',0);
 $pdf->Cell(85,7,'','BR',0);
-$pdf->Cell(20,7,'Nationality','BR',0);
+$pdf->Cell(20,7,'NATIONALITY','BR',0);
 $pdf->Cell(60,7,'','B',1);
-$pdf->Cell(30,7,'Middle Name','BR',0);
+$pdf->Cell(30,7,'MIDDLE NAME','BR',0);
 $pdf->Cell(85,7,'','BR',0);
-$pdf->Cell(20,7,'Birthdate','BR',0);
+$pdf->Cell(20,7,'BIRTHDATE','BR',0);
 $pdf->Cell(35,7,'','BR',0);
-$pdf->Cell(10,7,'Age','BR',0);
+$pdf->Cell(10,7,'AGE','BR',0);
 $pdf->Cell(15,7,'','B',1);
 
-$pdf->Cell(25,7,'Passport No.','BR',0);
+$pdf->Cell(25,7,'PASSPORT NO.','BR',0);
 $pdf->Cell(35,7,'','BR',0);
-$pdf->Cell(30,7,'Validity Date','BR',0);
+$pdf->Cell(30,7,'VALIDITY DATE','BR',0);
 $pdf->Cell(40,7,'','BR',0);
-$pdf->Cell(30,7,'Date of Issuance','BR',0);
+$pdf->Cell(30,7,'DATE OF ISSUANCE','BR',0);
 $pdf->Cell(35,7,'','B',1);
 
-$pdf->Cell(30,7,'Mailing Address','BR',0);
+$pdf->Cell(30,7,'MAILING ADDRESS','BR',0);
 $pdf->Cell(165,7,'','B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
-$pdf->Cell(30,7,'Email Address','BR',0);
+$pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
 $pdf->Cell(165,7,'','B',1);
 
-$pdf->Cell(30,7,'Telephone Number','BR',0);
-$pdf->Cell(60,7,'','BR',0);
-$pdf->Cell(30,7,'Mobile Number','BR',0);
+$pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
+$pdf->Cell(55,7,'','BR',0);
+$pdf->Cell(30,7,'MOBILE NUMBER','BR',0);
 $pdf->Cell(75,7,'','B',1);
 
-$pdf->Cell(30,7,'Person to Contact','BR',0);
-$pdf->Cell(90,7,'','BR',0);
-$pdf->Cell(25,7,'Relationship','BR',0);
+$pdf->Cell(35,7,'PERSON TO CONTACT','BR',0);
+$pdf->Cell(85,7,'','BR',0);
+$pdf->Cell(25,7,'RELATIONSHIP','BR',0);
 $pdf->Cell(50,7,'','B',1);
-$pdf->Cell(20,7,'Address','BR',0);
+$pdf->Cell(20,7,'ADDRESS','BR',0);
 $pdf->Cell(175,7,'','B',1);
-$pdf->Cell(30,7,'Email Address','BR',0);
+$pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
 $pdf->Cell(80,7,'','BR',0);
-$pdf->Cell(35,7,'Telephone Number','BR',0);
+$pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
 $pdf->Cell(50,7,'','B',1);
 
 
 //Educational Background
+$pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,'II. EDUCATIONAL BACKGROUND','B',2);
 
-$pdf->Cell(40,7,'Home University','BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(40,7,'HOME UNIVERSITY','BR',0);
 $pdf->Cell(155,7,'','B',1);
-$pdf->Cell(40,7,'University Address','BR',0);
+$pdf->Cell(40,7,'UNIVERSITY ADDRESS','BR',0);
 $pdf->Cell(155,7,'','B',1);
-$pdf->Cell(50,7,'Name of Officer to contact','BR',0);
+$pdf->Cell(50,7,'NAME OF OFFICER TO CONTACT','BR',0);
 $pdf->Cell(80,7,'','BR',0);
-$pdf->Cell(30,7,'Designation','BR',0);
+$pdf->Cell(30,7,'DESIGNATION','BR',0);
 $pdf->Cell(35,7,'','B',1);
-$pdf->Cell(50,7,'Email Address of Officer','BR',0);
+$pdf->Cell(50,7,'EMAIL ADDRESS OF OFFICER','BR',0);
 $pdf->Cell(70,7,'','BR',0);
-$pdf->Cell(35,7,'Telephone Number','BR',0);
+$pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
 $pdf->Cell(40,7,'','B',1);
-$pdf->Cell(50,7,'Current Program of Study','BR',0);
+$pdf->Cell(50,7,'CURRENT PROGRAM OF STUDY','BR',0);
 $pdf->Cell(65,7,'','BR',0);
-$pdf->Cell(25,7,'Specialization','BR',0);
+$pdf->Cell(25,7,'SPECIALIZATION','BR',0);
 $pdf->Cell(55,7,'','B',1);
-$pdf->Cell(15,7,'Year','BR',0);
+$pdf->Cell(15,7,'YEAR','BR',0);
 $pdf->Cell(35,7,'','BR',0);
-$pdf->Cell(20,7,'Year Level','BR',0);
+$pdf->Cell(20,7,'YEAR LEVEL','BR',0);
 $pdf->Cell(35,7,'','BR',0);
-$pdf->Cell(55,7,'Recepient of scholarship/loans?','BR',0);
+$pdf->Cell(55,7,'RECEPIENT OF SCHOLARSHIP/LOANS?','BR',0);
 $pdf->Cell(35,7,'','B',1);
-$pdf->SetFont('Arial','B',8);
-$pdf->Cell(85,7,'Does your university have a signed agreement with UST?','BR',0);
-$pdf->SetFont('Arial','B',9);
+$pdf->SetFont('Arial','',7);
+$pdf->Cell(85,7,'DOES YOUR UNIVERSITY HAVE A SIGNED AGREEMENT WITH UST?','BR',0);
+$pdf->SetFont('Arial','',8);
 $pdf->Cell(20,7,'','BR',0);
-$pdf->Cell(25,7,'Year Signed','BR',0);
+$pdf->Cell(25,7,'YEAR SIGNED','BR',0);
 $pdf->Cell(20,7,'','BR',0);
-$pdf->Cell(25,7,'Year Renewed','BR',0);
+$pdf->Cell(25,7,'YEAR RENEWED','BR',0);
 $pdf->Cell(20,7,'','B',1);
 
 
 //Proposed Field of Study
+$pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,'III. PROPOSED FIELD OF STUDY','TB',1);
 
-$pdf->Cell(50,7,'Proposed Program','BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(50,7,'PROPOSED PROGRAM','BR',0);
 $pdf->Cell(145,7,'','B',1);
 
-$pdf->Cell(50,35,'Courses to be taken at UST','BR',0);
+$pdf->Cell(50,35,'COURSES TO BE TAKEN AT UST','BR',0);
 $pdf->Cell(145,7,'1.','B',2);
 $pdf->Cell(145,7,'2.','B',2);
 $pdf->Cell(145,7,'3.','B',2);
 $pdf->Cell(145,7,'4.','B',2);
 $pdf->Cell(145,7,'5.','B',1);
 
-$pdf->Cell(30,7,'Research Topic','BR',0);
+$pdf->Cell(30,7,'RESEARCH TOPIC','BR',0);
 $pdf->Cell(165,7,'','B',1);
-$pdf->Cell(50,7,'Intended Semester to Study','BR',0);
-$pdf->Cell(145,7,'','B',1);
-$pdf->Cell(50,7,'Disciplinary Action and Status','BR',0);
-$pdf->Cell(45,7,'','BR',0);
-$pdf->SetFont('Arial','B',8);
-$pdf->Cell(55,7,'Reason for Studying in Host University','BR',0);
-$pdf->SetFont('Arial','B',9);
-$pdf->Cell(45,7,'','B',1);
+$pdf->Cell(55,7,'INTENDED SEMESTER TO STUDY','BR',0);
+$pdf->Cell(140,7,'','B',1);
+$pdf->Cell(55,7,'DISCIPLINARY ACTION AND STATUS','BR',0);
+$pdf->Cell(40,7,'','BR',0);
+$pdf->SetFont('Arial','',7);
+$pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(40,7,'','B',1);
 
 $pdf->Cell(195,5,'','',1);
 
 //English Proficiency
-$pdf->Cell(195,7,'IV. ENGLISH PROFICIENCY: (FOR NON-NATIVE SPEAKER OF ENGLISH)','TB',1);
+$pdf->SetFont('Arial','B',9);
+$pdf->Cell(195,7,'IV. ENGLISH PROFICIENCY (For non-native speakers of English)','TB',1);
 
+$pdf->SetFont('Arial','',9);
 $pdf->Cell(20,7,'','',0);
 $pdf->Cell(120,7,'a.) Have you completed a TOEFL/IELTS test or equivalent in the last twelve months?','',1);
 $pdf->Cell(40,7,'','',0);
@@ -232,47 +239,58 @@ $pdf->Cell(20,7,'','',0);
 $pdf->Cell(40,7,'Date','T',1,'C');
 
 //Medical Information
+$pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"V. MEDICAL INFORMATION",'TB',1);
-$pdf->Cell(30,7,'Do you smoke?','BR',0);
+
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(30,7,'DO YOU SMOKE?','BR',0);
 $pdf->Cell(20,7,'','BR',0);
-$pdf->SetFont('Arial','B',7);
-$pdf->Cell(70,7,'Do you have any physical disabilities/personal problems?','BR',0);
+$pdf->SetFont('Arial','',7);
+$pdf->Cell(85,7,'DO YOU HAVE ANY PHYSICAL DISABILITIES/PERSONAL PROBLEMS?','BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(60,7,'','B',1);
+$pdf->SetFont('Arial','',7);
+$pdf->Cell(85,7,'DO YOU HAVE ANY SERIOUS ILLNESS, CONDITIONS, OR ALLERGIES?','BR',0);
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(75,7,'','B',1);
-$pdf->SetFont('Arial','B',8);
-$pdf->Cell(80,7,'Do you have any serious illness, conditions, or allergies?','BR',0);
-$pdf->SetFont('Arial','B',9);
-$pdf->Cell(115,7,'','B',1);
+$pdf->Cell(110,7,'','B',1);
 
 //Airport Pickup
-$pdf->Cell(195,7,"VI. AIRPORT PICKUP (Take note that airport pickup service is arranged only for a group consisting at least 10 or more students)",'TB',1);
+$pdf->SetFont('Arial','B',9);
+$pdf->Cell(195,7,"VI. AIRPORT PICKUP (Airport pickup service is arranged only for a group consisting at least 10 or more students)",'TB',1);
 
-$pdf->Cell(45,7,'Date and Time of Arrival','BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(45,7,'DATE AND TIME OF ARRIVAL','BR',0);
 $pdf->Cell(40,7,'','BR',0);
-$pdf->Cell(30,7,'Flight Number','BR',0);
+$pdf->Cell(30,7,'FLIGHT NUMBER','BR',0);
 $pdf->Cell(40,7,'','BR',0);
-$pdf->Cell(30,7,'NAIA Terminal','BR',0);
+$pdf->Cell(30,7,'NAIA TERMINAL','BR',0);
 $pdf->Cell(10,7,'','B',1);
 
 //Insurance Information
+$pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"VII. INSURANCE INFORMATION",'TB',1);
 
-$pdf->Cell(50,7,"Insurance Company's Name",'BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(50,7,"INSURANCE COMPANY'S NAME",'BR',0);
 $pdf->Cell(145,7,'','B',1);
-$pdf->Cell(30,7,'Policy Number','BR',0);
+$pdf->Cell(30,7,'POLICY NUMBER','BR',0);
 $pdf->Cell(60,7,'','BR',0);
-$pdf->Cell(55,7,'Amount of Coverage in US Dollars','BR',0);
-$pdf->Cell(50,7,'','B',1);
+$pdf->Cell(60,7,'AMOUNT OF COVERAGE IN US DOLLARS','BR',0);
+$pdf->Cell(45,7,'','B',1);
 
 //Accomodation Information
-$pdf->Cell(195,7,"VIII. ACCOMODATION INFORMATION",'TB',1);
-$pdf->SetFont('Arial','B',8);
-$pdf->Cell(130,7,'Do you need accomodation during the student exchange program? (Subject to availability)','BR',0);
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(65,7,'','B',1);
+$pdf->Cell(195,7,"VIII. ACCOMODATION INFORMATION",'TB',1);
+$pdf->SetFont('Arial','',7);
+$pdf->Cell(135,7,'DO YOU NEED ACCOMODATION DURING THE STUDENT EXCHANGE PROGRAM? (SUBJECT TO AVAILABILITY)','BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(60,7,'','B',1);
 
 //Student's Signature
+$pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"IX. STUDENT'S SIGNATURE",'TB',1);
+
+$pdf->SetFont('Arial','',9);
 $pdf->MultiCell(195,5,'I hereby apply for admission to study at University of Santo Tomas. I confirm that the information provided above is correct to the best of my knowledge.','',1);
 $pdf->Cell(195,7,'','',1);
 
@@ -282,7 +300,10 @@ $pdf->Cell(20,7,'','',0);
 $pdf->Cell(40,7,'Date','T',1,'C');
 
 //Home Institution Approval
+$pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"X. HOME INSTITUTION APPROVAL",'TB',1);
+
+$pdf->SetFont('Arial','',9);
 $pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming ____ term (year)','',1);
 $pdf->Cell(195,7,'','',1);
 
@@ -292,6 +313,7 @@ $pdf->Cell(20,7,'','',0);
 $pdf->Cell(40,7,'Date','T',1,'C');
 
 //Expectations
+$pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"XI. EXPECTATIONS FROM THE PROGRAM",'TB',1);
 $pdf->Cell(3,7,'');
 $pdf->Cell(189,7,'','B',1);
