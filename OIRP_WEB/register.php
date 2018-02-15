@@ -1,5 +1,5 @@
 <?php
-	include 'database_connection.php';
+	include 'register_php.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,26 +13,27 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/style.css">
 	</head>
 	<body>
-		<div class="container div_center_signUp">
-			<script src="bootstrap-3.3.7-dist/js/style.js"></script>
-			<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-	        <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
-	        <form action="#">
+		 <form method="post">
+			<div class="container div_center_signUp">
+				<script src="bootstrap-3.3.7-dist/js/style.js"></script>
+				<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		        <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
+	        
 	        	<div>
 	        		<div class="form-group">
-	        			<input type="text" name="student_id" class="input form-control" placeholder="Enter Email"/>
-	        		</div>
-					<div class="form-group">
-						<input type="password" name="password" class="input form-control" placeholder="Enter Password"/>
+						<input type="text" name="email" class="input form-control" placeholder="Email" required/>
 					</div>
 					<div class="form-group">
-						<input type="password" name="ret_try_pass" class="input form-control" placeholder="Re-Enter Password"/>
+						<input type="password" name="password" class="input form-control" placeholder="Enter Password" required/>
 					</div>
 					<div class="form-group">
-						<input type="text" name="family_name" class="input form-control" placeholder="Enter Surname"/>
+						<input type="password" name="ret_try_pass" class="input form-control" placeholder="Re-Enter Password" required/>
 					</div>
 					<div class="form-group">
-						<input type="text" name="given_name" class="input form-control" placeholder="Enter Given Name"/>
+						<input type="text" name="family_name" class="input form-control" placeholder="Enter Surname" required/>
+					</div>
+					<div class="form-group">
+						<input type="text" name="given_name" class="input form-control" placeholder="Enter Given Name" required/>
 					</div>
 					<div class="form-group">
 						<input type="text" name="middle_name" class="input form-control" placeholder="Enter Middle Name"/>
@@ -46,11 +47,17 @@
 					<div class="form-group no_space_betweem">					
 						<input type="date" name="birthday" class="form-control"/>
 					</div>
+					<div class="form-group no_space_betweem">					
+					<div>
+						Are you a Student of UST?
+						<input type="radio" name="application_form" value="yes"> Yes
+						<input type="radio" name="application_form" value="no"> No
+					</div>
+					</div>
 				</div>
-				<div>
-					<button type="submit" name="btn_register" class="btn button_style">Submit</button>
-				</div>
-			</form>
-		</div>
+				<button type="submit" name="btn_register" class="btn button_style">Submit</button>
+				<?php echo $message?>
+			</div>
+		</form>
 	</body>
 </html>	
