@@ -24,12 +24,6 @@
 						<input type="text" name="email" class="input form-control" placeholder="Email" required/>
 					</div>
 					<div class="form-group">
-						<input type="password" name="password" class="input form-control" placeholder="Enter Password" required/>
-					</div>
-					<div class="form-group">
-						<input type="password" name="ret_try_pass" class="input form-control" placeholder="Re-Enter Password" required/>
-					</div>
-					<div class="form-group">
 						<input type="text" name="family_name" class="input form-control" placeholder="Enter Surname" required/>
 					</div>
 					<div class="form-group">
@@ -45,7 +39,7 @@
 						</select>
 					</div>
 					<div class="form-group no_space_betweem">					
-						<input type="date" name="birthday" class="form-control"/>
+						<input type="date" name="birthday" class="form-control" required/>
 					</div>
 					<div class="form-group no_space_betweem">					
 					<div>
