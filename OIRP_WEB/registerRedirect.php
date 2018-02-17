@@ -1,13 +1,37 @@
 <?php
 	include 'database_connection.php';
 	
-	$getData = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' ");
+	/* FOR STUDENT NUMBER*/
+	
+	session_start();
+	$show_email = $_SESSION['$ses_email'];
+	$getData = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$show_email' ");
+	
 	while ($getRows = mysqli_fetch_array($getData)){
 		$studentCOUNT = $getRows['STUDENT_COUNT'];
 		$dateSignIn = $getRows['DATE_ENROLL'];
 		$appPROG = $getRows['APPLICATION_PROG'];
+		
 	}
-	$studentID = $studentCOUNT.$dateSignIn.$appPROG;
+	/* date format*/
+	$timestamp = strtotime($dateSignIn);
+	$dateuSignIn = date('Ymd', $timestamp);
+		
+	if(strlen($studentCOUNT) == 2){
+		$dateuSignIn1 = $dateuSignIn * 1000;
+	}elseif (strlen($studentCOUNT) == 1){
+		$dateuSignIn1 = $dateuSignIn * 1000;
+	}else {
+		if (strlen($studentCOUNT) == 3){
+			$dateuSignIn1 = $dateuSignIn * 1000;
+				
+		}
+	}
+	$dateuSignIn2 = $dateuSignIn1 + $studentCOUNT;
+	
+	$studentID = $dateuSignIn2."-".$appPROG;
+
 	mysqli_query($conn, "UPDATE student SET STUDENT_ID = '$studentID' ");
-	header("Location: home_page.php")
+	header("Location: home_page.php");
+	
 ?>
