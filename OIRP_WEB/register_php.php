@@ -14,15 +14,26 @@
 		$date = date('Ymd');
 		
 		if ($appForm == 'yes'){
+<<<<<<< HEAD
 			$appForm = 'out';
 		}else {
 			if ($appForm == 'no'){
 				$appForm = 'in';
+=======
+			$appForm = 'outbound';
+		}else {
+			if ($appForm == 'no'){
+				$appForm = 'inbound';
+>>>>>>> origin/master
 			}
 		}
 		
 		$timestamp = strtotime($birth);
+<<<<<<< HEAD
 		$birth_date = date('mdY', $timestamp);
+=======
+		$birth_date = date('m/d/y', $timestamp);
+>>>>>>> origin/master
 	
 		$check_email = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' ");
 		
