@@ -1,5 +1,5 @@
 <?php
-	
+	include 'loginPhp.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,17 +16,17 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
 		<div class="container div_center_signIn">
-			<form action="#">
+			<form method="post">
 				<div class="form-group">
-					<input type="text" name="userName" class="input form-control" placeholder="Enter Email"/>
+					<input type="text" name="email" class="input form-control" placeholder="Enter Email"/>
 				</div>
 				<div class="form-group">
-					<input type="text" name="userName" class="input form-control" placeholder="Enter Password"/>
+					<input type="password" name="password" class="input form-control" placeholder="Enter Password"/>
 				</div>
 				<div>
 					<p>New user? <a href="register.php">Create new account</a></p>
 				</div>
-				<button type="submit" class="btn button_style">Submit</button>
+				<button type="submit" name="btn_login" class="btn button_style">Submit</button>
 			</form>
 		</div>
 	</body>

@@ -18,3 +18,39 @@
 .no_space_betweem{
 	margin-top: 15px;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: none;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+.col-xs-Myoffset-1{
+	margin-left: 91.66666667%;
+}
+.ust_logo{
+	background-repeat: no-repeat;
+    background-size: contain;
+}
+.col-inline-offset-1{
+	display: inline-block;
+}
+.col-left-offset-1{
+	margin-left: 50%;
+}
