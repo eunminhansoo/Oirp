@@ -1,5 +1,5 @@
 <?php
-
+	include 'loginPhp.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +45,7 @@
 		</div>
 		<div class="login col-sm-3">
 			<br>
-			<form action="#">
+			<form method="post">
 
 				<div class="form-group">
 					<input type="text" name="email" class="input form-control" placeholder="Enter Email"/>
@@ -53,7 +53,7 @@
 				<div class="form-group">
 					<input type="password" name="password" class="input form-control" placeholder="Enter Password"/>
 				</div>
-				<button type="submit" class="btn btn-block btn-primary">Submit</button>
+				<button type="submit" name="btn_login" class="btn btn-block btn-primary">Submit</button>
 				<p style="text-align: center">OR</p>
 			</form>
 			<form action="register.php">

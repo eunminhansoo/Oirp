@@ -99,3 +99,28 @@ activated,view,org.eclipse.php.debug.ui,2.2.0.v20101001-2300,"org.eclipse.debug.
 deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519211415185
 activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519211746861
 deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519211749269
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519211997534
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519211999097
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519212006665
+activated,editor,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.editor",1519212007697
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519212052249
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519212061558
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1519212107557
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1519212114668
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1519212128588
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519212130839
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519212394057
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519212396684
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1519212416431
+error,log,,,"Resource is out of sync with the file system: '/OIRP_WEB/register_php.php'.",1519212416761
+activated,view,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.ui.explorer",1519212416761
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1519212421573
+opened,editor,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.editor",1519212427637
+activated,editor,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.editor",1519212427903
+activated,editor,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.editor",1519212431389
+closed,editor,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.editor",1519212433541
+closed,editor,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.editor",1519212434323
+closed,editor,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.editor",1519212435713
+activated,editor,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.editor",1519212437963
+activated,editor,org.eclipse.php.ui,2.2.1.v20101001-2300,"org.eclipse.php.editor",1519212534870
+error,log,,,"PHPCore plugin internal error",1519212546996
