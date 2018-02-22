@@ -16,7 +16,6 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
-		
 		<div class="header">
 			<img src='img/logo.png' height=auto>
 		</div>
@@ -45,15 +44,14 @@
 		</div>
 		<div class="login col-sm-3">
 			<br>
-			<form method="post">
-
+			<form action="#">
 				<div class="form-group">
 					<input type="text" name="email" class="input form-control" placeholder="Enter Email"/>
 				</div>
 				<div class="form-group">
 					<input type="password" name="password" class="input form-control" placeholder="Enter Password"/>
 				</div>
-				<button type="submit" name="btn_login" class="btn btn-block btn-primary">Submit</button>
+				<button type="submit" class="btn btn-block btn-primary">Submit</button>
 				<p style="text-align: center">OR</p>
 			</form>
 			<form action="register.php">
