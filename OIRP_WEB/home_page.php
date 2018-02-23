@@ -1,4 +1,5 @@
 <?php
+	
 ?>
 <html>
 	<head>
@@ -8,7 +9,6 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/style.css">
 	</head>
 	<title>
 	
@@ -16,9 +16,9 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
-	    <ul>
-	    	<li><a><embed src="images/mini_ust_logo.svg"></embed></a></li>
-	    	<li></li>	
-	    </ul>
+	    
+	    <form method="post" action="apply.php">
+			<button type="submit" class="btn btn-block btn-primary">APPLY NOW</button>
+		</form>
 	</body>
 </html>
