@@ -11,7 +11,6 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/style.css">
 	</head>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -21,7 +20,7 @@
 			<img src='img/logo.png' height=auto>
 		</div>
 		
-		<nav class="col-sm-3 sidebar">
+		<nav class="col-sm-3">
 			<ul class="nav nav-stacked">
 				<li role="presentation" class="active"><a href="">Personal Information</a></li>
 				<li role="presentation"><a href="">Educational Background</a></li>
@@ -30,24 +29,24 @@
 			</ul>
 		</nav>
 		
-		<div class="col-sm-9">
+		<div class="col-sm-6 container">
 			<form>
 				<div class="form-group container">
-					<div class="col-sm-6">
+					<div class="col-sm-5">
 						<input type="text" placeholder="Citizenship" name="citizenship" id="citizenship" class="form-control">
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-5">
 						<input type="text" placeholder="Nationality" name="nationality" id="nationality" class="form-control">
 					</div>
 				</div>
 				<div class="form-group container">
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						<input type="text" placeholder="Passport No." name="passport" id="passport" class="form-control">
 					</div>
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						<input type="text" placeholder="Validity Date" name="validity" id="validity" class="form-control">
 					</div>
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						<input type="text" placeholder="Date of Issuance" name="issuance" id="issuance" class="form-control">
 					</div>
 				</div>
@@ -57,7 +56,9 @@
 					</div>					
 				</div>
 				<div class="form-group container">
-					
+					<div class="col-sm-12">
+						<input type="text" placeholder="Email Address" name="email" id="email" class="form-control">
+					</div>
 				</div>
 			</form>
 		</div>
