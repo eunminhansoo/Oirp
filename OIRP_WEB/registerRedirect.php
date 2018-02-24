@@ -32,6 +32,8 @@
 	$studentID = $dateuSignIn2."-".$appPROG;
 
 	mysqli_query($conn, "UPDATE student SET STUDENT_ID = '$studentID' ");
-	header("Location: home_page.php");
+	session_start();
+	$_SESSION['$studentID_session'] = $studentID;
+	header("Location: apply.php");
 	
 ?>
