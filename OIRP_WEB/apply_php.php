@@ -13,7 +13,7 @@
 		$gender = $row['GENDER'];
 		$birthday = $row['BIRTHDAY'];
 	}
-	 if (isset(btn_apply)){
+	 if (isset($_POST[btn_apply])){
 	 	
 	 }
 ?>
