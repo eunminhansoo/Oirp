@@ -27,11 +27,29 @@
 				
 		}
 	}
+	/* convert a inbound and outbaound into in and out*/
+	if ($appPROG == 'outbound'){
+		$appPROG = 'out';
+	}else {
+		if ($appPROG == 'inbound'){
+			$appPROG = 'in';
+		}
+	}
+			
 	$dateuSignIn2 = $dateuSignIn1 + $studentCOUNT;
 	
 	$studentID = $dateuSignIn2."-".$appPROG;
 
 	mysqli_query($conn, "UPDATE student SET STUDENT_ID = '$studentID' ");
+	
+	if($appPROG == "out")
+	{
+		header("Location: outbound_application.php");
+	}else{
+		if($appPROG == "in"){
+			header("Location: inbound_application.php");
+		}
+	}
 	session_start();
 	$_SESSION['$studentID_session'] = $studentID;
 	header("Location: apply.php");

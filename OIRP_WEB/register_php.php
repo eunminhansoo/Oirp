@@ -13,14 +13,6 @@
 		$appForm = ($_POST['application_form']);
 		$date = date('Ymd');
 		
-		if ($appForm == 'yes'){
-			$appForm = 'out';
-		}else {
-			if ($appForm == 'no'){
-				$appForm = 'in';
-			}
-		}
-		
 		$timestamp = strtotime($birth);
 		$birth_date = date('mdY', $timestamp);
 	
