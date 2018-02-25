@@ -42,6 +42,8 @@
 
 	mysqli_query($conn, "UPDATE student SET STUDENT_ID = '$studentID' ");
 	
+	$_SESSION['$studentID_session'] = $studentID;
+	
 	if($appPROG == "out")
 	{
 		header("Location: outbound_application.php");
@@ -50,8 +52,4 @@
 			header("Location: inbound_application.php");
 		}
 	}
-	session_start();
-	$_SESSION['$studentID_session'] = $studentID;
-	header("Location: apply.php");
-	
 ?>
