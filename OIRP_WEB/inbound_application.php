@@ -101,6 +101,12 @@
 					<input tyep="text" name="year_level_in" class="input from-control" />
 				</div>
 			</div>
+			<div>
+				<div class="form-group">
+					<span class="input-group-addon span-style">Proposed Program </span>
+					<input tyep="text" name="year_level_in" class="input from-control" />
+				</div>
+			</div>
 		</form>
 	</body>
 </html>

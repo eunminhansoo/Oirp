@@ -36,7 +36,7 @@
 		$year_level_in = $_POST['year_level_in'];
 
 		mysqli_query($conn, "INSERT INTO educ_back_inbound(STUDENT_COUNT, STUDENT_ID, HOME_UNIV_IN, DEGREE_PROG_IN,
-		YEAR_LEVEL_IN, MAJOR_IN) VALUES ()");
+		YEAR_LEVEL_IN, MAJOR_IN) VALUES ('', '$home_univ_in', '$degree_prog_in', '$year_level_in', '$major_in')");
 
 
 		// PROPOSED FIELD OF STUDY
