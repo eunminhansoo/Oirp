@@ -15,18 +15,7 @@
 		
 		$timestamp = strtotime($birth);
 		$birth_date = date('mdY', $timestamp);
-		
-		if($appForm == 'yes')
-		{
-			$appForm = "outbound";
-		}else
-		{
-			if($appForm == 'no')
-			{
-				$appForm = "inbound";
-			}
-		}
-		
+	
 		$check_email = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' ");
 		
 		if(mysqli_num_rows($check_email) >= 1){

@@ -23,23 +23,5 @@
 	 	$mailing_add_in = $_POST['mailing_add_in'];
 	 	$telephone_num_in = $_POST['telephone_num_in'];
 	 	$mobile_num_in = $_POST['mobile_num_in'];
-		
-		mysqli_query($conn, "INSERT INTO personal_info_inbound(STUDENT_COUNT, STUDENT_ID, APPLICATION_PROG, AGE_IN,
-		NATIONALITY_IN, PASSPORT_NUM_IN, VALIDITY_DATE_IN, DATE_ISSUANCE_iN, MAILING_ADD_IN, TELEPHONE_NUM_IN,
-		MOBILE_NUM_IN) VALUES ('', '$studentID_get', '', '$age', '$nationality', '$passport_num_in', 
-		'$validity_date_in', '$date_issuance_in', '$mailing_add_in', '$telephone_num_in', '$mobile_num_in')");
-		
-		// for Educational Background
-		$home_univ_in = $_POST['home_univ_in'];
-		$degree_prog_in = $_POST['degree_prog_in'];
-		$major_in = $_POST['major_in'];
-		$year_level_in = $_POST['year_level_in'];
-
-		mysqli_query($conn, "INSERT INTO educ_back_inbound(STUDENT_COUNT, STUDENT_ID, HOME_UNIV_IN, DEGREE_PROG_IN,
-		YEAR_LEVEL_IN, MAJOR_IN) VALUES ()");
-
-
-		// PROPOSED FIELD OF STUDY
-
 	 }
 ?>
