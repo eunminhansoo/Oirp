@@ -20,9 +20,6 @@
 		        <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
 	        
 	        	<div>
-	        		<div class="form-group">
-						<input type="text" name="email" class="input form-control" placeholder="Email" required/>
-					</div>
 					<div class="form-group">
 						<input type="text" name="family_name" class="input form-control" placeholder="Enter Surname" required/>
 					</div>
@@ -31,6 +28,9 @@
 					</div>
 					<div class="form-group">
 						<input type="text" name="middle_name" class="input form-control" placeholder="Enter Middle Name"/>
+					</div>
+					<div class="form-group">
+						<input type="email" name="email" class="input form-control" placeholder="Email" required/>
 					</div>
 					<div class="dropdown">
 						<select name="gender" class="selectpicker">
@@ -41,12 +41,15 @@
 					<div class="form-group no_space_betweem">					
 						<input type="date" name="birthday" class="form-control" required/>
 					</div>
-					<div class="form-group no_space_betweem">					
-					<div>
-						Are you a Student of UST?
-						<input type="radio" name="application_form" value="yes"> Yes
-						<input type="radio" name="application_form" value="no"> No
+	        		<div class="form-group no_space_betweem">					
+						<input type="text" name="birthplace" class="form-control" required/>
 					</div>
+					<div class="form-group no_space_betweem">					
+						<div>
+							Are you a Student of UST?
+							<input type="radio" name="application_form" value="yes"> Yes
+							<input type="radio" name="application_form" value="no"> No
+						</div>	
 					</div>
 				</div>
 				<button type="submit" name="btn_register" class="btn button_style">Submit</button>
