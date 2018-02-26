@@ -2,7 +2,7 @@
 	//include 'database_connection.php';
 	include 'inbound_application_php.php';
 
-	session_start();
+	//session_start();
 	$getSes_studentID = $_SESSION['$studentID_session'];
 	echo $getSes_studentID;
 
