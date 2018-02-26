@@ -75,7 +75,7 @@
 				</div>
 				<div class="input-group col-xs-8">
 					<span class="input-group-addon span-style">Date of Birth: </span>
-					<input type="date" name="birthday" disabled value="<?php echo base64_decode($birthday)?>"  class="form-control"/>
+					<input type="text" name="birthday" disabled value="<?php echo base64_decode($birthday)?>"  class="form-control"/>
 				</div>
 				<div class="form-group">
 					<input type="number" name="age" class="input form-control" placeholder="Age" required/>

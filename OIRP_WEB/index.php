@@ -50,7 +50,7 @@
 					<div class="form-group">
 						<input type="password" name="password" class="input form-control" placeholder="Enter Password"/>
 					</div>
-					<button type="submit" name="btn_login" class="btn btn-block btn-primary">Submit</button>
+					<button type="submit" name="btn_login" class="btn btn-block btn-primary">Login</button>
 					<p style="text-align: center">OR</p>
 				</form>
 				<form action="register.php">
