@@ -16,13 +16,13 @@
 		</div>
 		
 		<div class="container-fluid">
-			<nav class="col-sm-3 sidebar">
+			<div class="col-sm-3 navbar" role="navigation">
 				<ul class="nav nav-stacked">
-					<li class="active"><a href="">Personal Information</a></li>
-					<li><a href="">Guardian's Information</a></li>
-					<li><a href="">Country & University</a></li>
+					<li class=""><a href="inboundform1.php">Personal Information</a></li>
+					<li class="active"><a href="inboundform2.php">Proposed Field of Study</a></li>
+					<li class="disabled"><a href="">English Proficiency</a></li>
 				</ul>
-			</nav>
+			</div>
 			
 			<div class="col-sm-9 container-fluid">
 				<form action="inboundform3.php">
