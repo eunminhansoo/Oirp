@@ -10,7 +10,7 @@
 		$middleName = ($_POST['middle_name']);
 		$gender = ($_POST['gender']);
 		$birth = ($_POST['birthday']);
-		$birthplace = ($_POST['birthplace']);
+	$birth_enc = base64_encode($birth);
 		$appForm = ($_POST['application_form']);
 		$date = date('Ymd');
 		
@@ -31,6 +31,8 @@
 			}
 		}
 		
+	$check_email = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' ");
+
 		if(mysqli_num_rows($check_email) >= 1){
 			$message = "<script language='javascript'>(function(){alert('Email already exists! Try again?');})();</script>";
 		}else{
