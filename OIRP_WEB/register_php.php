@@ -37,7 +37,7 @@
 			$message = "<script language='javascript'>(function(){alert('Email already exists! Try again?');})();</script>";
 		}else{
 			mysqli_query($conn, "INSERT INTO student(STUDENT_COUNT, DATE_ENROLL, APPLICATION_PROG, STUDENT_ID, EMAIL, PASSWORD, FAMILY_NAME,".
-						" GIVEN_NAME, MIDDLE_NAME, GENDER, BIRTHDAY, BIRTHPLACE) VALUES ('', '$date', '$appForm', '', '$email', '$birth_date', '$familyName', '$givenName', '$middleName', '$gender', '$birth', '$birthplace')");
+						" GIVEN_NAME, MIDDLE_NAME, GENDER, BIRTHDAY, BIRTHPLACE) VALUES ('', '$date', '$appForm', '', '$email', '$birth_enc', '$familyName', '$givenName', '$middleName', '$gender', '$birth_enc', '$birthplace')");
 			session_start();
 			$_SESSION['$ses_email'] = $email;
 			header("Location: registerRedirect.php");

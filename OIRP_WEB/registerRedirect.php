@@ -43,14 +43,15 @@
 	mysqli_query($conn, "UPDATE student SET STUDENT_ID = '$studentID' WHERE EMAIL = '$show_email'");
 	
 	$_SESSION['$studentID_session'] = $studentID;
+	header("Location: inbound_application.php");
 	
-	if($appPROG == "out")
-	{
-		header("Location: inboundform1.php");
-	}else{
-		if($appPROG == "in"){
-			header("Location: outboundform1.php");
-		}
-	}
+	//*if($appPROG == "out")
+	//{
+	//	header("Location: inboundform1.php");
+	//}else{
+	//	if($appPROG == "in"){
+	//		header("Location: outboundform1.php");
+	//	}
+	//}
 	
 ?>
