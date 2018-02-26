@@ -61,7 +61,6 @@
 								<option value="UK">United Kingdom</option>
 								<option value="USA">United States of America</option>
 								<option value="Vietnam">Vietnam</option>
-
 							</select>
 						</div>
 						<div class="col-sm-5">

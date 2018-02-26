@@ -86,9 +86,9 @@
 }
 
 .sidebar{
-	border-right: 2px solid '#fabd15';
+	border-right: 2px solid black;
 }
 
 .break{
-	margin-top: 20px;
+	margin-top: 100px;
 }

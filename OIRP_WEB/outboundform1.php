@@ -59,12 +59,6 @@
 						</div>					
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-10">
-							<label>Email Address</label>
-							<input type="text" name="email" id="email" class="form-control">
-						</div>
-					</div>
-					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
 							<input type="text" name="telephone" id="telephone" class="form-control">
@@ -85,7 +79,7 @@
 						</div>
 						<div class="col-sm-2">
 							<label>Year Level</label>
-							<input type="text" name="yearlevel" id="yearlevel" class="form-control">
+							<input type="number" name="yearlevel" id="yearlevel" class="form-control">
 						</div>
 					</div>
 					
