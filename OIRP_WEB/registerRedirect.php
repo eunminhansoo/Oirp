@@ -40,9 +40,10 @@
 	
 	$studentID = $dateuSignIn2."-".$appPROG;
 
-	mysqli_query($conn, "UPDATE student SET STUDENT_ID = '$studentID' ");
+	mysqli_query($conn, "UPDATE student SET STUDENT_ID = '$studentID' WHERE EMAIL = '$show_email'");
 	
 	$_SESSION['$studentID_session'] = $studentID;
+	
 	if($appPROG == "out")
 	{
 		header("Location: inboundform1.php");
