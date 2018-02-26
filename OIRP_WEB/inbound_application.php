@@ -1,5 +1,5 @@
 <?php
-	include 'inbound_application_php.php';
+	include 'database_connection.php';
 ?>
 <html>
 	<head>
@@ -101,6 +101,7 @@
 					<input tyep="text" name="year_level_in" class="input from-control" />
 				</div>
 			</div>
+			<!-- PROPOSED PROGRAM-->
 			<div>
 				<div class="form-group">
 					<span class="input-group-addon span-style">Proposed Program </span>

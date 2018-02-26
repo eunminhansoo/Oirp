@@ -30,7 +30,7 @@
 						<input type="text" name="middle_name" class="input form-control" placeholder="Enter Middle Name"/>
 					</div>
 					<div class="form-group">
-						<input type="email" name="email" class="input form-control" placeholder="Email" required/>
+						<input type="text" name="email" class="input form-control" placeholder="Enter Email" required/>
 					</div>
 					<div class="dropdown">
 						<select name="gender" class="selectpicker">
@@ -42,7 +42,7 @@
 						<input type="date" name="birthday" class="form-control" required/>
 					</div>
 	        		<div class="form-group no_space_betweem">					
-						<input type="text" name="birthplace" class="form-control" required/>
+						<input type="text" name="birthplace" class="form-control" placeholder="Enter your Birthplace" required/>
 					</div>
 					<div class="form-group no_space_betweem">					
 						<div>

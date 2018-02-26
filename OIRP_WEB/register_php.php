@@ -18,6 +18,18 @@
 		$birth_date = date('mdY', $timestamp);
 	
 		$check_email = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' ");
+
+		if($appForm == 'yes')
+		{
+			$appForm = "outbound";
+
+		}else
+		{
+			if($appForm == 'no')
+			{
+				$appForm = "inbound";
+			}
+		}
 		
 		if(mysqli_num_rows($check_email) >= 1){
 			$message = "<script language='javascript'>(function(){alert('Email already exists! Try again?');})();</script>";
