@@ -86,19 +86,26 @@
 			<div class="container">
 				<div class="form-group">
 					<span class="input-group-addon span-style">Home University </span>
-					<input tyep="text" name="home_univ_in" class="input from-control" />
+					<input type="text" name="home_univ_in" class="input from-control" />
 				</div>
 				<div class="form-group">
 					<span class="input-group-addon span-style">Degree Program </span>
-					<input tyep="text" name="degree_prog_in" class="input from-control" />
+					<input type="text" name="degree_prog_in" class="input from-control" />
 				</div>
 				<div class="form-group">
 					<span class="input-group-addon span-style">Major </span>
-					<input tyep="text" name="major_in" class="input from-control" />
+					<input type="text" name="major_in" class="input from-control" />
 				</div>
 				<div class="form-group">
 					<span class="input-group-addon span-style">Year Level </span>
 					<input tyep="text" name="year_level_in" class="input from-control" />
+				</div>
+			</div>
+			<!-- PROPOSED PROGRAM-->
+			<div>
+				<div class="form-group">
+					<span class="input-group-addon span-style">Proposed Program </span>
+					<input type="text" name="year_level_in" class="input from-control" />
 				</div>
 			</div>
 		</form>

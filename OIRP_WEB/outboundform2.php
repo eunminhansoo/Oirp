@@ -57,7 +57,7 @@
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="text" name="fEmail" id="fEmail" class="form-control">
+							<input type="email" name="fEmail" id="fEmail" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -96,7 +96,7 @@
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="text" name="mEmail" id="mEmail" class="form-control">
+							<input type="email" name="mEmail" id="mEmail" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
