@@ -17,8 +17,8 @@
 			<div class="container div_center_signUp">
 				<script src="bootstrap-3.3.7-dist/js/style.js"></script>
 				<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-		        <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
-	        
+				<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
+					        
 	        	<div>
 					<div class="form-group">
 						<input type="text" name="family_name" class="input form-control" placeholder="Enter Surname" required/>

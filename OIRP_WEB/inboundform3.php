@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-        <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		
 		<div class="header">
 			<img src='img/logo.png' height=auto>
@@ -32,8 +32,10 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-2">
+						<div class="col-sm-1">
 							<input type="radio" name="toeflTest" value="yes"> Yes
+						</div>
+						<div class="col-sm-1">
 							<input type="radio" name="toeflTest" value="no"> No
 						</div>
 						<div class="col-sm-1">
@@ -49,8 +51,10 @@
 						</div> 
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-2">
+						<div class="col-sm-1">
 							<input type="radio" name="toeflFuture" value="yes"> Yes
+						</div>
+						<div class="col-sm-1">
 							<input type="radio" name="toeflFuture" value="no"> No
 						</div>
 						<div class="col-sm-1">

@@ -11,8 +11,8 @@
 	</head>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-        <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
-		
+		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
+		0		
 		<div class="header">
 			<img src='img/logo.png' height=auto>
 		</div>
