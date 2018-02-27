@@ -4,8 +4,12 @@
 	if (isset($_POST['btn_login'])){
 		$email = $_POST['email'];
 		$pass_word = $_POST['password'];
+		$date = $pass_word;
+        Datetime::createFromFormat('d/m/Y', $date)->format('d/m/Y');
+		$pass_word_enc = base64_encode($date);
+
 		
-		$query = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' AND PASSWORD = '$pass_word' ");
+		$query = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' AND PASSWORD = '$pass_word_enc' ");
 		$row = mysqli_num_rows($query);
 		
 		if($row == 1){

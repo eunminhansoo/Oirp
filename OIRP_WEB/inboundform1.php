@@ -1,4 +1,6 @@
-
+<?php
+	include 'inbound_application.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -207,7 +209,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary disabled">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_inform1" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>

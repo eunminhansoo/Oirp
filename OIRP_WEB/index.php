@@ -11,7 +11,6 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/style.css">
 	</head>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -52,7 +51,7 @@
 					<div class="form-group">
 						<input type="password" name="password" class="input form-control" placeholder="Enter Password"/>
 					</div>
-					<button type="submit" name="btn_login" class="btn btn-block btn-primary">Submit</button>
+					<button type="submit" name="btn_login" class="btn btn-block btn-primary">Login</button>
 					<p style="text-align: center">OR</p>
 				</form>
 				<form action="register.php">
