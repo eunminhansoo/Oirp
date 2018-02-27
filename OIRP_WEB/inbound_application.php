@@ -1,9 +1,10 @@
 <?php
-	//include 'database_connection.php';
-	include 'inbound_application_php.php';
+	include 'database_connection.php';
+	//include 'inbound_application_php.php';
 
-	//session_start();
+	session_start();
 	$getSes_studentID = $_SESSION['$studentID_session'];
+
 	echo $getSes_studentID;
 
 	if(isset($_POST['btn_inform1']))
@@ -23,11 +24,11 @@
 		$yearlevel = $_POST['yearlevel'];
 
 		mysqli_query($conn, "INSERT INTO personal_info_inbound(STUDENT_COUNT, STUDENT_ID, APPLICATION_PROG, AGE_IN,
-		NATIONALITY_IN, PASSPORT_NUM_IN, VALIDITY_DATE_IN, DATE_ISSUANCE_iN, MAILING_ADD_IN, TELEPHONE_NUM_IN, MOBILE_NUM_IN)
-		 VALUES('', '$getSes_studentID', '')");
+		NATIONALITY_IN, PASSPORT_NUM_IN, VALIDITY_DATE_IN, DATE_ISSUANCE_iN, MAILING_ADD_IN, TELEPHONE_NUM_IN, 
+		MOBILE_NUM_IN) VALUES('', '$getSes_studentID', '')");
 	}
 ?>
-<html>
+<!--<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width = device-width, initial-scale = 1">
@@ -52,30 +53,30 @@
         </div>
 		<form method="post">
 			<!-- PERSONAL INFORMATION -->
-			<div class="container">
+		<!--	<div class="container">
 				<div class="input-group col-xs-8">
 					<span class="input-group-addon span-style">Email Address: </span>
-					<input type="text" name="email" disabled value="<?php echo $email?>"  class="form-control"/>
+					<input type="text" name="email" disabled value="<?php //echo $email?>"  class="form-control"/>
 				</div>
 				<div class="input-group col-xs-8">
 					<span class="input-group-addon span-style">Family Name: </span>
-					<input type="text" name="family_name" disabled value="<?php echo $family_name?>"  class="form-control"/>
+					<input type="text" name="family_name" disabled value="<?php //echo $family_name?>"  class="form-control"/>
 				</div>
 				<div class="input-group col-xs-8">
 					<span class="input-group-addon span-style">Given Name: </span>
-					<input type="text" name="given_name" disabled value="<?php echo $given_name?>"  class="form-control"/>
+					<input type="text" name="given_name" disabled value="<?php// echo $given_name?>"  class="form-control"/>
 				</div>
 				<div class="input-group col-xs-8">
 					<span class="input-group-addon span-style">Middle Name: </span>
-					<input type="text" name="middle_name" disabled value="<?php echo $middle_name?>"  class="form-control"/>
+					<input type="text" name="middle_name" disabled value="<?php //echo $middle_name?>"  class="form-control"/>
 				</div>
 				<div class="input-group col-xs-8">
 					<span class="input-group-addon span-style">Gender: </span>
-					<input type="text" name="gender" disabled value="<?php echo $gender ?>"  class="form-control"/>
+					<input type="text" name="gender" disabled value="<?php //echo $gender ?>"  class="form-control"/>
 				</div>
 				<div class="input-group col-xs-8">
 					<span class="input-group-addon span-style">Date of Birth: </span>
-					<input type="text" name="birthday" disabled value="<?php echo base64_decode($birthday)?>"  class="form-control"/>
+					<input type="text" name="birthday" disabled value="<?php //echo base64_decode($birthday)?>"  class="form-control"/>
 				</div>
 				<div class="form-group">
 					<input type="number" name="age" class="input form-control" placeholder="Age" required/>
@@ -109,7 +110,7 @@
         	</div>
 		
 			<!-- EDUCATIONAL BACKGROUND -->
-			<div class="container">
+			<!--<div class="container">
 				<div class="form-group">
 					<span class="input-group-addon span-style">Home University </span>
 					<input type="text" name="home_univ_in" class="input from-control" />
@@ -128,7 +129,7 @@
 				</div>
 			</div>
 			<!-- PROPOSED PROGRAM-->
-			<div>
+			<!--<div>
 				<div class="form-group">
 					<span class="input-group-addon span-style">Proposed Program </span>
 					<input type="text" name="year_level_in" class="input from-control" />
@@ -136,4 +137,4 @@
 			</div>
 		</form>
 	</body>
-</html>
+</html>-->
