@@ -15,8 +15,7 @@
 	</title>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-        <script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
-	    
+		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
 	    <form method="post" action="apply.php">
 			<button type="submit" class="btn btn-block btn-primary">APPLY NOW</button>
 		</form>

@@ -42,8 +42,8 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/style.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-		<script src="bootstrap-3.3.7-dist/js/jquery-3.0.0.min.js"></script>
-		
+		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
+				
 		<div>
         	<div class="navsticky navbar-topaz">
         		<div class="navbar">

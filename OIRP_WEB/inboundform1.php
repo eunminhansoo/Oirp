@@ -10,18 +10,25 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
 	</head>
 	<body>
-		<script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
         
         <script>
         	$(document).ready(function(){
 				$("#universityAustralia").hide();
+				$("#scholarYes").hide();
 				
 				$("#country").change(function(){
 					var val = $(this).val();
-					if(val == "Taiwan"){
+					if(val == "Australia"){
 						$("#universityAustralia").show();
+					}
+				}).trigger('change');
+
+				$("#scholar").change(function(){
+					var val1 = $(this).val();
+					if(val1 == "yes"){
+						$("#scholarYes").show();
 					}
 				}).trigger('change');
 			});
@@ -46,6 +53,7 @@
 						<div class="col-sm-5">
 							<label>Country of Origin</label>
 							<select name="country" id="country" class="form-control">
+								<option>SELECT COUNTRY</option>
 								<option value="Australia">Australia</option>
 								<option value="Bangladesh">Bangladesh</option>
 								<option value="Belgium">Belgium</option>
@@ -154,6 +162,47 @@
 						<div class="col-sm-2">
 							<label>Year Level</label>
 							<input type="number" name="yearlevel" id="yearlevel" class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<label>Are you a scholar?</label>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-1">
+							<input type="radio" name="scholar" value="yes"> Yes
+						</div>
+						<div class="col-sm-1">
+							<input type="radio" name="scholar" value="no"> No
+						</div>
+						<div id="scholarYes">
+							<div class="col-sm-1">
+								Scholarship:
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarship" value="AIMS"> SHARE
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarship" value="SHARE"> AIMS
+							</div>
+							<div class="col-sm-1">
+								<p>Others: </p>
+							</div>
+							<div class="col-sm-3">
+								<input type="text" name="scholarship" id="scholarship" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-3">
+							<label>Type of program you are interested in:</label>
+						</div>
+						<div class="col-sm-2">
+							<input type="radio" name="program" value="shortstudy"> Short Study Abroad
+						</div>
+						<div class="col-sm-2">
+							<input type="radio" name="program" value="exchange"> Student Exchange Program
 						</div>
 					</div>
 					

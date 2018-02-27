@@ -1,6 +1,4 @@
-<?php
-	
-?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,16 +16,16 @@
 		</div>
 		
 		<div class="container-fluid">
-			<nav class="col-sm-3 sidebar">
-				<ul class="nav nav-stacked">
-					<li class="active"><a href="">Personal Information</a></li>
-					<li><a href="">Guardian's Information</a></li>
-					<li><a href="">Country & University</a></li>
+			<nav class="col-sm-3 sidebar navbar" role="navigation">
+				<ul class="nav navbar-nav">
+					<li class=""><a href="inboundform1.php">Personal Information</a></li>
+					<li class=""><a href="inboundform2.php">Proposed Field of Study</a></li>
+					<li class="active"><a href="inboundform3.php">English Proficiency</a></li>
 				</ul>
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="outboundform2.php">
+				<form action="#">
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>
@@ -59,12 +57,6 @@
 						</div>					
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-10">
-							<label>Email Address</label>
-							<input type="text" name="email" id="email" class="form-control">
-						</div>
-					</div>
-					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
 							<input type="text" name="telephone" id="telephone" class="form-control">
@@ -73,26 +65,57 @@
 							<label>Mobile Number</label>
 							<input type="text" name="mobile" id="mobile" class="form-control">
 						</div>
-					</div>
-					<div class="form-group row break">
-						<div class="col-sm-4">
-							<label>College/Faculty/Institute</label>
-							<input type="text" name="college" id="college" class="form-control">
-						</div>
+					</div>			
+					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Degree Program</label>
 							<input type="text" name="program" id="program" class="form-control">
 						</div>
+						<div class="col-sm-4">
+							<label>Major</label>
+							<input type="text" name="major" id="major" class="form-control">
+						</div>
 						<div class="col-sm-2">
 							<label>Year Level</label>
-							<input type="text" name="yearlevel" id="yearlevel" class="form-control">
+							<input type="number" name="yearlevel" id="yearlevel" class="form-control">
 						</div>
 					</div>
+					<div class="form-group row">
+						<div class="col-sm-5">
+							<label>Country of Origin</label>
+							<input type="text" name="country" id="country" class="form-control">
+						</div>
+						<div class="col-sm-5">
+							<label>Home University</label>
+							<input type="text" name="university" id="university" class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-5">
+							<label>Name of Officer to Contact</label>
+							<input type="text" name="officer" id="officer" class="form-control">
+						</div>
+						<div class="col-sm-5">
+							<label>Designation</label>
+							<input type="text" name="officer" id="officer" class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-5">
+							<label>Email Address</label>
+							<input type="text" name="officer" id="officer" class="form-control">
+						</div>
+						<div class="col-sm-5">
+							<label>Telephone Number</label>
+							<input type="text" name="officer" id="officer" class="form-control">
+						</div>
+					</div>
+									
 					
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
-							<button type="button" class="btn btn-primary disabled">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<button class="btn btn-primary">Previous</button>
+							<input type="submit" class="btn btn-primary" value="Submit">
 						</div>
 					</div>
 				</form>
