@@ -45,13 +45,13 @@
 	$_SESSION['$studentID_session'] = $studentID;
 	header("Location: inbound_application.php");
 	
-	//*if($appPROG == "out")
-	//{
-	//	header("Location: inboundform1.php");
-	//}else{
-	//	if($appPROG == "in"){
-	//		header("Location: outboundform1.php");
-	//	}
-	//}
+	if($appPROG == "out")
+	{
+		header("Location: inboundform1.php");
+	}else{
+		if($appPROG == "in"){
+			header("Location: outboundform1.php");
+		}
+	}
 	
 ?>
