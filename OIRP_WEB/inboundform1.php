@@ -1,5 +1,17 @@
 <?php
-	include 'inbound_application.php';
+	//include 'inbound_application.php';
+	
+	$conn = mysqli_connect("localhost", "root", "","oirp_db");
+	$db = mysqli_select_db($conn, "oirp_db");
+	error_reporting(0);
+	
+	$sql = "select distinct country from partner_universities order by country asc";
+	$result = mysqli_query($conn, $sql);
+	
+	$res;
+	while($row = mysqli_fetch_array($result)) {
+		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,28 +24,7 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
-        
-        <script>
-        	$(document).ready(function(){
-				$("#universityAustralia").hide();
-				$("#scholarYes").hide();
-				
-				$("#country").change(function(){
-					var val = $(this).val();
-					if(val == "Australia"){
-						$("#universityAustralia").show();
-					}
-				}).trigger('change');
-
-				$("#scholar").change(function(){
-					var val1 = $(this).val();
-					if(val1 == "yes"){
-						$("#scholarYes").show();
-					}
-				}).trigger('change');
-			});
-		</script>
-		
+ 		
 		<div class="header">
 			<img src='img/logo.png' height=auto>
 		</div>
@@ -48,60 +39,18 @@
 			</div>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="inboundform2.php">
+				<form action="inboundform2.php" id="inboundform1">
 				<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Country of Origin</label>
 							<select name="country" id="country" class="form-control">
-								<option>SELECT COUNTRY</option>
-								<option value="Australia">Australia</option>
-								<option value="Bangladesh">Bangladesh</option>
-								<option value="Belgium">Belgium</option>
-								<option value="Brazil">Brazil</option>
-								<option value="Canada">Canada</option>
-								<option value="China">China</option>
-								<option value="CzechRepublic">Czech Republic</option>
-								<option value="Denmark">Denmark</option>
-								<option value="France">France</option>
-								<option value="Germany">Germany</option>
-								<option value="HongKong">Hong Kong S.A.R.</option>
-								<option value="India">India</option>
-								<option value="Italy">Italy</option>
-								<option value="Japan">Japan</option>
-								<option value="Macau">Macau S.A.R.</option>
-								<option value="Malaysia">Malaysia</option>
-								<option value="Mexico">Mexico</option>
-								<option value="NewZealand">New Zealand</option>
-								<option value="Poland">Poland</option>
-								<option value="Singapore">Singapore</option>
-								<option value="SouthKorea">South Korea</option>
-								<option value="Spain">Spain</option>
-								<option value="Sweden">Sweden</option>
-								<option value="Taiwan">Taiwan</option>
-								<option value="Thailand">Thailand</option>
-								<option value="Ukraine">Ukraine</option>
-								<option value="UK">United Kingdom</option>
-								<option value="USA">United States of America</option>
-								<option value="Vietnam">Vietnam</option>
-
+							
 							</select>
 						</div>
 						<div class="col-sm-5">
 							<label>Home University</label>
-							<select name="homeUniversity" id="universityAustralia" class="form-control">								<option value="">Charles Sturt University</option>
-								<option value="">Curtin University</option>
-								<option value="">Deakin University</option>
-								<option value="">Griffith University</option>
-								<option value="">Joanna Briggs Institute</option>
-								<option value="">Macquarie University</option>
-								<option value="">Queensland University of Technology</option>
-								<option value="">RMIT University</option>
-								<option value="">University of Canberra</option>
-								<option value="">University of New Castle</option>
-								<option value="">University of South Australia</option>
-								<option value="">University of the Sunshine Coast</option>
-								<option value="">University of Wollongong</option>
-								<option value="">Victoria University</option>
+							<select name="homeUniversity" id="homeUniversity" class="form-control">
+							
 							</select>
 						</div>
 					</div>
@@ -165,32 +114,32 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-10">
+						<div class="col-sm-3">
 							<label>Are you a scholar?</label>
+						</div>
+						<div class="col-sm-1">
+							<input type="radio" name="scholar" id="scholarYes" value="yes"> Yes
+						</div>
+						<div class="col-sm-1">
+							<input type="radio" name="scholar" id="scholarNo" value="no"> No
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-1">
-							<input type="radio" name="scholar" value="yes"> Yes
-						</div>
-						<div class="col-sm-1">
-							<input type="radio" name="scholar" value="no"> No
-						</div>
-						<div id="scholarYes">
-							<div class="col-sm-1">
-								Scholarship:
+						<div id="scholarshipOptions">
+							<div class="col-sm-2">
+								<label>Scholarship:</label>
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="scholarship" value="AIMS"> SHARE
+								<input type="radio" name="scholarship" id="scholarshipAIMS" value="AIMS"> AIMS
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="scholarship" value="SHARE"> AIMS
+								<input type="radio" name="scholarship" id="scholarshipSHARE" value="SHARE"> SHARE
 							</div>
 							<div class="col-sm-1">
-								<p>Others: </p>
+								<input type="radio" name="scholarship" id="scholarshipOthers"> Others: 
 							</div>
 							<div class="col-sm-3">
-								<input type="text" name="scholarship" id="scholarship" class="form-control">
+								<input type="text" name="scholarship" id="scholarshipText" class="form-control" disabled>
 							</div>
 						</div>
 					</div>
@@ -198,10 +147,10 @@
 						<div class="col-sm-3">
 							<label>Type of program you are interested in:</label>
 						</div>
-						<div class="col-sm-2">
+						<div class="col-sm-3">
 							<input type="radio" name="program" value="shortstudy"> Short Study Abroad
 						</div>
-						<div class="col-sm-2">
+						<div class="col-sm-3">
 							<input type="radio" name="program" value="exchange"> Student Exchange Program
 						</div>
 					</div>
@@ -216,4 +165,52 @@
 			</div>
 		</div>
 	</body>
+	<script>
+        $(document).ready(function(){    	
+        	$("#scholarshipOptions").hide();
+
+        	$('#scholarYes').click(function(){
+	            $("#scholarshipOptions").show();
+            });	
+
+        	$('#scholarNo').click(function(){
+                $("#scholarshipOptions").hide();
+            });	
+                
+        	$('#scholarshipOthers').click(function(){
+        	    $("#scholarshipText").prop('disabled', false);
+			});
+
+        	$('#scholarshipAIMS').click(function(){
+        	    $("#scholarshipText").prop('disabled', true);
+			});
+
+        	$('#scholarshipSHARE').click(function(){
+        	    $("#scholarshipText").prop('disabled', true);
+			});
+
+        	var val = "<?php echo $res ?>";
+        	$("#country").empty().append(val);
+				
+			$("#country").change(function(){
+				$.ajax({
+					type: "POST",
+				    url: "universities.php",   
+				    data: {
+				    	country: $("#country").val(),
+				    },
+				        success: function(e) {
+					    	$('#homeUniversity').empty();
+				            $('#homeUniversity').append(e);
+				        },
+				    	error: function(response) {
+				            alert("error");
+				        }
+					});
+				}).trigger('change');				
+			});
+		</script>
 </html>
+
+
+        

@@ -1,5 +1,15 @@
 <?php
+	$conn = mysqli_connect("localhost", "root", "","oirp_db");
+	$db = mysqli_select_db($conn, "oirp_db");
+	error_reporting(0);
 	
+	$sql = "select distinct country from partner_universities order by country asc";
+	$result = mysqli_query($conn, $sql);
+	
+	$res;
+	while($row = mysqli_fetch_array($result)) {
+		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,8 +21,8 @@
 	</head>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
-		0		
+		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+			
 		<div class="header">
 			<img src='img/logo.png' height=auto>
 		</div>
@@ -66,7 +76,9 @@
 						</div>
 						<div class="col-sm-5">
 							<label>Chosen University</label>
-							<input type="text" name="university" id="university" class="form-control">
+							<select name="university" id="university" class="form-control">
+							
+							</select>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -121,4 +133,29 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		$(document).ready(function(){
+
+	   		var val = "<?php echo $res ?>";
+
+	   		$("#country").empty().append(val);
+			
+			$("#country").change(function(){
+			    $.ajax({
+				    type: "POST",
+			        url: "universities.php",   
+			        data: {
+				        country: $("#country").val(),
+			       	},
+			        success: function(e) {
+				        $('#university').empty();
+			            $('#university').append(e);
+			        },
+			        error: function(response) {
+			            alert("error");
+			        }
+				});
+			}).trigger('change');				
+		});
+	</script>
 </html>
