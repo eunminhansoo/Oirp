@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2018 at 07:46 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: Mar 01, 2018 at 12:58 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,7 +31,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `personal_info_outbound` (
   `STUDENT_COUNT` int(11) NOT NULL,
   `STUDENT_ID` varchar(15) DEFAULT NULL,
-  `BIRTHPLACE_OUT` date DEFAULT NULL,
   `AGE_OUT` int(11) DEFAULT NULL,
   `NATIONALITY_OUT` varchar(50) DEFAULT NULL,
   `CITIZENSHIP_OUT` varchar(50) DEFAULT NULL,
@@ -43,12 +44,14 @@ CREATE TABLE `personal_info_outbound` (
   `OCCUPATION_DADA_OUT` varchar(30) DEFAULT NULL,
   `COMPANYDADA_OUT` varchar(30) DEFAULT NULL,
   `ADDRESS_DADA_OUT` varchar(30) DEFAULT NULL,
+  `EMAIL_ADD_DADA_OUT` varchar(30) NOT NULL,
   `CONTACT_NUM_DADA_OUT` int(11) DEFAULT NULL,
   `ANNUAL_INCOME_DADA_OUT` int(11) DEFAULT NULL,
   `MOTHER_NAME_OUT` varchar(30) DEFAULT NULL,
   `OCCUPATION_MOM_OUT` varchar(30) DEFAULT NULL,
   `COMPANY_MOM_OUT` varchar(30) DEFAULT NULL,
   `ADDRESS_MOM_OUT` varchar(50) DEFAULT NULL,
+  `EMAIL_ADD_MOM_OUT` varchar(30) NOT NULL,
   `CONTACT_NUM_MOM_OUT` int(11) DEFAULT NULL,
   `ANNUAL_INCOME_MOM_OUT` int(11) DEFAULT NULL,
   `COLLEGE_INSTITUTE_FACULTY_OUT` varchar(50) DEFAULT NULL,
@@ -56,6 +59,13 @@ CREATE TABLE `personal_info_outbound` (
   `YEAR_LEVEL_OUT` varchar(30) DEFAULT NULL,
   `APPLICATION_PROG` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `personal_info_outbound`
+--
+
+INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, `AGE_OUT`, `NATIONALITY_OUT`, `CITIZENSHIP_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, `MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `FATHER_NAME_OUT`, `OCCUPATION_DADA_OUT`, `COMPANYDADA_OUT`, `ADDRESS_DADA_OUT`, `EMAIL_ADD_DADA_OUT`, `CONTACT_NUM_DADA_OUT`, `ANNUAL_INCOME_DADA_OUT`, `MOTHER_NAME_OUT`, `OCCUPATION_MOM_OUT`, `COMPANY_MOM_OUT`, `ADDRESS_MOM_OUT`, `EMAIL_ADD_MOM_OUT`, `CONTACT_NUM_MOM_OUT`, `ANNUAL_INCOME_MOM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`, `APPLICATION_PROG`) VALUES
+(1, '20180301001-out', 0, 'iuyiuyriu sduuayiu', 'asdasdjkuaiu', 97823812, '2018-02-23', '2030-02-23', 'kshoia,iucahsiucha s', 98374912, 2147483647, '', '', '', '', '', 0, 0, '', '', '', '', '0', 0, 0, 'IICS', 'BS.IT', '4', '');
 
 --
 -- Indexes for dumped tables
@@ -75,7 +85,8 @@ ALTER TABLE `personal_info_outbound`
 -- AUTO_INCREMENT for table `personal_info_outbound`
 --
 ALTER TABLE `personal_info_outbound`
-  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- Constraints for dumped tables
 --
@@ -85,6 +96,7 @@ ALTER TABLE `personal_info_outbound`
 --
 ALTER TABLE `personal_info_outbound`
   ADD CONSTRAINT `personal_info_outbound_ibfk_1` FOREIGN KEY (`STUDENT_COUNT`) REFERENCES `student` (`STUDENT_COUNT`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
