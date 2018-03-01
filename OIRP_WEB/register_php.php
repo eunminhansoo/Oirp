@@ -25,12 +25,10 @@
 		{
 			$appForm = "outbound";
 
-		}else
-		{
-			if($appForm == 'no')
-			{
+		}else{
+
 				$appForm = "inbound";
-			}
+			
 		}
 		
 	$check_email = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' ");

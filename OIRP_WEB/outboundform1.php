@@ -1,5 +1,5 @@
 <?php
-	
+	include 'outbound_application.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="outboundform2.php">
+				<form action="outboundform2.php" method="post">
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>
@@ -92,7 +92,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary disabled">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_outbound1_1" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>
