@@ -19,13 +19,17 @@
 		$address = $_POST['address'];
 		$telephone = $_POST['telephone'];
 		$mobile = $_POST['mobile'];
-		$program = $_POST['program'];
+		$degree = $_POST['program'];
 		$major = $_POST['major'];
 		$yearlevel = $_POST['yearlevel'];
 
 		mysqli_query($conn, "INSERT INTO personal_info_inbound(STUDENT_COUNT, STUDENT_ID, APPLICATION_PROG, AGE_IN,
 		NATIONALITY_IN, PASSPORT_NUM_IN, VALIDITY_DATE_IN, DATE_ISSUANCE_iN, MAILING_ADD_IN, TELEPHONE_NUM_IN, 
-		MOBILE_NUM_IN) VALUES('', '$getSes_studentID', '')");
+		MOBILE_NUM_IN) VALUES('', '$getSes_studentID', '', '', '$nationality', '$passport', '$validity', '$issuance', '$address', '$telephone',
+		'$mobile')");
+
+		mysqli_query($conn, "INSERT INTO educ_back_inbound(STUDENT_COUNT, STUDENT_ID, HOME_UNIV_IN, DEGREE_PROG_IN, YEAR_LEVEL_IN, MAJOR_IN
+		) VALUES('', '$getSes_studentID', '$')");
 	}
 ?>
 <!--<html>
