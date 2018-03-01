@@ -19,6 +19,8 @@
 		$address = $_POST['address'];
 		$telephone = $_POST['telephone'];
 		$mobile = $_POST['mobile'];
+		$homeUniversity = $_POST['homeUniversity'];
+		echo $homeUniversity;
 		$degree = $_POST['program'];
 		$major = $_POST['major'];
 		$yearlevel = $_POST['yearlevel'];
@@ -29,7 +31,9 @@
 		'$mobile')");
 
 		mysqli_query($conn, "INSERT INTO educ_back_inbound(STUDENT_COUNT, STUDENT_ID, HOME_UNIV_IN, DEGREE_PROG_IN, YEAR_LEVEL_IN, MAJOR_IN
-		) VALUES('', '$getSes_studentID', '$')");
+		) VALUES('', '$getSes_studentID', '$homeUniversity', '$degree', '$yearlevel', '$major')");
+
+		header("Location: inboundform2.php");
 	}
 ?>
 <!--<html>
