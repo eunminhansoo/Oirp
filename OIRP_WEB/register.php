@@ -42,7 +42,7 @@
 						<input type="date" name="birthday" class="form-control" required/>
 					</div>
 	        		<div class="form-group no_space_betweem">					
-						<input type="text" name="birthplace" class="form-control" placeholder="Enter your Birthplace" required/>
+						<input type="text" name="birthplace" class="form-control" placeholder="Enter your Birthplace (Country)" required/>
 					</div>
 					<div class="form-group no_space_betweem">					
 						<div>
