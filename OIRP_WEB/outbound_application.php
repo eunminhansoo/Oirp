@@ -64,7 +64,7 @@
 		$mIncome = $_POST['mIncome'];
 		
 		//QUERY
-		mysqli_query($conn, "UPDATE proposal_info_outbound SET 	
+		mysqli_query($conn, "UPDATE personal_info_outbound SET 	
 		FATHER_NAME_OUT = '$father', 
 		OCCUPATION_DADA_OUT = '$fOccupation',
 		COMPANYDADA_OUT = '$fCompany',
