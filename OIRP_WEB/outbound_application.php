@@ -2,6 +2,8 @@
 	include 'database_connection.php';
 	session_start();
     $getses_StudentID = $_SESSION['$studentID_session'];
+    $getses_country = $_SESSION['$country_session'];
+    echo $getses_country;
 	$message = '';
 
 	
