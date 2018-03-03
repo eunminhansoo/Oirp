@@ -53,7 +53,8 @@
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
-							<input type="text" name="fNumber" id="fNumber" class="form-control">
+							<p class="text_style" >Phone number or Mobile number</p>
+							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
@@ -92,7 +93,8 @@
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
-							<input type="text" name="mNumber" id="mNumber" class="form-control">
+							<p class="text_style" >Phone number or Mobile number</p>
+							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
