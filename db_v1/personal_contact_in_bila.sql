@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2018 at 07:47 AM
+-- Generation Time: Mar 03, 2018 at 03:01 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -33,7 +33,7 @@ CREATE TABLE `personal_contact_in_bila` (
   `RELATIONSHIP_IN_BILA` varchar(30) DEFAULT NULL,
   `ADD_IN_BILA` varchar(30) DEFAULT NULL,
   `EMAIL_ADD_IN_BILA` varchar(50) DEFAULT NULL,
-  `TELEPHONE_NUM_IN_BILA` int(11) DEFAULT NULL
+  `TELEPHONE_NUM_IN_BILA` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
