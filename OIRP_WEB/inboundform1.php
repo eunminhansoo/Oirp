@@ -41,7 +41,7 @@
 			</div>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="inboundform2.php" id="inboundform1">
+				<form method="post" id="inboundform1">
 					<div id="dropdownCU">
 						<div class="form-group row">
 							<div class="col-sm-5">
@@ -136,7 +136,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Address</label>
-							<input type="text" name="addressPC" id="addressPC" class="form-control">
+							<input type="text" name="addressCP" id="addressCP" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
