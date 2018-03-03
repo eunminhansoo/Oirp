@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2018 at 07:46 AM
+-- Generation Time: Mar 03, 2018 at 02:52 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -33,7 +33,7 @@ CREATE TABLE `personal_info_outbound` (
   `AGE_OUT` int(11) DEFAULT NULL,
   `NATIONALITY_OUT` varchar(50) DEFAULT NULL,
   `CITIZENSHIP_OUT` varchar(50) DEFAULT NULL,
-  `PASSPORT_NUM_OUT` int(11) DEFAULT NULL,
+  `PASSPORT_NUM_OUT` varchar(30) DEFAULT NULL,
   `VALIDITY_DATE_OUT` date DEFAULT NULL,
   `DATE_ISSUANCE_OUT` date DEFAULT NULL,
   `MAILING_ADD_OUT` varchar(50) DEFAULT NULL,
@@ -56,6 +56,13 @@ CREATE TABLE `personal_info_outbound` (
   `YEAR_LEVEL_OUT` varchar(30) DEFAULT NULL,
   `APPLICATION_PROG` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `personal_info_outbound`
+--
+
+INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, `AGE_OUT`, `NATIONALITY_OUT`, `CITIZENSHIP_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, `MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`, `APPLICATION_PROG`) VALUES
+(1, '20180303001-out', 0, 'qweqwe', 'qweqwe', '98q7we98754qwe89', '2018-11-23', '2030-11-23', '1130-C Don Quijote St. Sampaloc Manila', 2147483647, 2147483647, 'IICS', 'BS. IT', '4', '');
 
 --
 -- Indexes for dumped tables

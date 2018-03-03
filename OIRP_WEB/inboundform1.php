@@ -1,7 +1,8 @@
 <?php
-	//include 'inbound_application.php';
-	
-	$conn = mysqli_connect("localhost", "root", "","oirp_db");
+	include 'inbound_application.php';
+	//include 'database_connection.php';
+
+	$conn = mysqli_connect("localhost", "root", "");
 	$db = mysqli_select_db($conn, "oirp_db");
 	error_reporting(0);
 	
@@ -11,7 +12,8 @@
 	$res;
 	while($row = mysqli_fetch_array($result)) {
 		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
-	}
+	};
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +41,7 @@
 			</div>
 			
 			<div class="col-sm-9 container-fluid">
+<<<<<<< HEAD
 				<form action="inboundform2.php" id="inboundform1">
 					<div id="dropdownCU">
 						<div class="form-group row">
@@ -54,6 +57,15 @@
 									
 								</select>
 							</div>
+=======
+				<form method="post" id="inboundform1">
+				<div class="form-group row">
+						<div class="col-sm-5">
+							<label>Country of Origin</label>
+							<select name="country" id="country" class="form-control">
+							
+							</select>
+>>>>>>> origin/master
 						</div>
 						<div class="form-group row">
 							<div class="col-sm-10">

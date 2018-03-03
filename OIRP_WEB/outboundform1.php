@@ -1,5 +1,6 @@
 <?php
-	
+	include 'outbound_application.php';
+	$email;
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,7 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="outboundform2.php">
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>
@@ -61,7 +62,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Email Address</label>
-							<input type="text" name="email" id="email" class="form-control">
+							<input type="text" name="email" id="email" value="<?php echo $email?>"class="form-control" disabled>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -92,7 +93,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary disabled">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_outbound1_1" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>
