@@ -1,20 +1,3 @@
-<?php
-	include 'inbound_application.php';
-	//include 'database_connection.php';
-
-	$conn = mysqli_connect("localhost", "root", "");
-	$db = mysqli_select_db($conn, "oirp_db");
-	error_reporting(0);
-	
-	$sql = "select distinct country from partner_universities order by country asc";
-	$result = mysqli_query($conn, $sql);
-	
-	$res;
-	while($row = mysqli_fetch_array($result)) {
-		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
-	};
-	
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,56 +24,8 @@
 			</div>
 			
 			<div class="col-sm-9 container-fluid">
-<<<<<<< HEAD
 				<form action="inboundform2.php" id="inboundform1">
-					<div id="dropdownCU">
-						<div class="form-group row">
-							<div class="col-sm-5">
-								<label>Country of Origin</label>
-								<select name="country" id="country" class="form-control">
-									
-								</select>
-							</div>
-							<div class="col-sm-5">
-								<label>Home University</label>
-								<select name="homeUniversity" id="homeUniversity" class="form-control">
-									
-								</select>
-							</div>
-=======
-				<form method="post" id="inboundform1">
-				<div class="form-group row">
-						<div class="col-sm-5">
-							<label>Country of Origin</label>
-							<select name="country" id="country" class="form-control">
-							
-							</select>
->>>>>>> origin/master
-						</div>
-						<div class="form-group row">
-							<div class="col-sm-10">
-								<p>Country of origin or home university not available? Click <a href="#" id="toTextCU">here</a>.</p>
-							</div>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div id="textCU">
-							<div class="col-sm-5">
-								<label>Country of Origin</label>
-								<input type="text" name="country" id="country" class="form-control">
-							</div>
-							<div class="col-sm-5">
-								<label>Home University</label>
-								<input type="text" name="homeUniversity" id="homeUniversity" class="form-control">
-							</div>				
-						</div>
-					</div>	
-					<div class="form-group row">
-						<div class="col-sm-10">
-							<label>University Address</label>
-							<input type="text" name="univAddress" id="univAddress" class="form-control">
-						</div>
-					</div>
+					
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>
@@ -170,36 +105,6 @@
 			</div>
 		</div>
 	</body>
-	<script>
-        $(document).ready(function(){ 
-        	$("#textCU").hide();
-        	
-        	$("#toTextCU").click(function(){
-				$("#dropdownCU").hide();
-				$("#textCU").show();
-        	});
-
-        	var val = "<?php echo $res ?>";
-        	$("#country").empty().append(val);
-				
-			$("#country").change(function(){
-				$.ajax({
-					type: "POST",
-				    url: "universities.php",   
-				    data: {
-				    	country: $("#country").val(),
-				    },
-				    success: function(e) {
-					    $('#homeUniversity').empty();
-				        $('#homeUniversity').append(e);
-				    },
-				   	error: function(response) {
-				        alert("error");
-				    }
-				});
-			}).trigger('change');				
-		});
-	</script>
 </html>
 
 

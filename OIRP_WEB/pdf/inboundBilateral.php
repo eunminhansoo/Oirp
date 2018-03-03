@@ -154,14 +154,6 @@ $pdf->Cell(20,7,'YEAR LEVEL','BR',0);
 $pdf->Cell(35,7,'','BR',0);
 $pdf->Cell(55,7,'RECEPIENT OF SCHOLARSHIP/LOANS?','BR',0);
 $pdf->Cell(35,7,'','B',1);
-$pdf->SetFont('Arial','',7);
-$pdf->Cell(85,7,'DOES YOUR UNIVERSITY HAVE A SIGNED AGREEMENT WITH UST?','BR',0);
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(20,7,'','BR',0);
-$pdf->Cell(25,7,'YEAR SIGNED','BR',0);
-$pdf->Cell(20,7,'','BR',0);
-$pdf->Cell(25,7,'YEAR RENEWED','BR',0);
-$pdf->Cell(20,7,'','B',1);
 
 
 //Proposed Field of Study
@@ -190,7 +182,7 @@ $pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(40,7,'','B',1);
 
-$pdf->Cell(195,5,'','',1);
+$pdf->Cell(195,12,'','',1);
 
 //English Proficiency
 $pdf->SetFont('Arial','B',9);
@@ -334,14 +326,9 @@ $pdf->Cell(40,7,'Date','T',1,'C');
 //Expectations
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"XI. EXPECTATIONS FROM THE PROGRAM",'TB',1);
-$pdf->Cell(3,7,'');
-$pdf->Cell(189,7,'','B',1);
-$pdf->Cell(3,7,'');
-$pdf->Cell(189,7,'','B',1);
-$pdf->Cell(3,7,'');
-$pdf->Cell(189,7,'','B',1);
-$pdf->Cell(195,2,'','',1);
-$pdf->Cell(195,1,'','T',1);
+$pdf->SetFont('Arial','',9);
+$pdf->MultiCell(200,4,'ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed cras ornare arcuac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing ','',1);
+$pdf->Cell(195,1,'','T');
 
 
 

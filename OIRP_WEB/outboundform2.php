@@ -1,5 +1,5 @@
 <?php
-	
+	include 'outbound_application.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -110,7 +110,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_form2" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>
