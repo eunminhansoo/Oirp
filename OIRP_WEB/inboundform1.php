@@ -41,7 +41,6 @@
 			</div>
 			
 			<div class="col-sm-9 container-fluid">
-<<<<<<< HEAD
 				<form action="inboundform2.php" id="inboundform1">
 					<div id="dropdownCU">
 						<div class="form-group row">
@@ -57,15 +56,7 @@
 									
 								</select>
 							</div>
-=======
-				<form method="post" id="inboundform1">
-				<div class="form-group row">
-						<div class="col-sm-5">
-							<label>Country of Origin</label>
-							<select name="country" id="country" class="form-control">
-							
-							</select>
->>>>>>> origin/master
+
 						</div>
 						<div class="form-group row">
 							<div class="col-sm-10">

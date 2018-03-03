@@ -3,13 +3,14 @@
 	session_start();
     $getses_StudentID = $_SESSION['$studentID_session'];
 	$message = '';
+
 	
-	//select 
+	//select from student
 	
-	$query = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$getses_StudentID'");
-	while ($row = mysqli_fetch_array($query))
+	$query1 = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$getses_StudentID'");
+	while ($row1 = mysqli_fetch_array($query1))
 	{
-		$email = $row['EMAIL'];
+		$email = $row1['EMAIL'];
 	}
 	//for outboundform1
 	
@@ -33,6 +34,25 @@
 	'$passport_num_out', '$validity_date_out', '$date_issuance_out', '$mailing_add_out', 
 	'$telephone_num_out', '$mobile_num_out', '$college_institute_faculty_out', '$program', '$year_level_out', '')");
 	header("Location: outboundform2.php");
+	}
+
+	// SELECT FROM PERSONAL_INFO_OUTBOUND
+	$query = mysqli_query($conn, "SELECT * FROME personal_info_outbound WHERE STUDENT_ID = '$getses_StudentID'");
+	while($row = mysqli_fetch_array($query))
+	{
+		$age = $row['AGE_OUT'];	
+		$nationality = $row['NATIONALITY_OUT'];
+		$citizenship = $row['CITIZENSHIP_OUT'];
+		$passport_num = $row['PASSPORT_NUM_OUT'];
+		$validity_date = $row['VALIDITY_DATE_OUT'];
+		$date_issuance = $row['DATE_ISSUANCE_OUT'];
+		$mailing_add = $row['MAILING_ADD_OUT'];
+		$telephone_num = $row['TELEPHONE_NUM_OUT'];
+		$mobile_num = $row['MOBILE_NUM_OUT'];
+		$college_institute_faculty = $row['	COLLEGE_INSTITUTE_FACULTY_OUT'];
+		$degree_prog = $row['DEGREE_PROG_OUT'];
+		$year_level = $row['YEAR_LEVEL_OUT'];
+		$application_prog = $row['APPLICATION_PROG'];
 	}
 	
 	//FOR FORM 2
@@ -99,6 +119,8 @@
 		
 		header("Location: outboundform3.php");
 	}
+	
+	// FORM 3
 	
 	
 	
