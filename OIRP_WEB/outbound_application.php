@@ -2,15 +2,17 @@
 	include 'database_connection.php';
 	session_start();
     $getses_StudentID = $_SESSION['$studentID_session'];
+    $getses_country = $_SESSION['$country_session'];
+    echo $getses_country;
 	$message = '';
-	
-	//select 
+
 	
 	$query = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$getses_StudentID'");
-	while ($row = mysqli_fetch_array($query))
+	while($rows = mysqli_fetch_array($query))
 	{
-		$email = $row['EMAIL'];
+		$email = $rows['EMAIL'];
 	}
+	
 	//for outboundform1
 	
 	if(isset($_POST['btn_outbound1_1'])){
@@ -33,6 +35,25 @@
 	'$passport_num_out', '$validity_date_out', '$date_issuance_out', '$mailing_add_out', 
 	'$telephone_num_out', '$mobile_num_out', '$college_institute_faculty_out', '$program', '$year_level_out', '')");
 	header("Location: outboundform2.php");
+	}
+
+	// SELECT FROM PERSONAL_INFO_OUTBOUND
+	$query = mysqli_query($conn, "SELECT * FROME personal_info_outbound WHERE STUDENT_ID = '$getses_StudentID'");
+	while($row = mysqli_fetch_array($query))
+	{
+		$age = $row['AGE_OUT'];	
+		$nationality = $row['NATIONALITY_OUT'];
+		$citizenship = $row['CITIZENSHIP_OUT'];
+		$passport_num = $row['PASSPORT_NUM_OUT'];
+		$validity_date = $row['VALIDITY_DATE_OUT'];
+		$date_issuance = $row['DATE_ISSUANCE_OUT'];
+		$mailing_add = $row['MAILING_ADD_OUT'];
+		$telephone_num = $row['TELEPHONE_NUM_OUT'];
+		$mobile_num = $row['MOBILE_NUM_OUT'];
+		$college_institute_faculty = $row['	COLLEGE_INSTITUTE_FACULTY_OUT'];
+		$degree_prog = $row['DEGREE_PROG_OUT'];
+		$year_level = $row['YEAR_LEVEL_OUT'];
+		$application_prog = $row['APPLICATION_PROG'];
 	}
 	
 	//FOR FORM 2
@@ -99,7 +120,61 @@
 		
 		header("Location: outboundform3.php");
 	}
+	// FORM 3
 	
+	if(isset($_POST['btn_from3']))
+	{
+		$country = $_POST['country'];
+		$university = $_POST['university'];
+		$proposedProg = $_POST['proposedProg'];
+		$course1 = $_POST['course1'];
+		$course2 = $_POST['course2'];
+		$course3 = $_POST['course3'];
+		$course4 = $_POST['course4'];
+		$course5 = $_POST['course5'];
+		
+		echo $country;
+		echo $university;
+		mysqli_query($conn, "INSERT INTO proposed_field_study
+		(
+			STUDENT_COUNT,
+		 	STUDENT_ID,
+		 	APPLICATION_FORM,
+		 	APPLICATION_PROG,
+		 	PROPOSED_PROG,
+		 	COURSE_1, 
+		 	COURSE_2, 
+		 	COURSE_3, 
+		 	COURSE_4, 
+		 	COURSE_5
+		 ) VALUE 
+		 (
+			 '',
+			 '$getses_StudentID',
+			 '',
+			 '',
+			 '$proposedProg',
+			 '$course1',
+			 '$course2',
+			 '$course3',
+			 '$course4',
+			 '$course5'
+		 )");
+		mysqli_query($conn, "INSERT INTO country_univ_outbound
+		(
+			STUDENT_COUNT,
+		 	STUDENT_ID,
+		 	APPLICATION_PROG,
+		 	COUNTRY_OUT,
+		 	UNIVERSITY_OUT
+		) VALUES 
+		(
+			'',
+			'$getses_StudentID',
+			'$country',
+			'$university'
+		)");
+	}
 	
 	
 ?>

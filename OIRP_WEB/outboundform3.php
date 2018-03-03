@@ -1,6 +1,5 @@
 <?php
-	$conn = mysqli_connect("localhost", "root", "","oirp_db");
-	$db = mysqli_select_db($conn, "oirp_db");
+	include 'outbound_application.php';
 	error_reporting(0);
 	
 	$sql = "select distinct country from partner_universities order by country asc";
@@ -37,7 +36,7 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="#">
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Chosen Country</label>
@@ -126,7 +125,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Submit">
+							<input type="submit" name="btn_from3" class="btn btn-primary" value="Submit">
 						</div>
 					</div>
 				</form>

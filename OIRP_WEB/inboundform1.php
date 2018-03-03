@@ -80,7 +80,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Address</label>
-							<input type="text" name="addressPC" id="addressPC" class="form-control">
+							<input type="text" name="addressCP" id="addressCP" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
