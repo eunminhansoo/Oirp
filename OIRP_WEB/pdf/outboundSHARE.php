@@ -27,7 +27,7 @@ function Header()
     $this->SetFont('Arial','B',30);
     $this->SetTextColor(255,255,255);
     $this->Cell(0,15,'',0,2);
-    $this->Cell(70,0,'Scholarship');
+    $this->Cell(70,0,'');
     
    	//Student
     $this->SetTextColor(255,255,255);

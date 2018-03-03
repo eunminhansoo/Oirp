@@ -27,8 +27,8 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
  		
-		<div class="header">
-			<img src='img/logo.png' height=auto>
+		<div class="header ">
+			<img src='img/logo.png' height=auto class="img-responsive" >
 		</div>
 		
 		<div class="container-fluid">
@@ -41,24 +41,45 @@
 			</div>
 			
 			<div class="col-sm-9 container-fluid">
-				<form method="post" id="inboundform1">
-				<div class="form-group row">
-						<div class="col-sm-5">
-							<label>Country of Origin</label>
-							<select name="country" id="country" class="form-control">
-							
-							</select>
+				<form action="inboundform2.php" id="inboundform1">
+					<div id="dropdownCU">
+						<div class="form-group row">
+							<div class="col-sm-5">
+								<label>Country of Origin</label>
+								<select name="country" id="country" class="form-control">
+									
+								</select>
+							</div>
+							<div class="col-sm-5">
+								<label>Home University</label>
+								<select name="homeUniversity" id="homeUniversity" class="form-control">
+									
+								</select>
+							</div>
+
 						</div>
-						<div class="col-sm-5">
-							<label>Home University</label>
-							<select name="homeUniversity" id="homeUniversity" class="form-control">
-							
-							</select>
+						<div class="form-group row">
+							<div class="col-sm-10">
+								<p>Country of origin or home university not available? Click <a href="#" id="toTextCU">here</a>.</p>
+							</div>
 						</div>
 					</div>
 					<div class="form-group row">
+						<div id="textCU">
+							<div class="col-sm-5">
+								<label>Country of Origin</label>
+								<input type="text" name="country" id="country" class="form-control">
+							</div>
+							<div class="col-sm-5">
+								<label>Home University</label>
+								<input type="text" name="homeUniversity" id="homeUniversity" class="form-control">
+							</div>				
+						</div>
+					</div>	
+					<div class="form-group row">
 						<div class="col-sm-10">
-							<p>Country of origin or home university not available? Click <a href="inboundbilateral1.php">here</a>.</p>
+							<label>University Address</label>
+							<input type="text" name="univAddress" id="univAddress" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -100,96 +121,54 @@
 							<label>Mobile Number</label>
 							<input type="text" name="mobile" id="mobile" class="form-control">
 						</div>
-					</div>			
-					<div class="form-group row">
-						<div class="col-sm-4">
-							<label>Degree Program</label>
-							<input type="text" name="program" id="program" class="form-control">
-						</div>
-						<div class="col-sm-4">
-							<label>Major</label>
-							<input type="text" name="major" id="major" class="form-control">
-						</div>
-						<div class="col-sm-2">
-							<label>Year Level</label>
-							<input type="number" name="yearlevel" id="yearlevel" class="form-control">
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-sm-3">
-							<label>Are you a scholar?</label>
-						</div>
-						<div class="col-sm-1">
-							<input type="radio" name="scholar" id="scholarYes" value="yes"> Yes
-						</div>
-						<div class="col-sm-1">
-							<input type="radio" name="scholar" id="scholarNo" value="no"> No
-						</div>
-					</div>
-					<div class="form-group row">
-						<div id="scholarshipOptions">
-							<div class="col-sm-2">
-								<label>Scholarship:</label>
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarship" id="scholarshipAIMS" value="AIMS"> AIMS
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarship" id="scholarshipSHARE" value="SHARE"> SHARE
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarship" id="scholarshipOthers"> Others: 
-							</div>
-							<div class="col-sm-3">
-								<input type="text" name="scholarship" id="scholarshipText" class="form-control" disabled>
-							</div>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-sm-3">
-							<label>Type of program you are interested in:</label>
-						</div>
-						<div class="col-sm-3">
-							<input type="radio" name="program" value="shortstudy"> Short Study Abroad
-						</div>
-						<div class="col-sm-3">
-							<input type="radio" name="program" value="exchange"> Student Exchange Program
-						</div>
 					</div>
 					
+					<div class="form-group row break">
+						<div class="col-sm-6">
+							<label>Person to Contact</label>
+							<input type="text" name="contactperson" id="contactperson" class="form-control">
+						</div>
+						<div class="col-sm-4">
+							<label>Relationship</label>
+							<input type="text" name="relCP" id="relCP" class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<label>Address</label>
+							<input type="text" name="addressPC" id="addressPC" class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label>Email Address</label>
+							<input type="email" name="emailCP" id="emailCP" class="form-control">
+						</div>
+						<div class="col-sm-4">
+							<label>Phone Number</label>
+							<input type="text" name="numberCP" id="numberCP" class="form-control">
+						</div>
+					</div>
+						
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary disabled">Previous</button>
 							<input type="submit" name="btn_inform1" class="btn btn-primary" value="Next">
 						</div>
 					</div>
+					
 				</form>
 			</div>
 		</div>
 	</body>
 	<script>
-        $(document).ready(function(){    	
-        	$("#scholarshipOptions").hide();
-
-        	$('#scholarYes').click(function(){
-	            $("#scholarshipOptions").show();
-            });	
-
-        	$('#scholarNo').click(function(){
-                $("#scholarshipOptions").hide();
-            });	
-                
-        	$('#scholarshipOthers').click(function(){
-        	    $("#scholarshipText").prop('disabled', false);
-			});
-
-        	$('#scholarshipAIMS').click(function(){
-        	    $("#scholarshipText").prop('disabled', true);
-			});
-
-        	$('#scholarshipSHARE').click(function(){
-        	    $("#scholarshipText").prop('disabled', true);
-			});
+        $(document).ready(function(){ 
+        	$("#textCU").hide();
+        	
+        	$("#toTextCU").click(function(){
+				$("#dropdownCU").hide();
+				$("#textCU").show();
+        	});
 
         	var val = "<?php echo $res ?>";
         	$("#country").empty().append(val);
@@ -201,17 +180,17 @@
 				    data: {
 				    	country: $("#country").val(),
 				    },
-				        success: function(e) {
-					    	$('#homeUniversity').empty();
-				            $('#homeUniversity').append(e);
-				        },
-				    	error: function(response) {
-				            alert("error");
-				        }
-					});
-				}).trigger('change');				
-			});
-		</script>
+				    success: function(e) {
+					    $('#homeUniversity').empty();
+				        $('#homeUniversity').append(e);
+				    },
+				   	error: function(response) {
+				        alert("error");
+				    }
+				});
+			}).trigger('change');				
+		});
+	</script>
 </html>
 
 

@@ -11,8 +11,8 @@ function Header()
     // Images
     $this->Image('../img/line.png', 7,33,150,8);
     $this->Image('../img/triangle2.png',117,5,90,42);
-    $this->Image('../img/SHARE.png', 170,15,30);
-    //$this->Image('../img/AIMS.jpg',160,15,45);
+    //$this->Image('../img/SHARE.png', 170,15,30);
+    $this->Image('../img/AIMS.jpg',160,15,45);
     $this->Image('../img/ust.jpg', 7,5,25);
     
     //UST
@@ -35,7 +35,7 @@ function Header()
     // Scholarship
     $this->SetFont('Arial','B',30);
     $this->SetTextColor(255,255,255);
-    $this->Cell(113,7,'Scholarship','',1,'R');
+    $this->Cell(113,7,'','',1,'R');
     
     //Inbound
     $this->SetTextColor(0,0,0);
@@ -148,7 +148,18 @@ $pdf->Cell(145,7,'1.','B',2);
 $pdf->Cell(145,7,'2.','B',2);
 $pdf->Cell(145,7,'3.','B',2);
 $pdf->Cell(145,7,'4.','B',2);
-$pdf->Cell(145,7,'5.','B',2);
+$pdf->Cell(145,7,'5.','B',1);
+
+$pdf->Cell(30,7,'RESEARCH TOPIC','BR',0);
+$pdf->Cell(165,7,'','B',1);
+$pdf->Cell(55,7,'INTENDED SEMESTER TO STUDY','BR',0);
+$pdf->Cell(140,7,'','B',1);
+$pdf->Cell(55,7,'DISCIPLINARY ACTION AND STATUS','BR',0);
+$pdf->Cell(40,7,'','BR',0);
+$pdf->SetFont('Arial','',7);
+$pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(40,7,'','B',1);
 
 $pdf->Cell(195,41,'','',1);
 

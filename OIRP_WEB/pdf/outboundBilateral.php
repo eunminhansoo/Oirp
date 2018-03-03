@@ -107,6 +107,7 @@ $pdf->Cell(80,7,'','BR',0);
 $pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
 $pdf->Cell(50,7,'','B',1);
 
+$pdf->Cell(195,7,'','B',1);
 
 //Educational Background
 $pdf->SetFont('Arial','B',9);
