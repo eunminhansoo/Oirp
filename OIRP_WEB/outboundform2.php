@@ -27,7 +27,7 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="outboundform3.php">
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Father's Name</label>
@@ -66,7 +66,7 @@
 							<input type="text" name="fIncome" id="fIncome" class="form-control">
 						</div>
 					</div>
-					
+					<!-- MOTHER -->
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Mother's Name</label>

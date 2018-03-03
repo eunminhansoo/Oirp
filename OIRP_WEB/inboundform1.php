@@ -12,8 +12,7 @@
 	$res;
 	while($row = mysqli_fetch_array($result)) {
 		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
-	}
-	echo $res;
+	};
 	
 ?>
 <!DOCTYPE html>

@@ -2,7 +2,6 @@
 	include 'database_connection.php';
 	session_start();
     $getses_StudentID = $_SESSION['$studentID_session'];
-    echo $getses_StudentID;
 	$message = '';
 	
 	//select 
@@ -29,14 +28,10 @@
 
 	mysqli_query($conn, "INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, `AGE_OUT`, 
 	`NATIONALITY_OUT`, `CITIZENSHIP_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, 
-	`MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `FATHER_NAME_OUT`, `OCCUPATION_DADA_OUT`, 
-	`COMPANYDADA_OUT`, `ADDRESS_DADA_OUT`, `EMAIL_ADD_DADA_OUT`, `CONTACT_NUM_DADA_OUT`, `ANNUAL_INCOME_DADA_OUT`, 
-	`MOTHER_NAME_OUT`, `OCCUPATION_MOM_OUT`, `COMPANY_MOM_OUT`, `ADDRESS_MOM_OUT`, `EMAIL_ADD_MOM_OUT`, `CONTACT_NUM_MOM_OUT`, 
-	`ANNUAL_INCOME_MOM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`, 
+	`MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`, 
 	`APPLICATION_PROG`) VALUES ('', '$getses_StudentID', ' ', '$nationality_out', '$citizenship_out', 
 	'$passport_num_out', '$validity_date_out', '$date_issuance_out', '$mailing_add_out', 
-	'$telephone_num_out', '$mobile_num_out', '', 
-	'', '', '', '', '', '', '', '', '', '', '', '', '', '$college_institute_faculty_out', '$program', '$year_level_out', '')");
+	'$telephone_num_out', '$mobile_num_out', '$college_institute_faculty_out', '$program', '$year_level_out', '')");
 	header("Location: outboundform2.php");
 	}
 	
@@ -51,7 +46,6 @@
 		$fAddress = $_POST['fAddress'];
 		$fEmail = $_POST['fEmail'];
 		$fNumber = $_POST['fNumber'];
-		$fEmail = $_POST['fEmail'];
 		$fIncome = $_POST['fIncome'];
 		//MOTHER
 		$mother = $_POST['mother'];
@@ -64,23 +58,44 @@
 		$mIncome = $_POST['mIncome'];
 		
 		//QUERY
-		mysqli_query($conn, "UPDATE personal_info_outbound SET 	
-		FATHER_NAME_OUT = '$father', 
-		OCCUPATION_DADA_OUT = '$fOccupation',
-		COMPANYDADA_OUT = '$fCompany',
-		ADDRESS_DADA_OUT = '$fAddress',
-		EMAIL_ADD_DADA_OUT = '$fEmail',
-		CONTACT_NUM_DADA_OUT = '$fNumber',
-		ANNUAL_INCOME_DADA_OUT = '$fIncome',
-		MOTHER_NAME_OUT = '$mother',
-		OCCUPATION_DADA_OUT = '$fOccupation',
-		COMPANYDADA_OUT = '$fCompany',
-		ADDRESS_DADA_OUT = '$fAddress',
-		EMAIL_ADD_DADA_OUT = '$mEmail',
-		CONTACT_NUM_DADA_OUT = '$fNumber',
-		ANNUAL_INCOME_DADA_OUT = '$fIncome'
-		WHERE STUDENT_ID = '$getses_StudentID'
-		");
+		
+		mysqli_query($conn, "INSERT INTO guardian_info_outbound(
+			STUDENT_COUNT, 
+			STUDENT_ID,
+			FATHER_NAME_OUT,
+			OCCUPATION_DADA_OUT,
+			COMPANY_DADA_OUT,
+			ADDRESS_DADA_OUT,
+			EMAIL_ADD_DADA_OUT,
+			CONTACT_NUM_DADA_OUT,
+			ANNUAL_INCOME_DADA_OUT,
+			MOTHER_NAME_OUT,
+			OCCUPATION_MOM_OUT,
+			COMPANY_MOM_OUT,
+			ADDRESS_MOM_OUT,
+			EMAIL_ADD_MOM_OUT,
+			CONTACT_NUM_MOM_OUT,
+			ANNUAL_INCOME_MOM_OUT
+			) VALUES (
+			'',
+			'$getses_StudentID',
+			'$father',
+			'$fOccupation',
+			'$fCompany',
+			'$fAddress',
+			'$fEmail',
+			'$fNumber',
+			'$fIncome',
+			'$mother',
+			'$mOccupation',
+			'$mCompany',
+			'$mAddress',
+			'$mEmail',
+			'$mNumber',
+			'$mIncome'
+			)"
+
+		);
 		
 		header("Location: outboundform3.php");
 	}
