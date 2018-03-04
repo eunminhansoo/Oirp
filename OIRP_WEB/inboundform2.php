@@ -148,7 +148,7 @@
 								<input type="text" name="scholarship" id="scholarshipText" class="form-control" disabled>
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
+								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
 							</div>
 						</div>
 					</div>
@@ -170,7 +170,7 @@
 								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" disabled>
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
+								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
 							</div>
 						</div>
 					</div>	
