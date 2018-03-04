@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2018 at 07:49 AM
+-- Generation Time: Mar 04, 2018 at 12:33 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -28,11 +28,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `country_univ_outbound` (
   `STUDENT_COUNT` int(11) NOT NULL,
-  `STUDNET_ID` varchar(15) NOT NULL,
-  `APPLICATION_PROG_OUT` varchar(30) DEFAULT NULL,
-  `COUNTRY_OUT` varchar(50) DEFAULT NULL,
-  `UNIVERSITY_OUT` varchar(50) DEFAULT NULL
+  `STUDENT_ID` varchar(15) NOT NULL,
+  `APPLICATION_PROG` varchar(30) DEFAULT NULL,
+  `COUNTRY_OUT` varchar(500) DEFAULT NULL,
+  `UNIVERSITY_OUT` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `country_univ_outbound`
+--
+
+INSERT INTO `country_univ_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, `APPLICATION_PROG`, `COUNTRY_OUT`, `UNIVERSITY_OUT`) VALUES
+(1, '20180304001-out', '', 'France', 'Institut Catholique de Toulouse');
 
 --
 -- Indexes for dumped tables
@@ -52,7 +59,7 @@ ALTER TABLE `country_univ_outbound`
 -- AUTO_INCREMENT for table `country_univ_outbound`
 --
 ALTER TABLE `country_univ_outbound`
-  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
