@@ -291,9 +291,9 @@ $pdf->Cell(45,7,'','B',1);
 
 //Accomodation Information
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"VIII. ACCOMODATION INFORMATION",'TB',1);
+$pdf->Cell(195,7,"VIII. ACCOMMODATION INFORMATION",'TB',1);
 $pdf->SetFont('Arial','',7);
-$pdf->Cell(135,7,'DO YOU NEED ACCOMODATION DURING THE STUDENT EXCHANGE PROGRAM? (SUBJECT TO AVAILABILITY)','BR',0);
+$pdf->Cell(135,7,'DO YOU NEED ACCOMMODATION DURING THE STUDENT EXCHANGE PROGRAM? (SUBJECT TO AVAILABILITY)','BR',0);
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(60,7,'','B',1);
 

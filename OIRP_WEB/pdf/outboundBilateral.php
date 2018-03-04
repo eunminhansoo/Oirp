@@ -168,7 +168,7 @@ $pdf->Cell(80,7,'','B',1);
 $pdf->Cell(40,7,'ANNUAL INCOME','BR',0);
 $pdf->Cell(155,7,'','B',1);
 
-$pdf->Cell(195,7,'','',1);
+$pdf->Cell(195,5,'','',1);
 
 //Proposed Field of Study
 $pdf->SetFont('Arial','B',9);
@@ -219,7 +219,7 @@ $pdf->Cell(175,7,'3.','B',2);
 $pdf->Cell(175,7,'4.','B',2);
 $pdf->Cell(175,7,'5.','B',2);
 
-$pdf->Cell(195,25,'','',1);
+$pdf->Cell(195,20,'','',1);
 
 //Signatories
 $pdf->SetFont('Arial','',9);

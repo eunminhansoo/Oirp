@@ -35,6 +35,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button class="btn btn-primary">Previous</button>
+							<button class="btn btn-primary">Save</button>
 							<input type="submit" class="btn btn-primary" value="Submit">
 						</div>
 					</div>
