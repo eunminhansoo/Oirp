@@ -9,6 +9,7 @@
 	while($rows = mysqli_fetch_array($query))
 	{
 		$email = $rows['EMAIL'];
+		$application_prog = $rows['APPLICATION_PROG'];
 	}
 	
 	//for outboundform1
@@ -144,6 +145,7 @@
 			 '$course4',
 			 '$course5'
 		 )");
+
 		mysqli_query($conn, "INSERT INTO country_univ_outbound
 		(
 			STUDENT_COUNT,
@@ -155,7 +157,7 @@
 		(
 			'',
 			'$getses_StudentID',
-			'',
+			'$application_prog',
 			'$country',
 			'$get_univ'
 		)");

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2018 at 02:52 AM
+-- Generation Time: Mar 04, 2018 at 12:32 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -50,7 +50,7 @@ CREATE TABLE `guardian_info_outbound` (
 --
 
 INSERT INTO `guardian_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, `FATHER_NAME_OUT`, `OCCUPATION_DADA_OUT`, `COMPANY_DADA_OUT`, `ADDRESS_DADA_OUT`, `EMAIL_ADD_DADA_OUT`, `CONTACT_NUM_DADA_OUT`, `ANNUAL_INCOME_DADA_OUT`, `MOTHER_NAME_OUT`, `OCCUPATION_MOM_OUT`, `COMPANY_MOM_OUT`, `ADDRESS_MOM_OUT`, `EMAIL_ADD_MOM_OUT`, `CONTACT_NUM_MOM_OUT`, `ANNUAL_INCOME_MOM_OUT`) VALUES
-(1, '20180303001-out', 'qweqwe', 'qweqwe', 'qweqwe', '1weouqowey', 'awoiue@gmail.com', '8765465', '8787456', 'iowqyeoy', 'oweyiroihf', 'uhfuijkqnbw', 'qwerqwrf', 'wueiroiqu@gmail.com', '764654513', '874514654');
+(1, '20180304001-out', 'qweqw', 'werer', 'lh', 'hioho', 'albert@gmail.com', '984654165', '96548516169', 'weuirhbib', 'ibwehfbiehbi', 'bhehwevbt', 'sdfkbsdfhb', 'tes@gmail.com', '848974164196', '54561641');
 
 --
 -- Indexes for dumped tables
