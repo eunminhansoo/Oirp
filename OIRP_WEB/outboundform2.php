@@ -64,7 +64,13 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Annual Income</label>
-							<input type="text" name="fIncome" id="fIncome" class="form-control">
+							<select name="fIncome" class="form-control">
+								<option value="PHP 8,001 - PHP 135,000">PHP 8,001 - PHP 135,000</option>
+								<option value="PHP 135,001 - PHP 250,000">PHP 135,001 - PHP 250,000</option>
+								<option value="PHP 250,001 - PHP 500,000">PHP 250,001 - PHP 500,000</option>
+								<option value="PHP 500,001 - PHP 1,000,000">PHP 500,001 - PHP 1,000,000</option>
+								<option value="PHP 1,000,001 or more">PHP 1,000,001 or more</option>
+							</select>
 						</div>
 					</div>
 					
@@ -104,7 +110,13 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Annual Income</label>
-							<input type="text" name="mIncome" id="mIncome" class="form-control">
+							<select name="mIncome" class="form-control">
+								<option value="PHP 8,001 - PHP 135,000">PHP 8,001 - PHP 135,000</option>
+								<option value="PHP 135,001 - PHP 250,000">PHP 135,001 - PHP 250,000</option>
+								<option value="PHP 250,001 - PHP 500,000">PHP 250,001 - PHP 500,000</option>
+								<option value="PHP 500,001 - PHP 1,000,000">PHP 500,001 - PHP 1,000,000</option>
+								<option value="PHP 1,000,001 or more">PHP 1,000,001 or more</option>
+							</select>
 						</div>
 					</div>
 					

@@ -125,6 +125,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary">Previous</button>
+							<button class="btn btn-primary">Save</button>
 							<input type="submit" name="btn_from3" class="btn btn-primary" value="Submit">
 						</div>
 					</div>

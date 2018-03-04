@@ -68,10 +68,12 @@
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
+							<p class="text_font" >country code - area code - telephone number </p>
 							<input type="text" name="telephone" id="telephone" class="form-control" placeholder="ex: +63-2-406-1611">
 						</div>
 						<div class="col-sm-5">
 							<label>Mobile Number</label>
+							<p>(country code) telephone number</p>
 							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: (+63)974887651">
 						</div>
 					</div>
