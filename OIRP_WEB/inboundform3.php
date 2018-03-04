@@ -31,16 +31,16 @@
 		</div>
 		
 		<div class="container-fluid">
-			<div class="col-sm-3 navbar" role="navigation">
+			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
-					<li class=""><a href="inboundform1.php">Personal Information</a></li>
-					<li class="active"><a href="inboundform2.php">Proposed Field of Study</a></li>
-					<li class="disabled"><a href="">English Proficiency</a></li>
+					<li class="active"><a href="">Personal Information</a></li>
+					<li><a href="">Guardian's Information</a></li>
+					<li><a href="">Country & University</a></li>
 				</ul>
-			</div>
+			</nav>
 
 			<div class="col-sm-9 container-fluid">
-				<form action="inboundform4.php">
+				<form method="post" action="inboundform4.php">
 					<div class="form-group row break">
 						<div class="col-sm-10">
 							<label>Proposed Program</label>

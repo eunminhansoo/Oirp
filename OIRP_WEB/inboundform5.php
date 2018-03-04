@@ -15,16 +15,16 @@
 		</div>
 		
 		<div class="container-fluid">
-			<nav class="col-sm-3 sidebar navbar " role="navigation">
-				<ul class="nav navbar-nav">
-					<li class=""><a href="inboundform1.php">Personal Information</a></li>
-					<li class=""><a href="inboundform2.php">Proposed Field of Study</a></li>
-					<li class="active"><a href="inboundform3.php">English Proficiency</a></li>
+			<nav class="col-sm-2 sidebar">
+				<ul class="nav nav-stacked">
+					<li class="active"><a href="">Personal Information</a></li>
+					<li><a href="">Guardian's Information</a></li>
+					<li><a href="">Country & University</a></li>
 				</ul>
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="#">
+				<form method="post" action="#">
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Expectations from the Program (express in 1000 characters or less)</label>
@@ -35,8 +35,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button class="btn btn-primary">Previous</button>
-							<button class="btn btn-primary">Save</button>
-							<input type="submit" class="btn btn-primary" value="Submit">
+							<input type="submit" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>

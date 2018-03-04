@@ -31,13 +31,13 @@
 		</div>
 		
 		<div class="container-fluid">
-			<div class="col-sm-3 navbar" role="navigation">
+			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
-					<li class=""><a href="inboundform1.php">Personal Information</a></li>
-					<li class="active"><a href="inboundform2.php">Proposed Field of Study</a></li>
-					<li class="disabled"><a href="">English Proficiency</a></li>
+					<li class="active"><a href="">Personal Information</a></li>
+					<li><a href="">Guardian's Information</a></li>
+					<li><a href="">Country & University</a></li>
 				</ul>
-			</div>
+			</nav>
 
 			<div class="col-sm-9 container-fluid">
 				<form method="post">
@@ -125,6 +125,9 @@
 							<div class="col-sm-2">
 								<input type="radio" name="bilateral" value="Short Study Abroad"> Short Study Abroad
 							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
+							</div>
 						</div>
 					</div>
 					<div id="scholarshipOptions">	
@@ -144,6 +147,9 @@
 							<div class="col-sm-2">
 								<input type="text" name="scholarship1" id="scholarshipText" class="form-control" disabled>
 							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
+							</div>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -162,6 +168,9 @@
 							</div>
 							<div class="col-sm-2">
 								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" disabled>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
 							</div>
 						</div>
 					</div>	
