@@ -35,24 +35,6 @@
 	header("Location: outboundform2.php");
 	}
 
-	// SELECT FROM PERSONAL_INFO_OUTBOUND
-	$query = mysqli_query($conn, "SELECT * FROME personal_info_outbound WHERE STUDENT_ID = '$getses_StudentID'");
-	while($row = mysqli_fetch_array($query))
-	{
-		$age = $row['AGE_OUT'];	
-		$nationality = $row['NATIONALITY_OUT'];
-		$citizenship = $row['CITIZENSHIP_OUT'];
-		$passport_num = $row['PASSPORT_NUM_OUT'];
-		$validity_date = $row['VALIDITY_DATE_OUT'];
-		$date_issuance = $row['DATE_ISSUANCE_OUT'];
-		$mailing_add = $row['MAILING_ADD_OUT'];
-		$telephone_num = $row['TELEPHONE_NUM_OUT'];
-		$mobile_num = $row['MOBILE_NUM_OUT'];
-		$college_institute_faculty = $row['	COLLEGE_INSTITUTE_FACULTY_OUT'];
-		$degree_prog = $row['DEGREE_PROG_OUT'];
-		$year_level = $row['YEAR_LEVEL_OUT'];
-		$application_prog = $row['APPLICATION_PROG'];
-	}
 	
 	//FOR FORM 2
 	
@@ -130,10 +112,10 @@
 		$course3 = $_POST['course3'];
 		$course4 = $_POST['course4'];
 		$course5 = $_POST['course5'];
+		
 		$sql_syn = "SELECT * FROM partner_universities WHERE ID = '$university' AND COUNTRY = '$country' ";
 		$query1 = mysqli_query($conn, $sql_syn);
-		where($rows1 = mysqli_fetch_array($query1))
-		{
+		while($rows1 = mysqli_fetch_array($query1)){
 			$get_univ = $rows1['UNIVERSITY'];	
 		}
 		

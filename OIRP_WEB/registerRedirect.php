@@ -10,7 +10,7 @@
 	while ($getRows = mysqli_fetch_array($getData)){
 		$studentCOUNT = $getRows['STUDENT_COUNT'];
 		$dateSignIn = $getRows['DATE_ENROLL'];
-		$appPROG = $getRows['APPLICATION_FORM'];
+		$appPROG = $getRows['APPLICATION_PROG'];
 		
 	}
 	/* date format*/
