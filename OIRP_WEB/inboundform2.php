@@ -1,5 +1,5 @@
 <?php
-	//include 'inbound_application.php';
+	include 'inbound_application.php';
 	
 	$conn = mysqli_connect("localhost", "root", "","oirp_db");
 	$db = mysqli_select_db($conn, "oirp_db");
@@ -40,7 +40,7 @@
 			</div>
 
 			<div class="col-sm-9 container-fluid">
-				<form action="inboundform3.php">
+				<form method="post">
 					<div id="dropdownCU">
 						<div class="form-group row">
 							<div class="col-sm-5">
@@ -99,16 +99,16 @@
 							<label>Type of program:</label>
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="program" value="Bilateral" id="proBilateral"> Exchange through bilateral agreement
+							<input type="radio" name="type_program" value="Bilateral" id="proBilateral"> Exchange through bilateral agreement
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="program" value="Scholarship" id="proScholar"> Exchange through scholarship
+							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through scholarship
 						</div>
 						<div class="col-sm-1">
-							<input type="radio" name="program" id="proOthers"> Others: 
+							<input type="radio" name="type_program" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
-							<input type="text" name="program" id="proText" class="form-control" disabled>
+							<input type="text" name="type_program1" id="proText" class="form-control" disabled>
 						</div>
 					</div>
 					<div id="bilateralOptions">
@@ -142,7 +142,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers"> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarship" id="scholarshipText" class="form-control" disabled>
+								<input type="text" name="scholarship1" id="scholarshipText" class="form-control" disabled>
 							</div>
 						</div>
 					</div>
@@ -191,7 +191,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_inform2" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>
@@ -226,8 +226,7 @@
    				    }
   				});
     		}).trigger('change');				
-    			
-        	$("#scholarshipOptions").hide();
+    		$("#scholarshipOptions").hide();
         	$("#bilateralOptions").hide();
         	$("#scholarloanrow").hide();
 
@@ -278,6 +277,7 @@
         	$('#scholarshipSHARE').click(function(){
         	    $("#scholarshipText").prop('disabled', true);
 			});				
+        	
 		});
 	</script>
 </html>

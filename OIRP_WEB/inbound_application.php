@@ -4,13 +4,11 @@
 
 	session_start();
 	$getSes_studentID = $_SESSION['$studentID_session'];
+	
 
-
+	//for inboundform1
 	if(isset($_POST['btn_inform1']))
 	{
-		$country = $_POST['country'];
-		$homeUniversity = $_POST['homeUniversity'];
-		$univAddress = $_POST['univAddress'];
 		$citizenship = $_POST['citizenship'];
 		$nationality = $_POST['nationality'];
 		$passport = $_POST['passport'];
@@ -19,9 +17,6 @@
 		$address = $_POST['address'];
 		$telephone = $_POST['telephone'];
 		$mobile = $_POST['mobile'];
-		$degree = $_POST['program'];
-		$major = $_POST['major'];
-		$yearlevel = $_POST['yearlevel'];
 		$contactperson = $_POST['contactperson'];
 		$relCP = $_POST['relCP'];
 		$addressCP = $_POST['addressCP'];
@@ -33,12 +28,42 @@
 		MOBILE_NUM_IN) VALUES('', '$getSes_studentID', '', '', '$nationality', '$passport', '$validity', '$issuance', '$address', '$telephone',
 		'$mobile')");
 
-		mysqli_query($conn, "INSERT INTO educ_back_inbound(STUDENT_COUNT, STUDENT_ID, HOME_UNIV_IN, UNIV_ADDRESS_IN, DEGREE_PROG_IN, YEAR_LEVEL_IN, MAJOR_IN
-		) VALUES('', '$getSes_studentID', '$homeUniversity', '$univAddress', '$degree', '$yearlevel', '$major')");
-
 		mysqli_query($conn, "INSERT INTO personal_contact_in_bila(STUDENT_COUNT, STUDENT_ID, PERSONAL_CONTACT_IN_BILA, RELATIONSHIP_IN_BILA, ADD_IN_BILA, EMAIL_ADD_IN_BILA, TELEPHONE_NUM_IN_BILA
 		) VALUES('', '$getSes_studentID', '$contactperson', '$relCP', '$addressCP', '$emailCP', '$numberCP')");
 
 		header("Location: inboundform2.php");
 	}
+	
+	//for inboundform2
+	
+	if(isset($_POST['btn_inform2']))
+	{
+		$country = $_POST['country'];
+		$homeUniversity = $_POST['homeUniversity'];
+		$univAddress = $_POST['univAddress'];
+		$program = $_POST['program'];
+		$major = $_POST['major'];
+		$yearLevel = $_POST['yearlevel'];
+		$type_program = $_POST['type_program'];
+		$type_program1 = $_POST['type_program1'];
+		$bilateral = $_POST['bilateral'];
+		$scholarship = $_POST['scholarship'];
+		$scholarship1 = $_POST['scholarship1'];
+		$scholarloan = $_POST['scholarloan'];
+		$scholarloanText = $_POST['scholarloanText'];
+		$officer = $_POST['officer'];
+		$designationO = $_POST['designationO'];
+		$emailO = $_POST['emailO'];
+		$numberO = $_POST['numberO'];
+		
+		echo $type_program."<br>";
+		echo $type_program1."<br>";
+		echo $bilateral;
+		echo $scholarship;
+		echo $scholarship1;
+		
+		//header("Location: inboundform3.php");
+		
+	}
+	
 ?>
