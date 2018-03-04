@@ -1,5 +1,5 @@
 <?php
-	
+	include 'outbound_application.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="outboundform3.php">
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Father's Name</label>
@@ -53,7 +53,8 @@
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
-							<input type="text" name="fNumber" id="fNumber" class="form-control">
+							<p class="text_style" >Phone number or Mobile number</p>
+							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
@@ -63,7 +64,13 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Annual Income</label>
-							<input type="text" name="fIncome" id="fIncome" class="form-control">
+							<select name="fIncome" class="form-control">
+								<option value="PHP 8,001 - PHP 135,000">PHP 8,001 - PHP 135,000</option>
+								<option value="PHP 135,001 - PHP 250,000">PHP 135,001 - PHP 250,000</option>
+								<option value="PHP 250,001 - PHP 500,000">PHP 250,001 - PHP 500,000</option>
+								<option value="PHP 500,001 - PHP 1,000,000">PHP 500,001 - PHP 1,000,000</option>
+								<option value="PHP 1,000,001 or more">PHP 1,000,001 or more</option>
+							</select>
 						</div>
 					</div>
 					
@@ -92,7 +99,8 @@
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
-							<input type="text" name="mNumber" id="mNumber" class="form-control">
+							<p class="text_style" >Phone number or Mobile number</p>
+							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
@@ -102,7 +110,13 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Annual Income</label>
-							<input type="text" name="mIncome" id="mIncome" class="form-control">
+							<select name="mIncome" class="form-control">
+								<option value="PHP 8,001 - PHP 135,000">PHP 8,001 - PHP 135,000</option>
+								<option value="PHP 135,001 - PHP 250,000">PHP 135,001 - PHP 250,000</option>
+								<option value="PHP 250,001 - PHP 500,000">PHP 250,001 - PHP 500,000</option>
+								<option value="PHP 500,001 - PHP 1,000,000">PHP 500,001 - PHP 1,000,000</option>
+								<option value="PHP 1,000,001 or more">PHP 1,000,001 or more</option>
+							</select>
 						</div>
 					</div>
 					
@@ -110,7 +124,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_form2" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>

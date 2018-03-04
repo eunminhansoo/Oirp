@@ -1,5 +1,14 @@
 <?php
+	include 'outbound_application.php';
+	error_reporting(0);
 	
+	$sql = "select distinct country from partner_universities order by country asc";
+	$result = mysqli_query($conn, $sql);
+	
+	$res;
+	while($row = mysqli_fetch_array($result)) {
+		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,8 +20,8 @@
 	</head>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
-		0		
+		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+			
 		<div class="header">
 			<img src='img/logo.png' height=auto>
 		</div>
@@ -27,7 +36,7 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="#">
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Chosen Country</label>
@@ -66,7 +75,9 @@
 						</div>
 						<div class="col-sm-5">
 							<label>Chosen University</label>
-							<input type="text" name="university" id="university" class="form-control">
+							<select name="university" id="university" class="form-control">
+							
+							</select>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -114,11 +125,37 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Submit">
+							<button class="btn btn-primary">Save</button>
+							<input type="submit" name="btn_from3" class="btn btn-primary" value="Submit">
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
 	</body>
+	<script>
+		$(document).ready(function(){
+
+	   		var val = "<?php echo $res ?>";
+
+	   		$("#country").empty().append(val);
+			
+			$("#country").change(function(){
+			    $.ajax({
+				    type: "POST",
+			        url: "universities.php",   
+			        data: {
+				        country: $("#country").val(),
+			       	},
+			        success: function(e) {
+				        $('#university').empty();
+			            $('#university').append(e);
+			        },
+			        error: function(response) {
+			            alert("error");
+			        }
+				});
+			}).trigger('change');				
+		});
+	</script>
 </html>

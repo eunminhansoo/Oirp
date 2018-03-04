@@ -11,8 +11,8 @@ function Header()
     // Images
     $this->Image('../img/line.png', 7,33,150,8);
     $this->Image('../img/triangle2.png',117,5,90,42);
-    $this->Image('../img/SHARE.png', 170,15,30);
-    //$this->Image('../img/AIMS.jpg',160,15,45);
+    //$this->Image('../img/SHARE.png', 170,15,30);
+    $this->Image('../img/AIMS.jpg',160,15,45);
     $this->Image('../img/ust.jpg', 7,5,25);
     
     //UST
@@ -35,7 +35,7 @@ function Header()
     // Scholarship
     $this->SetFont('Arial','B',30);
     $this->SetTextColor(255,255,255);
-    $this->Cell(113,7,'Scholarship','',1,'R');
+    $this->Cell(113,7,'','',1,'R');
     
     //Inbound
     $this->SetTextColor(0,0,0);
@@ -148,9 +148,20 @@ $pdf->Cell(145,7,'1.','B',2);
 $pdf->Cell(145,7,'2.','B',2);
 $pdf->Cell(145,7,'3.','B',2);
 $pdf->Cell(145,7,'4.','B',2);
-$pdf->Cell(145,7,'5.','B',2);
+$pdf->Cell(145,7,'5.','B',1);
 
-$pdf->Cell(195,41,'','',1);
+$pdf->Cell(30,7,'RESEARCH TOPIC','BR',0);
+$pdf->Cell(165,7,'','B',1);
+$pdf->Cell(55,7,'INTENDED SEMESTER TO STUDY','BR',0);
+$pdf->Cell(140,7,'','B',1);
+$pdf->Cell(55,7,'DISCIPLINARY ACTION AND STATUS','BR',0);
+$pdf->Cell(40,7,'','BR',0);
+$pdf->SetFont('Arial','',7);
+$pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(40,7,'','B',1);
+
+$pdf->Cell(195,20,'','',1);
 
 //English Proficiency
 $pdf->SetFont('Arial','B',9);
@@ -178,7 +189,7 @@ $pdf->Cell(10,3,'','',1);
 $pdf->Cell(20,7,'','',0);
 $pdf->MultiCell(155,4,'c.) In the absence of TOEFL test or equivalent, English proficiency must be assessed by an English teacher in Home University:','',1);
 
-$pdf->Cell(10,3,'','',1);
+$pdf->Cell(10,1,'','',1);
 
 $pdf->Cell(60,7,'','',0);
 $pdf->Cell(25,7,'POOR','',0,'C');
@@ -210,7 +221,7 @@ $pdf->Cell(25,7,'','',0,'C');
 $pdf->Cell(25,7,'','',0,'C');
 $pdf->Cell(25,7,'','',1,'C');
 
-$pdf->Cell(165,10,'','',1);
+$pdf->Cell(165,7,'','',1);
 
 $pdf->Cell(25,7,'','',0);
 $pdf->Cell(80,7,"Signature of your English teacher in Home University",'T',0,'C');
@@ -224,7 +235,7 @@ $pdf->Cell(195,7,"V. STUDENT'S SIGNATURE",'TB',1);
 
 $pdf->SetFont('Arial','',9);
 $pdf->MultiCell(195,5,'I hereby apply for admission to study at University of Santo Tomas. I confirm that the information provided above is correct to the best of my knowledge.','',1);
-$pdf->Cell(195,10,'','',1);
+$pdf->Cell(195,7,'','',1);
 
 $pdf->Cell(15,7,'','',0);
 $pdf->Cell(80,7,"Signature",'T',0,'C');
@@ -239,7 +250,7 @@ $pdf->Cell(195,7,"VI. HOME INSTITUTION APPROVAL",'TB',1);
 
 $pdf->SetFont('Arial','',9);
 $pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming ____ term (year)','',1);
-$pdf->Cell(195,10,'','',1);
+$pdf->Cell(195,7,'','',1);
 
 $pdf->Cell(15,7,'','',0);
 $pdf->Cell(100,7,"Signature of Exchange Coordinator/International Relations Officer",'T',0,'C');
@@ -250,15 +261,9 @@ $pdf->Cell(3,3,'','',1);
 //Expectations
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"VII. EXPECTATIONS FROM THE PROGRAM",'TB',1);
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(3,7,'');
-$pdf->Cell(189,7,'','B',1);
-$pdf->Cell(3,7,'');
-$pdf->Cell(189,7,'','B',1);
-$pdf->Cell(3,7,'');
-$pdf->Cell(189,7,'','B',1);
-$pdf->Cell(195,2,'','',1);
-$pdf->Cell(195,1,'','T',1);
+$pdf->SetFont('Arial','',9);
+$pdf->MultiCell(200,4,'ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed cras ornare arcuac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing ','',1);
+$pdf->Cell(195,1,'','T');
 
 
 

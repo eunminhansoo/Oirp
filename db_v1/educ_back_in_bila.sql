@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2018 at 07:48 AM
+-- Generation Time: Mar 03, 2018 at 03:05 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -35,7 +35,7 @@ CREATE TABLE `educ_back_in_bila` (
   `EMAIL_ADD_IN_BILA` varchar(30) DEFAULT NULL,
   `CURRENT_PROG_STUDY_IN_BILA` varchar(30) DEFAULT NULL,
   `DESIGNATION_IN_BILA` varchar(30) DEFAULT NULL,
-  `TELEPHONE_NUM_BILA` int(11) NOT NULL,
+  `TELEPHONE_NUM_BILA` varchar(20) NOT NULL,
   `SPECIALIZATION_IN_BILA` varchar(30) DEFAULT NULL,
   `YEAR_STUDY` varchar(10) DEFAULT NULL,
   `YEAR_LEVEL` varchar(10) DEFAULT NULL,

@@ -1,6 +1,25 @@
 <?php
 require('fpdf/fpdf.php');
 
+//db connection
+$studentno = "20180217001-outbound";
+
+$conn = mysqli_connect("localhost", "root", "","oirp_db");
+$db = mysqli_select_db($conn, "oirp_db");
+
+$sql = "select family_name,given_name,middle_name,gender,birthday from student where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$family_name = $row['family_name'];
+	$given_name = $row['given_name'];
+	$middle_name = $row['middle_name'];
+	$gender = $row['gender'];
+	$birthday = $row['birthday'];
+}
+
+
+
 class PDF extends FPDF
 {
 // Page header
@@ -62,17 +81,17 @@ $pdf->Cell(195,7,'I. PERSONAL INFORMATION','TB',2);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(30,7,'FAMILY NAME','BR',0);
-$pdf->Cell(85,7,'','BR',0);
+$pdf->Cell(85,7,$family_name,'BR',0);
 $pdf->Cell(20,7,'GENDER','BR',0);
-$pdf->Cell(60,7,'','B',1);
+$pdf->Cell(60,7,$gender,'B',1);
 $pdf->Cell(30,7,'GIVEN NAME','BR',0);
-$pdf->Cell(85,7,'','BR',0);
+$pdf->Cell(85,7,$given_name,'BR',0);
 $pdf->Cell(20,7,'NATIONALITY','BR',0);
 $pdf->Cell(60,7,'','B',1);
 $pdf->Cell(30,7,'MIDDLE NAME','BR',0);
-$pdf->Cell(85,7,'','BR',0);
+$pdf->Cell(85,7,$middle_name,'BR',0);
 $pdf->Cell(20,7,'BIRTHDATE','BR',0);
-$pdf->Cell(35,7,'','BR',0);
+$pdf->Cell(35,7,$birthday,'BR',0);
 $pdf->Cell(10,7,'AGE','BR',0);
 $pdf->Cell(15,7,'','B',1);
 
@@ -104,7 +123,7 @@ $pdf->Cell(20,7,'ADDRESS','BR',0);
 $pdf->Cell(175,7,'','B',1);
 $pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
 $pdf->Cell(80,7,'','BR',0);
-$pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
+$pdf->Cell(35,7,'PHONE NUMBER','BR',0);
 $pdf->Cell(50,7,'','B',1);
 
 
@@ -135,14 +154,6 @@ $pdf->Cell(20,7,'YEAR LEVEL','BR',0);
 $pdf->Cell(35,7,'','BR',0);
 $pdf->Cell(55,7,'RECEPIENT OF SCHOLARSHIP/LOANS?','BR',0);
 $pdf->Cell(35,7,'','B',1);
-$pdf->SetFont('Arial','',7);
-$pdf->Cell(85,7,'DOES YOUR UNIVERSITY HAVE A SIGNED AGREEMENT WITH UST?','BR',0);
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(20,7,'','BR',0);
-$pdf->Cell(25,7,'YEAR SIGNED','BR',0);
-$pdf->Cell(20,7,'','BR',0);
-$pdf->Cell(25,7,'YEAR RENEWED','BR',0);
-$pdf->Cell(20,7,'','B',1);
 
 
 //Proposed Field of Study
@@ -171,7 +182,7 @@ $pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(40,7,'','B',1);
 
-$pdf->Cell(195,5,'','',1);
+$pdf->Cell(195,12,'','',1);
 
 //English Proficiency
 $pdf->SetFont('Arial','B',9);
@@ -280,9 +291,9 @@ $pdf->Cell(45,7,'','B',1);
 
 //Accomodation Information
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"VIII. ACCOMODATION INFORMATION",'TB',1);
+$pdf->Cell(195,7,"VIII. ACCOMMODATION INFORMATION",'TB',1);
 $pdf->SetFont('Arial','',7);
-$pdf->Cell(135,7,'DO YOU NEED ACCOMODATION DURING THE STUDENT EXCHANGE PROGRAM? (SUBJECT TO AVAILABILITY)','BR',0);
+$pdf->Cell(135,7,'DO YOU NEED ACCOMMODATION DURING THE STUDENT EXCHANGE PROGRAM? (SUBJECT TO AVAILABILITY)','BR',0);
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(60,7,'','B',1);
 
@@ -315,14 +326,9 @@ $pdf->Cell(40,7,'Date','T',1,'C');
 //Expectations
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"XI. EXPECTATIONS FROM THE PROGRAM",'TB',1);
-$pdf->Cell(3,7,'');
-$pdf->Cell(189,7,'','B',1);
-$pdf->Cell(3,7,'');
-$pdf->Cell(189,7,'','B',1);
-$pdf->Cell(3,7,'');
-$pdf->Cell(189,7,'','B',1);
-$pdf->Cell(195,2,'','',1);
-$pdf->Cell(195,1,'','T',1);
+$pdf->SetFont('Arial','',9);
+$pdf->MultiCell(200,4,'ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed cras ornare arcuac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing ','',1);
+$pdf->Cell(195,1,'','T');
 
 
 

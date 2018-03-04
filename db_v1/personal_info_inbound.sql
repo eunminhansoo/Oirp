@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2018 at 07:46 AM
+-- Generation Time: Mar 03, 2018 at 03:00 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -32,12 +32,12 @@ CREATE TABLE `personal_info_inbound` (
   `APPLICATION_PROG` varchar(30) DEFAULT NULL,
   `AGE_IN` int(11) NOT NULL,
   `NATIONALITY_IN` varchar(30) DEFAULT NULL,
-  `PASSPORT_NUM_IN` int(11) NOT NULL,
+  `PASSPORT_NUM_IN` varchar(30) NOT NULL,
   `VALIDITY_DATE_IN` date DEFAULT NULL,
   `DATE_ISSUANCE_iN` date DEFAULT NULL,
   `MAILING_ADD_IN` varchar(50) DEFAULT NULL,
-  `TELEPHOINE_NUM_IN` int(11) DEFAULT NULL,
-  `MOBILE_NUM_IN` int(11) DEFAULT NULL
+  `TELEPHOINE_NUM_IN` varchar(20) DEFAULT NULL,
+  `MOBILE_NUM_IN` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

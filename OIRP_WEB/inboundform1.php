@@ -1,6 +1,3 @@
-<?php
-	include 'inbound_application.php';
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,30 +9,9 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
-        
-        <script>
-        	$(document).ready(function(){
-				$("#universityAustralia").hide();
-				$("#scholarYes").hide();
-				
-				$("#country").change(function(){
-					var val = $(this).val();
-					if(val == "Australia"){
-						$("#universityAustralia").show();
-					}
-				}).trigger('change');
-
-				$("#scholar").change(function(){
-					var val1 = $(this).val();
-					if(val1 == "yes"){
-						$("#scholarYes").show();
-					}
-				}).trigger('change');
-			});
-		</script>
-		
-		<div class="header">
-			<img src='img/logo.png' height=auto>
+ 		
+		<div class="header ">
+			<img src='img/logo.png' height=auto class="img-responsive" >
 		</div>
 		
 		<div class="container-fluid">
@@ -48,68 +24,8 @@
 			</div>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="inboundform2.php">
-				<div class="form-group row">
-						<div class="col-sm-5">
-							<label>Country of Origin</label>
-							<select name="country" id="country" class="form-control">
-								<option>SELECT COUNTRY</option>
-								<option value="Australia">Australia</option>
-								<option value="Bangladesh">Bangladesh</option>
-								<option value="Belgium">Belgium</option>
-								<option value="Brazil">Brazil</option>
-								<option value="Canada">Canada</option>
-								<option value="China">China</option>
-								<option value="CzechRepublic">Czech Republic</option>
-								<option value="Denmark">Denmark</option>
-								<option value="France">France</option>
-								<option value="Germany">Germany</option>
-								<option value="HongKong">Hong Kong S.A.R.</option>
-								<option value="India">India</option>
-								<option value="Italy">Italy</option>
-								<option value="Japan">Japan</option>
-								<option value="Macau">Macau S.A.R.</option>
-								<option value="Malaysia">Malaysia</option>
-								<option value="Mexico">Mexico</option>
-								<option value="NewZealand">New Zealand</option>
-								<option value="Poland">Poland</option>
-								<option value="Singapore">Singapore</option>
-								<option value="SouthKorea">South Korea</option>
-								<option value="Spain">Spain</option>
-								<option value="Sweden">Sweden</option>
-								<option value="Taiwan">Taiwan</option>
-								<option value="Thailand">Thailand</option>
-								<option value="Ukraine">Ukraine</option>
-								<option value="UK">United Kingdom</option>
-								<option value="USA">United States of America</option>
-								<option value="Vietnam">Vietnam</option>
-
-							</select>
-						</div>
-						<div class="col-sm-5">
-							<label>Home University</label>
-							<select name="homeUniversity" id="universityAustralia" class="form-control">								<option value="">Charles Sturt University</option>
-								<option value="">Curtin University</option>
-								<option value="">Deakin University</option>
-								<option value="">Griffith University</option>
-								<option value="">Joanna Briggs Institute</option>
-								<option value="">Macquarie University</option>
-								<option value="">Queensland University of Technology</option>
-								<option value="">RMIT University</option>
-								<option value="">University of Canberra</option>
-								<option value="">University of New Castle</option>
-								<option value="">University of South Australia</option>
-								<option value="">University of the Sunshine Coast</option>
-								<option value="">University of Wollongong</option>
-								<option value="">Victoria University</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-sm-10">
-							<p>Country of origin or home university not available? Click <a href="inboundbilateral1.php">here</a>.</p>
-						</div>
-					</div>
+				<form action="inboundform2.php" id="inboundform1">
+					
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>
@@ -149,71 +65,47 @@
 							<label>Mobile Number</label>
 							<input type="text" name="mobile" id="mobile" class="form-control">
 						</div>
-					</div>			
-					<div class="form-group row">
-						<div class="col-sm-4">
-							<label>Degree Program</label>
-							<input type="text" name="program" id="program" class="form-control">
+					</div>
+					
+					<div class="form-group row break">
+						<div class="col-sm-6">
+							<label>Person to Contact</label>
+							<input type="text" name="contactperson" id="contactperson" class="form-control">
 						</div>
 						<div class="col-sm-4">
-							<label>Major</label>
-							<input type="text" name="major" id="major" class="form-control">
-						</div>
-						<div class="col-sm-2">
-							<label>Year Level</label>
-							<input type="number" name="yearlevel" id="yearlevel" class="form-control">
+							<label>Relationship</label>
+							<input type="text" name="relCP" id="relCP" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Are you a scholar?</label>
+							<label>Address</label>
+							<input type="text" name="addressCP" id="addressCP" class="form-control">
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-1">
-							<input type="radio" name="scholar" value="yes"> Yes
+						<div class="col-sm-6">
+							<label>Email Address</label>
+							<input type="email" name="emailCP" id="emailCP" class="form-control">
 						</div>
-						<div class="col-sm-1">
-							<input type="radio" name="scholar" value="no"> No
-						</div>
-						<div id="scholarYes">
-							<div class="col-sm-1">
-								Scholarship:
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarship" value="AIMS"> SHARE
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarship" value="SHARE"> AIMS
-							</div>
-							<div class="col-sm-1">
-								<p>Others: </p>
-							</div>
-							<div class="col-sm-3">
-								<input type="text" name="scholarship" id="scholarship" class="form-control">
-							</div>
+						<div class="col-sm-4">
+							<label>Phone Number</label>
+							<input type="text" name="numberCP" id="numberCP" class="form-control">
 						</div>
 					</div>
-					<div class="form-group row">
-						<div class="col-sm-3">
-							<label>Type of program you are interested in:</label>
-						</div>
-						<div class="col-sm-2">
-							<input type="radio" name="program" value="shortstudy"> Short Study Abroad
-						</div>
-						<div class="col-sm-2">
-							<input type="radio" name="program" value="exchange"> Student Exchange Program
-						</div>
-					</div>
-					
+						
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary disabled">Previous</button>
 							<input type="submit" name="btn_inform1" class="btn btn-primary" value="Next">
 						</div>
 					</div>
+					
 				</form>
 			</div>
 		</div>
 	</body>
 </html>
+
+
+        
