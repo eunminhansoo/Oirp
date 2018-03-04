@@ -13,7 +13,7 @@
 
 
 .login{
-	background-color: black;
+	background-color: #333333;
 	padding: 30px;
 	color: white;
 }
@@ -35,7 +35,7 @@
 }
 
 .threepanel:hover{
-	background-color: black;
+	background-color: #333333;
 	color: white;
 }
 
@@ -67,12 +67,12 @@
 .content > h1,
 .content > h2,
 .content > h3,
-.content > h4, 
+.content > h4,
 .content > h5,
 .content > h6
 {
 	font-family: 'Times New Roman';
-	
+
 }
 
 .whitespace{
@@ -81,8 +81,6 @@
 
 .footer{
 	background-color: #fabd15;
-	padding: 50px;
-	padding-bottom: 50px;
 }
 
 .sidebar{
@@ -91,4 +89,19 @@
 
 .break{
 	margin-top: 100px;
+}
+.height{
+	height: 190px;
+}
+.button{
+	background-color: #fabd15 !important;
+	color: #333333 !important;
+}
+.margin-left{
+	margin-left: 20px;
+}
+.white{
+	color: white;
+	font-family: 'Berlin Sans FB Demi';
+	font-size: 30px;
 }
