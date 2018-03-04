@@ -56,7 +56,7 @@
 		$emailO = $_POST['emailO'];
 		$numberO = $_POST['numberO'];
 		
-		echo $type_program."<br>";
+		
 		echo $type_program1."<br>";
 		echo $bilateral;
 		echo $scholarship;
