@@ -1,6 +1,25 @@
 <?php
 require('fpdf/fpdf.php');
 
+//db connection
+$conn = mysqli_connect("localhost", "root", "","oirp_db");
+$db = mysqli_select_db($conn, "oirp_db");
+
+$studentno = "20180217001-outbound";
+
+$sql = "select family_name,given_name,middle_name,gender,birthday from student where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$family_name = $row['family_name'];
+	$given_name = $row['given_name'];
+	$middle_name = $row['middle_name'];
+	$gender = $row['gender'];
+	$birthday = $row['birthday'];
+}
+
+
+
 class PDF extends FPDF
 {
 // Page header
@@ -78,18 +97,18 @@ $pdf->Cell(140,7,'I. PERSONAL INFORMATION','TB',2);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(30,7,'FAMILY NAME','BR',0);
-$pdf->Cell(110,7,'','B',1);
+$pdf->Cell(110,7,$family_name,'B',1);
 $pdf->Cell(30,7,'GIVEN NAME','BR',0);
-$pdf->Cell(110,7,'','B',1);
+$pdf->Cell(110,7,$given_name,'B',1);
 $pdf->Cell(30,7,'MIDDLE NAME','BR',0);
-$pdf->Cell(110,7,'','B',1);
+$pdf->Cell(110,7,$middle_name,'B',1);
 
 $pdf->Cell(25,7,'GENDER','BR',0);
-$pdf->Cell(35,7,'','BR',0);
-$pdf->Cell(30,7,'CITIZENSHIP','BR',0);
+$pdf->Cell(35,7,$gender,'BR',0);
+$pdf->Cell(30,7,'NATIONALITY','BR',0);
 $pdf->Cell(50,7,'','B',1);
 $pdf->Cell(25,7,'BIRTHDATE','BR',0);
-$pdf->Cell(35,7,'','BR',0);
+$pdf->Cell(35,7,$birthday,'BR',0);
 $pdf->Cell(30,7,'AGE','BR',0);
 $pdf->Cell(50,7,'','B',1);
 $pdf->Cell(25,7,'BIRTHPLACE','BR',0);
@@ -105,7 +124,7 @@ $pdf->Cell(30,7,'DATE OF ISSUANCE','BR',0);
 $pdf->Cell(35,7,'','B',1);
 
 $pdf->Cell(30,7,'MAILING ADDRESS','BR',0);
-$pdf->Cell(165,7,'','B',1);
+$pdf->Cell(165,7,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean m','B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
@@ -262,7 +281,7 @@ $pdf->Cell(3,3,'','',1);
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"VII. EXPECTATIONS FROM THE PROGRAM",'TB',1);
 $pdf->SetFont('Arial','',9);
-$pdf->MultiCell(200,4,'ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed cras ornare arcuac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing ','',1);
+$pdf->MultiCell(200,4,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. N','',1);
 $pdf->Cell(195,1,'','T');
 
 

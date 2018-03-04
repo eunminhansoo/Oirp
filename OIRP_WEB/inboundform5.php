@@ -27,7 +27,7 @@
 				<form action="#">
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Expectations from the Program</label>
+							<label>Expectations from the Program (express in 1000 characters or less)</label>
 							<textarea rows="5" cols="75" maxLength="1000" class="form-control"></textarea>
 						</div>
 					</div>

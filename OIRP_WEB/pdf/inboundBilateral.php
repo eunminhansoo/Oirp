@@ -2,10 +2,10 @@
 require('fpdf/fpdf.php');
 
 //db connection
-$studentno = "20180217001-outbound";
-
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
+
+$studentno = "20180217001-outbound";
 
 $sql = "select family_name,given_name,middle_name,gender,birthday from student where student_id = '".$studentno."'";
 $result = $conn->query($sql);
@@ -17,7 +17,6 @@ while ($row = $result->fetch_array()){
 	$gender = $row['gender'];
 	$birthday = $row['birthday'];
 }
-
 
 
 class PDF extends FPDF
@@ -182,72 +181,72 @@ $pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(40,7,'','B',1);
 
-$pdf->Cell(195,12,'','',1);
+$pdf->Cell(195,11,'','',1);
 
 //English Proficiency
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,'IV. ENGLISH PROFICIENCY (For non-native speakers of English)','TB',1);
 
-$pdf->SetFont('Arial','',9);
-$pdf->Cell(20,7,'','',0);
-$pdf->Cell(120,7,'a.) Have you completed a TOEFL/IELTS test or equivalent in the last twelve months?','',1);
-$pdf->Cell(40,7,'','',0);
-$pdf->Cell(30,7,'Yes/No','',1);
-$pdf->Cell(40,7,'','',0);
-$pdf->Cell(35,7,'If yes, provide score: ','',0);
-$pdf->Cell(30,5,'','B',1);
-$pdf->Cell(10,2,'','',1);
+$pdf->SetFont('Arial','',8);
+$pdf->Cell(20,6,'','',0);
+$pdf->Cell(120,6,'a.) Have you completed a TOEFL/IELTS test or equivalent in the last twelve months?','',1);
+$pdf->Cell(40,6,'','',0);
+$pdf->Cell(30,6,'Yes/No','',1);
+$pdf->Cell(40,6,'','',0);
+$pdf->Cell(35,6,'If yes, provide score: ','',0);
+$pdf->Cell(30,4,'','B',1);
+$pdf->Cell(10,1,'','',1);
 
-$pdf->Cell(20,7,'','',0);
-$pdf->Cell(120,7,'b.) Do you intend to take a TOEFL/IELTS test or equivalent in the immediate future?','',1);
-$pdf->Cell(40,7,'','',0);
-$pdf->Cell(70,7,'Yes/No','',1);
-$pdf->Cell(40,7,'','',0);
-$pdf->Cell(60,7,'If yes, provide type and date of test: ','',0);
-$pdf->Cell(50,5,'','B',1);
-$pdf->Cell(10,2,'','',1);
+$pdf->Cell(20,6,'','',0);
+$pdf->Cell(120,6,'b.) Do you intend to take a TOEFL/IELTS test or equivalent in the immediate future?','',1);
+$pdf->Cell(40,6,'','',0);
+$pdf->Cell(70,6,'Yes/No','',1);
+$pdf->Cell(40,6,'','',0);
+$pdf->Cell(60,6,'If yes, provide type and date of test: ','',0);
+$pdf->Cell(50,4,'','B',1);
+$pdf->Cell(10,1,'','',1);
 
-$pdf->Cell(20,7,'','',0);
-$pdf->MultiCell(155,4,'c.) In the absence of TOEFL test or equivalent, English proficiency must be assessed by an English teacher in Home University:','',1);
+$pdf->Cell(20,6,'','',0);
+$pdf->MultiCell(155,3,'c.) In the absence of TOEFL test or equivalent, English proficiency must be assessed by an English teacher in Home University:','',1);
 
-$pdf->Cell(10,2,'','',1);
+$pdf->Cell(10,1,'','',1);
 
-$pdf->Cell(60,7,'','',0);
-$pdf->Cell(25,7,'POOR','',0,'C');
-$pdf->Cell(25,7,'FAIR','',0,'C');
-$pdf->Cell(25,7,'GOOD','',0,'C');
-$pdf->Cell(25,7,'EXCELLENT','',1,'C');
+$pdf->Cell(60,6,'','',0);
+$pdf->Cell(25,6,'POOR','',0,'C');
+$pdf->Cell(25,6,'FAIR','',0,'C');
+$pdf->Cell(25,6,'GOOD','',0,'C');
+$pdf->Cell(25,6,'EXCELLENT','',1,'C');
 
-$pdf->Cell(50,7,'Reading','',0,'R');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',1,'C');
+$pdf->Cell(50,6,'Reading','',0,'R');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',1,'C');
 
-$pdf->Cell(50,7,'Writing','',0,'R');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',1,'C');
+$pdf->Cell(50,6,'Writing','',0,'R');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',1,'C');
 
-$pdf->Cell(50,7,'Speaking','',0,'R');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',1,'C');
+$pdf->Cell(50,6,'Speaking','',0,'R');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',1,'C');
 
-$pdf->Cell(50,7,'Listening','',0,'R');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Cell(25,7,'','',1,'C');
+$pdf->Cell(50,6,'Listening','',0,'R');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',0,'C');
+$pdf->Cell(25,6,'','',1,'C');
 
-$pdf->Cell(165,7,'','',1);
+$pdf->Cell(165,6,'','',1);
 
-$pdf->Cell(25,7,'','',0);
-$pdf->Cell(80,7,"Signature of your English teacher in Home University",'T',0,'C');
-$pdf->Cell(20,7,'','',0);
-$pdf->Cell(40,7,'Date','T',1,'C');
+$pdf->Cell(25,6,'','',0);
+$pdf->Cell(80,6,"Signature of your English teacher in Home University",'T',0,'C');
+$pdf->Cell(20,6,'','',0);
+$pdf->Cell(40,6,'Date','T',1,'C');
 
 //Medical Information
 $pdf->SetFont('Arial','B',9);
@@ -327,7 +326,7 @@ $pdf->Cell(40,7,'Date','T',1,'C');
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"XI. EXPECTATIONS FROM THE PROGRAM",'TB',1);
 $pdf->SetFont('Arial','',9);
-$pdf->MultiCell(200,4,'ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed cras ornare arcuac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing ','',1);
+$pdf->MultiCell(200,4,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. N','',1);
 $pdf->Cell(195,1,'','T');
 
 

@@ -1,6 +1,24 @@
 <?php
 require('fpdf/fpdf.php');
 
+//db connection
+$conn = mysqli_connect("localhost", "root", "","oirp_db");
+$db = mysqli_select_db($conn, "oirp_db");
+
+$studentno = "20180217001-outbound";
+
+$sql = "select family_name,given_name,middle_name,gender,birthday from student where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$family_name = $row['family_name'];
+	$given_name = $row['given_name'];
+	$middle_name = $row['middle_name'];
+	$gender = $row['gender'];
+	$birthday = $row['birthday'];
+}
+
+
 class PDF extends FPDF
 {
 // Page header
@@ -62,17 +80,17 @@ $pdf->Cell(195,7,'I. PERSONAL INFORMATION','TB',2);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(30,7,'FAMILY NAME','BR',0);
-$pdf->Cell(85,7,'','BR',0);
+$pdf->Cell(85,7,$family_name,'BR',0);
 $pdf->Cell(20,7,'GENDER','BR',0);
-$pdf->Cell(60,7,'','B',1);
+$pdf->Cell(60,7,$gender,'B',1);
 $pdf->Cell(30,7,'GIVEN NAME','BR',0);
-$pdf->Cell(85,7,'','BR',0);
+$pdf->Cell(85,7,$given_name,'BR',0);
 $pdf->Cell(20,7,'CITIZENSHIP','BR',0);
 $pdf->Cell(60,7,'','B',1);
 $pdf->Cell(30,7,'MIDDLE NAME','BR',0);
 $pdf->Cell(85,7,'','BR',0);
 $pdf->Cell(20,7,'BIRTHDATE','BR',0);
-$pdf->Cell(35,7,'','BR',0);
+$pdf->Cell(35,7,$birthday,'BR',0);
 $pdf->Cell(10,7,'AGE','BR',0);
 $pdf->Cell(15,7,'','B',1);
 
