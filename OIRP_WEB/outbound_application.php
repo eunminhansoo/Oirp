@@ -2,8 +2,6 @@
 	include 'database_connection.php';
 	session_start();
     $getses_StudentID = $_SESSION['$studentID_session'];
-    $getses_country = $_SESSION['$country_session'];
-    echo $getses_country;
 	$message = '';
 
 	
@@ -132,9 +130,13 @@
 		$course3 = $_POST['course3'];
 		$course4 = $_POST['course4'];
 		$course5 = $_POST['course5'];
+		$sql_syn = "SELECT * FROM partner_universities WHERE ID = '$university' AND COUNTRY = '$country' ";
+		$query1 = mysqli_query($conn, $sql_syn);
+		where($rows1 = mysqli_fetch_array($query1))
+		{
+			$get_univ = $rows1['UNIVERSITY'];	
+		}
 		
-		echo $country;
-		echo $university;
 		mysqli_query($conn, "INSERT INTO proposed_field_study
 		(
 			STUDENT_COUNT,
@@ -171,8 +173,9 @@
 		(
 			'',
 			'$getses_StudentID',
+			'',
 			'$country',
-			'$university'
+			'$get_univ'
 		)");
 	}
 	
