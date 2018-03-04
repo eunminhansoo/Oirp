@@ -95,7 +95,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-1">
+						<div class="col-sm-2">
 							<label>Type of program:</label>
 						</div>
 						<div class="col-sm-2">
@@ -104,13 +104,10 @@
 						<div class="col-sm-2">
 							<input type="radio" name="program" value="Scholarship" id="proScholar"> Exchange through scholarship
 						</div>
-						<div class="col-sm-2">
-							<input type="radio" name="program" value="Short Study Abroad" id="proShort"> Short Study Abroad
-						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="program" id="proOthers"> Others: 
 						</div>
-						<div class="col-sm-2">
+						<div class="col-sm-3">
 							<input type="text" name="program" id="proText" class="form-control" disabled>
 						</div>
 					</div>
@@ -120,16 +117,13 @@
 								<label>Bilateral Options:</label>
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="bilateral" id="" value="year"> 1 year
+								<input type="radio" name="bilateral" value="1 Year"> 1 year
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="bilateral" id="" value="sem"> 1 sem
+								<input type="radio" name="bilateral" value="1 Sem"> 1 sem
 							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="bilateral" id="bilateralOthers"> Others: 
-							</div>
-							<div class="col-sm-3">
-								<input type="text" name="bilateral" id="bilateralText" class="form-control" disabled>
+							<div class="col-sm-2">
+								<input type="radio" name="bilateral" value="Short Study Abroad"> Short Study Abroad
 							</div>
 						</div>
 					</div>
@@ -275,10 +269,6 @@
             
         	$('#scholarshipOthers').click(function(){
         	    $("#scholarshipText").prop('disabled', false);
-			});
-
-			$('#bilateralOthers').click(function(){
-				$("#bilateralText").prop('disabled', false);
 			});
 
         	$('#scholarshipAIMS').click(function(){
