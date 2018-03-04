@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2018 at 03:05 AM
+-- Generation Time: Mar 04, 2018 at 05:05 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -28,7 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `educ_back_in_bila` (
   `STUDENT_COUNT` int(11) NOT NULL,
-  `STUDNET_ID` varchar(15) DEFAULT NULL,
+  `STUDENT_ID` varchar(15) DEFAULT NULL,
+  `COUNTRY_ORIGIN` varchar(500) NOT NULL,
   `HOME_UNIV_IN_BILA` varchar(100) DEFAULT NULL,
   `UNIV_ADD_IN_BILA` varchar(50) DEFAULT NULL,
   `NAME_OFFICER_CONTACT_IN_BILA` varchar(30) DEFAULT NULL,
@@ -42,7 +43,9 @@ CREATE TABLE `educ_back_in_bila` (
   `SCHOLARSHIP_IN_BILA` varchar(10) DEFAULT NULL,
   `AGREEMENT_IN_BILA` varchar(10) DEFAULT NULL,
   `YEAR_SIGNED_IN_BILA` varchar(10) DEFAULT NULL,
-  `YEAR_RENEWED` varchar(10) DEFAULT NULL
+  `YEAR_RENEWED` varchar(10) DEFAULT NULL,
+  `APPLICATION_FORM` varchar(500) NOT NULL,
+  `APPLICATION_PROG` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
