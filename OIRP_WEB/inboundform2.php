@@ -108,7 +108,10 @@
 							<input type="radio" name="program" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
-							<input type="text" name="program" id="proText" class="form-control" disabled>
+							<input type="text" name="programText" id="proText" class="form-control" disabled>
+						</div>
+						<div class="col-sm-1">
+							<input type="radio" name="program" value="" checked="checked" hidden> 
 						</div>
 					</div>
 					<div id="bilateralOptions">
@@ -145,7 +148,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers"> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarship" id="scholarshipText" class="form-control" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
