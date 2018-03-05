@@ -111,7 +111,7 @@
 							<input type="text" name="programText" id="proText" class="form-control" disabled>
 						</div>
 						<div class="col-sm-1">
-							<input type="radio" name="program" value="" checked="checked" hidden> 
+							<input type="radio" name="type_program" value="" checked="checked" hidden> 
 						</div>
 					</div>
 					<div id="bilateralOptions">
