@@ -44,23 +44,112 @@
 		$program = $_POST['program'];
 		$major = $_POST['major'];
 		$yearLevel = $_POST['yearlevel'];
-		$type_program = $_POST['type_program'];
-		$type_program1 = $_POST['type_program1'];
-		$bilateral = $_POST['bilateral'];
-		$scholarship = $_POST['scholarship'];
-		$scholarship1 = $_POST['scholarship1'];
-		$scholarloan = $_POST['scholarloan'];
-		$scholarloanText = $_POST['scholarloanText'];
 		$officer = $_POST['officer'];
 		$designationO = $_POST['designationO'];
 		$emailO = $_POST['emailO'];
 		$numberO = $_POST['numberO'];
 		
-		echo $type_program."<br>";
-		echo $type_program1."<br>";
-		echo $bilateral;
-		echo $scholarship;
-		echo $scholarship1;
+		//radio buton for type of program
+		if (isset($_POST['type_program']))
+		{
+			$type_program = $_POST['type_program'];
+		} else 
+		{
+			$type_program = NULL;
+		}
+		if ($type_program != NULL)
+		{
+			if ($type_program == 'Bilateral')
+			{
+				echo $type_program;
+			} else if ($type_program == 'Scholarship')
+			{
+				echo $type_program;
+			} else if ($type_program == 'Others')
+			{
+				$programText = $_POST['programText'];
+				echo $programText;
+			}
+			else {
+				echo "You must select an answer";
+			}
+		}
+		
+		//radion button for bilateral
+		if (isset($_POST['bilateral']))
+		{
+			$bilateral = $_POST['bilateral'];
+		} else 
+		{
+			$bilateral = NULL;
+		}
+		if ($bilateral != NULL)
+		{
+			if ($bilateral == '1 Year')
+			{
+				echo $bilateral;
+			} else if ($bilateral == '1 Sem')
+			{
+				echo $bilateral;
+			} else if ($bilateral == 'Short Study Abroad')
+			{
+				echo $bilateral;
+			}
+			else
+			{
+				echo "please select Bilateral option";
+			}
+		}
+		
+		//radion button for scholarloan
+		if (isset($_POST['scholarloan']))
+		{
+			$scholarloan = $_POST['scholarloan'];
+		} else 
+		{
+			$scholarloan = NULL;
+		}
+		if ($scholarloan != NULL)
+		{
+		if ($scholarloan == 'Yes')
+		{
+			$scholarloanText = $_POST['$scholarloanText'];
+			echo $scholarloanText;
+		} else if ($scholarloan == 'No')
+		{
+			echo $scholarloan;
+		}
+		else
+		{
+			echo "Select an option";
+		}
+		}
+		
+		//radio button for scholarship
+		if (isset($_POST['scholarship']))
+		{
+			$scholarship = $_POST['scholarship'];
+		} else 
+		{
+			$scholarship = NULL;
+		}
+		if ($scholarship != NULL)
+		{
+		if ($scholarship == 'AIMS')
+		{
+			echo $scholarship;
+		} else if ($scholarship == 'SHARE')
+		{
+			echo $scholarship;
+		} else if ($scholarship == 'OTHERS')
+		{
+			$scholarshipText = $_POST['scholarshipText'];
+			echo $scholarshipText;
+		} else 
+		{
+			"Please select an option";
+		}
+		}
 		
 		//header("Location: inboundform3.php");
 		
