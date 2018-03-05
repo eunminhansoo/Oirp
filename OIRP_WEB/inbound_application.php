@@ -45,10 +45,10 @@
 		$major = $_POST['major'];
 		$yearLevel = $_POST['yearlevel'];
 		$type_program = $_POST['type_program'];
-		$type_program1 = $_POST['type_program1'];
+		$programText = $_POST['programText'];
 		$bilateral = $_POST['bilateral'];
 		$scholarship = $_POST['scholarship'];
-		$scholarship1 = $_POST['scholarship1'];
+		$scholarshipText = $_POST['scholarshipText'];
 		$scholarloan = $_POST['scholarloan'];
 		$scholarloanText = $_POST['scholarloanText'];
 		$officer = $_POST['officer'];
@@ -57,11 +57,9 @@
 		$numberO = $_POST['numberO'];
 		
 		
-		echo $type_program1."<br>";
-		echo $bilateral;
-		echo $scholarship;
-		echo $scholarship1;
-		
+		echo $programText."<br>";
+		echo $scholarshipText;
+		echo $scholarloanText;
 		//header("Location: inboundform3.php");
 		
 	}
