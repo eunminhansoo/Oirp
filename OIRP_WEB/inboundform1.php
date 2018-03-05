@@ -15,16 +15,16 @@
 		</div>
 		
 		<div class="container-fluid">
-			<div class="col-sm-3 navbar" role="navigation">
+			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
-					<li class="active"><a href="inboundform1.php">Personal Information</a></li>
-					<li class="disabled"><a href="">Proposed Field of Study</a></li>
-					<li class="disabled"><a href="">English Proficiency</a></li>
+					<li class="active"><a href="">Personal Information</a></li>
+					<li><a href="">Guardian's Information</a></li>
+					<li><a href="">Country & University</a></li>
 				</ul>
-			</div>
+			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="inboundform2.php" id="inboundform1">
+				<form method="post" action="inboundform2.php">
 					
 					<div class="form-group row">
 						<div class="col-sm-5">
@@ -105,6 +105,15 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		$(document).ready(function(){
+			var now = new Date();
+		    minDate = now.toISOString().substring(0,10);
+
+			$('#issuance').prop('max', minDate);
+
+		});
+	</script>
 </html>
 
 

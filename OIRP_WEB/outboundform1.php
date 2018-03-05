@@ -28,7 +28,7 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form method="post">
+				<form method="post" action="outboundform2.php">
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>
@@ -68,7 +68,7 @@
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
-							<p class="text_font" >country code - area code - telephone number </p>
+							<p>country code - area code - telephone number </p>
 							<input type="text" name="telephone" id="telephone" class="form-control" placeholder="ex: +63-2-406-1611">
 						</div>
 						<div class="col-sm-5">
@@ -102,4 +102,13 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		$(document).ready(function(){
+			var now = new Date();
+		    minDate = now.toISOString().substring(0,10);
+
+			$('#issuance').prop('max', minDate);
+
+		});
+	</script>
 </html>

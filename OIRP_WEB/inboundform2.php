@@ -1,5 +1,5 @@
 <?php
-	//include 'inbound_application.php';
+	include 'inbound_application.php';
 	
 	$conn = mysqli_connect("localhost", "root", "","oirp_db");
 	$db = mysqli_select_db($conn, "oirp_db");
@@ -31,16 +31,16 @@
 		</div>
 		
 		<div class="container-fluid">
-			<div class="col-sm-3 navbar" role="navigation">
+			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
-					<li class=""><a href="inboundform1.php">Personal Information</a></li>
-					<li class="active"><a href="inboundform2.php">Proposed Field of Study</a></li>
-					<li class="disabled"><a href="">English Proficiency</a></li>
+					<li class="active"><a href="">Personal Information</a></li>
+					<li><a href="">Guardian's Information</a></li>
+					<li><a href="">Country & University</a></li>
 				</ul>
-			</div>
+			</nav>
 
 			<div class="col-sm-9 container-fluid">
-				<form action="inboundform3.php">
+				<form method="post" action="inboundform3.php">
 					<div id="dropdownCU">
 						<div class="form-group row">
 							<div class="col-sm-5">
@@ -99,16 +99,19 @@
 							<label>Type of program:</label>
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="program" value="Bilateral" id="proBilateral"> Exchange through bilateral agreement
+							<input type="radio" name="type_program" value="Bilateral" id="proBilateral"> Exchange through bilateral agreement
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="program" value="Scholarship" id="proScholar"> Exchange through scholarship
+							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through scholarship
 						</div>
 						<div class="col-sm-1">
-							<input type="radio" name="program" id="proOthers"> Others: 
+							<input type="radio" name="type_program" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
-							<input type="text" name="program" id="proText" class="form-control" disabled>
+							<input type="text" name="programText" id="proText" class="form-control" disabled>
+						</div>
+						<div class="col-sm-1">
+							<input type="radio" name="type_program" value="" checked="checked" hidden> 
 						</div>
 					</div>
 					<div id="bilateralOptions">
@@ -124,6 +127,9 @@
 							</div>
 							<div class="col-sm-2">
 								<input type="radio" name="bilateral" value="Short Study Abroad"> Short Study Abroad
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
 							</div>
 						</div>
 					</div>
@@ -142,7 +148,10 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers"> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarship" id="scholarshipText" class="form-control" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" disabled>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
 							</div>
 						</div>
 					</div>
@@ -162,6 +171,9 @@
 							</div>
 							<div class="col-sm-2">
 								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" disabled>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
 							</div>
 						</div>
 					</div>	
@@ -191,7 +203,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_inform2" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>
@@ -227,7 +239,7 @@
   				});
     		}).trigger('change');				
     			
-        	$("#scholarshipOptions").hide();
+    		$("#scholarshipOptions").hide();
         	$("#bilateralOptions").hide();
         	$("#scholarloanrow").hide();
 
@@ -278,6 +290,7 @@
         	$('#scholarshipSHARE').click(function(){
         	    $("#scholarshipText").prop('disabled', true);
 			});				
+        	
 		});
 	</script>
 </html>

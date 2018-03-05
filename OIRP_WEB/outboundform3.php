@@ -27,7 +27,7 @@
 		</div>
 		
 		<div class="container-fluid">
-			<nav class="col-sm-3 sidebar">
+			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
 					<li class="active"><a href="">Personal Information</a></li>
 					<li><a href="">Guardian's Information</a></li>
@@ -41,36 +41,7 @@
 						<div class="col-sm-5">
 							<label>Chosen Country</label>
 							<select name="country" id="country" class="form-control">
-								<option value="Australia">Australia</option>
-								<option value="Bangladesh">Bangladesh</option>
-								<option value="Belgium">Belgium</option>
-								<option value="Brazil">Brazil</option>
-								<option value="Canada">Canada</option>
-								<option value="China">China</option>
-								<option value="CzechRepublic">Czech Republic</option>
-								<option value="Denmark">Denmark</option>
-								<option value="France">France</option>
-								<option value="Germany">Germany</option>
-								<option value="HongKong">Hong Kong S.A.R.</option>
-								<option value="India">India</option>
-								<option value="Italy">Italy</option>
-								<option value="Japan">Japan</option>
-								<option value="Macau">Macau S.A.R.</option>
-								<option value="Malaysia">Malaysia</option>
-								<option value="Mexico">Mexico</option>
-								<option value="NewZealand">New Zealand</option>
-								<option value="Poland">Poland</option>
-								<option value="Singapore">Singapore</option>
-								<option value="SouthKorea">South Korea</option>
-								<option value="Spain">Spain</option>
-								<option value="Sweden">Sweden</option>
-								<option value="Taiwan">Taiwan</option>
-								<option value="Thailand">Thailand</option>
-								<option value="Ukraine">Ukraine</option>
-								<option value="UK">United Kingdom</option>
-								<option value="USA">United States of America</option>
-								<option value="Vietnam">Vietnam</option>
-
+						
 							</select>
 						</div>
 						<div class="col-sm-5">
@@ -125,8 +96,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="button" class="btn btn-primary">Previous</button>
-							<button class="btn btn-primary">Save</button>
-							<input type="submit" name="btn_from3" class="btn btn-primary" value="Submit">
+							<input type="submit" name="btn_from3" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>

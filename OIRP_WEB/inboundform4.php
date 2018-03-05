@@ -15,16 +15,16 @@
 		</div>
 		
 		<div class="container-fluid">
-			<nav class="col-sm-3 sidebar navbar " role="navigation">
-				<ul class="nav navbar-nav">
-					<li class=""><a href="inboundform1.php">Personal Information</a></li>
-					<li class=""><a href="inboundform2.php">Proposed Field of Study</a></li>
-					<li class="active"><a href="inboundform3.php">English Proficiency</a></li>
+			<nav class="col-sm-2 sidebar">
+				<ul class="nav nav-stacked">
+					<li class="active"><a href="">Personal Information</a></li>
+					<li><a href="">Guardian's Information</a></li>
+					<li><a href="">Country & University</a></li>
 				</ul>
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form action="inboundform5.php">
+				<form method="post" action="inboundform5.php">
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Have you completed a TOEFL/ELTS test or equivalent in the last twelve months?</label>

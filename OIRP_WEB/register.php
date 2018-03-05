@@ -39,7 +39,7 @@
 						</select>
 					</div>
 					<div class="form-group no_space_betweem">					
-						<input type="date" name="birthday" class="form-control" required/>
+						<input type="date" name="birthday" id="birthday" class="form-control" required/>
 					</div>
 	        		<div class="form-group no_space_betweem">					
 						<input type="text" name="birthplace" class="form-control" placeholder="Enter your Birthplace (Country)" required/>
@@ -57,4 +57,13 @@
 			</div>
 		</form>
 	</body>
+	<script>
+		$(document).ready(function(){
+			var now = new Date();
+		    minDate = now.toISOString().substring(0,10);
+
+			$('#birthday').prop('max', minDate);
+
+		});
+	</script>
 </html>	
