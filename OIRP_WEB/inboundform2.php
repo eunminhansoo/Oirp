@@ -40,7 +40,7 @@
 			</nav>
 
 			<div class="col-sm-9 container-fluid">
-				<form method="post">
+				<form method="post" action="inboundform3.php">
 					<div id="dropdownCU">
 						<div class="form-group row">
 							<div class="col-sm-5">
