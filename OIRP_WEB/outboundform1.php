@@ -19,7 +19,7 @@
 		</div>
 		
 		<div class="container-fluid">
-			<nav class="col-sm-3 sidebar">
+			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
 					<li class="active"><a href="">Personal Information</a></li>
 					<li><a href="">Guardian's Information</a></li>
@@ -94,7 +94,6 @@
 					
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
-							<button type="button" class="btn btn-primary disabled">Previous</button>
 							<input type="submit" name="btn_outbound1_1" class="btn btn-primary" value="Next">
 						</div>
 					</div>

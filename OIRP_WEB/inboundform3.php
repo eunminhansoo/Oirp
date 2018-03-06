@@ -82,15 +82,15 @@
 					</div>
 					
 					<div class="form-group row">
-						<div class="col-sm-2">
+						<div class="col-sm-3">
 							<label>Semester to Study</label>
 							<select name="sem" class="form-control">
-								<option value="1st Semester">1st Semester</option>
-								<option value="2nd Semester">2nd Semester</option>
-								<option value="Special Semester">Special Semester</option>
+								<option value="1st Semester">1st Semester (August to December)</option>
+								<option value="2nd Semester">2nd Semester (January to May)</option>
+								<option value="Special Semester">Special Semester (June to July)</option>
 							</select>
 						</div>
-						<div class="col-sm-8">
+						<div class="col-sm-7">
 							<label>Research Topic</label>
 							<input type="text" name="research" id="research" class="form-control">
 						</div>
@@ -119,7 +119,7 @@
 					
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
-							<button type="button" class="btn btn-primary">Previous</button>
+							<button type="submit" class="btn btn-primary" formaction="inboundform2.php">Previous</button>
 							<input type="submit" class="btn btn-primary" value="Next">
 						</div>
 					</div>

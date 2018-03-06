@@ -38,6 +38,89 @@
 			<div class="col-sm-9 container-fluid">
 				<form method="post">
 					<div class="form-group row">
+						<div class="col-sm-2">
+							<label>Type of program:</label>
+						</div>
+						<div class="col-sm-2">
+							<input type="radio" name="type_program" value="Bilateral" id="proBilateral"> Exchange through bilateral agreement
+						</div>
+						<div class="col-sm-2">
+							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through scholarship
+						</div>
+						<div class="col-sm-1">
+							<input type="radio" name="type_program" id="proOthers"> Others: 
+						</div>
+						<div class="col-sm-3">
+							<input type="text" name="programText" id="proText" class="form-control" disabled>
+						</div>
+						<div class="col-sm-1">
+							<input type="radio" name="type_program" value="" checked="checked" hidden> 
+						</div>
+					</div>
+					<div id="bilateralOptions">
+						<div class="form-group row">
+							<div class="col-sm-2">
+								<label>Bilateral Options:</label>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="bilateral" value="1 Year"> 1 year
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="bilateral" value="1 Sem"> 1 sem
+							</div>
+							<div class="col-sm-2">
+								<input type="radio" name="bilateral" value="Short Study Abroad"> Short Study Abroad
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
+							</div>
+						</div>
+					</div>
+					<div id="scholarshipOptions">	
+						<div class="form-group row">
+							<div class="col-sm-2">
+								<label>Scholarship:</label>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarship" id="scholarshipAIMS" value="AIMS"> AIMS
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarship" id="scholarshipSHARE" value="SHARE"> SHARE
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarship" id="scholarshipOthers"> Others: 
+							</div>
+							<div class="col-sm-2">
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" disabled>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div id="scholarloanrow">
+							<div class="col-sm-4">
+								<label>Are you a recepient of scholarship or loan?: </label>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan" id="scholarloanYes" value="Yes"> Yes
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan" id="scholarloanNo" value="No"> No
+							</div>
+							<div class="col-sm-1">
+								Please specify: 
+							</div>
+							<div class="col-sm-2">
+								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" disabled>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Chosen Country</label>
 							<select name="country" id="country" class="form-control">
@@ -95,8 +178,9 @@
 					
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
-							<button type="button" class="btn btn-primary">Previous</button>
-							<input type="submit" name="btn_from3" class="btn btn-primary" value="Next">
+							<button type="submit" class="btn btn-primary" formaction="outboundform2.php">Previous</button>
+							<input type="submit" name="btn_from3" class="btn btn-primary" value="Save">
+							<input type="submit" name="btn_from3" class="btn btn-primary" value="Submit">
 						</div>
 					</div>
 				</form>
@@ -125,7 +209,59 @@
 			            alert("error");
 			        }
 				});
-			}).trigger('change');				
+			}).trigger('change');	
+
+			$("#scholarshipOptions").hide();
+        	$("#bilateralOptions").hide();
+        	$("#scholarloanrow").hide();
+
+        	$('#proScholar').click(function(){
+	            $("#scholarshipOptions").show();
+	            $("#bilateralOptions").hide();
+	            $("#scholarloanrow").hide();
+	            $("#proText").prop('disabled', true);
+            });	
+
+        	$('#proBilateral').click(function(){
+            	$("#bilateralOptions").show();
+                $("#scholarshipOptions").hide();
+                $("#scholarloanrow").show();
+                $("#proText").prop('disabled', true);
+            });	
+
+        	$('#proShort').click(function(){
+            	$("#bilateralOptions").hide();
+                $("#scholarshipOptions").hide();
+                $("#scholarloanrow").show();
+                $("#proText").prop('disabled', true);
+            });
+
+        	$('#proOthers').click(function(){
+        		$("#bilateralOptions").hide();
+                $("#scholarshipOptions").hide();
+                $("#scholarloanrow").show();
+        		$("#proText").prop('disabled', false);
+        	});
+
+        	$('#scholarloanYes').click(function(){
+        	    $("#scholarloanText").prop('disabled', false);
+			});
+
+        	$('#scholarloanNo').click(function(){
+        	    $("#scholarloanText").prop('disabled', true);
+			});
+            
+        	$('#scholarshipOthers').click(function(){
+        	    $("#scholarshipText").prop('disabled', false);
+			});
+
+        	$('#scholarshipAIMS').click(function(){
+        	    $("#scholarshipText").prop('disabled', true);
+			});
+
+        	$('#scholarshipSHARE').click(function(){
+        	    $("#scholarshipText").prop('disabled', true);
+			});			
 		});
 	</script>
 </html>

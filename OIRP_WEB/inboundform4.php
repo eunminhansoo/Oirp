@@ -90,7 +90,7 @@
 					
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
-							<button class="btn btn-primary">Previous</button>
+							<button type="submit" class="btn btn-primary" formaction="inboundform3.php">Previous</button>
 							<input type="submit" class="btn btn-primary" value="Next">
 						</div>
 					</div>
