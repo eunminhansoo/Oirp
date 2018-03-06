@@ -101,7 +101,7 @@
 					<div class="form-group row">
 						<div id="scholarloanrow">
 							<div class="col-sm-4">
-								<label>Are you a recepient of scholarship or loan?: </label>
+								<label>Are you a recipient of scholarship or loan?: </label>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" id="scholarloanYes" value="Yes"> Yes

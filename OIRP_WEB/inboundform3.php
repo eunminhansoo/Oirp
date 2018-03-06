@@ -41,7 +41,7 @@
 
 			<div class="col-sm-9 container-fluid">
 				<form method="post" action="inboundform4.php">
-					<div class="form-group row break">
+					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Proposed Program</label>
 							<input type="text" name="proposedProg" id="proposedProg" class="form-control">

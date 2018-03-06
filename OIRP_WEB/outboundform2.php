@@ -74,7 +74,7 @@
 						</div>
 					</div>
 					
-					<div class="form-group row">
+					<div class="form-group row break">
 						<div class="col-sm-10">
 							<label>Mother's Name</label>
 							<input type="text" name="mother" id="mother" class="form-control">
