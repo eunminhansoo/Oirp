@@ -40,7 +40,7 @@
 			</nav>
 
 			<div class="col-sm-9 container-fluid">
-				<form method="post" action="inboundform3.php">
+				<form method="post">
 					<div id="dropdownCU">
 						<div class="form-group row">
 							<div class="col-sm-5">
@@ -105,7 +105,7 @@
 							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through scholarship
 						</div>
 						<div class="col-sm-1">
-							<input type="radio" name="type_program" id="proOthers"> Others: 
+							<input type="radio" name="type_program" value="Others" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
 							<input type="text" name="programText" id="proText" class="form-control" disabled>
@@ -145,7 +145,7 @@
 								<input type="radio" name="scholarship" id="scholarshipSHARE" value="SHARE"> SHARE
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="scholarship" id="scholarshipOthers"> Others: 
+								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS"> Others: 
 							</div>
 							<div class="col-sm-2">
 								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" disabled>
