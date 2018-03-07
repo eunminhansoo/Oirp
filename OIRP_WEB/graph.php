@@ -7,15 +7,17 @@
     $getquery = mysqli_fetch_all($query, MYSQLI_ASSOC);
     $getquery = json_encode(array_column($getquery, 'count'), JSON_NUMERIC_CHECK);
 
-
+    $rows=array();
     $syntax_query1 = "SELECT NUMBER_STUDENT FROM all_student_applicant";
     $query1 = mysqli_query($conn1, $syntax_query1);
     while($row = mysqli_fetch_array($query1))
     {
         $student_num = $row['NUMBER_STUDENT'];
-    
-        echo $student_num;
+        
+        array_push($rows, $student_num);
     }
+        $num = json_encode($rows, JSON_NUMERIC_CHECK);
+        echo $num;  
 ?>
 <html>
     <head>
@@ -31,8 +33,6 @@
         <!--<div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>-->
     </body>
     <script>
-    $(document).ready(function(){
-
         Highcharts.chart('graph', {
             chart: {
                 plotBackgroundColor: null,
@@ -85,6 +85,5 @@
                 }]
             }]
         });
-    }
     </script>
 </html>

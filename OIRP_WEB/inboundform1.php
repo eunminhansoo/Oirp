@@ -1,3 +1,6 @@
+<?php
+	include 'inbound_application.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,10 +25,8 @@
 					<li><a href="">Country & University</a></li>
 				</ul>
 			</nav>
-			
 			<div class="col-sm-9 container-fluid">
-				<form method="post" action="inboundform2.php">
-					
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>

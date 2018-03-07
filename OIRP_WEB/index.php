@@ -42,6 +42,7 @@
 				<div class="white">
 					Login
 				</div>
+				<?php echo $error_message?>
 				<br>
 				<form action="#">
 					<div class="form-group">

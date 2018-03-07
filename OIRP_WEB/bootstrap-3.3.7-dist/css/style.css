@@ -54,3 +54,12 @@ li a:hover {
 .col-left-offset-1{
 	margin-left: 50%;
 }
+.resize{
+    height: auto;
+    width: 46%;
+}
+.text{
+    font-family: Lucida Sans;
+    font-size: 50px;
+    color: #CD6155
+}
