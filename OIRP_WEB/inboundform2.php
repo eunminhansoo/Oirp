@@ -40,7 +40,7 @@
 			</nav>
 
 			<div class="col-sm-9 container-fluid">
-				<form method="post">
+				<form method="post" action="inboundform3.php">
 					<div id="dropdownCU">
 						<div class="form-group row">
 							<div class="col-sm-5">
@@ -158,7 +158,7 @@
 					<div class="form-group row">
 						<div id="scholarloanrow">
 							<div class="col-sm-4">
-								<label>Are you a recepient of scholarship or loan?: </label>
+								<label>Are you a recipient of scholarship or loan?: </label>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" id="scholarloanYes" value="Yes" disabled> Yes
@@ -178,7 +178,7 @@
 						</div>
 					</div>	
 									
-					<div class="form-group row">
+					<div class="form-group row break">
 						<div class="col-sm-6">
 							<label>Officer to Contact</label>
 							<input type="text" name="officer" id="officer" class="form-control">
@@ -202,7 +202,7 @@
 					
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
-							<button type="button" class="btn btn-primary">Previous</button>
+							<button type="submit" class="btn btn-primary" formaction="inboundform1.php">Previous</button>
 							<input type="submit" name="btn_inform2" class="btn btn-primary" value="Next">
 						</div>
 					</div>

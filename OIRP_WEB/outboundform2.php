@@ -18,7 +18,7 @@
 		</div>
 		
 		<div class="container-fluid">
-			<nav class="col-sm-3 sidebar">
+			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
 					<li class="active"><a href="">Personal Information</a></li>
 					<li><a href="">Guardian's Information</a></li>
@@ -74,7 +74,7 @@
 						</div>
 					</div>
 					
-					<div class="form-group row">
+					<div class="form-group row break">
 						<div class="col-sm-10">
 							<label>Mother's Name</label>
 							<input type="text" name="mother" id="mother" class="form-control">
@@ -123,7 +123,7 @@
 					
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
-							<button type="button" class="btn btn-primary">Previous</button>
+							<button type="submit" class="btn btn-primary" formaction="outboundform1.php">Previous</button>
 							<input type="submit" name="btn_form2" class="btn btn-primary" value="Next">
 						</div>
 					</div>
