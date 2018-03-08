@@ -1,3 +1,6 @@
+<?php
+	include 'inbound_application.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,18 +27,18 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form method="post" action="#">
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Expectations from the Program (express in 1000 characters or less)</label>
-							<textarea rows="5" cols="75" maxLength="1000" class="form-control"></textarea>
+							<textarea rows="5" cols="75" name="expectation_area" maxLength="1000" class="form-control"></textarea>
 						</div>
 					</div>
 					
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary" formaction="inboundform4.php">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name= "btn_form5" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>

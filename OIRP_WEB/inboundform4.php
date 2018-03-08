@@ -1,3 +1,7 @@
+<?php
+
+	include 'inbound_application.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,7 +28,7 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form method="post" action="inboundform5.php">
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Have you completed a TOEFL/ELTS test or equivalent in the last twelve months?</label>
@@ -91,7 +95,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary" formaction="inboundform3.php">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_form4" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>

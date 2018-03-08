@@ -1,10 +1,6 @@
 <?php
 	include 'inbound_application.php';
-	
-	$conn = mysqli_connect("localhost", "root", "","oirp_db");
-	$db = mysqli_select_db($conn, "oirp_db");
 	error_reporting(0);
-	
 	$sql = "select distinct country from partner_universities order by country asc";
 	$result = mysqli_query($conn, $sql);
 	
@@ -12,6 +8,7 @@
 	while($row = mysqli_fetch_array($result)) {
 		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
 	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +37,7 @@
 			</nav>
 
 			<div class="col-sm-9 container-fluid">
-				<form method="post" action="inboundform3.php">
+				<form method="post">
 					<div id="dropdownCU">
 						<div class="form-group row">
 							<div class="col-sm-5">
@@ -60,18 +57,6 @@
 							<div class="col-sm-10">
 								<p>Country of origin or home university not available? Click <a href="#" id="toTextCU">here</a>.</p>
 							</div>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div id="textCU">
-							<div class="col-sm-5">
-								<label>Country of Origin</label>
-								<input type="text" name="country" id="country" class="form-control">
-							</div>
-							<div class="col-sm-5">
-								<label>Home University</label>
-								<input type="text" name="homeUniversity" id="homeUniversity" class="form-control">
-							</div>				
 						</div>
 					</div>	
 					<div class="form-group row">
@@ -148,7 +133,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" value="" class="form-control" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
@@ -170,7 +155,7 @@
 								Please specify: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" disabled>
+								<input type="text" name="scholarloanText" id="scholarloanText" value="" class="form-control" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
@@ -213,6 +198,26 @@
 	<script>
 
         $(document).ready(function(){ 
+            var val = "<?php echo $res ?>";
+
+	   		$("#country").empty().append(val);
+			
+			$("#country").change(function(){
+			    $.ajax({
+				    type: "POST",
+			        url: "universities.php",   
+			        data: {
+				        country: $("#country").val(),
+			       	},
+			        success: function(e) {
+				        $('#homeUniversity').empty();
+			            $('#homeUniversity').append(e);
+			        },
+			        error: function(response) {
+			            alert("error");
+			        }
+				});
+			}).trigger('change');				
 
             $("#textCU").hide();
             	
@@ -221,25 +226,6 @@
     			$("#textCU").show();
             });
 
-            var val = "<?php echo $res ?>";
-            $("#country").empty().append(val);
-    				
-    		$("#country").change(function(){
-    			$.ajax({
-    				type: "POST",
-    			    url: "universities.php",   
-    			    data: {
-    			    	country: $("#country").val(),
-    			    },
-    			    success: function(e) {
-    				    $('#homeUniversity').empty();
-    			        $('#homeUniversity').append(e);
-   				    },
-   				   	error: function(response) {
-   				        alert("error");
-   				    }
-  				});
-    		}).trigger('change');				
     			
     		$("#scholarshipOptions").hide();
         	$("#bilateralOptions").hide();
@@ -302,6 +288,8 @@
 					$("#1year").prop('disabled', false);
 					$("#1sem").prop('disabled', false);
 					$("#shortStudy").prop('disabled', false);
+					$("#scholarloanYes").prop('disabled', false);
+					$("#scholarloanNo").prop('disabled', false);
 				});		
 			});
 			$(document).ready(function(){
