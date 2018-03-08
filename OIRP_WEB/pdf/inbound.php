@@ -5,7 +5,7 @@ require('fpdf/fpdf.php');
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
 
-$studentno = "20180217001-outbound";
+$studentno = '20180308003-in';
 
 $sql = "select family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
 $result = $conn->query($sql);
@@ -20,6 +20,17 @@ while ($row = $result->fetch_array()){
 	$birthplace = $row['birthplace'];
 }
 
+$sql = "select citizenship_in,nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$nationality_in = $row['nationality_in'];
+	$passport_num_in = $row['passport_num_in'];
+	$validity_date_in = $row['validity_date_in'];
+	$mailing_add_in = $row['mailing_add_in'];
+	$telephone_num_in = $row['telephone_num_in'];
+	$mobile_num_in = $row['mobile_num_in'];
+}
 
 
 

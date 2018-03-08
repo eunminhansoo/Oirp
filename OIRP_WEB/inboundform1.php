@@ -70,7 +70,7 @@
 					
 					<div class="form-group row break">
 						<div class="col-sm-6">
-							<label>Person to Contact</label>
+							<label>Person to Contact (in case of emergency)</label>
 							<input type="text" name="contactperson" id="contactperson" class="form-control">
 						</div>
 						<div class="col-sm-4">
