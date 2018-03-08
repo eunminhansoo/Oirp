@@ -1,8 +1,5 @@
 <?php
-	//include 'inbound_application.php';
-	
-	$conn = mysqli_connect("localhost", "root", "","oirp_db");
-	$db = mysqli_select_db($conn, "oirp_db");
+	include 'inbound_application.php';
 	error_reporting(0);
 	
 	$sql = "select distinct country from partner_universities order by country asc";
@@ -40,7 +37,7 @@
 			</nav>
 
 			<div class="col-sm-9 container-fluid">
-				<form method="post" action="inboundform4.php">
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Proposed Program</label>
@@ -120,7 +117,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary" formaction="inboundform2.php">Previous</button>
-							<input type="submit" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_form3" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>

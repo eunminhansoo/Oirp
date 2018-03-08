@@ -80,190 +80,349 @@
 		$designationO = $_POST['designationO'];
 		$emailO = $_POST['emailO'];
 		$numberO = $_POST['numberO'];
-		$scholarloan = $_POST['scholarloan'];
-		$bilateral = $_POST['bilateral'];
-		$type_program = $_POST['type_program'];
-		$programText = $_POST['programText'];
+
 		$sql_syn = "SELECT * FROM partner_universities WHERE ID = '$homeUniversity' AND COUNTRY = '$country' ";
 		$query1 = mysqli_query($conn, $sql_syn);
 		while($rows1 = mysqli_fetch_array($query1)){
 			$get_univ = $rows1['UNIVERSITY'];	
 		}
+		// echo $country."<br>";
+		// echo $homeUniversity."<br>";
+		// echo $get_univ;
 
-		//condition
-		if(type_program == "Others")
+		//radio buton for type of program
+		if (isset($_POST['type_program']))
 		{
-			$sql_query = "INSERT INTO educ_background_inbound(
-				STUDENT_COUNT,
-		 		STUDENT_ID,
-				COUNTRY_ORIGIN,
-		 		HOME_UNIV_IN_BILA,
-		 		UNIV_ADD_IN_BILA,
-		 		NAME_OFFICER_CONTACT_IN_BILA,
-		 		EMAIL_ADD_IN_BILA,
-		 		CURRENT_PROG_STUDY_IN_BILA,
-		 		DESIGNATION_IN_BILA,
-		 		TELEPHONE_NUM_BILA,
-		 		SPECIALIZATION_IN_BILA,
-		 		YEAR_LEVEL,
-		 		SCHOLARSHIP_IN_BILA,
-		 		APPLICATION_FORM,
-				APPLICATION_TYPE_PROG	
-			) VALUES (
-				'',
-				'$getSes_studentID',
-				'$country',
-				'$get_univ',
-				'$univAddress',
-				'$officer',
-				'$emailO'
-			)";
+			$type_program = $_POST['type_program'];
+		} else 
+		{
+			$type_program = NULL;
 		}
-		// //radio buton for type of program
-		// if (isset($_POST['type_program']))
-		// {
-		// 	$type_program = $_POST['type_program'];
-		// } else 
-		// {
-		// 	$type_program = NULL;
-		// }
-		// if ($type_program != NULL)
-		// {
-		// 	if ($type_program == 'Bilateral')
-		// 	{
-		// 		mysqli_query($conn, "INSERT INTO educ_background_inbound(
-		// 		STUDENT_COUNT,
-		// 		STUDENT_ID,
-		// 		COUNTRY_ORIGIN,
-		// 		HOME_UNIV_IN_BILA,
-		// 		UNIV_ADD_IN_BILA,
-		// 		NAME_OFFICER_CONTACT_IN_BILA,
-		// 		EMAIL_ADD_IN_BILA,
-		// 		CURRENT_PROG_STUDY_IN_BILA,
-		// 		DESIGNATION_IN_BILA,
-		// 		TELEPHONE_NUM_BILA,
-		// 		SPECIALIZATION_IN_BILA,
-		// 		YEAR_STUDY,
-		// 		YEAR_LEVEL,
-		// 		SCHOLARSHIP_IN_BILA,
-		// 		AGREEMENT_IN_BILA,
-		// 		YEAR_SIGNED_IN_BILA,
-		// 		YEAR_RENEWED,
-		// 		APPLICATION_FORM,
-		// 		APPLICATION_TYPE_PROG	
-		// 		) VALUES (
-		// 		'',
-		// 		'$getSes_studentID',
-		// 		'$country',
-		// 		'$homeUniversity',
-		// 		'$univAddress',
-		// 		'$officer',
-		// 		'$emailO',
-		// 		'$program',
-		// 		'$designationO',
-		// 		'$numberO',
-		// 		'$major',
-		// 		'',
-		// 		'$yearLevel',
-		// 		'$scholarloan',
-		// 		'',
-		// 		'',
-		// 		'',
-		// 		'$bilateral',
-		// 		'$type_program'
-		// 		)");
-		// 		echo $type_program;
-		// 	} else if ($type_program == 'Scholarship')
-		// 	{
-		// 		echo $type_program;
-		// 	} else if ($type_program == 'Others')
-		// 	{
-		// 		$programText = $_POST['programText'];
-		// 		echo $programText;
-		// 	}
-		// 	else {
-		// 		echo "You must select an answer";
-		// 	}
-		// }
+		if ($type_program != NULL)
+		{
+			//condition
+			if($type_program == "Others")
+			{
+				$programText = $_POST['programText'];
+				$prog_other = 'Bilateral';
+
+				if(isset($_POST['scholarloan'])){
+					$scholarloan = $_POST['scholarloan'];
+
+					if($scholarloan == 'Yes'){
+						$scholarloanText = $_POST['scholarloanText'];
+						
+					}else{
+						$scholarloanText = '';
+					}
+				}
+				$sql_query = "INSERT INTO educ_background_inbound(
+					STUDENT_COUNT,
+					STUDENT_ID,
+					COUNTRY_ORIGIN,
+					HOME_UNIV_IN_BILA,
+					UNIV_ADD_IN_BILA,
+					NAME_OFFICER_CONTACT_IN_BILA,
+					EMAIL_ADD_IN_BILA,
+					CURRENT_PROG_STUDY_IN_BILA,
+					DESIGNATION_IN_BILA,
+					TELEPHONE_NUM_BILA,
+					SPECIALIZATION_IN_BILA,
+					YEAR_LEVEL,
+					SCHOLARSHIP_IN_BILA,
+					SCHOLARSHIP_TEXT_IN_BILA,
+					APPLICATION_FORM,
+					APPLICATION_TYPE_PROG
+				) VALUES (
+					'',
+					'$getSes_studentID',
+					'$country',
+					'$get_univ',
+					'$univAddress',
+					'$officer',
+					'$emailO ',
+					'$program',
+					'$designationO',
+					'$numberO',
+					'$major',
+					'$yearLevel',
+					'$scholarloan',
+					'$scholarloanText',
+					'$programText',
+					'$prog_other'
+				)";
+			}
+
+			if($type_program == "Bilateral")
+			{
+				$bilateral = $_POST['bilateral'];
+
+				if(isset($_POST['scholarloan'])){
+
+					$scholarloan = $_POST['scholarloan'];
+
+					if($scholarloan == 'Yes'){
+
+						$scholarloanText = $_POST['scholarloanText'];
+						
+					}else{
+						$scholarloanText = '';
+					}
+				}
+				$sql_query = "INSERT INTO educ_background_inbound(
+					STUDENT_COUNT,
+					STUDENT_ID,
+					COUNTRY_ORIGIN,
+					HOME_UNIV_IN_BILA,
+					UNIV_ADD_IN_BILA,
+					NAME_OFFICER_CONTACT_IN_BILA,
+					EMAIL_ADD_IN_BILA,
+					CURRENT_PROG_STUDY_IN_BILA,
+					DESIGNATION_IN_BILA,
+					TELEPHONE_NUM_BILA,
+					SPECIALIZATION_IN_BILA,
+					YEAR_LEVEL,
+					SCHOLARSHIP_IN_BILA,
+					SCHOLARSHIP_TEXT_IN_BILA,
+					APPLICATION_FORM,
+					APPLICATION_TYPE_PROG	
+				) VALUES (
+					'',
+					'$getSes_studentID',
+					'$country',
+					'$get_univ',
+					'$univAddress',
+					'$officer',
+					'$emailO',
+					'$program',
+					'$designationO',
+					'$numberO',
+					'$major',
+					'$yearLevel',
+					'$scholarloan',
+					'$scholarloanText',
+					'$bilateral',
+					'$type_program'
+				)";
+			}
+
+			if($type_program == "Scholarship")
+			{
+				$scholarship = $_POST['scholarship'];
+
+				if($scholarship == "OTHERS")
+				{
+					$scholarshipText = $_POST['scholarshipText'];
+					$sql_query = "INSERT INTO educ_background_inbound(
+						STUDENT_COUNT,
+						STUDENT_ID,
+						COUNTRY_ORIGIN,
+						HOME_UNIV_IN_BILA,
+						UNIV_ADD_IN_BILA,
+						NAME_OFFICER_CONTACT_IN_BILA,
+						EMAIL_ADD_IN_BILA,
+						CURRENT_PROG_STUDY_IN_BILA,
+						DESIGNATION_IN_BILA,
+						TELEPHONE_NUM_BILA,
+						SPECIALIZATION_IN_BILA,
+						YEAR_LEVEL,
+						SCHOLARSHIP_IN_BILA,
+						SCHOLARSHIP_TEXT_IN_BILA,
+						APPLICATION_FORM,
+						APPLICATION_TYPE_PROG	
+					) VALUES (
+						'',
+						'$getSes_studentID',
+						'$country',
+						'$get_univ',
+						'$univAddress',
+						'$officer',
+						'$emailO',
+						'$program',
+						'$designationO',
+						'$numberO',
+						'$major',
+						'$yearLevel',
+						'',
+						'',
+						'$scholarshipText',
+						'$type_program'
+					)";
+				}else{
+					$scholarshipText = '';
+					$sql_query = "INSERT INTO educ_background_inbound(
+						STUDENT_COUNT,
+						STUDENT_ID,
+						COUNTRY_ORIGIN,
+						HOME_UNIV_IN_BILA,
+						UNIV_ADD_IN_BILA,
+						NAME_OFFICER_CONTACT_IN_BILA,
+						EMAIL_ADD_IN_BILA,
+						CURRENT_PROG_STUDY_IN_BILA,
+						DESIGNATION_IN_BILA,
+						TELEPHONE_NUM_BILA,
+						SPECIALIZATION_IN_BILA,
+						YEAR_LEVEL,
+						SCHOLARSHIP_IN_BILA,
+						SCHOLARSHIP_TEXT_IN_BILA,
+						APPLICATION_FORM,
+						APPLICATION_TYPE_PROG	
+					) VALUES (
+						'',
+						'$getSes_studentID',
+						'$country',
+						'$get_univ',
+						'$univAddress',
+						'$officer',
+						'$emailO',
+						'$program',
+						'$designationO',
+						'$numberO',
+						'$major',
+						'$yearLevel',
+						'',
+						'',
+						'$scholarship',
+						'$type_program'
+					)";
+				}
+			}
+			
+			$query_db = mysqli_query($conn, $sql_query);
+
+			if($query_db)
+			{
+				// echo 'success';
+				header("Location: inboundform3.php");
+			}else{
+				header("Location: error_page.php");
+			}
+			
+			
+		}
 		
-		// //radion button for bilateral
-		// if (isset($_POST['bilateral']))
-		// {
-		// 	$bilateral = $_POST['bilateral'];
-		// } else 
-		// {
-		// 	$bilateral = NULL;
-		// }
-		// if ($bilateral != NULL)
-		// {
-		// 	if ($bilateral == '1 Year')
-		// 	{
-		// 		echo $bilateral;
-		// 	} else if ($bilateral == '1 Sem')
-		// 	{
-		// 		echo $bilateral;
-		// 	} else if ($bilateral == 'Short Study Abroad')
-		// 	{
-		// 		echo $bilateral;
-		// 	}
-		// 	else
-		// 	{
-		// 		echo "please select Bilateral option";
-		// 	}
-		// }
-		
-		// //radion button for scholarloan
-		// if (isset($_POST['scholarloan']))
-		// {
-		// 	$scholarloan = $_POST['scholarloan'];
-		// } else 
-		// {
-		// 	$scholarloan = NULL;
-		// }
-		// if ($scholarloan != NULL)
-		// {
-		// if ($scholarloan == 'Yes')
-		// {
-		// 	$scholarloanText = $_POST['$scholarloanText'];
-		// 	echo $scholarloanText;
-		// } else if ($scholarloan == 'No')
-		// {
-		// 	echo $scholarloan;
-		// }
-		// else
-		// {
-		// 	echo "Select an option";
-		// }
-		// }
-		
-		// //radio button for scholarship
-		// if (isset($_POST['scholarship']))
-		// {
-		// 	$scholarship = $_POST['scholarship'];
-		// } else 
-		// {
-		// 	$scholarship = NULL;
-		// }
-		// if ($scholarship != NULL)
-		// {
-		// if ($scholarship == 'AIMS')
-		// {
-		// 	echo $scholarship;
-		// } else if ($scholarship == 'SHARE')
-		// {
-		// 	echo $scholarship;
-		// } else if ($scholarship == 'OTHERS')
-		// {
-		// 	$scholarshipText = $_POST['scholarshipText'];
-		// 	echo $scholarshipText;
-		// } else 
-		// {
-		// 	"Please select an option";
-		// }
-		// }
-		
-		// //header("Location: inboundform3.php");
-		
+	}
+
+	// for inboundform3
+	if(isset($_POST['btn_form3']))
+	{
+		$proposedProg = $_POST['proposedProg'];
+		$course1 = $_POST['course1'];
+		$course2 = $_POST['course2'];
+		$course3 = $_POST['course3'];
+		$course4 = $_POST['course4'];
+		$course5 = $_POST['course5'];
+		$sem = $_POST['sem'];
+		$research = $_POST['research'];
+		$reason = $_POST['reason'];
+		$disciplinary = $_POST['disciplinary'];
+		$accomodation = $_POST['accomodation'];
+
+		$sql_query = "INSERT INTO proposed_field_study_in_bila(
+			STUDENT_COUNT,
+			STUDENT_ID,
+			PROPOSED_PROG_INBOUND,
+			COURSE_1_INBOUND,
+			COURSE_2_INBOUND,
+			COURSE_3_INBOUND,
+			COURSE_4_INBOUND,
+			COURSE_5_INBOUND,
+			RESEARCH_TOPIC_INBOUND,
+			INTENDED_SEM_STUDY_INBOUND,
+			DESCRIPTION_ACTION_STATUS_INBOUND,
+			REASON_STUDYING_INBOUND,
+			ACCOMODATION_INBOUND
+		) VALUES (
+			'',
+			'$getSes_studentID',
+			'$proposedProg',
+			'$course1',
+			'$course2',
+			'$course3',
+			'$course4',
+			'$course5',
+			'$sem',
+			'$research',
+			'$reason',
+			'$disciplinary',
+			'$accomodation'
+		)";
+		$query_db = mysqli_query($conn, $sql_query);
+
+		if($query_db)
+		{
+			// echo 'success';
+			header("Location: inboundform4.php");
+		}else{
+			header("Location: error_page.php");
+		}
+	}
+
+	// for inboundform4
+	if(isset($_POST['btn_form4']))
+	{
+		$toeflTest = $_POST['toeflTest'];
+		$toeflScore = $_POST['toeflScore'];
+		$toeflFuture = $_POST['toeflFuture'];
+		$toeflDate = $_POST['toeflDate'];
+		$smoker = $_POST['smoker'];
+		$disabilities = $_POST['disabilities'];
+		$illness = $_POST['illness'];
+
+		$sql_query = "INSERT INTO medical_english_inbound(
+			STUDENT_COUNT,
+			STUDENT_ID,
+			DO_YOU_SMOKE_INBOUND,
+			DESCRIBE_DISABILI_INBOUND,
+			DESCRIBE_ILL_INBOUND,
+			COMPLETE_TOEF_INBOUND,
+			COMPLETE_TOEF_SCORE_INBOUND,
+			INTED_TAKE_TOEF_INBOUND,
+			INTED_TAKE_TOEF_DATE_INBOUND
+		) VALUES(
+			'',
+			'$getSes_studentID',
+			'$smoker',
+			'$disabilities',
+			'$illness',
+			'$toeflTest',
+			'$toeflScore',
+			'$toeflFuture',
+			'$toeflDate'
+		)";
+		$query_db = mysqli_query($conn, $sql_query);
+
+		if($query_db)
+		{
+			// echo 'success';
+			header("Location: inboundform5.php");
+		}else{
+			header("Location: error_page.php");
+		}
+	}
+
+	if(isset($_POST['btn_form5']))
+	{
+		$expectation_area = $_POST['expectation_area'];
+
+		$sql_query = "INSERT INTO expectation_prog_inbound(
+			STUDENT_COUNT,
+			STUDENT_ID,
+			EXPECTATION_PROG
+		) VALUES (
+			'',
+			'$getSes_studentID',
+			'$expectation_area'
+		)";
+		$query_db = mysqli_query($conn, $sql_query);
+
+		if($query_db)
+		{
+			echo 'success';
+			//header("Location: inboundform5.php");
+		}else{
+			header("Location: error_page.php");
+		}
 	}
 	
 ?>

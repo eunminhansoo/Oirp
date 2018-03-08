@@ -48,7 +48,7 @@
 							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through scholarship
 						</div>
 						<div class="col-sm-1">
-							<input type="radio" name="type_program" id="proOthers"> Others: 
+							<input type="radio" name="type_program" value="Others" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
 							<input type="text" name="programText" id="proText" class="form-control" disabled>
@@ -63,13 +63,13 @@
 								<label>Bilateral Options:</label>
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="1 Year"> 1 year
+								<input type="radio" name="bilateral" value="1 Year" id="1year" disabled> 1 year
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="1 Sem"> 1 sem
+								<input type="radio" name="bilateral" value="1 Sem" id="1sem" disabled> 1 sem
 							</div>
 							<div class="col-sm-2">
-								<input type="radio" name="bilateral" value="Short Study Abroad"> Short Study Abroad
+								<input type="radio" name="bilateral" value="Short Study Abroad" id="shortStudy" disabled> Short Study Abroad
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
@@ -82,13 +82,13 @@
 								<label>Scholarship:</label>
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="scholarship" id="scholarshipAIMS" value="AIMS"> AIMS
+								<input type="radio" name="scholarship" id="scholarshipAIMS" value="AIMS" disabled> AIMS
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="scholarship" id="scholarshipSHARE" value="SHARE"> SHARE
+								<input type="radio" name="scholarship" id="scholarshipSHARE" value="SHARE" disabled> SHARE
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="scholarship" id="scholarshipOthers"> Others: 
+								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
 								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" disabled>
@@ -104,10 +104,10 @@
 								<label>Are you a recipient of scholarship or loan?: </label>
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="scholarloan" id="scholarloanYes" value="Yes"> Yes
+								<input type="radio" name="scholarloan" id="scholarloanYes" value="Yes" disabled> Yes
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="scholarloan" id="scholarloanNo" value="No"> No
+								<input type="radio" name="scholarloan" id="scholarloanNo" value="No" disabled> No
 							</div>
 							<div class="col-sm-1">
 								Please specify: 
@@ -179,7 +179,7 @@
 					<div class="form-group row break" align="right">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary" formaction="outboundform2.php">Previous</button>
-							<input type="submit" name="btn_from3" class="btn btn-primary" value="Save">
+							<input type="submit" name="btn_save3" class="btn btn-primary" value="Save">
 							<input type="submit" name="btn_from3" class="btn btn-primary" value="Submit">
 						</div>
 					</div>
@@ -241,6 +241,8 @@
                 $("#scholarshipOptions").hide();
                 $("#scholarloanrow").show();
         		$("#proText").prop('disabled', false);
+				$("#scholarloanYes").prop('disabled', false);
+				$("#scholarloanNo").prop('disabled', false);
         	});
 
         	$('#scholarloanYes').click(function(){
@@ -261,7 +263,33 @@
 
         	$('#scholarshipSHARE').click(function(){
         	    $("#scholarshipText").prop('disabled', true);
-			});			
+			});	
+			
+			$(document).ready(function(){
+				$('#proBilateral').click(function(){
+					$("#scholarshipAIMS").prop('disabled', true);
+					$("#scholarshipSHARE").prop('disabled', true);
+					$("#scholarshipOthers").prop('disabled', true);
+					$("#1year").prop('disabled', false);
+					$("#1sem").prop('disabled', false);
+					$("#shortStudy").prop('disabled', false);
+					$("#scholarloanYes").prop('disabled', false);
+					$("#scholarloanNo").prop('disabled', false);
+				});		
+			});
+
+			$(document).ready(function(){
+				$('#proScholar').click(function(){
+					$("#1year").prop('disabled', true);
+					$("#1sem").prop('disabled', true);
+					$("#shortStudy").prop('disabled', true);
+					$("#scholarloanYes").prop('disabled', true);
+					$("#scholarloanNo").prop('disabled', true);
+					$("#scholarshipAIMS").prop('disabled', false);
+					$("#scholarshipSHARE").prop('disabled', false);
+					$("#scholarshipOthers").prop('disabled', false);
+				});		
+			});				
 		});
 	</script>
 </html>

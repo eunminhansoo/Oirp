@@ -1,6 +1,5 @@
 <?php
-	$conn = mysqli_connect("localhost", "root", "","oirp_db");
-	$db = mysqli_select_db($conn, "oirp_db");
+	include 'database_connection.php';
 	error_reporting(0);
 	
 	$country = $_POST['country'];
