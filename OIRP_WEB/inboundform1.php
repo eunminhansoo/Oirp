@@ -54,7 +54,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Mailing Address</label>
-							<input type="text" name="address" id="address" class="form-control">
+							<input type="text" name="address" id="address" class="form-control"  maxlength="120">
 						</div>					
 					</div>
 					<div class="form-group row">
@@ -81,7 +81,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Address</label>
-							<input type="text" name="addressCP" id="addressCP" class="form-control">
+							<input type="text" name="addressCP" id="addressCP" class="form-control" maxlength="120">
 						</div>
 					</div>
 					<div class="form-group row">

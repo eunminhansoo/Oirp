@@ -88,7 +88,7 @@
 							</select>
 						</div>
 						<div class="col-sm-7">
-							<label>Research Topic</label>
+							<label>Research Topic (if applicable)</label>
 							<input type="text" name="research" id="research" class="form-control">
 						</div>
 					</div>

@@ -7,7 +7,7 @@ $db = mysqli_select_db($conn, "oirp_db");
 
 $studentno = "20180217001-outbound";
 
-$sql = "select family_name,given_name,middle_name,gender,birthday from student where student_id = '".$studentno."'";
+$sql = "select family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
@@ -16,7 +16,10 @@ while ($row = $result->fetch_array()){
 	$middle_name = $row['middle_name'];
 	$gender = $row['gender'];
 	$birthday = $row['birthday'];
+	$age = $row['age'];
+	$birthplace = $row['birthplace'];
 }
+
 
 
 
@@ -64,7 +67,7 @@ function Header()
    	$this->Cell(50,4,'FOR INBOUND STUDENTS — FORM _',0,0);
     
     // Line break
-    $this->Ln(12);
+    $this->Ln(10);
 }
 
 // Page footer
@@ -92,6 +95,7 @@ $pdf->AddPage();
 $pdf->Rect(155,50,50.8,50.8);
 
 //Personal Information
+$pdf->Cell(1,5,'','',1);
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(140,7,'I. PERSONAL INFORMATION','TB',2);
 
@@ -110,21 +114,17 @@ $pdf->Cell(50,7,'','B',1);
 $pdf->Cell(25,7,'BIRTHDATE','BR',0);
 $pdf->Cell(35,7,$birthday,'BR',0);
 $pdf->Cell(30,7,'AGE','BR',0);
-$pdf->Cell(50,7,'','B',1);
-$pdf->Cell(25,7,'BIRTHPLACE','BR',0);
-$pdf->Cell(35,7,'','BR',0);
-$pdf->Cell(30,7,'NATIONALITY','BR',0);
-$pdf->Cell(105,7,'','B',1);
+$pdf->Cell(50,7,$age,'B',1);
 
 $pdf->Cell(25,7,'PASSPORT NO.','BR',0);
 $pdf->Cell(35,7,'','BR',0);
 $pdf->Cell(30,7,'VALIDITY DATE','BR',0);
 $pdf->Cell(40,7,'','BR',0);
-$pdf->Cell(30,7,'DATE OF ISSUANCE','BR',0);
-$pdf->Cell(35,7,'','B',1);
+$pdf->Cell(30,7,'DATE OF ISSUANCE','TBR',0);
+$pdf->Cell(35,7,'','TB',1);
 
 $pdf->Cell(30,7,'MAILING ADDRESS','BR',0);
-$pdf->Cell(165,7,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean m','B',1);
+$pdf->Cell(165,7,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat','B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
@@ -169,18 +169,8 @@ $pdf->Cell(145,7,'3.','B',2);
 $pdf->Cell(145,7,'4.','B',2);
 $pdf->Cell(145,7,'5.','B',1);
 
-$pdf->Cell(30,7,'RESEARCH TOPIC','BR',0);
-$pdf->Cell(165,7,'','B',1);
-$pdf->Cell(55,7,'INTENDED SEMESTER TO STUDY','BR',0);
-$pdf->Cell(140,7,'','B',1);
-$pdf->Cell(55,7,'DISCIPLINARY ACTION AND STATUS','BR',0);
-$pdf->Cell(40,7,'','BR',0);
-$pdf->SetFont('Arial','',7);
-$pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(40,7,'','B',1);
 
-$pdf->Cell(195,20,'','',1);
+$pdf->Cell(195,45,'','',1);
 
 //English Proficiency
 $pdf->SetFont('Arial','B',9);

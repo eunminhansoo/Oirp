@@ -62,7 +62,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>University Address</label>
-							<input type="text" name="univAddress" id="univAddress" class="form-control">
+							<input type="text" name="univAddress" id="univAddress" class="form-control" maxlength="120">
 						</div>
 					</div>
 					<div class="form-group row break">

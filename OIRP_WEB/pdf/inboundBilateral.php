@@ -147,12 +147,10 @@ $pdf->Cell(50,7,'CURRENT PROGRAM OF STUDY','BR',0);
 $pdf->Cell(65,7,'','BR',0);
 $pdf->Cell(25,7,'SPECIALIZATION','BR',0);
 $pdf->Cell(55,7,'','B',1);
-$pdf->Cell(15,7,'YEAR','BR',0);
-$pdf->Cell(35,7,'','BR',0);
-$pdf->Cell(20,7,'YEAR LEVEL','BR',0);
-$pdf->Cell(35,7,'','BR',0);
-$pdf->Cell(55,7,'RECEPIENT OF SCHOLARSHIP/LOANS?','BR',0);
-$pdf->Cell(35,7,'','B',1);
+$pdf->Cell(25,7,'YEAR LEVEL','BR',0);
+$pdf->Cell(40,7,'','BR',0);
+$pdf->Cell(70,7,'RECEPIENT OF SCHOLARSHIP/LOANS?','BR',0);
+$pdf->Cell(30,7,'','B',1);
 
 
 //Proposed Field of Study
@@ -170,18 +168,18 @@ $pdf->Cell(145,7,'3.','B',2);
 $pdf->Cell(145,7,'4.','B',2);
 $pdf->Cell(145,7,'5.','B',1);
 
-$pdf->Cell(30,7,'RESEARCH TOPIC','BR',0);
-$pdf->Cell(165,7,'','B',1);
 $pdf->Cell(55,7,'INTENDED SEMESTER TO STUDY','BR',0);
-$pdf->Cell(140,7,'','B',1);
-$pdf->Cell(55,7,'DISCIPLINARY ACTION AND STATUS','BR',0);
-$pdf->Cell(40,7,'','BR',0);
+$pdf->Cell(35,7,'','BR',0);
+$pdf->Cell(30,7,'RESEARCH TOPIC','BR',0);
+$pdf->Cell(75,7,'','B',1);
 $pdf->SetFont('Arial','',7);
 $pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
 $pdf->SetFont('Arial','',8);
-$pdf->Cell(40,7,'','B',1);
+$pdf->Cell(40,7,'','BR',0);
+$pdf->Cell(55,7,'DISCIPLINARY ACTION AND STATUS','BR',0);
+$pdf->Cell(40,7,'','B',0);
 
-$pdf->Cell(195,11,'','',1);
+$pdf->Cell(195,25,'','',1);
 
 //English Proficiency
 $pdf->SetFont('Arial','B',9);

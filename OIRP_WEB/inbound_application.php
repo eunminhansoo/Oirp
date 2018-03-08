@@ -22,12 +22,12 @@
 		$addressCP = $_POST['addressCP'];
 		$emailCP = $_POST['emailCP'];
 		$numberCP = $_POST['numberCP'];
-
+		
 		$query_db = "INSERT INTO personal_info_inbound(
 			STUDENT_COUNT, 
 			STUDENT_ID, 
 			APPLICATION_PROG, 
-			AGE_IN,
+			CITIZENSHIP_IN,
 			NATIONALITY_IN, 
 			PASSPORT_NUM_IN, 
 			VALIDITY_DATE_IN, 
@@ -38,8 +38,8 @@
 			) VALUES(
 				'', 
 				'$getSes_studentID', 
-				'', 
-				'', 
+				'',
+				'$citizenship', 
 				'$nationality', 
 				'$passport', 
 				'$validity', 
