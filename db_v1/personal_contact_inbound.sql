@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2018 at 07:50 AM
+-- Generation Time: Mar 10, 2018 at 07:08 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -23,13 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accomodation_info_in_bila`
+-- Table structure for table `personal_contact_inbound`
 --
 
-CREATE TABLE `accomodation_info_in_bila` (
+CREATE TABLE `personal_contact_inbound` (
   `STUDENT_COUNT` int(11) NOT NULL,
-  `STUDENT_ID` varchar(15) NOT NULL,
-  `NEED_ACCOMODATION_IN_BILA` varchar(10) DEFAULT NULL
+  `STUDENT_ID` varchar(15) DEFAULT NULL,
+  `PERSONAL_CONTACT_IN_BILA` varchar(50) DEFAULT NULL,
+  `RELATIONSHIP_IN_BILA` varchar(50) DEFAULT NULL,
+  `ADD_IN_BILA` varchar(500) DEFAULT NULL,
+  `EMAIL_ADD_IN_BILA` varchar(500) DEFAULT NULL,
+  `TELEPHONE_NUM_IN_BILA` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -37,30 +41,20 @@ CREATE TABLE `accomodation_info_in_bila` (
 --
 
 --
--- Indexes for table `accomodation_info_in_bila`
+-- Indexes for table `personal_contact_inbound`
 --
-ALTER TABLE `accomodation_info_in_bila`
-  ADD KEY `STUDENT_COUNT` (`STUDENT_COUNT`);
+ALTER TABLE `personal_contact_inbound`
+  ADD UNIQUE KEY `STUDENT_COUNT` (`STUDENT_COUNT`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `accomodation_info_in_bila`
+-- AUTO_INCREMENT for table `personal_contact_inbound`
 --
-ALTER TABLE `accomodation_info_in_bila`
+ALTER TABLE `personal_contact_inbound`
   MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `accomodation_info_in_bila`
---
-ALTER TABLE `accomodation_info_in_bila`
-  ADD CONSTRAINT `accomodation_info_in_bila_ibfk_1` FOREIGN KEY (`STUDENT_COUNT`) REFERENCES `student` (`STUDENT_COUNT`);
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

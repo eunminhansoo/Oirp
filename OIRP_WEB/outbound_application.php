@@ -27,13 +27,22 @@
 		$program = $_POST['program'];
 		$year_level_out = $_POST['yearlevel'];
 
-		mysqli_query($conn, "INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, `AGE_OUT`, 
+		$sql_query = "INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, 
 		`NATIONALITY_OUT`, `CITIZENSHIP_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, 
-		`MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`, 
-		`APPLICATION_PROG`) VALUES ('', '$getses_StudentID', ' ', '$nationality_out', '$citizenship_out', 
+		`MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`
+		) VALUES ('', '$getses_StudentID', '$nationality_out', '$citizenship_out', 
 		'$passport_num_out', '$validity_date_out', '$date_issuance_out', '$mailing_add_out', 
-		'$telephone_num_out', '$mobile_num_out', '$college_institute_faculty_out', '$program', '$year_level_out', '')");
-		header("Location: outboundform2.php");
+		'$telephone_num_out', '$mobile_num_out', '$college_institute_faculty_out', '$program', '$year_level_out')";
+		
+		$query_db = mysqli_query($conn, $sql_query);
+		if($query_db)
+		{
+			// echo 'success';
+			header("Location: outboundform2.php");
+		}else{
+			// echo 'error';
+			header("Location: error_page.php");
+		}
 	}
 
 	
@@ -61,7 +70,7 @@
 		
 		//QUERY
 		
-		mysqli_query($conn, "INSERT INTO guardian_info_outbound(
+		$sql_query = "INSERT INTO guardian_info_outbound(
 			STUDENT_COUNT, 
 			STUDENT_ID,
 			FATHER_NAME_OUT,
@@ -94,13 +103,20 @@
 			'$mAddress',
 			'$mEmail',
 			'$mNumber',
-			'$mIncome'
-			)"
+			'$mIncome')";
 
-		);
-		
-		header("Location: outboundform3.php");
+		$query_db = mysqli_query($conn, $sql_query);
+		if($query_db)
+		{
+			// echo 'success';
+			header("Location: outboundform3.php");
+		}else{
+			// echo 'error';
+			header("Location: error_page.php");
+		}
+
 	}
+	
 	// FORM 3
 	
 	if(isset($_POST['btn_from3']))
@@ -262,67 +278,70 @@
 						 '$type_program'
 					)";
 				}else{
-					$scholarshipText = '';
-					$sql_query = "INSERT INTO proposed_field_study
-					(
-						STUDENT_COUNT,
-					 	STUDENT_ID,
-					 	PROPOSED_PROG,
-					 	COURSE_1, 
-					 	COURSE_2, 
-					 	COURSE_3, 
-					 	COURSE_4, 
-					 	COURSE_5,
-						SCHOLARSHIP_OUTBOUND,
-						SCHOLARSHIP_TEXT_OUTBOUND,
-					 	APPLICATION_FORM,
-						APPLICATION_TYPE_PROG
-					) VALUES 
-					(
-						 '',
-						 '$getses_StudentID',
-						 '$proposedProg',
-						 '$course1',
-						 '$course2',
-						 '$course3',
-						 '$course4',
-						 '$course5',
-						 '',
-						 '',
-						 '$scholarship',
-						 '$type_program'
-					)";
+						$scholarshipText = '';
+						$sql_query = "INSERT INTO proposed_field_study
+						(
+							STUDENT_COUNT,
+							STUDENT_ID,
+							PROPOSED_PROG,
+							COURSE_1, 
+							COURSE_2, 
+							COURSE_3, 
+							COURSE_4, 
+							COURSE_5,
+							SCHOLARSHIP_OUTBOUND,
+							SCHOLARSHIP_TEXT_OUTBOUND,
+							APPLICATION_FORM,
+							APPLICATION_TYPE_PROG
+						) VALUES 
+						(
+							'',
+							'$getses_StudentID',
+							'$proposedProg',
+							'$course1',
+							'$course2',
+							'$course3',
+							'$course4',
+							'$course5',
+							'',
+							'',
+							'$scholarship',
+							'$type_program'
+						)";
 				}
 
-			}
-
+			}	
+			
 			$query_db = mysqli_query($conn, $sql_query);
 
-			if($query_db)
+			$sql_query1 = "INSERT INTO country_univ_outbound
+			(
+				STUDENT_COUNT,
+				STUDENT_ID,
+				APPLICATION_PROG,
+				COUNTRY_OUT,
+				UNIVERSITY_OUT
+			) VALUES 
+			(
+				'',
+				'$getses_StudentID',
+				'$application_prog',
+				'$country',
+				'$get_univ'
+			)";
+
+			$query_db1 = mysqli_query($conn, $sql_query1);
+
+			if($query_db && $query_db1)
 			{
-				// echo 'success';
-				header("Location: outboundform3.php");
+				echo 'success';
+				//header("Location: outboundform3.php");
 			}else{
 				// echo 'error';
 				header("Location: error_page.php");
 			}
-		}	
-		
-		mysqli_query($conn, "INSERT INTO country_univ_outbound
-		(
-			STUDENT_COUNT,
-		 	STUDENT_ID,
-		 	APPLICATION_PROG,
-		 	COUNTRY_OUT,
-		 	UNIVERSITY_OUT
-		) VALUES 
-		(
-			'',
-			'$getses_StudentID',
-			'$application_prog',
-			'$country',
-			'$get_univ'
-		)");
+		}
+
 	}
 	
 	
