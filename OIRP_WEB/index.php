@@ -49,7 +49,7 @@
 				</div>
 				<?php echo $error_message?>
 				<br>
-				<form action="#">
+				<form action="post">
 					<div class="form-group">
 						<input type="text" name="email" class="input form-control" placeholder="Enter Email"/>
 					</div>
