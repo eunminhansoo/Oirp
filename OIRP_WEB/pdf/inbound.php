@@ -5,12 +5,13 @@ require('fpdf/fpdf.php');
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
 
-$studentno = '20180308003-in';
+$studentno = '20180308004-in';
 
-$sql = "select family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
+$sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
+	$email = $row['email'];
 	$family_name = $row['family_name'];
 	$given_name = $row['given_name'];
 	$middle_name = $row['middle_name'];
@@ -19,6 +20,8 @@ while ($row = $result->fetch_array()){
 	$age = $row['age'];
 	$birthplace = $row['birthplace'];
 }
+
+$birth_dec = base64_decode($birthday);
 
 $sql = "select citizenship_in,nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
@@ -31,7 +34,6 @@ while ($row = $result->fetch_array()){
 	$telephone_num_in = $row['telephone_num_in'];
 	$mobile_num_in = $row['mobile_num_in'];
 }
-
 
 
 class PDF extends FPDF
@@ -123,7 +125,7 @@ $pdf->Cell(35,7,$gender,'BR',0);
 $pdf->Cell(30,7,'NATIONALITY','BR',0);
 $pdf->Cell(50,7,'','B',1);
 $pdf->Cell(25,7,'BIRTHDATE','BR',0);
-$pdf->Cell(35,7,$birthday,'BR',0);
+$pdf->Cell(35,7,$birth_dec,'BR',0);
 $pdf->Cell(30,7,'AGE','BR',0);
 $pdf->Cell(50,7,$age,'B',1);
 
@@ -135,12 +137,12 @@ $pdf->Cell(30,7,'DATE OF ISSUANCE','TBR',0);
 $pdf->Cell(35,7,'','TB',1);
 
 $pdf->Cell(30,7,'MAILING ADDRESS','BR',0);
-$pdf->Cell(165,7,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat','B',1);
+$pdf->Cell(165,7,'','B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
 $pdf->Cell(35,7,'EMAIL ADDRESS','BR',0);
-$pdf->Cell(160,7,'','B',1);
+$pdf->Cell(160,7,$email,'B',1);
 
 $pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
 $pdf->Cell(55,7,'','BR',0);
@@ -219,27 +221,44 @@ $pdf->Cell(25,7,'EXCELLENT','',1,'C');
 
 $pdf->Cell(50,7,'Reading','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,125,3,3);
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,125,3,3);
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,125,3,3);
 $pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,125,3,3);
+
 
 $pdf->Cell(50,7,'Writing','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,132,3,3);
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,132,3,3);
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,132,3,3);
 $pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,132,3,3);
 
 $pdf->Cell(50,7,'Speaking','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,139,3,3);
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,139,3,3);
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,139,3,3);
 $pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,139,3,3);
 
 $pdf->Cell(50,7,'Listening','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,146,3,3);
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,146,3,3);
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,146,3,3);
 $pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,146,3,3);
 
 $pdf->Cell(165,7,'','',1);
 
