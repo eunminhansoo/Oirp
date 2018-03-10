@@ -29,10 +29,10 @@
 
 		$sql_query = "INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, 
 		`NATIONALITY_OUT`, `CITIZENSHIP_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, 
-		`MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`, 
-		`APPLICATION_PROG`) VALUES ('', '$getses_StudentID', '$nationality_out', '$citizenship_out', 
+		`MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`
+		) VALUES ('', '$getses_StudentID', '$nationality_out', '$citizenship_out', 
 		'$passport_num_out', '$validity_date_out', '$date_issuance_out', '$mailing_add_out', 
-		'$telephone_num_out', '$mobile_num_out', '$college_institute_faculty_out', '$program', '$year_level_out', '')";
+		'$telephone_num_out', '$mobile_num_out', '$college_institute_faculty_out', '$program', '$year_level_out')";
 		
 		$query_db = mysqli_query($conn, $sql_query);
 		if($query_db)
@@ -105,7 +105,7 @@
 			'$mNumber',
 			'$mIncome')";
 
-		mysqli_query($conn, $sql_query);
+		$query_db = mysqli_query($conn, $sql_query);
 		if($query_db)
 		{
 			// echo 'success';

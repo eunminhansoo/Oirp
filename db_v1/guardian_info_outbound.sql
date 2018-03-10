@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2018 at 12:32 PM
+-- Generation Time: Mar 10, 2018 at 07:09 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -50,7 +50,8 @@ CREATE TABLE `guardian_info_outbound` (
 --
 
 INSERT INTO `guardian_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, `FATHER_NAME_OUT`, `OCCUPATION_DADA_OUT`, `COMPANY_DADA_OUT`, `ADDRESS_DADA_OUT`, `EMAIL_ADD_DADA_OUT`, `CONTACT_NUM_DADA_OUT`, `ANNUAL_INCOME_DADA_OUT`, `MOTHER_NAME_OUT`, `OCCUPATION_MOM_OUT`, `COMPANY_MOM_OUT`, `ADDRESS_MOM_OUT`, `EMAIL_ADD_MOM_OUT`, `CONTACT_NUM_MOM_OUT`, `ANNUAL_INCOME_MOM_OUT`) VALUES
-(1, '20180304001-out', 'qweqw', 'werer', 'lh', 'hioho', 'albert@gmail.com', '984654165', '96548516169', 'weuirhbib', 'ibwehfbiehbi', 'bhehwevbt', 'sdfkbsdfhb', 'tes@gmail.com', '848974164196', '54561641');
+(1, '20180309001-out', 'albert milabo', 'Support Stuff', 'UST', '78-1 Kabesang Imo Bilog Balang', 'albert@gmail.com', '548756513546', 'PHP 8,001 - PHP 135,', 'tess milabo', 'Support Stuff', 'UST', '78-1 Kabesang Imo Bilog Balang', 'tes@gmail.com', '416516', 'PHP 8,001 - PHP 135,'),
+(2, '20180309001-out', 'albert milabo', 'Support Stuff', 'UST', '78-1 Kabesang Imo Bilog Balang', 'albert@gmail.com', '548756513546', 'PHP 8,001 - PHP 135,', 'tess milabo', 'Support Stuff', 'UST', '78-1 Kabesang Imo Bilog Balang', 'tes@gmail.com', '416516', 'PHP 8,001 - PHP 135,');
 
 --
 -- Indexes for dumped tables
@@ -70,7 +71,7 @@ ALTER TABLE `guardian_info_outbound`
 -- AUTO_INCREMENT for table `guardian_info_outbound`
 --
 ALTER TABLE `guardian_info_outbound`
-  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
