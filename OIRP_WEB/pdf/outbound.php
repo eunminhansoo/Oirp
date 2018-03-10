@@ -1,6 +1,41 @@
 <?php
 require('fpdf/fpdf.php');
 
+//db connection
+$conn = mysqli_connect("localhost", "root", "","oirp_db");
+$db = mysqli_select_db($conn, "oirp_db");
+
+$studentno = '20180308004-in';
+
+$sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$email = $row['email'];
+	$family_name = $row['family_name'];
+	$given_name = $row['given_name'];
+	$middle_name = $row['middle_name'];
+	$gender = $row['gender'];
+	$birthday = $row['birthday'];
+	$age = $row['age'];
+	$birthplace = $row['birthplace'];
+}
+
+$birth_dec = base64_decode($birthday);
+
+$sql = "select citizenship_in,nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$nationality_in = $row['nationality_in'];
+	$passport_num_in = $row['passport_num_in'];
+	$validity_date_in = $row['validity_date_in'];
+	$mailing_add_in = $row['mailing_add_in'];
+	$telephone_num_in = $row['telephone_num_in'];
+	$mobile_num_in = $row['mobile_num_in'];
+}
+
+
 class PDF extends FPDF
 {
 // Page header
@@ -78,22 +113,22 @@ $pdf->Cell(140,7,'I. PERSONAL INFORMATION','TB',2);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(30,7,'FAMILY NAME','BR',0);
-$pdf->Cell(110,7,'','B',1);
+$pdf->Cell(110,7,$family_name,'B',1);
 $pdf->Cell(30,7,'GIVEN NAME','BR',0);
-$pdf->Cell(110,7,'','B',1);
+$pdf->Cell(110,7,$given_name,'B',1);
 $pdf->Cell(30,7,'MIDDLE NAME','BR',0);
-$pdf->Cell(110,7,'','B',1);
+$pdf->Cell(110,7,$middle_name,'B',1);
 
 $pdf->Cell(25,7,'GENDER','BR',0);
-$pdf->Cell(35,7,'','BR',0);
+$pdf->Cell(35,7,$gender,'BR',0);
 $pdf->Cell(30,7,'CITIZENSHIP','BR',0);
 $pdf->Cell(50,7,'','B',1);
 $pdf->Cell(25,7,'BIRTHDATE','BR',0);
-$pdf->Cell(35,7,'','BR',0);
+$pdf->Cell(35,7,$birth_dec,'BR',0);
 $pdf->Cell(30,7,'AGE','BR',0);
-$pdf->Cell(50,7,'','B',1);
+$pdf->Cell(50,7,$age,'B',1);
 $pdf->Cell(25,7,'BIRTHPLACE','BR',0);
-$pdf->Cell(35,7,'','BR',0);
+$pdf->Cell(35,7,$birthplace,'BR',0);
 $pdf->Cell(30,7,'NATIONALITY','BR',0);
 $pdf->Cell(105,7,'','B',1);
 
@@ -110,7 +145,7 @@ $pdf->Cell(165,7,'','B',1);
 $pdf->Cell(195,7,'','B',1);
 
 $pdf->Cell(35,7,'EMAIL ADDRESS','BR',0);
-$pdf->Cell(160,7,'','B',1);
+$pdf->Cell(160,7,$email,'B',1);
 
 $pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
 $pdf->Cell(55,7,'','BR',0);
