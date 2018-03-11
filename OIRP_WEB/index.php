@@ -1,9 +1,12 @@
+
 <?php
+	
 	include 'loginPhp.php';
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
+	<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width = device-width, initial-scale = 1">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
@@ -47,7 +50,7 @@
 				<div class="white">
 					Login
 				</div>
-				<?php echo $error_message?>
+				<?php// echo $error_message?>
 				<br>
 				<form action="post">
 					<div class="form-group">

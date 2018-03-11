@@ -157,7 +157,6 @@
 
 					if($scholarloan == 'Yes'){
 						$scholarloanText = $_POST['scholarloanText'];
-						echo 'pumasok ka ba dito?';
 					}else{
 						$scholarloanText = '';
 					}

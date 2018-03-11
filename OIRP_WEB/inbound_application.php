@@ -417,13 +417,26 @@
 		)";
 		$query_db = mysqli_query($conn, $sql_query);
 
-		if($query_db)
+		if(!$query_db)
 		{
-			echo 'success';
-			//header("Location: inboundform5.php");
-		}else{
 			header("Location: error_page.php");
 		}
+
+		$sql_query1 = "SELECT APPLICATION_TYPE_PROG FROM educ_background_inbound WHERE STUDENT_ID = '$getSes_studentID' ";
+		$query_db2 = mysqli_query($conn, $sql_query1);
+
+		echo $query_db2;
+
+		if($query_db2 == 'Bilateral')
+		{
+			header("Location: pdf/inboundBilateral.php");
+		}else if($query_db2 == 'Scholarship'){
+			header("Location: pdf/inbound.php");
+		}else
+		{
+			header("Location: error_page.php");
+		}
+
 	}
 	
 ?>
