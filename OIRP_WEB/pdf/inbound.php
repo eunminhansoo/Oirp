@@ -269,7 +269,7 @@ if($intend_take_toef_inbound=="Yes"){
 	$pdf->Cell(15,7,'Date: ','',0);
 	$pdf->Cell(20,5,$intend_take_toef_date_inbound,'B',0,'C');
 	$pdf->Cell(15,7,'Type: ','',0,'R');
-	$pdf->Cell(20,5,$intend_take_toef_type_inbound,'B',1,'C');
+	$pdf->Cell(40,5,$intend_take_toef_type_inbound,'B',1,'C');
 	
 } else{
 	$pdf->Cell(35,7,'','',1);
