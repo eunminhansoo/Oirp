@@ -2,7 +2,7 @@
 	include 'database_connection.php';
 	
 	/* FOR STUDENT NUMBER*/
-	
+	echo 'puta pumupunta ka ba dito???!';
 	session_start();
 	$show_email = $_SESSION['$ses_email'];
 	$getData = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$show_email' ");

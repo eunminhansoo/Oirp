@@ -224,6 +224,8 @@
             $("#toTextCU").click(function(){
     			$("#dropdownCU").hide();
     			$("#textCU").show();
+				$("#country").prop('disabled', true);
+				$("#homeUniversity").prop('disabled', true);
             });
 
     			

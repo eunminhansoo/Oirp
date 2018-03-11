@@ -1,5 +1,4 @@
 <?php
-
 	include 'inbound_application.php';
 ?>
 <!DOCTYPE html>
