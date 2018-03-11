@@ -132,9 +132,9 @@ function Header()
     //Inbound
     $this->SetTextColor(0,0,0);
    	$this->SetFont('Arial','BI',9);
-   	$this->Cell(50,4,'First Term — August to December (Year)',0,1);
+   	$this->Cell(50,4,'First Term ï¿½ August to December (Year)',0,1);
    	$this->SetFont('Arial','B',9);
-   	$this->Cell(50,4,'FOR INBOUND STUDENTS — FORM _',0,0);
+   	$this->Cell(50,4,'FOR INBOUND STUDENTS ï¿½ FORM _',0,0);
     
     // Line break
     $this->Ln(10);
@@ -149,7 +149,7 @@ function Footer()
     $this->SetFont('Arial','',8);
     $this->Cell(0,3,'Office of International Relations and Programs',0,2,'C');
     $this->Cell(0,3,'G/F Main Bldg., University of Santo Tomas',0,2,'C');
-    $this->Cell(0,3,'España Blvd., Manila, Philippines, 1015',0,2,'C');
+    $this->Cell(0,3,'Espaï¿½a Blvd., Manila, Philippines, 1015',0,2,'C');
     $this->Cell(0,3,'406-1611 local 8658',0,2,'C');
     $this->Cell(0,3,'international@ust.edu.ph',0,2,'C');
 }

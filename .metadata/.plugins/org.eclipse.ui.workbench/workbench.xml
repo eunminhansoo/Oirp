@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="12" version="2.0">
+<workbench progressCount="18" version="2.0">
 <workbenchAdvisor/>
 <window height="738" maximized="true" width="1024" x="-421" y="-13">
 <fastViewData fastViewLocation="1024"/>
@@ -33,32 +33,17 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.php.editor" name="inboundform1.php" partName="inboundform1.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/inboundform1.php" title="inboundform1.php" tooltip="OIRP_WEB/inboundform1.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/inboundform1.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="427" selectionTopPixel="0"/>
+<editor id="org.eclipse.php.editor" name="error_page.php" partName="error_page.php" path="C:/xampp/htdocs/OIRP/OIRP_WEB/error_page.php" title="error_page.php" tooltip="OIRP_WEB/error_page.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/error_page.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="791" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.php.editor" name="inboundform2.php" partName="inboundform2.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/inboundform2.php" title="inboundform2.php" tooltip="OIRP_WEB/inboundform2.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/inboundform2.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5589" selectionTopPixel="2309"/>
-</editor>
-<editor id="org.eclipse.php.editor" name="inbound_application.php" partName="inbound_application.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/inbound_application.php" title="inbound_application.php" tooltip="OIRP_WEB/inbound_application.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/inbound_application.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1908" selectionTopPixel="580"/>
-</editor>
-<editor id="org.eclipse.php.editor" name="outbound_application.php" partName="outbound_application.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/outbound_application.php" title="outbound_application.php" tooltip="OIRP_WEB/outbound_application.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/outbound_application.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3543" selectionTopPixel="1709"/>
-</editor>
-<editor id="org.eclipse.php.editor" name="outboundform3.php" partName="outboundform3.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/outboundform3.php" title="outboundform3.php" tooltip="OIRP_WEB/outboundform3.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/outboundform3.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1013" selectionTopPixel="437"/>
+<editor activePart="true" focus="true" id="org.eclipse.php.editor" name="index.php" partName="index.php" path="C:/xampp/htdocs/OIRP/OIRP_WEB/index.php" title="index.php" tooltip="OIRP_WEB/index.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/index.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="998" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -91,9 +76,7 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>&#x0A;<category IMemento.internal.id="Warnings (26 items)"/>
-</expanded>
-<columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
+<columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -126,12 +109,12 @@
 </viewState>
 </view>
 <view id="org.eclipse.dltk.ui.TypeHierarchy" partName="Type Hierarchy">
-<viewState isWindowWorkingSet="false" mv_vertical_scroll="0" org.eclipse.dltk.ui.packages.linktypehierarchytoeditor="0" orientation="3" ratio="350" showinherited="false" sortbydefiningtype="false" vertical_scroll="0" view="2" workingSetName=""/>
+<viewState isWindowWorkingSet="false" mv_vertical_scroll="0" org.eclipse.dltk.ui.packages.linktypehierarchytoeditor="0" orientation="0" ratio="350" showinherited="false" sortbydefiningtype="false" vertical_scroll="0" view="2" workingSetName=""/>
 </view>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
 </views>
 <perspectives activePart="org.eclipse.php.editor" activePerspective="org.eclipse.php.perspective">
-<perspective editorAreaTrimState="1" editorAreaVisible="1" fixed="0" version="0.016">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.php.internal.ui.PHPPerspectiveFactory" id="org.eclipse.php.perspective" label="PHP"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
@@ -175,36 +158,26 @@
 <perspective_action id="org.eclipse.php.debug.ui.PHPDebugPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
-<fastViewBars>
-<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.pde.runtime.LogView" style="1">
-<fastViews>
-<view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
-<view id="org.eclipse.ui.views.TaskList" ratio="0.3"/>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.3"/>
-<view id="org.eclipse.debug.ui.PHPDebugOutput" ratio="0.3"/>
-<view id="org.eclipse.pde.runtime.LogView" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="16384" id="topLeft" orientation="512" selectedTabId="org.eclipse.php.ui.explorer" style="1">
-<fastViews>
-<view id="org.eclipse.dltk.ui.TypeHierarchy" ratio="0.3"/>
-<view id="org.eclipse.php.ui.explorer" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="1">
-<fastViews>
-<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
-<view id="org.eclipse.mylyn.tasks.ui.views.tasks" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-</fastViewBars>
+<view id="org.eclipse.dltk.ui.TypeHierarchy"/>
+<view id="org.eclipse.php.ui.explorer"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.debug.ui.PHPDebugOutput"/>
+<view id="org.eclipse.pde.runtime.LogView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<fastViewBars/>
 <layout>
 <mainWindow>
 <info folder="true" part="topLeft">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.dltk.ui.TypeHierarchy" label="LabelNotFound"/>
-<page content="org.eclipse.php.ui.explorer" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<folder activePageID="org.eclipse.php.ui.explorer" appearance="2" expanded="2">
+<page content="org.eclipse.dltk.ui.TypeHierarchy" label="Type Hierarchy"/>
+<page content="org.eclipse.php.ui.explorer" label="PHP Explorer"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1ddd3478" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="topLeft">
@@ -217,23 +190,32 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.22" ratioLeft="220" ratioRight="780" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottom" ratio="0.75" ratioLeft="462" ratioRight="154" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
-<page content="org.eclipse.debug.ui.PHPDebugOutput" label="LabelNotFound"/>
-<page content="org.eclipse.pde.runtime.LogView" label="LabelNotFound"/>
+<folder activePageID="org.eclipse.debug.ui.PHPDebugOutput" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.debug.ui.PHPDebugOutput" label="Debug Output"/>
+<page content="org.eclipse.pde.runtime.LogView" label="Error Log"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
 </folder>
 </info>
 <info folder="true" part="right" ratio="0.75" ratioLeft="585" ratioRight="195" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
-<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="LabelNotFound"/>
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="Task List"/>
 <page content="org.eclipse.php.ui.projectOutline" label="LabelNotFound"/>
 <page content="org.eclipse.php.ui.functions" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
 </folder>
 </info>
 </mainWindow>
@@ -246,28 +228,13 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inboundform2.php"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inbound_application.php"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inboundform1.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inboundform1.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inbound_application.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/outbound_application.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/outboundform3.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/error_page.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/index.php"/>
 </editors>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="1600" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="1665" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2147" y="0"/>
-</item>
 <item historyLabel="inboundform2.php" index="0">
 <position/>
 </item>
@@ -394,8 +361,25 @@
 <item historyLabel="inbound_application.php" index="1">
 <position info="not_deleted" x="1908" y="0"/>
 </item>
-<item active="true" historyLabel="inboundform2.php" index="0">
+<item historyLabel="inboundform2.php" index="0">
 <position info="not_deleted" x="1432" y="0"/>
+</item>
+<item historyLabel="inboundform1.php" index="3"/>
+<item historyLabel="inboundform2.php" index="0"/>
+<item historyLabel="inbound_application.php" index="4">
+<position info="not_deleted" x="1908" y="0"/>
+</item>
+<item historyLabel="outbound_application.php" index="5">
+<position info="not_deleted" x="3543" y="0"/>
+</item>
+<item historyLabel="outboundform3.php" index="6">
+<position info="not_deleted" x="1013" y="0"/>
+</item>
+<item historyLabel="error_page.php" index="7">
+<position info="not_deleted" x="791" y="0"/>
+</item>
+<item active="true" historyLabel="index.php" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -421,6 +405,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="index.php" tooltip="OIRP_WEB/index.php">
+<persistable path="/OIRP_WEB/index.php"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="error_page.php" tooltip="OIRP_WEB/error_page.php">
+<persistable path="/OIRP_WEB/error_page.php"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="outboundform3.php" tooltip="OIRP_WEB/outboundform3.php">
 <persistable path="/OIRP_WEB/outboundform3.php"/>
 </file>
@@ -459,12 +449,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="loginPhp.php" tooltip="OIRP_WEB/loginPhp.php">
 <persistable path="/OIRP_WEB/loginPhp.php"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="index.php" tooltip="OIRP_WEB/index.php">
-<persistable path="/OIRP_WEB/index.php"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="apply_php.php" tooltip="OIRP_WEB/apply_php.php">
-<persistable path="/OIRP_WEB/apply_php.php"/>
 </file>
 </mruList>
 </workbench>
