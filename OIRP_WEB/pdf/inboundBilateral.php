@@ -23,13 +23,20 @@ while ($row = $result->fetch_array()){
 
 $birth_dec = base64_decode($birthday);
 
-$sql = "select citizenship_in,nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
+$sql = "select home_univ_bila,univ_add_in_bila,name_officer_contact_in_bila,email_add_in_bila,current_prog_study_in_bila,designation_in_bila,telephone_num_bila,specialization_in_bila,year_level,scholarship_in_bila,scholarship_text_in_bila,application_form,application_type_prog from educ_background_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
-	$nationality_in = $row['nationality_in'];
-	$passport_num_in = $row['passport_num_in'];
-	$validity_date_in = $row['validity_date_in'];
+	$home_univ_bila = $row['home_univ_bila'];
+	$univ_add_in_bila = $row['univ_add_in_bila'];
+	$current_prog_study_in_bila = $row['current_prog_study_in_bila'];
+	$specialization = $row['specialization'];
+	$year_level = $row['year_level'];
+	$scholarship_in_bila = $row['scholarship_in_bila'];
+	$scholarship_text_in_bila = $row['scholarship_text_in_bila'];
+	$application_form = $row['application_form'];
+	$application_type_prog = $row['application_type_prog'];
+	$name_officer_contact_in_bila = $row['name_officer_contact_in_bila'];
 	$mailing_add_in = $row['mailing_add_in'];
 	$telephone_num_in = $row['telephone_num_in'];
 	$mobile_num_in = $row['mobile_num_in'];

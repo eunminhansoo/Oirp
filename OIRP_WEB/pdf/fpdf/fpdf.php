@@ -980,6 +980,7 @@ function SetXY($x, $y)
 function Output($dest='', $name='', $isUTF8=false)
 {
 	// Output PDF to some destination
+	ob_clean();
 	$this->Close();
 	if(strlen($name)==1 && strlen($dest)!=1)
 	{

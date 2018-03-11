@@ -5,7 +5,7 @@ require('fpdf/fpdf.php');
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
 
-$studentno = '20180308004-in';
+$studentno = '20180309002-in';
 
 $sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
 $result = $conn->query($sql);
@@ -23,16 +23,69 @@ while ($row = $result->fetch_array()){
 
 $birth_dec = base64_decode($birthday);
 
-$sql = "select citizenship_in,nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
+$sql = "select nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
 	$nationality_in = $row['nationality_in'];
 	$passport_num_in = $row['passport_num_in'];
 	$validity_date_in = $row['validity_date_in'];
+	$date_issuance_in = $row['date_issuance_in'];
 	$mailing_add_in = $row['mailing_add_in'];
 	$telephone_num_in = $row['telephone_num_in'];
 	$mobile_num_in = $row['mobile_num_in'];
+}
+
+$sql = "select home_univ_in_bila,univ_add_in_bila,current_prog_study_in_bila,specialization_in_bila,year_level,scholarship_in_bila,scholarship_text_in_bila,application_form,application_type_prog from educ_background_inbound where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$home_univ_in_bila = $row['home_univ_in_bila'];
+	$univ_add_in_bila = $row['univ_add_in_bila'];
+	$current_prog_study_in_bila = $row['current_prog_study_in_bila'];
+	$specialization_in_bila = $row['specialization_in_bila'];
+	$year_level = $row['year_level'];
+	$scholarship_in_bila = $row['scholarship_in_bila'];
+	$scholarship_text_in_bila = $row['scholarship_text_in_bila'];
+	$application_form = $row['application_form'];
+	$application_type_prog = $row['application_type_prog'];
+}
+
+if($home_univ_in_bila!=null){
+	$univ = $univ_add_in_bila;
+} else{
+	$univ = $home_univ_in_bila;
+}
+
+$sql = "select proposed_prog_inbound,course_1_inbound,course_2_inbound,course_3_inbound,course_4_inbound,course_5_inbound from proposed_field_study_in_bila where student_id ='".$studentno."'";
+$result = $conn->query($sql);
+
+while($row = $result->fetch_array()){
+	$proposed_prog_inbound = $row['proposed_prog_inbound'];
+	$course_1_inbound = $row['course_1_inbound'];
+	$course_2_inbound = $row['course_2_inbound'];
+	$course_3_inbound = $row['course_3_inbound'];
+	$course_4_inbound = $row['course_4_inbound'];
+	$course_5_inbound = $row['course_5_inbound'];
+	
+}
+
+$sql = "select complete_toef_inbound,complete_toef_score_inbound,intend_take_toef_inbound,intend_take_toef_date_inbound,intend_take_toef_type_inbound from medical_english_inbound where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while($row = $result->fetch_array()){
+	$complete_toef_inbound = $row['complete_toef_inbound'];
+	$complete_toef_score_inbound = $row['complete_toef_score_inbound'];
+	$intend_take_toef_inbound = $row['intend_take_toef_inbound'];
+	$intend_take_toef_date_inbound = $row['intend_take_toef_date_inbound'];
+	$intend_take_toef_type_inbound = $row['intend_take_toef_type_inbound'];
+}
+
+$sql = "select expectation_prog from expectation_prog_inbound where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while($row = $result->fetch_array()){
+	$expectation_prog = $row['expectation_prog'];
 }
 
 
@@ -46,8 +99,12 @@ function Header()
     // Images
     $this->Image('../img/line.png', 7,33,150,8);
     $this->Image('../img/triangle2.png',117,5,90,42);
-    //$this->Image('../img/SHARE.png', 170,15,30);
-    $this->Image('../img/AIMS.jpg',160,15,45);
+    if ($scholarship_in_bila=="AIMS"){
+    	$this->Image('../img/AIMS.jpg',160,15,45);
+    } 
+    else if ($scholarship_in_bila=="SHARE"){
+    	$this->Image('../img/SHARE.png',170,15,30);
+    }
     $this->Image('../img/ust.jpg', 7,5,25);
     
     //UST
@@ -123,21 +180,21 @@ $pdf->Cell(110,7,$middle_name,'B',1);
 $pdf->Cell(25,7,'GENDER','BR',0);
 $pdf->Cell(35,7,$gender,'BR',0);
 $pdf->Cell(30,7,'NATIONALITY','BR',0);
-$pdf->Cell(50,7,'','B',1);
+$pdf->Cell(50,7,$nationality_in,'B',1);
 $pdf->Cell(25,7,'BIRTHDATE','BR',0);
 $pdf->Cell(35,7,$birth_dec,'BR',0);
 $pdf->Cell(30,7,'AGE','BR',0);
 $pdf->Cell(50,7,$age,'B',1);
 
 $pdf->Cell(25,7,'PASSPORT NO.','BR',0);
-$pdf->Cell(35,7,'','BR',0);
+$pdf->Cell(35,7,$passport_num_in,'BR',0);
 $pdf->Cell(30,7,'VALIDITY DATE','BR',0);
-$pdf->Cell(40,7,'','BR',0);
+$pdf->Cell(40,7,$validity_date_in,'BR',0);
 $pdf->Cell(30,7,'DATE OF ISSUANCE','TBR',0);
-$pdf->Cell(35,7,'','TB',1);
+$pdf->Cell(35,7,$date_issuance_in,'TB',1);
 
 $pdf->Cell(30,7,'MAILING ADDRESS','BR',0);
-$pdf->Cell(165,7,'','B',1);
+$pdf->Cell(165,7,$mailing_add_in,'B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
@@ -145,9 +202,9 @@ $pdf->Cell(35,7,'EMAIL ADDRESS','BR',0);
 $pdf->Cell(160,7,$email,'B',1);
 
 $pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
-$pdf->Cell(55,7,'','BR',0);
+$pdf->Cell(55,7,$telephone_num_in,'BR',0);
 $pdf->Cell(30,7,'MOBILE NUMBER','BR',0);
-$pdf->Cell(75,7,'','B',1);
+$pdf->Cell(75,7,$mobile_num_in,'B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
@@ -157,13 +214,13 @@ $pdf->Cell(195,7,'II. EDUCATIONAL BACKGROUND','B',2);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(50,7,'HOME UNIVERSITY','BR',0);
-$pdf->Cell(145,7,'','B',1);
+$pdf->Cell(145,7,$univ,'B',1);
 $pdf->Cell(50,7,'DEGREE PROGRAM','BR',0);
-$pdf->Cell(55,7,'','BR',0);
+$pdf->Cell(55,7,$current_program_study_in_bila,'BR',0);
 $pdf->Cell(20,7,'MAJOR','BR',0);
-$pdf->Cell(70,7,'','B',1);
+$pdf->Cell(70,7,$specialization_in_bila,'B',1);
 $pdf->Cell(50,7,'YEAR LEVEL','BR',0);
-$pdf->Cell(145,7,'','B',1);
+$pdf->Cell(145,7,$year_level,'B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
@@ -173,14 +230,14 @@ $pdf->Cell(195,7,'III. PROPOSED FIELD OF STUDY','TB',1);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(50,7,'PROPOSED PROGRAM','BR',0);
-$pdf->Cell(145,7,'','B',1);
+$pdf->Cell(145,7,$proposed_prog_inbound,'B',1);
 
 $pdf->Cell(50,35,'COURSES TO BE TAKEN AT UST','BR',0);
-$pdf->Cell(145,7,'1.','B',2);
-$pdf->Cell(145,7,'2.','B',2);
-$pdf->Cell(145,7,'3.','B',2);
-$pdf->Cell(145,7,'4.','B',2);
-$pdf->Cell(145,7,'5.','B',1);
+$pdf->Cell(145,7,'1. '.$course_1_inbound,'B',2);
+$pdf->Cell(145,7,'2. '.$course_2_inbound,'B',2);
+$pdf->Cell(145,7,'3. '.$course_3_inbound,'B',2);
+$pdf->Cell(145,7,'4. '.$course_4_inbound,'B',2);
+$pdf->Cell(145,7,'5. '.$course_5_inbound,'B',1);
 
 
 $pdf->Cell(195,45,'','',1);
@@ -193,19 +250,30 @@ $pdf->SetFont('Arial','',9);
 $pdf->Cell(20,7,'','',0);
 $pdf->Cell(120,7,'a.) Have you completed a TOEFL/IELTS test or equivalent in the last twelve months?','',1);
 $pdf->Cell(40,7,'','',0);
-$pdf->Cell(30,7,'Yes/No','',1);
-$pdf->Cell(40,7,'','',0);
-$pdf->Cell(35,7,'If yes, provide score: ','',0);
-$pdf->Cell(30,5,'','B',1);
+$pdf->Cell(10,7,$complete_toef_inbound,'',0);
+$pdf->Cell(20,7,'','',0);
+if($complete_toef_inbound=="Yes"){
+	$pdf->Cell(15,7,'Score: ','',0);
+	$pdf->Cell(20,5,$complete_toef_score_inbound,'B',1,'C');
+} else{
+	$pdf->Cell(35,7,'','',1);
+}
 $pdf->Cell(10,3,'','',1);
 
 $pdf->Cell(20,7,'','',0);
 $pdf->Cell(120,7,'b.) Do you intend to take a TOEFL/IELTS test or equivalent in the immediate future?','',1);
 $pdf->Cell(40,7,'','',0);
-$pdf->Cell(70,7,'Yes/No','',1);
-$pdf->Cell(40,7,'','',0);
-$pdf->Cell(60,7,'If yes, provide type and date of test: ','',0);
-$pdf->Cell(50,5,'','B',1);
+$pdf->Cell(10,7,$intend_take_toef_inbound,'',0);
+$pdf->Cell(20,7,'','',0);
+if($intend_take_toef_inbound=="Yes"){
+	$pdf->Cell(15,7,'Date: ','',0);
+	$pdf->Cell(20,5,$intend_take_toef_date_inbound,'B',0,'C');
+	$pdf->Cell(15,7,'Type: ','',0,'R');
+	$pdf->Cell(20,5,$intend_take_toef_type_inbound,'B',1,'C');
+	
+} else{
+	$pdf->Cell(35,7,'','',1);
+}
 $pdf->Cell(10,3,'','',1);
 
 $pdf->Cell(20,7,'','',0);
@@ -221,6 +289,27 @@ $pdf->Cell(25,7,'EXCELLENT','',1,'C');
 
 $pdf->Cell(50,7,'Reading','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,111,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,111,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,111,3,3);
+$pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,111,3,3);
+
+
+$pdf->Cell(50,7,'Writing','',0,'R');
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,118,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,118,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,118,3,3);
+$pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,118,3,3);
+
+$pdf->Cell(50,7,'Speaking','',0,'R');
+$pdf->Cell(25,7,'','',0,'C');
 $pdf->Rect(80,125,3,3);
 $pdf->Cell(25,7,'','',0,'C');
 $pdf->Rect(105,125,3,3);
@@ -229,8 +318,7 @@ $pdf->Rect(130,125,3,3);
 $pdf->Cell(25,7,'','',1,'C');
 $pdf->Rect(155,125,3,3);
 
-
-$pdf->Cell(50,7,'Writing','',0,'R');
+$pdf->Cell(50,7,'Listening','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
 $pdf->Rect(80,132,3,3);
 $pdf->Cell(25,7,'','',0,'C');
@@ -239,26 +327,6 @@ $pdf->Cell(25,7,'','',0,'C');
 $pdf->Rect(130,132,3,3);
 $pdf->Cell(25,7,'','',1,'C');
 $pdf->Rect(155,132,3,3);
-
-$pdf->Cell(50,7,'Speaking','',0,'R');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,139,3,3);
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,139,3,3);
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,139,3,3);
-$pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,139,3,3);
-
-$pdf->Cell(50,7,'Listening','',0,'R');
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,146,3,3);
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,146,3,3);
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,146,3,3);
-$pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,146,3,3);
 
 $pdf->Cell(165,7,'','',1);
 
@@ -301,8 +369,9 @@ $pdf->Cell(3,3,'','',1);
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"VII. EXPECTATIONS FROM THE PROGRAM",'TB',1);
 $pdf->SetFont('Arial','',9);
-$pdf->MultiCell(200,4,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. N','',1);
-$pdf->Cell(195,1,'','T');
+$pdf->Cell(195,3,'','',1);
+$pdf->MultiCell(195,4,$expectation_prog,'',1);
+$pdf->Cell(195,3,'','B');
 
 
 
