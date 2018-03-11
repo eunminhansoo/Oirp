@@ -14,6 +14,6 @@
                     <p class="text-center text">ERROR!!</p>
                 </div>
             </div>
-        </div<
+        </div>
     </body>
 </html>
