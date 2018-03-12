@@ -341,8 +341,8 @@
 			'$course3',
 			'$course4',
 			'$course5',
-			'$sem',
 			'$research',
+			'$sem',
 			'$reason',
 			'$disciplinary',
 			'$accomodation'

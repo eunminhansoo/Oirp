@@ -104,10 +104,11 @@
 	<script>
 		$(document).ready(function(){
 			var now = new Date();
-		    minDate = now.toISOString().substring(0,10);
-
-			$('#issuance').prop('max', minDate);
-
+		    date = now.toISOString().substring(0,10);
+	
+			$('#issuance').prop('max', date);
+			$('#validity').prop('min', date);
+	
 		});
 	</script>
 </html>

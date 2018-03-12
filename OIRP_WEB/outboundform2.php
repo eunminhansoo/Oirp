@@ -70,6 +70,7 @@
 								<option value="PHP 250,001 - PHP 500,000">PHP 250,001 - PHP 500,000</option>
 								<option value="PHP 500,001 - PHP 1,000,000">PHP 500,001 - PHP 1,000,000</option>
 								<option value="PHP 1,000,001 or more">PHP 1,000,001 or more</option>
+								<option value="Not Applicable">Not Applicable</option>
 							</select>
 						</div>
 					</div>
@@ -116,6 +117,7 @@
 								<option value="PHP 250,001 - PHP 500,000">PHP 250,001 - PHP 500,000</option>
 								<option value="PHP 500,001 - PHP 1,000,000">PHP 500,001 - PHP 1,000,000</option>
 								<option value="PHP 1,000,001 or more">PHP 1,000,001 or more</option>
+								<option value="Not Applicable">Not Applicable</option>
 							</select>
 						</div>
 					</div>
