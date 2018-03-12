@@ -438,7 +438,7 @@
 			header("Location: pdf/inbound.php");
 		}else
 		{
-			header("Location: error_page.php");
+			header("Location: error_page.php");	
 		}
 
 	}
