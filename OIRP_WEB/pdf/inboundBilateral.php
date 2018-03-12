@@ -5,18 +5,43 @@ require('fpdf/fpdf.php');
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
 
-$studentno = '20180308003-in';
+$studentno = '20180308004-in';
 
-$sql = "select family_name,given_name,middle_name,gender,birthday from student where student_id = '".$studentno."'";
+$sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
+	$email = $row['email'];
 	$family_name = $row['family_name'];
 	$given_name = $row['given_name'];
 	$middle_name = $row['middle_name'];
 	$gender = $row['gender'];
 	$birthday = $row['birthday'];
+	$age = $row['age'];
+	$birthplace = $row['birthplace'];
 }
+
+$birth_dec = base64_decode($birthday);
+
+$sql = "select home_univ_bila,univ_add_in_bila,name_officer_contact_in_bila,email_add_in_bila,current_prog_study_in_bila,designation_in_bila,telephone_num_bila,specialization_in_bila,year_level,scholarship_in_bila,scholarship_text_in_bila,application_form,application_type_prog from educ_background_inbound where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$home_univ_bila = $row['home_univ_bila'];
+	$univ_add_in_bila = $row['univ_add_in_bila'];
+	$current_prog_study_in_bila = $row['current_prog_study_in_bila'];
+	$specialization = $row['specialization'];
+	$year_level = $row['year_level'];
+	$scholarship_in_bila = $row['scholarship_in_bila'];
+	$scholarship_text_in_bila = $row['scholarship_text_in_bila'];
+	$application_form = $row['application_form'];
+	$application_type_prog = $row['application_type_prog'];
+	$name_officer_contact_in_bila = $row['name_officer_contact_in_bila'];
+	$mailing_add_in = $row['mailing_add_in'];
+	$telephone_num_in = $row['telephone_num_in'];
+	$mobile_num_in = $row['mobile_num_in'];
+}
+
 
 
 class PDF extends FPDF
@@ -90,9 +115,9 @@ $pdf->Cell(60,7,'','B',1);
 $pdf->Cell(30,7,'MIDDLE NAME','BR',0);
 $pdf->Cell(85,7,$middle_name,'BR',0);
 $pdf->Cell(20,7,'BIRTHDATE','BR',0);
-$pdf->Cell(35,7,$birthday,'BR',0);
+$pdf->Cell(35,7,$birth_dec,'BR',0);
 $pdf->Cell(10,7,'AGE','BR',0);
-$pdf->Cell(15,7,'','B',1);
+$pdf->Cell(15,7,$age,'B',1);
 
 $pdf->Cell(25,7,'PASSPORT NO.','BR',0);
 $pdf->Cell(35,7,'','BR',0);
@@ -107,7 +132,7 @@ $pdf->Cell(165,7,'','B',1);
 $pdf->Cell(195,7,'','B',1);
 
 $pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
-$pdf->Cell(165,7,'','B',1);
+$pdf->Cell(165,7,$email,'B',1);
 
 $pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
 $pdf->Cell(55,7,'','BR',0);
@@ -215,29 +240,46 @@ $pdf->Cell(25,6,'FAIR','',0,'C');
 $pdf->Cell(25,6,'GOOD','',0,'C');
 $pdf->Cell(25,6,'EXCELLENT','',1,'C');
 
-$pdf->Cell(50,6,'Reading','',0,'R');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',1,'C');
+$pdf->Cell(50,7,'Reading','',0,'R');
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,66,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,66,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,66,3,3);
+$pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,66,3,3);
 
-$pdf->Cell(50,6,'Writing','',0,'R');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',1,'C');
 
-$pdf->Cell(50,6,'Speaking','',0,'R');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',1,'C');
+$pdf->Cell(50,7,'Writing','',0,'R');
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,73,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,73,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,73,3,3);
+$pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,73,3,3);
 
-$pdf->Cell(50,6,'Listening','',0,'R');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',0,'C');
-$pdf->Cell(25,6,'','',1,'C');
+$pdf->Cell(50,7,'Speaking','',0,'R');
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,80,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,80,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,80,3,3);
+$pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,80,3,3);
+
+$pdf->Cell(50,7,'Listening','',0,'R');
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(80,87,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(105,87,3,3);
+$pdf->Cell(25,7,'','',0,'C');
+$pdf->Rect(130,87,3,3);
+$pdf->Cell(25,7,'','',1,'C');
+$pdf->Rect(155,87,3,3);
 
 $pdf->Cell(165,6,'','',1);
 

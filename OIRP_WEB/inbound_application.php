@@ -365,9 +365,11 @@
 		$toeflScore = $_POST['toeflScore'];
 		$toeflFuture = $_POST['toeflFuture'];
 		$toeflDate = $_POST['toeflDate'];
+		$toeflType = $_POST['toeflType'];
 		$smoker = $_POST['smoker'];
 		$disabilities = $_POST['disabilities'];
 		$illness = $_POST['illness'];
+		
 
 		$sql_query = "INSERT INTO medical_english_inbound(
 			STUDENT_COUNT,
@@ -377,8 +379,9 @@
 			DESCRIBE_ILL_INBOUND,
 			COMPLETE_TOEF_INBOUND,
 			COMPLETE_TOEF_SCORE_INBOUND,
-			INTED_TAKE_TOEF_INBOUND,
-			INTED_TAKE_TOEF_DATE_INBOUND
+			INTEND_TAKE_TOEF_INBOUND,
+			INTEND_TAKE_TOEF_DATE_INBOUND,
+			INTEND_TAKE_TOEF_TYPE_INBOUND
 		) VALUES(
 			'',
 			'$getSes_studentID',
@@ -388,7 +391,8 @@
 			'$toeflTest',
 			'$toeflScore',
 			'$toeflFuture',
-			'$toeflDate'
+			'$toeflDate',
+			'$toeflType'			
 		)";
 		$query_db = mysqli_query($conn, $sql_query);
 
@@ -417,13 +421,26 @@
 		)";
 		$query_db = mysqli_query($conn, $sql_query);
 
-		if($query_db)
+		if(!$query_db)
 		{
-			echo 'success';
-			//header("Location: inboundform5.php");
-		}else{
 			header("Location: error_page.php");
 		}
+
+		$sql_query1 = "SELECT APPLICATION_TYPE_PROG FROM educ_background_inbound WHERE STUDENT_ID = '$getSes_studentID' ";
+		$query_db2 = mysqli_query($conn, $sql_query1);
+
+		echo $query_db2;
+
+		if($query_db2 == 'Bilateral')
+		{
+			header("Location: pdf/inboundBilateral.php");
+		}else if($query_db2 == 'Scholarship'){
+			header("Location: pdf/inbound.php");
+		}else
+		{
+			header("Location: error_page.php");	
+		}
+
 	}
 	
 ?>

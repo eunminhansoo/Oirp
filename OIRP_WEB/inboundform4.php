@@ -1,5 +1,4 @@
 <?php
-
 	include 'inbound_application.php';
 ?>
 <!DOCTYPE html>
@@ -66,6 +65,12 @@
 						<div class="col-sm-2">
 							<input type="date" name="toeflDate" id="toeflDate" class="form-control" disabled>
 						</div>
+						<div class="col-sm-1">
+							<p>Type: </p>
+						</div>
+						<div class="col-sm-2">
+							<input type="date" name="toeflType" id="toeflType" class="form-control" disabled>
+						</div>
 					</div>
 					
 					<div class="form-group row break">
@@ -115,10 +120,12 @@
 			
 			$('#toeflFutureYes').click(function(){
         	    $("#toeflDate").prop('disabled', false);
+        	    $("#toeflType").prop('disabled', false);
 			});
 			
 			$('#toeflFutureNo').click(function(){
         	    $("#toeflDate").prop('disabled', true);
+        	    $("#toeflType").prop('disabled', true);
 			});
 			
 		});
