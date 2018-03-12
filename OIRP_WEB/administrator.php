@@ -19,7 +19,7 @@
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	  
-        <div class="container">
+        <div class="">
             <div class="col-xs-6">
                 <h2>INBOUND</h2>
                 <div class="table-responsive">
@@ -29,14 +29,26 @@
                                 <th>Name</th>
                                 <th>Applicationg Program</th>
                                 <th>Application Form</th>
+                                <th>DATE SUBMITED</th>
+                                <th>STATUS</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php while($row = mysqli_fetch_array($query)){ ?>
+                            <?php while($row = mysqli_fetch_array($query)){ 
+                                $studentID = $row['STUDENT_ID'];
+                                $fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
+                                $ddate = $row['DATE_ENROLL'];
+                                $date = new DateTime($ddate);
+		                        $resultdate = $date->format('F j, Y,');
+                            ?>
                             <tr>
-                                <td><?php echo $row['FAMILY_NAME'].', '.$row['GIVEN_NAME'].' '.$row['MIDDLE_NAME']; ?></td>
+                                <td><?php echo "<a href=admin_student_application.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
                                 <td><?php echo $row['APPLICATION_PROG']; ?></td>
-                                <td><?php echo $row['APPLICATION_TYPE_PROG']; ?>
+                                <td><?php echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>
+                                <td><?php echo $resultdate ?></td>
+                                <td></td>
+                                <td><form method="post" ><input type="checkbox" name="cb_num[]" value="<?php $studentID ?> " ></form></td>
                             </tr>
                         <?php } ?> 
                         </tbody>
@@ -52,14 +64,26 @@
                                 <th>Name</th>
                                 <th>Applicationg Program</th>
                                 <th>Application Form</th>
+                                <th>DATE SUBMITED</th>
+                                <th>STATUS</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php while($row1 = mysqli_fetch_array($query1)){ ?>
+                            <?php while($row1 = mysqli_fetch_array($query1)){ 
+                                $studentID1 = $row1['STUDENT_ID'];
+                                $fullname1 = $row1['FAMILY_NAME'].", ".$row1['GIVEN_NAME']." ".$row1['MIDDLE_NAME'];
+                                $ddate1 = $row1['DATE_ENROLL'];
+                                $date1 = new DateTime($ddate1);
+		                        $resultdate1 = $date1->format('F j, Y,');
+                            ?>
                             <tr>
-                                <td><?php echo $row1['FAMILY_NAME'].', '.$row1['GIVEN_NAME'].' '.$row1['MIDDLE_NAME']; ?></td>
+                                <td><?php echo "<a href=admin_student_application.php?studentName=".urlencode($studentID1).">".$fullname1."</a>" ?></td>
                                 <td><?php echo $row1['APPLICATION_PROG']; ?></td>
-                                <td><?php echo $row1['APPLICATION_TYPE_PROG']; ?>
+                                <td><?php echo $row1['APPLICATION_TYPE_PROG'].": ".$row1['APPLICATION_FORM']; ?></td>
+                                <td><?php echo $resultdate1 ?></td>
+                                <td></td>
+                                <td><form method="post" ><input type="checkbox" name="cb_num[]" value="<?php $studentID1 ?>" ></form></td>
                             </tr>
                         <?php } ?> 
                         </tbody>
