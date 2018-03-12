@@ -67,7 +67,7 @@
 	
 	//for inboundform2
 	
-	if(isset($_POST['btn_inform2']))
+	if(isset($_POST['btn_form2']))
 	{
 		//doPOST 
 		$country = $_POST['country'];
@@ -401,6 +401,7 @@
 		}
 	}
 
+	// for inboundform5
 	if(isset($_POST['btn_form5']))
 	{
 		$expectation_area = $_POST['expectation_area'];
