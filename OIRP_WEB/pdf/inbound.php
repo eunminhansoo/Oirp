@@ -5,8 +5,7 @@ require('fpdf/fpdf.php');
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
 
-session_start();
-echo $_SESSION['$studentID_session'];
+$studentno = '20180309002-in';
 
 //student
 $sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";

@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
     <body>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
