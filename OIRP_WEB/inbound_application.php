@@ -365,9 +365,11 @@
 		$toeflScore = $_POST['toeflScore'];
 		$toeflFuture = $_POST['toeflFuture'];
 		$toeflDate = $_POST['toeflDate'];
+		$toeflType = $_POST['toeflType'];
 		$smoker = $_POST['smoker'];
 		$disabilities = $_POST['disabilities'];
 		$illness = $_POST['illness'];
+		
 
 		$sql_query = "INSERT INTO medical_english_inbound(
 			STUDENT_COUNT,
@@ -377,8 +379,9 @@
 			DESCRIBE_ILL_INBOUND,
 			COMPLETE_TOEF_INBOUND,
 			COMPLETE_TOEF_SCORE_INBOUND,
-			INTED_TAKE_TOEF_INBOUND,
-			INTED_TAKE_TOEF_DATE_INBOUND
+			INTEND_TAKE_TOEF_INBOUND,
+			INTEND_TAKE_TOEF_DATE_INBOUND,
+			INTEND_TAKE_TOEF_TYPE_INBOUND
 		) VALUES(
 			'',
 			'$getSes_studentID',
@@ -388,7 +391,8 @@
 			'$toeflTest',
 			'$toeflScore',
 			'$toeflFuture',
-			'$toeflDate'
+			'$toeflDate',
+			'$toeflType'			
 		)";
 		$query_db = mysqli_query($conn, $sql_query);
 
