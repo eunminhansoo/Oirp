@@ -46,7 +46,7 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Courses to be taken at UST</label> (Refer to the <a href="http://www.ust.edu.ph/academics/programs/">UST website</a>)
+							<label>Courses to be taken at UST</label> (Refer to the <a onclick="window.open('http://www.ust.edu.ph/academics/programs/')">UST website </a>)
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
 							    <input type="text" name="course1" id="course1" class="form-control">

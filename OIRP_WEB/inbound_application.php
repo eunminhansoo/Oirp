@@ -3,7 +3,7 @@
 	//include 'inbound_application_php.php';
 
 	session_start();
-	$getSes_studentID = $_SESSION['$studentID_session'];
+	$getSes_studentID = $_SESSION['student_id_session'];
 	
 
 	//for inboundform1
@@ -421,25 +421,28 @@
 		)";
 		$query_db = mysqli_query($conn, $sql_query);
 
-		if(!$query_db)
+		if($query_db)
 		{
+			header("Location: student_home.php");
+		}else{
 			header("Location: error_page.php");
+
 		}
 
-		$sql_query1 = "SELECT APPLICATION_TYPE_PROG FROM educ_background_inbound WHERE STUDENT_ID = '$getSes_studentID' ";
-		$query_db2 = mysqli_query($conn, $sql_query1);
+		// $sql_query1 = "SELECT APPLICATION_TYPE_PROG FROM educ_background_inbound WHERE STUDENT_ID = '$getSes_studentID' ";
+		// $query_db2 = mysqli_query($conn, $sql_query1);
 
-		echo $query_db2;
+		// echo $query_db2;
 
-		if($query_db2 == 'Bilateral')
-		{
-			header("Location: pdf/inboundBilateral.php");
-		}else if($query_db2 == 'Scholarship'){
-			header("Location: pdf/inbound.php");
-		}else
-		{
-			header("Location: error_page.php");	
-		}
+		// if($query_db2 == 'Bilateral')
+		// {
+		// 	header("Location: pdf/inboundBilateral.php");
+		// }else if($query_db2 == 'Scholarship'){
+		// 	header("Location: pdf/inbound.php");
+		// }else
+		// {
+		// 	header("Location: error_page.php");	
+		// }
 
 	}
 	

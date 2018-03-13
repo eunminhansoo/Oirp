@@ -44,7 +44,7 @@
 				<p>The University of Santo Tomas is one of the top four universities in the Philippines and is consistently ranked among the top 1000 universities in the whole world. UST is both timeless, owing to its more than four hundred years of quality Catholic education, and timely, as it continuously responds to the needs of the present.</p>
 				<p>While the University of Santo Tomas holds the distinction of being Asia's oldest existing university, its age is coupled with its preeminence in Philippine education. Not only does it boast of several firsts in the different realms of education, it also has administrators and faculty members who are holding leadership positions in the Philippines' policy-making bodies and professional organizations, helping influence policies for the betterment of the society in general.</p>
 				<br>
-				<p>More about <a href="http://www.ust.edu.ph/">UST</a></p>
+				<p>More about <a href="" onclick="window.open('http://www.ust.edu.ph/')">UST</a></p>
 			</div>
 			<div class="login col-sm-3 pull-right login">
 				<div class="white">
@@ -73,7 +73,7 @@
 				<p>Internationalization is a thrust of the University of Santo Tomas, in its attempt to foster mutually beneficial and enriching partnerships with educational institutions, associations, and consortia. Such a thrust has several facets: student mobility, academic and administrative staff mobility, program mobility, research collaboration, and the conduct of joint scientific/academic activities.</p>
 				<p>All these are facilitated by the Office of International Relations and Programs (OIRP), established in 2013. The OIRP liaises with the different faculties, colleges, institutes, and schools, which have their own Internationalization Coordinators, for the efficient management of the University's linkages.</p>
 				<br>
-				<p>More about <a href="http://www.ust.edu.ph/linkages/internationalization-2/">OIRP</a></p>
+				<p>More about <a href="" onclick="window.open('http://www.ust.edu.ph/linkages/internationalization-2/')">OIRP</a></p>
 			</div>
 			<div>
 				<div class="col-sm-5">
