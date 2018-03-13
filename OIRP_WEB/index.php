@@ -1,4 +1,3 @@
-
 <?php
 	
 	include 'loginPhp.php';
@@ -14,30 +13,38 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 
 		<div class="header">
-			<img src='img/logo.png' height=auto>
+			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
 
 		<img src='img/arch.jpg' width=100% height=auto>
 		<form method="post">
-			<div class="col-sm-4 threepanel height">
-				<h2>UST Identity</h2>
-				<p>The University of Santo Tomas, the Pontifical, Royal, and Catholic University of the Philippines, is a Dominican institution of learning founded in 1611, under the patronage of St. Thomas Aquinas.</p>
+		<div class="container-fluid three">
+			<div class="col-sm-4 threepanel">
+				<div class="">
+					<h2>UST Identity</h2>
+					<p>The University of Santo Tomas, the Pontifical, Royal, and Catholic University of the Philippines, is a Dominican institution of learning founded in 1611, under the patronage of St. Thomas Aquinas.</p>
+				</div>
 			</div>
-			<div class="col-sm-4 threepanel height">
-				<h2>Mission</h2>
-				<p>The University, in pursuit of truth, guided by reason and illumined by faith, dedicates herself to the generation, advancement, and transmission of knowledge to form competent and compassionate professionals, committed to the service of the Church, the nation, and the global community.</p>
+			<div class="col-sm-4 threepanel">
+				<div class="">
+					<h2>Mission</h2>
+					<p>The University, in pursuit of truth, guided by reason and illumined by faith, dedicates herself to the generation, advancement, and transmission of knowledge to form competent and compassionate professionals, committed to the service of the Church, the nation, and the global community.</p>
+				</div>
 			</div>
-			<div class="col-sm-4 threepanel height">
-				<h2>Vision</h2>
-				<p>Faithful to its centuries-old tradition of excellence, the University of Santo Tomas envisions itself as a premier Catholic institution of learning in Asia, committed to the professional and moral formation of her stakeholders for social transformation.</p>
+			<div class="col-sm-4 threepanel">
+				<div class="">
+					<h2>Vision</h2>
+					<p>Faithful to its centuries-old tradition of excellence, the University of Santo Tomas envisions itself as a premier Catholic institution of learning in Asia, committed to the professional and moral formation of her stakeholders for social transformation.</p>
+				</div>
 			</div>
-	
+		</div>
 			<div class="content col-sm-8 margin-left">
 				<h2>About UST</h2>
 				<br>

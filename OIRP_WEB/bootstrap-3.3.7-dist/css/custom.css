@@ -31,7 +31,6 @@
 	background-color: #fabd15;
 	text-align: center;
 	padding-top: 20px;
-	padding-bottom: 20px;
 	border-right: 1px solid white;
 	border-left: 1px solid white;	
 }
@@ -54,6 +53,10 @@
 	font-family: 'Times New Roman';
 }
 
+.three{
+	background-color: #fabd15;
+	padding: 20px;
+}
 
 .content{
 	margin-top: 20px;
@@ -242,4 +245,3 @@ div.exus a span{
 	background-color: #f1ad1d;
 	color: white;
 	font-size: 14px;
-}

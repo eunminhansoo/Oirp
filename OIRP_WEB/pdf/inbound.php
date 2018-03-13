@@ -7,6 +7,7 @@ $db = mysqli_select_db($conn, "oirp_db");
 
 $studentno = '20180309002-in';
 
+//student
 $sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
@@ -23,6 +24,7 @@ while ($row = $result->fetch_array()){
 
 $birth_dec = base64_decode($birthday);
 
+//personal_info_inbound
 $sql = "select nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
@@ -36,12 +38,12 @@ while ($row = $result->fetch_array()){
 	$mobile_num_in = $row['mobile_num_in'];
 }
 
-$sql = "select home_univ_in_bila,univ_add_in_bila,current_prog_study_in_bila,specialization_in_bila,year_level,scholarship_in_bila,scholarship_text_in_bila,application_form,application_type_prog from educ_background_inbound where student_id = '".$studentno."'";
+//educ_background_inbound
+$sql = "select home_univ_in_bila,current_prog_study_in_bila,specialization_in_bila,year_level,scholarship_in_bila,scholarship_text_in_bila,application_form,application_type_prog from educ_background_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
 	$home_univ_in_bila = $row['home_univ_in_bila'];
-	$univ_add_in_bila = $row['univ_add_in_bila'];
 	$current_prog_study_in_bila = $row['current_prog_study_in_bila'];
 	$specialization_in_bila = $row['specialization_in_bila'];
 	$year_level = $row['year_level'];
@@ -51,12 +53,7 @@ while ($row = $result->fetch_array()){
 	$application_type_prog = $row['application_type_prog'];
 }
 
-if($home_univ_in_bila!=null){
-	$univ = $univ_add_in_bila;
-} else{
-	$univ = $home_univ_in_bila;
-}
-
+//proposed_field_study_in_bila
 $sql = "select proposed_prog_inbound,course_1_inbound,course_2_inbound,course_3_inbound,course_4_inbound,course_5_inbound from proposed_field_study_in_bila where student_id ='".$studentno."'";
 $result = $conn->query($sql);
 
@@ -70,6 +67,7 @@ while($row = $result->fetch_array()){
 	
 }
 
+//medical_english_inbound
 $sql = "select complete_toef_inbound,complete_toef_score_inbound,intend_take_toef_inbound,intend_take_toef_date_inbound,intend_take_toef_type_inbound from medical_english_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
@@ -81,6 +79,7 @@ while($row = $result->fetch_array()){
 	$intend_take_toef_type_inbound = $row['intend_take_toef_type_inbound'];
 }
 
+//expectation_prog_inbound
 $sql = "select expectation_prog from expectation_prog_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
@@ -97,13 +96,13 @@ function Header()
 	$this->SetY(10);
 	
     // Images
-    $this->Image('../img/line.png', 7,33,150,8);
-    $this->Image('../img/triangle2.png',117,5,90,42);
+    $this->Image('../img/line.png', 7,32,150,8);
+    $this->Image('../img/triangle2.png',117,5,90,35);
     if ($scholarship_in_bila=="AIMS"){
-    	$this->Image('../img/AIMS.jpg',160,15,45);
+    	$this->Image('../img/AIMS.jpg',150,12,45);
     } 
     else if ($scholarship_in_bila=="SHARE"){
-    	$this->Image('../img/SHARE.png',170,15,30);
+    	$this->Image('../img/SHARE.png',150,12,45);
     }
     $this->Image('../img/ust.jpg', 7,5,25);
     
@@ -119,25 +118,12 @@ function Header()
     //Student
     $this->SetTextColor(255,255,255);
     $this->SetFont('Arial','B',12);
-    $this->Cell(140,10,'','',1);
-    $this->Cell(72,5,'Student exchange application form');
-    $this->SetFont('Arial','',12);
-    $this->Cell(10,5,'(Host University in Europe)',0,0);
+    $this->Cell(195,9,'','',1);
+    $this->Cell(195,5,'APPLICATION FORM FOR INBOUND STUDENTS');
     
-    // Scholarship
-    $this->SetFont('Arial','B',30);
-    $this->SetTextColor(255,255,255);
-    $this->Cell(113,7,'','',1,'R');
-    
-    //Inbound
-    $this->SetTextColor(0,0,0);
-   	$this->SetFont('Arial','BI',9);
-   	$this->Cell(50,4,'First Term ï¿½ August to December (Year)',0,1);
-   	$this->SetFont('Arial','B',9);
-   	$this->Cell(50,4,'FOR INBOUND STUDENTS ï¿½ FORM _',0,0);
     
     // Line break
-    $this->Ln(10);
+    $this->Ln(16);
 }
 
 // Page footer
@@ -149,7 +135,7 @@ function Footer()
     $this->SetFont('Arial','',8);
     $this->Cell(0,3,'Office of International Relations and Programs',0,2,'C');
     $this->Cell(0,3,'G/F Main Bldg., University of Santo Tomas',0,2,'C');
-    $this->Cell(0,3,'Espaï¿½a Blvd., Manila, Philippines, 1015',0,2,'C');
+    $this->Cell(0,3,'España Blvd., Manila, Philippines, 1015',0,2,'C');
     $this->Cell(0,3,'406-1611 local 8658',0,2,'C');
     $this->Cell(0,3,'international@ust.edu.ph',0,2,'C');
 }
@@ -162,7 +148,7 @@ $pdf->AddPage();
 //content
 
 //2x2 pic
-$pdf->Rect(155,50,50.8,50.8);
+$pdf->Rect(155,43,50.8,50.8);
 
 //Personal Information
 $pdf->Cell(1,5,'','',1);
@@ -214,7 +200,7 @@ $pdf->Cell(195,7,'II. EDUCATIONAL BACKGROUND','B',2);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(50,7,'HOME UNIVERSITY','BR',0);
-$pdf->Cell(145,7,$univ,'B',1);
+$pdf->Cell(145,7,$home_univ_in_bila,'B',1);
 $pdf->Cell(50,7,'DEGREE PROGRAM','BR',0);
 $pdf->Cell(55,7,$current_program_study_in_bila,'BR',0);
 $pdf->Cell(20,7,'MAJOR','BR',0);
@@ -240,7 +226,7 @@ $pdf->Cell(145,7,'4. '.$course_4_inbound,'B',2);
 $pdf->Cell(145,7,'5. '.$course_5_inbound,'B',1);
 
 
-$pdf->Cell(195,45,'','',1);
+$pdf->Cell(195,50,'','',1);
 
 //English Proficiency
 $pdf->SetFont('Arial','B',9);
@@ -289,44 +275,44 @@ $pdf->Cell(25,7,'EXCELLENT','',1,'C');
 
 $pdf->Cell(50,7,'Reading','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,111,3,3);
+$pdf->Rect(80,105,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,111,3,3);
+$pdf->Rect(105,105,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,111,3,3);
+$pdf->Rect(130,105,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,111,3,3);
+$pdf->Rect(155,105,3,3);
 
 
 $pdf->Cell(50,7,'Writing','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,118,3,3);
+$pdf->Rect(80,112,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,118,3,3);
+$pdf->Rect(105,112,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,118,3,3);
+$pdf->Rect(130,112,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,118,3,3);
+$pdf->Rect(155,112,3,3);
 
 $pdf->Cell(50,7,'Speaking','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,125,3,3);
+$pdf->Rect(80,119,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,125,3,3);
+$pdf->Rect(105,119,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,125,3,3);
+$pdf->Rect(130,119,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,125,3,3);
+$pdf->Rect(155,119,3,3);
 
 $pdf->Cell(50,7,'Listening','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,132,3,3);
+$pdf->Rect(80,126,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,132,3,3);
+$pdf->Rect(105,126,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,132,3,3);
+$pdf->Rect(130,126,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,132,3,3);
+$pdf->Rect(155,126,3,3);
 
 $pdf->Cell(165,7,'','',1);
 

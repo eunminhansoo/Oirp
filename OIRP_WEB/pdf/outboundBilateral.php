@@ -5,7 +5,7 @@ require('fpdf/fpdf.php');
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
 
-$studentno = '20180308004-in';
+$studentno = '20180309001-out';
 
 $sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
 $result = $conn->query($sql);
@@ -23,17 +23,71 @@ while ($row = $result->fetch_array()){
 
 $birth_dec = base64_decode($birthday);
 
-$sql = "select citizenship_in,nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
+$sql = "select citizenship_out,nationality_out,passport_num_out,validity_date_out,date_issuance_out,mailing_add_out,telephone_num_out,mobile_num_out from personal_info_outbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
-	$nationality_in = $row['nationality_in'];
-	$passport_num_in = $row['passport_num_in'];
-	$validity_date_in = $row['validity_date_in'];
-	$mailing_add_in = $row['mailing_add_in'];
-	$telephone_num_in = $row['telephone_num_in'];
-	$mobile_num_in = $row['mobile_num_in'];
+	$citizenship_out = $row['citizenship_out'];
+	$nationality_out = $row['nationality_out'];
+	$passport_num_out = $row['passport_num_out'];
+	$date_issuance_out = $row['date_issuance_out'];
+	$validity_date_out = $row['validity_date_out'];
+	$mailing_add_out = $row['mailing_add_out'];
+	$telephone_num_out = $row['telephone_num_out'];
+	$mobile_num_out = $row['mobile_num_out'];
+	$college_institute_faculty_out = $row['college_institute_faculty_out'];
+	$degree_prog_out = $row['degree_prog_out'];
+	$year_level_out = $row['year_level_out'];
 }
+
+//guardian_info_outbound
+$sql = "select father_name_out,occupation_dada_out,company_dada_out,address_dada_out,email_add_dada_out,contact_num_dada_out,annual_income_dada_out,
+		mother_name_out,occupation_mom_out,company_mom_out,address_mom_out,email_add_mom_out,contact_num_mom_out,annual_income_mom_out from guardian_info_outbound where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$father_name_out = $row['father_name_out'];
+	$occupation_dada_out = $row['occupation_dada_out'];
+	$company_dada_out = $row['company_dada_out'];
+	$address_dada_out = $row['address_dada_out'];
+	$email_add_dada_out = $row['email_add_dada_out'];
+	$contact_num_dada_out = $row['contact_num_dada_out'];
+	$annual_income_dada_out = $row['annual_income_dada_out'];
+	$mother_name_out = $row['mother_name_out'];
+	$occupation_mom_out = $row['occupation_mom_out'];
+	$company_mom_out = $row['company_mom_out'];
+	$address_mom_out = $row['address_mom_out'];
+	$email_add_mom_out = $row['email_add_mom_out'];
+	$contact_num_mom_out = $row['contact_num_mom_out'];
+	$annual_income_mom_out = $row['annual_income_mom_out'];
+}
+
+//country_univ_outbound
+$sql = "select country_out,university_out from country_univ_outbound where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()){
+	$country_out = $row['country_out'];
+	$university_out = $row['university_out'];
+}
+
+//proposed_field_study 
+$sql = "select proposed_prog,course_1,course_2,course_3,course_4,course_5,scholarship_outbound,scholarship_text_outbound,application_form,application_type_prog from proposed_field_study where student_id = '".$studentno."'";
+$result = $conn->query($sql);
+
+while($row = $result->fetch_array()){
+	$proposed_prog = $row['proposed_prog'];
+	$course_1 = $row['course_1'];
+	$course_2 = $row['course_2'];
+	$course_3 = $row['course_3'];
+	$course_4 = $row['course_4'];
+	$course_5 = $row['course_5'];
+	$scholarship_outbound = $row['scholarship_outbound'];
+	$scholarship_text_outbound = $row['scholarship_text_outbound'];
+	$application_form = $row['application_form'];
+	$application_type_prog = $row['application_type_prog'];
+}
+
 
 class PDF extends FPDF
 {
@@ -102,23 +156,23 @@ $pdf->Cell(60,7,$gender,'B',1);
 $pdf->Cell(30,7,'GIVEN NAME','BR',0);
 $pdf->Cell(85,7,$given_name,'BR',0);
 $pdf->Cell(20,7,'CITIZENSHIP','BR',0);
-$pdf->Cell(60,7,'','B',1);
+$pdf->Cell(60,7,$citizenship_out,'B',1);
 $pdf->Cell(30,7,'MIDDLE NAME','BR',0);
-$pdf->Cell(85,7,'','BR',0);
+$pdf->Cell(85,7,$middle_name,'BR',0);
 $pdf->Cell(20,7,'BIRTHDATE','BR',0);
 $pdf->Cell(35,7,$birth_dec,'BR',0);
 $pdf->Cell(10,7,'AGE','BR',0);
 $pdf->Cell(15,7,$age,'B',1);
 
 $pdf->Cell(25,7,'PASSPORT NO.','BR',0);
-$pdf->Cell(35,7,'','BR',0);
+$pdf->Cell(35,7,$passport_num_out,'BR',0);
 $pdf->Cell(30,7,'VALIDITY DATE','BR',0);
-$pdf->Cell(40,7,'','BR',0);
+$pdf->Cell(40,7,$validity_date_out,'BR',0);
 $pdf->Cell(30,7,'DATE OF ISSUANCE','BR',0);
-$pdf->Cell(35,7,'','B',1);
+$pdf->Cell(35,7,$date_issuance_out,'B',1);
 
 $pdf->Cell(30,7,'MAILING ADDRESS','BR',0);
-$pdf->Cell(165,7,'','B',1);
+$pdf->Cell(165,7,$mailing_add_out,'B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
@@ -126,20 +180,9 @@ $pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
 $pdf->Cell(165,7,$email,'B',1);
 
 $pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
-$pdf->Cell(55,7,'','BR',0);
+$pdf->Cell(55,7,$telephone_num_out,'BR',0);
 $pdf->Cell(30,7,'MOBILE NUMBER','BR',0);
-$pdf->Cell(75,7,'','B',1);
-
-$pdf->Cell(35,7,'PERSON TO CONTACT','BR',0);
-$pdf->Cell(85,7,'','BR',0);
-$pdf->Cell(25,7,'RELATIONSHIP','BR',0);
-$pdf->Cell(50,7,'','B',1);
-$pdf->Cell(20,7,'ADDRESS','BR',0);
-$pdf->Cell(175,7,'','B',1);
-$pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
-$pdf->Cell(80,7,$email,'BR',0);
-$pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
-$pdf->Cell(50,7,'','B',1);
+$pdf->Cell(75,7,$mobile_num_out,'B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
@@ -149,11 +192,11 @@ $pdf->Cell(195,7,'II. EDUCATIONAL BACKGROUND','B',2);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(50,7,'COLLEGE/FACULTY/INSTITUTE','BR',0);
-$pdf->Cell(145,7,'','B',1);
+$pdf->Cell(145,7,$college_institute_faculty_out,'B',1);
 $pdf->Cell(50,7,'DEGREE PROGRAM','BR',0);
-$pdf->Cell(145,7,'','B',1);
+$pdf->Cell(145,7,$degree_prog_out,'B',1);
 $pdf->Cell(50,7,'YEAR LEVEL','BR',0);
-$pdf->Cell(145,7,'','B',1);
+$pdf->Cell(145,7,$year_level_out,'B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
@@ -163,78 +206,50 @@ $pdf->Cell(195,7,"III. GUARDIAN'S INFORMATION",'B',2);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(40,7,"FATHER'S NAME",'BR',0);
-$pdf->Cell(155,7,'','B',1);
+$pdf->Cell(155,7,$father_name_out,'B',1);
 
 $pdf->Cell(40,7,'OCCUPATION/POSITION','BR',0);
-$pdf->Cell(60,7,'','BR',0);
+$pdf->Cell(60,7,$occupation_dada_out,'BR',0);
 $pdf->Cell(25,7,'COMPANY','BR',0);
-$pdf->Cell(70,7,'','B',1);
+$pdf->Cell(70,7,$company_dada_out,'B',1);
 
 $pdf->Cell(35,7,'ADDRESS','BR',0);
-$pdf->Cell(160,7,'','B',1);
+$pdf->Cell(160,7,$address_dada_out,'B',1);
 
 $pdf->Cell(35,7,'CONTACT NUMBER','BR',0);
-$pdf->Cell(50,7,'','BR',0);
+$pdf->Cell(50,7,$contact_num_dada_out,'BR',0);
 $pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
-$pdf->Cell(80,7,'','B',1);
+$pdf->Cell(80,7,$email_add_dada_out,'B',1);
 
 $pdf->Cell(40,7,'ANNUAL INCOME','BR',0);
-$pdf->Cell(155,7,'','B',1);
+$pdf->Cell(155,7,$annual_income_dada_out,'B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
 $pdf->Cell(40,7,"MOTHER'S NAME",'BR',0);
-$pdf->Cell(155,7,'','B',1);
+$pdf->Cell(155,7,$mother_name_out,'B',1);
 
 $pdf->Cell(40,7,'OCCUPATION/POSITION','BR',0);
-$pdf->Cell(60,7,'','BR',0);
+$pdf->Cell(60,7,$occupation_mom_out,'BR',0);
 $pdf->Cell(25,7,'COMPANY','BR',0);
-$pdf->Cell(70,7,'','B',1);
+$pdf->Cell(70,7,$company_mom_out,'B',1);
 
 $pdf->Cell(35,7,'ADDRESS','BR',0);
-$pdf->Cell(160,7,'','B',1);
+$pdf->Cell(160,7,$address_mom_out,'B',1);
 
 $pdf->Cell(35,7,'CONTACT NUMBER','BR',0);
-$pdf->Cell(50,7,'','BR',0);
+$pdf->Cell(50,7,$contact_num_mom_out,'BR',0);
 $pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
-$pdf->Cell(80,7,'','B',1);
+$pdf->Cell(80,7,$email_add_mom_out,'B',1);
 
 $pdf->Cell(40,7,'ANNUAL INCOME','BR',0);
-$pdf->Cell(155,7,'','B',1);
+$pdf->Cell(155,7,$annual_income_mom_out,'B',1);
 
-$pdf->Cell(195,5,'','',1);
+$pdf->Cell(195,20,'','',1);
 
 //Proposed Field of Study
 $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,'III. PROPOSED FIELD OF STUDY','TB',1);
-
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(50,7,'PROPOSED PROGRAM','BR',0);
-$pdf->Cell(145,7,'','B',1);
-
-$pdf->Cell(50,35,'COURSES TO BE TAKEN AT UST','BR',0);
-$pdf->Cell(145,7,'1.','B',2);
-$pdf->Cell(145,7,'2.','B',2);
-$pdf->Cell(145,7,'3.','B',2);
-$pdf->Cell(145,7,'4.','B',2);
-$pdf->Cell(145,7,'5.','B',1);
-
-$pdf->Cell(30,7,'RESEARCH TOPIC','BR',0);
-$pdf->Cell(165,7,'','B',1);
-$pdf->Cell(55,7,'INTENDED SEMESTER TO STUDY','BR',0);
-$pdf->Cell(140,7,'','B',1);
-$pdf->Cell(55,7,'DISCIPLINARY ACTION AND STATUS','BR',0);
-$pdf->Cell(40,7,'','BR',0);
-$pdf->SetFont('Arial','',7);
-$pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(40,7,'','B',1);
-
-$pdf->Cell(195,5,'','',1);
-
-//Courses/Program
-$pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,'IV. COUNTRY & UNIVERSITY','TB',1);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(40,7,'COUNTRY','BR',0);
@@ -244,16 +259,16 @@ $pdf->Cell(155,7,'','B',1);
 $pdf->Cell(195,7,'','B',1);
 
 $pdf->Cell(50,7,'PROPOSED PROGRAM','BR',0);
-$pdf->Cell(145,7,'','B',1);
+$pdf->Cell(145,7,$proposed_prog,'B',1);
 
 $pdf->Cell(20,35,'COURSES','BR',0);
-$pdf->Cell(175,7,'1.','B',2);
-$pdf->Cell(175,7,'2.','B',2);
-$pdf->Cell(175,7,'3.','B',2);
-$pdf->Cell(175,7,'4.','B',2);
-$pdf->Cell(175,7,'5.','B',2);
+$pdf->Cell(175,7,'1. '.$course_1,'B',2);
+$pdf->Cell(175,7,'2. '.$course_2,'B',2);
+$pdf->Cell(175,7,'3. '.$course_3,'B',2);
+$pdf->Cell(175,7,'4. '.$course_4,'B',2);
+$pdf->Cell(175,7,'5. '.$course_5,'B',1);
 
-$pdf->Cell(195,20,'','',1);
+$pdf->Cell(195,30,'','',1);
 
 //Signatories
 $pdf->SetFont('Arial','',9);
