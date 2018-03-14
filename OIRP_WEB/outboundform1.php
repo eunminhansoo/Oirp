@@ -9,6 +9,7 @@
 		<meta name="viewport" content="width = device-width, initial-scale = 1">        
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
+        <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -21,9 +22,9 @@
 		<div class="container-fluid">
 			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
-					<li class="active"><a href="">Personal Information</a></li>
-					<li><a href="">Guardian's Information</a></li>
-					<li><a href="">Country & University</a></li>
+					<li><a href="outboundform1.php">Personal Information</a></li>
+					<li><a href="outboundform2.php">Guardian's Information</a></li>
+					<li><a href="outboundform3.php">Proposed Field of Study</a></li>
 				</ul>
 			</nav>
 			
@@ -104,10 +105,11 @@
 	<script>
 		$(document).ready(function(){
 			var now = new Date();
-		    minDate = now.toISOString().substring(0,10);
-
-			$('#issuance').prop('max', minDate);
-
+		    date = now.toISOString().substring(0,10);
+	
+			$('#issuance').prop('max', date);
+			$('#validity').prop('min', date);
+	
 		});
 	</script>
 </html>

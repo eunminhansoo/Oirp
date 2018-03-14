@@ -16,8 +16,8 @@
 			
 			if($row == 1){
 				while ($row1 = mysqli_fetch_array($query)){
-					$_SESSION['givenname_session'] = $row1['GIVEN_NAME'];
-					$_SESSION['lastname_session'] = $row1['FAMILY_NAME'];
+					session_start();
+					$_SESSION['student_id_session'] = $row1['STUDENT_ID'];
 					header("Location: student_home.php");
 				}
 			}else{

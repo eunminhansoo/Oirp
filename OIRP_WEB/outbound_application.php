@@ -1,7 +1,7 @@
 <?php
 	include 'database_connection.php';
 	session_start();
-    $getses_StudentID = $_SESSION['$studentID_session'];
+    $getses_StudentID = $_SESSION['student_id_session'];
 	$message = '';
 
 	
@@ -334,7 +334,7 @@
 			if($query_db && $query_db1)
 			{
 				echo 'success';
-				//header("Location: outboundform3.php");
+				header("Location: student_homeS.php");
 			}else{
 				// echo 'error';
 				header("Location: error_page.php");

@@ -42,7 +42,7 @@
 
 	mysqli_query($conn, "UPDATE student SET STUDENT_ID = '$studentID' WHERE EMAIL = '$show_email'");
 	
-	$_SESSION['$studentID_session'] = $studentID;
+	$_SESSION['student_id_session'] = $studentID;
 	//header("Location: inbound_application.php");
 	
 	if($appPROG == "out")
