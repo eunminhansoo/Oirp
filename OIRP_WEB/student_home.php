@@ -1,6 +1,5 @@
 <?php
-	include 'database_connection.php';
-	session_start();
+	include 'student_home_process.php';
 	$get_studentID = $_SESSION['student_id_session'];
 	$sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$get_studentID' ";
 	$db_query = mysqli_query($conn, $sql_query);
