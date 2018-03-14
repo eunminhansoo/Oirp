@@ -72,7 +72,7 @@
 							<p>Type: </p>
 						</div>
 						<div class="col-sm-2">
-							<input type="date" name="toeflType" id="toeflType" class="form-control" disabled>
+							<input type="text" name="toeflType" id="toeflType" class="form-control" disabled>
 						</div>
 					</div>
 					
