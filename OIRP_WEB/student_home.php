@@ -96,29 +96,26 @@
 		</div>
 		<!--APPLICATION BOX END-->
 		
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 		<!--APPLICATION BOX START-->
-		<div class="col-xs-6" id="uploadbox">
-			<div class="boxxes">
-				<div class="exus">
-					<a class="btn btn-secondary" id="toggelexus"> <span class="glyphicon glyphicon-remove"></span></a>
-				</div>
-				
-				<div class="appText">
-					<div class="">
-						<input type="file" name="pdfScan" id="pdfscan" disabled>
+			<div class="col-xs-6" id="uploadbox">
+				<div class="boxxes">
+					<div class="exus">
+						<a class="btn btn-secondary" id="toggelexus"> <span class="glyphicon glyphicon-remove"></span></a>
 					</div>
-				<div class="appText">
-					<div class="">
-						<input type="text" name="pdf_name" value=<?php echo"$familyName".""?> disabled>
-					</div>
-				<div class="appText">
-					<div class="">
-						<button type="submit" name="btn_submit">Submit</button>
+					
+					<div class="appText">
+						<div class="">
+							<input type="file" name="pdfScan" id="pdfscan" disabled>
+						</div>
+						<div class="appText">
+							<div class="">
+								<button type="submit" name="btn_submit">Submit</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 		</form>
 		<!--APPLICATION BOX END-->
 

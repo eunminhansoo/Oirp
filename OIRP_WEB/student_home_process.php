@@ -2,15 +2,15 @@
 include 'database_connection.php';
 
 	session_start();
-	$getSes_studentID = $_SESSION['student_id_session'];
-	
 	$get_studentID = $_SESSION['student_id_session'];
+	
 	$sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$get_studentID' ";
 	$db_query = mysqli_query($conn, $sql_query);
 	while($row = mysqli_fetch_array($db_query)){
 		$familyName = $row['FAMILY_NAME'];
 		$givenName = $row['GIVEN_NAME'];
 		//$status = $row['STATUS'];
+		$application_prog = $row['APPLICATION_PROG'];
 		$gender = $row['GENDER'];
 
 		if($gender == "Female")
@@ -25,33 +25,38 @@ include 'database_connection.php';
 	}
 	
 	
-	if (isset($_POST['btn_submit']))
+	if(isset($_POST['btn_submit']))
     {
-    	while($row = mysqli_fetch_array($db_query)){
-    	$application_prog = $row['APPLICATION_PROG'];
+    	
     	$target = "images/".basename($_FILES['pdfScan']['name']);
-    	$pdf_name = $_POST['pdf_name'];
     	$pdfScan = $_FILES['pdfScan']['name'];
     	
+    	
+    	echo $pdfScan;
+    	echo $application_prog;
+    	echo $familyName;
+    	echo $get_studentID;
     	$query_db = "INSERT INTO upload_pdf(
     	STUDENT_COUNT,
     	STUDENT_ID,
     	APPLICATION_PROG,
     	PDF_NAME,
     	PDF_IMG,
-    	) VALUES(
+    	)VALUES(
     	'', 
-    	'$getSes_studentID',
+    	'$get_studentID',
     	'$application_prog',
-    	'$pdf_name',
-    	'$pdfScan')";
+    	'$familyName',
+    	'$pdfScan'
+    	)";
     	
-    	$query_db1 = mysqli_query($conn, $query_db);
+    	$query = mysqli_query($conn, $query_db);
+    
     	
-    	if($query_db1)
+    	if($query)
 			{
-				// echo 'success';
-				header("Location: student_home.php");
+				echo 'success';
+				//header("Location: student_home.php");
 			}else{
 				header("Location: error_page.php");
 			}
@@ -66,6 +71,5 @@ include 'database_connection.php';
 			
     	}
     	
-    }
-
+   
 ?>
