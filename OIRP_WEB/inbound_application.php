@@ -23,35 +23,35 @@
 		$emailCP = $_POST['emailCP'];
 		$numberCP = $_POST['numberCP'];
 		
-		$query_db = "INSERT INTO personal_info_inbound(
-			STUDENT_COUNT, 
-			STUDENT_ID, 
-			APPLICATION_PROG, 
-			CITIZENSHIP_IN,
-			NATIONALITY_IN, 
-			PASSPORT_NUM_IN, 
-			VALIDITY_DATE_IN, 
-			DATE_ISSUANCE_iN, 
-			MAILING_ADD_IN, 
-			TELEPHONE_NUM_IN, 
-			MOBILE_NUM_IN
-			) VALUES(
-				'', 
-				'$getSes_studentID', 
-				'',
-				'$citizenship', 
-				'$nationality', 
-				'$passport', 
-				'$validity', 
-				'$issuance', 
-				'$address', 
-				'$telephone',
-				'$mobile')";
+		// $query_db = "INSERT INTO personal_info_inbound(
+		// 	STUDENT_COUNT, 
+		// 	STUDENT_ID, 
+		// 	APPLICATION_PROG, 
+		// 	CITIZENSHIP_IN,
+		// 	NATIONALITY_IN, 
+		// 	PASSPORT_NUM_IN, 
+		// 	VALIDITY_DATE_IN, 
+		// 	DATE_ISSUANCE_iN, 
+		// 	MAILING_ADD_IN, 
+		// 	TELEPHONE_NUM_IN, 
+		// 	MOBILE_NUM_IN
+		// 	) VALUES(
+		// 		'', 
+		// 		'$getSes_studentID', 
+		// 		'',
+		// 		'$citizenship', 
+		// 		'$nationality', 
+		// 		'$passport', 
+		// 		'$validity', 
+		// 		'$issuance', 
+		// 		'$address', 
+		// 		'$telephone',
+		// 		'$mobile')";
 
 		$checkQuery1 = mysqli_query($conn, $query_db);
 
-		$query_db1 = "INSERT INTO personal_contact_inbound(STUDENT_COUNT, STUDENT_ID, PERSONAL_CONTACT_IN_BILA, RELATIONSHIP_IN_BILA, ADD_IN_BILA, EMAIL_ADD_IN_BILA, TELEPHONE_NUM_IN_BILA
-		) VALUES('', '$getSes_studentID', '$contactperson', '$relCP', '$addressCP', '$emailCP', '$numberCP')";
+		// $query_db1 = "INSERT INTO personal_contact_inbound(STUDENT_COUNT, STUDENT_ID, PERSONAL_CONTACT_IN_BILA, RELATIONSHIP_IN_BILA, ADD_IN_BILA, EMAIL_ADD_IN_BILA, TELEPHONE_NUM_IN_BILA
+		// ) VALUES('', '$getSes_studentID', '$contactperson', '$relCP', '$addressCP', '$emailCP', '$numberCP')";
 
 		$checkQuery2 = mysqli_query($conn, $query_db1);
 

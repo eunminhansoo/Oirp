@@ -41,6 +41,159 @@
 	$studentID = $dateuSignIn2."-".$appPROG;
 
 	mysqli_query($conn, "UPDATE student SET STUDENT_ID = '$studentID' WHERE EMAIL = '$show_email'");
+
+	// INSERT ALL TABLE
+	if($appPROG == 'in'){
+		$query_db = "INSERT INTO personal_info_inbound(
+			STUDENT_COUNT, 
+			STUDENT_ID, 
+			APPLICATION_PROG, 
+			CITIZENSHIP_IN,
+			NATIONALITY_IN, 
+			PASSPORT_NUM_IN, 
+			VALIDITY_DATE_IN, 
+			DATE_ISSUANCE_iN, 
+			MAILING_ADD_IN, 
+			TELEPHONE_NUM_IN, 
+			MOBILE_NUM_IN
+			) VALUES(
+				'', 
+				'$studentID', 
+				'',
+				'', 
+				'', 
+				'', 
+				'', 
+				'', 
+				'', 
+				'',
+				'')";
+			mysqli_query($conn, $query_db);
+
+			$query_db1 = "INSERT INTO personal_contact_inbound(STUDENT_COUNT, STUDENT_ID, PERSONAL_CONTACT_IN_BILA, RELATIONSHIP_IN_BILA, ADD_IN_BILA, EMAIL_ADD_IN_BILA, TELEPHONE_NUM_IN_BILA
+			) VALUES('', '$studentID', '', '', '', '', '')";
+			mysqli_query($conn, $query_db1);
+
+			$sql_query = "INSERT INTO educ_background_inbound(
+				STUDENT_COUNT,
+				STUDENT_ID,
+				COUNTRY_ORIGIN,
+				HOME_UNIV_IN_BILA,
+				UNIV_ADD_IN_BILA,
+				NAME_OFFICER_CONTACT_IN_BILA,
+				EMAIL_ADD_IN_BILA,
+				CURRENT_PROG_STUDY_IN_BILA,
+				DESIGNATION_IN_BILA,
+				TELEPHONE_NUM_BILA,
+				SPECIALIZATION_IN_BILA,
+				YEAR_LEVEL,
+				SCHOLARSHIP_IN_BILA,
+				SCHOLARSHIP_TEXT_IN_BILA,
+				APPLICATION_FORM,
+				APPLICATION_TYPE_PROG
+			) VALUES (
+				'',
+				'$studentID',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				''
+			)";
+			mysqli_query($conn, $sql_query);
+
+
+			$sql_query1 = "INSERT INTO medical_english_inbound(
+				STUDENT_COUNT,
+				STUDENT_ID,
+				DO_YOU_SMOKE_INBOUND,
+				DESCRIBE_DISABILI_INBOUND,
+				DESCRIBE_ILL_INBOUND,
+				COMPLETE_TOEF_INBOUND,
+				COMPLETE_TOEF_SCORE_INBOUND,
+				INTEND_TAKE_TOEF_INBOUND,
+				INTEND_TAKE_TOEF_DATE_INBOUND,
+				INTEND_TAKE_TOEF_TYPE_INBOUND
+			) VALUES(
+				'',
+				'$studentID',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				''			
+			)";
+			mysqli_query($conn, $sql_query1);
+
+			$sql_query2 = "INSERT INTO expectation_prog_inbound(
+				STUDENT_COUNT,
+				STUDENT_ID,
+				EXPECTATION_PROG
+			) VALUES (
+				'',
+				'$studentID',
+				''
+			)";
+			mysqli_query($conn, $sql_query2);
+	}else{
+		if($appPROG == 'out'){
+			$sql_query = "INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, 
+			`NATIONALITY_OUT`, `CITIZENSHIP_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, 
+			`MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`
+			) VALUES ('', '$studentID', '', '', '', '', '', '', '', '', '', '', '')";
+			
+			mysqli_query($conn, $sql_query);
+
+			$sql_query1 = "INSERT INTO guardian_info_outbound(
+				STUDENT_COUNT, 
+				STUDENT_ID,
+				FATHER_NAME_OUT,
+				OCCUPATION_DADA_OUT,
+				COMPANY_DADA_OUT,
+				ADDRESS_DADA_OUT,
+				EMAIL_ADD_DADA_OUT,
+				CONTACT_NUM_DADA_OUT,
+				ANNUAL_INCOME_DADA_OUT,
+				MOTHER_NAME_OUT,
+				OCCUPATION_MOM_OUT,
+				COMPANY_MOM_OUT,
+				ADDRESS_MOM_OUT,
+				EMAIL_ADD_MOM_OUT,
+				CONTACT_NUM_MOM_OUT,
+				ANNUAL_INCOME_MOM_OUT
+			) VALUES (
+				'',
+				'$studentID',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'')";
+
+			mysqli_query($conn, $sql_query);
+		}
+	}
 	
 	$_SESSION['student_id_session'] = $studentID;
 	//header("Location: inbound_application.php");
