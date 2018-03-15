@@ -1,25 +1,6 @@
 <?php
-	include 'database_connection.php';
-	session_start();
-	$get_studentID = $_SESSION['student_id_session'];
-	$sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$get_studentID' ";
-	$db_query = mysqli_query($conn, $sql_query);
-	while($row = mysqli_fetch_array($db_query)){
-		$familyName = $row['FAMILY_NAME'];
-		$givenName = $row['GIVEN_NAME'];
-		$status = $row['STATUS'];
-		$gender = $row['GENDER'];
-
-		if($gender == "Female")
-		{
-			$gen = "Ms";
-		}else{
-			if($gender == "Male")
-			{
-				$gen = "Mr";
-			}
-		}
-	}
+	include 'student_home_process.php';
+	
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -114,20 +95,31 @@
 			</div>
 		</div>
 		<!--APPLICATION BOX END-->
-
+		
+		<form method="post">
 		<!--APPLICATION BOX START-->
 		<div class="col-xs-6" id="uploadbox">
 			<div class="boxxes">
 				<div class="exus">
 					<a class="btn btn-secondary" id="toggelexus"> <span class="glyphicon glyphicon-remove"></span></a>
 				</div>
+				
 				<div class="appText">
 					<div class="">
 						<input type="file" name="pdfScan" id="pdfscan" disabled>
 					</div>
+				<div class="appText">
+					<div class="">
+						<input type="text" name="pdf_name" value=<?php echo"$familyName".""?> disabled>
+					</div>
+				<div class="appText">
+					<div class="">
+						<button type="submit" name="btn_submit">Submit</button>
+					</div>
 				</div>
 			</div>
 		</div>
+		</form>
 		<!--APPLICATION BOX END-->
 
 
