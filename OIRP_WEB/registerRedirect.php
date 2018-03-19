@@ -47,7 +47,6 @@
 		$query_db = "INSERT INTO personal_info_inbound(
 			STUDENT_COUNT, 
 			STUDENT_ID, 
-			APPLICATION_PROG, 
 			CITIZENSHIP_IN,
 			NATIONALITY_IN, 
 			PASSPORT_NUM_IN, 
@@ -59,7 +58,6 @@
 			) VALUES(
 				'', 
 				'$studentID', 
-				'',
 				'', 
 				'', 
 				'', 
@@ -191,7 +189,55 @@
 				'',
 				'')";
 
-			mysqli_query($conn, $sql_query);
+			mysqli_query($conn, $sql_query1);
+
+			$sql_query2 = "INSERT INTO proposed_field_study(
+					STUDENT_COUNT,
+					STUDENT_ID,
+					PROPOSED_PROG,
+					COURSE_1, 
+					COURSE_2, 
+					COURSE_3, 
+				 	COURSE_4, 
+				 	COURSE_5,
+					SCHOLARSHIP_OUTBOUND,
+					SCHOLARSHIP_TEXT_OUTBOUND,
+				 	APPLICATION_FORM,
+					APPLICATION_TYPE_PROG
+				) VALUES 
+				(
+					'',
+					'$studentID',
+					'',
+					'',
+					'',
+					'',
+					'',
+				 	'',
+					'',
+					'',
+					'',
+					''
+
+				)";
+				mysqli_query($conn, $sql_query2);
+
+				$sql_query3 = "INSERT INTO country_univ_outbound
+				(
+					STUDENT_COUNT,
+					STUDENT_ID,
+					APPLICATION_PROG,
+					COUNTRY_OUT,
+					UNIVERSITY_OUT
+				) VALUES 
+				(
+					'',
+					'$studentID',
+					'',
+					'',
+					''
+				)";
+				mysqli_query($conn, $sql_query3);
 		}
 	}
 	

@@ -22,6 +22,17 @@
 		$addressCP = $_POST['addressCP'];
 		$emailCP = $_POST['emailCP'];
 		$numberCP = $_POST['numberCP'];
+
+		$query_db = "UPDATE personal_info_inbound SET
+		CITIZENSHIP_IN = '$citizenship',
+		NATIONALITY_IN = '$nationality',
+		PASSPORT_NUM_IN = '$passport',
+		VALIDITY_DATE_IN = '$validity',
+		DATE_ISSUANCE_iN = '$issuance',
+		MAILING_ADD_IN = '$address',
+		TELEPHONE_NUM_IN = '$telephone',
+		MOBILE_NUM_IN = '$mobile'
+		WHERE STUDENT_ID = '$getSes_studentID' ";
 		
 		// $query_db = "INSERT INTO personal_info_inbound(
 		// 	STUDENT_COUNT, 
@@ -52,6 +63,14 @@
 
 		// $query_db1 = "INSERT INTO personal_contact_inbound(STUDENT_COUNT, STUDENT_ID, PERSONAL_CONTACT_IN_BILA, RELATIONSHIP_IN_BILA, ADD_IN_BILA, EMAIL_ADD_IN_BILA, TELEPHONE_NUM_IN_BILA
 		// ) VALUES('', '$getSes_studentID', '$contactperson', '$relCP', '$addressCP', '$emailCP', '$numberCP')";
+
+		$query_db1 = "UPDATE personal_contact_inbound SET 
+		PERSONAL_CONTACT_IN_BILA = '$contactperson',
+		RELATIONSHIP_IN_BILA = '$relCP',
+		ADD_IN_BILA = '$addressCP',
+		EMAIL_ADD_IN_BILA = '$emailCP',
+		TELEPHONE_NUM_IN_BILA = '$numberCP'
+		WHERE STUDENT_ID = '$getSes_studentID'";
 
 		$checkQuery2 = mysqli_query($conn, $query_db1);
 
@@ -116,41 +135,58 @@
 						$scholarloanText = '';
 					}
 				}
-				$sql_query = "INSERT INTO educ_background_inbound(
-					STUDENT_COUNT,
-					STUDENT_ID,
-					COUNTRY_ORIGIN,
-					HOME_UNIV_IN_BILA,
-					UNIV_ADD_IN_BILA,
-					NAME_OFFICER_CONTACT_IN_BILA,
-					EMAIL_ADD_IN_BILA,
-					CURRENT_PROG_STUDY_IN_BILA,
-					DESIGNATION_IN_BILA,
-					TELEPHONE_NUM_BILA,
-					SPECIALIZATION_IN_BILA,
-					YEAR_LEVEL,
-					SCHOLARSHIP_IN_BILA,
-					SCHOLARSHIP_TEXT_IN_BILA,
-					APPLICATION_FORM,
-					APPLICATION_TYPE_PROG
-				) VALUES (
-					'',
-					'$getSes_studentID',
-					'$country',
-					'$get_univ',
-					'$univAddress',
-					'$officer',
-					'$emailO ',
-					'$program',
-					'$designationO',
-					'$numberO',
-					'$major',
-					'$yearLevel',
-					'$scholarloan',
-					'$scholarloanText',
-					'$programText',
-					'$prog_other'
-				)";
+				$sql_query = "UPDATE educ_background_inbound SET 
+				COUNTRY_ORIGIN = '$country',
+				HOME_UNIV_IN_BILA = '$get_univ',
+				UNIV_ADD_IN_BILA = '$univAddress',
+				NAME_OFFICER_CONTACT_IN_BILA = '$officer',
+				EMAIL_ADD_IN_BILA = '$emailO',
+				CURRENT_PROG_STUDY_IN_BILA = '$program',
+				DESIGNATION_IN_BILA = '$designationO',
+				TELEPHONE_NUM_BILA = '$numberO',
+				SPECIALIZATION_IN_BILA = '$major',
+				YEAR_LEVEL = '$yearLevel',
+				SCHOLARSHIP_IN_BILA = '$scholarloan',
+				SCHOLARSHIP_TEXT_IN_BILA = '$scholarloanText',
+				APPLICATION_FORM ='$programText',
+				APPLICATION_TYPE_PROG ='$prog_other'
+				WHERE STUDENT_ID = '$getSes_studentID'";
+
+				// $sql_query = "INSERT INTO educ_background_inbound(
+				// 	STUDENT_COUNT,
+				// 	STUDENT_ID,
+				// 	COUNTRY_ORIGIN,
+				// 	HOME_UNIV_IN_BILA,
+				// 	UNIV_ADD_IN_BILA,
+				// 	NAME_OFFICER_CONTACT_IN_BILA,
+				// 	EMAIL_ADD_IN_BILA,
+				// 	CURRENT_PROG_STUDY_IN_BILA,
+				// 	DESIGNATION_IN_BILA,
+				// 	TELEPHONE_NUM_BILA,
+				// 	SPECIALIZATION_IN_BILA,
+				// 	YEAR_LEVEL,
+				// 	SCHOLARSHIP_IN_BILA,
+				// 	SCHOLARSHIP_TEXT_IN_BILA,
+				// 	APPLICATION_FORM,
+				// 	APPLICATION_TYPE_PROG
+				// ) VALUES (
+				// 	'',
+				// 	'$getSes_studentID',
+				// 	'$country',
+				// 	'$get_univ',
+				// 	'$univAddress',
+				// 	'$officer',
+				// 	'$emailO ',
+				// 	'$program',
+				// 	'$designationO',
+				// 	'$numberO',
+				// 	'$major',
+				// 	'$yearLevel',
+				// 	'$scholarloan',
+				// 	'$scholarloanText',
+				// 	'$programText',
+				// 	'$prog_other'
+				// )";
 			}
 
 			if($type_program == "Bilateral")
@@ -169,41 +205,58 @@
 						$scholarloanText = '';
 					}
 				}
-				$sql_query = "INSERT INTO educ_background_inbound(
-					STUDENT_COUNT,
-					STUDENT_ID,
-					COUNTRY_ORIGIN,
-					HOME_UNIV_IN_BILA,
-					UNIV_ADD_IN_BILA,
-					NAME_OFFICER_CONTACT_IN_BILA,
-					EMAIL_ADD_IN_BILA,
-					CURRENT_PROG_STUDY_IN_BILA,
-					DESIGNATION_IN_BILA,
-					TELEPHONE_NUM_BILA,
-					SPECIALIZATION_IN_BILA,
-					YEAR_LEVEL,
-					SCHOLARSHIP_IN_BILA,
-					SCHOLARSHIP_TEXT_IN_BILA,
-					APPLICATION_FORM,
-					APPLICATION_TYPE_PROG	
-				) VALUES (
-					'',
-					'$getSes_studentID',
-					'$country',
-					'$get_univ',
-					'$univAddress',
-					'$officer',
-					'$emailO',
-					'$program',
-					'$designationO',
-					'$numberO',
-					'$major',
-					'$yearLevel',
-					'$scholarloan',
-					'$scholarloanText',
-					'$bilateral',
-					'$type_program'
-				)";
+				$sql_query = "UPDATE educ_background_inbound SET 
+				COUNTRY_ORIGIN = '$country',
+				HOME_UNIV_IN_BILA = '$get_univ',
+				UNIV_ADD_IN_BILA = '$univAddress',
+				NAME_OFFICER_CONTACT_IN_BILA = '$officer',
+				EMAIL_ADD_IN_BILA = '$emailO',
+				CURRENT_PROG_STUDY_IN_BILA = '$program',
+				DESIGNATION_IN_BILA = '$designationO',
+				TELEPHONE_NUM_BILA = '$numberO',
+				SPECIALIZATION_IN_BILA = '$major',
+				YEAR_LEVEL = '$yearLevel',
+				SCHOLARSHIP_IN_BILA = '$scholarloan',
+				SCHOLARSHIP_TEXT_IN_BILA = '$scholarloanText',
+				APPLICATION_FORM ='$bilateral',
+				APPLICATION_TYPE_PROG ='$type_program'
+				WHERE STUDENT_ID = '$getSes_studentID'";
+				
+				// $sql_query = "INSERT INTO educ_background_inbound(
+				// 	STUDENT_COUNT,
+				// 	STUDENT_ID,
+				// 	COUNTRY_ORIGIN,
+				// 	HOME_UNIV_IN_BILA,
+				// 	UNIV_ADD_IN_BILA,
+				// 	NAME_OFFICER_CONTACT_IN_BILA,
+				// 	EMAIL_ADD_IN_BILA,
+				// 	CURRENT_PROG_STUDY_IN_BILA,
+				// 	DESIGNATION_IN_BILA,
+				// 	TELEPHONE_NUM_BILA,
+				// 	SPECIALIZATION_IN_BILA,
+				// 	YEAR_LEVEL,
+				// 	SCHOLARSHIP_IN_BILA,
+				// 	SCHOLARSHIP_TEXT_IN_BILA,
+				// 	APPLICATION_FORM,
+				// 	APPLICATION_TYPE_PROG	
+				// ) VALUES (
+				// 	'',
+				// 	'$getSes_studentID',
+				// 	'$country',
+				// 	'$get_univ',
+				// 	'$univAddress',
+				// 	'$officer',
+				// 	'$emailO',
+				// 	'$program',
+				// 	'$designationO',
+				// 	'$numberO',
+				// 	'$major',
+				// 	'$yearLevel',
+				// 	'$scholarloan',
+				// 	'$scholarloanText',
+				// 	'$bilateral',
+				// 	'$type_program'
+				// )";
 			}
 
 			if($type_program == "Scholarship")
@@ -213,78 +266,110 @@
 				if($scholarship == "OTHERS")
 				{
 					$scholarshipText = $_POST['scholarshipText'];
-					$sql_query = "INSERT INTO educ_background_inbound(
-						STUDENT_COUNT,
-						STUDENT_ID,
-						COUNTRY_ORIGIN,
-						HOME_UNIV_IN_BILA,
-						UNIV_ADD_IN_BILA,
-						NAME_OFFICER_CONTACT_IN_BILA,
-						EMAIL_ADD_IN_BILA,
-						CURRENT_PROG_STUDY_IN_BILA,
-						DESIGNATION_IN_BILA,
-						TELEPHONE_NUM_BILA,
-						SPECIALIZATION_IN_BILA,
-						YEAR_LEVEL,
-						SCHOLARSHIP_IN_BILA,
-						SCHOLARSHIP_TEXT_IN_BILA,
-						APPLICATION_FORM,
-						APPLICATION_TYPE_PROG	
-					) VALUES (
-						'',
-						'$getSes_studentID',
-						'$country',
-						'$get_univ',
-						'$univAddress',
-						'$officer',
-						'$emailO',
-						'$program',
-						'$designationO',
-						'$numberO',
-						'$major',
-						'$yearLevel',
-						'',
-						'',
-						'$scholarshipText',
-						'$type_program'
-					)";
+
+					$sql_query = "UPDATE educ_background_inbound SET 
+					COUNTRY_ORIGIN = '$country',
+					HOME_UNIV_IN_BILA = '$get_univ',
+					UNIV_ADD_IN_BILA = '$univAddress',
+					NAME_OFFICER_CONTACT_IN_BILA = '$officer',
+					EMAIL_ADD_IN_BILA = '$emailO',
+					CURRENT_PROG_STUDY_IN_BILA = '$program',
+					DESIGNATION_IN_BILA = '$designationO',
+					TELEPHONE_NUM_BILA = '$numberO',
+					SPECIALIZATION_IN_BILA = '$major',
+					YEAR_LEVEL = '$yearLevel'
+					SCHOLARSHIP_IN_BILA = '$scholarloan',
+					SCHOLARSHIP_TEXT_IN_BILA = '$scholarloanText',
+					APPLICATION_FORM ='$programText',
+					APPLICATION_TYPE_PROG ='$scholarshipTextet'
+					WHERE STUDENT_ID = '$getSes_studentID'";
+					
+					// $sql_query = "INSERT INTO educ_background_inbound(
+					// 	STUDENT_COUNT,
+					// 	STUDENT_ID,
+					// 	COUNTRY_ORIGIN,
+					// 	HOME_UNIV_IN_BILA,
+					// 	UNIV_ADD_IN_BILA,
+					// 	NAME_OFFICER_CONTACT_IN_BILA,
+					// 	EMAIL_ADD_IN_BILA,
+					// 	CURRENT_PROG_STUDY_IN_BILA,
+					// 	DESIGNATION_IN_BILA,
+					// 	TELEPHONE_NUM_BILA,
+					// 	SPECIALIZATION_IN_BILA,
+					// 	YEAR_LEVEL,
+					// 	SCHOLARSHIP_IN_BILA,
+					// 	SCHOLARSHIP_TEXT_IN_BILA,
+					// 	APPLICATION_FORM,
+					// 	APPLICATION_TYPE_PROG	
+					// ) VALUES (
+					// 	'',
+					// 	'$getSes_studentID',
+					// 	'$country',
+					// 	'$get_univ',
+					// 	'$univAddress',
+					// 	'$officer',
+					// 	'$emailO',
+					// 	'$program',
+					// 	'$designationO',
+					// 	'$numberO',
+					// 	'$major',
+					// 	'$yearLevel',
+					// 	'',
+					// 	'',
+					// 	'$scholarshipText',
+					// 	'$type_program'
+					// )";
 				}else{
 					$scholarshipText = '';
-					$sql_query = "INSERT INTO educ_background_inbound(
-						STUDENT_COUNT,
-						STUDENT_ID,
-						COUNTRY_ORIGIN,
-						HOME_UNIV_IN_BILA,
-						UNIV_ADD_IN_BILA,
-						NAME_OFFICER_CONTACT_IN_BILA,
-						EMAIL_ADD_IN_BILA,
-						CURRENT_PROG_STUDY_IN_BILA,
-						DESIGNATION_IN_BILA,
-						TELEPHONE_NUM_BILA,
-						SPECIALIZATION_IN_BILA,
-						YEAR_LEVEL,
-						SCHOLARSHIP_IN_BILA,
-						SCHOLARSHIP_TEXT_IN_BILA,
-						APPLICATION_FORM,
-						APPLICATION_TYPE_PROG	
-					) VALUES (
-						'',
-						'$getSes_studentID',
-						'$country',
-						'$get_univ',
-						'$univAddress',
-						'$officer',
-						'$emailO',
-						'$program',
-						'$designationO',
-						'$numberO',
-						'$major',
-						'$yearLevel',
-						'',
-						'',
-						'$scholarship',
-						'$type_program'
-					)";
+					$sql_query = "UPDATE educ_background_inbound SET 
+					COUNTRY_ORIGIN = '$country',
+					HOME_UNIV_IN_BILA = '$get_univ',
+					UNIV_ADD_IN_BILA = '$univAddress',
+					NAME_OFFICER_CONTACT_IN_BILA = '$officer',
+					EMAIL_ADD_IN_BILA = '$emailO',
+					CURRENT_PROG_STUDY_IN_BILA = '$program',
+					DESIGNATION_IN_BILA = '$designationO',
+					TELEPHONE_NUM_BILA = '$numberO',
+					SPECIALIZATION_IN_BILA = '$major',
+					YEAR_LEVEL = '$yearLevel',
+					APPLICATION_FORM ='$scholarship',
+					APPLICATION_TYPE_PROG ='$scholarshipTextet'
+					WHERE STUDENT_ID = '$getSes_studentID'";
+					// $sql_query = "INSERT INTO educ_background_inbound(
+					// 	STUDENT_COUNT,
+					// 	STUDENT_ID,
+					// 	COUNTRY_ORIGIN,
+					// 	HOME_UNIV_IN_BILA,
+					// 	UNIV_ADD_IN_BILA,
+					// 	NAME_OFFICER_CONTACT_IN_BILA,
+					// 	EMAIL_ADD_IN_BILA,
+					// 	CURRENT_PROG_STUDY_IN_BILA,
+					// 	DESIGNATION_IN_BILA,
+					// 	TELEPHONE_NUM_BILA,
+					// 	SPECIALIZATION_IN_BILA,
+					// 	YEAR_LEVEL,
+					// 	SCHOLARSHIP_IN_BILA,
+					// 	SCHOLARSHIP_TEXT_IN_BILA,
+					// 	APPLICATION_FORM,
+					// 	APPLICATION_TYPE_PROG	
+					// ) VALUES (
+					// 	'',
+					// 	'$getSes_studentID',
+					// 	'$country',
+					// 	'$get_univ',
+					// 	'$univAddress',
+					// 	'$officer',
+					// 	'$emailO',
+					// 	'$program',
+					// 	'$designationO',
+					// 	'$numberO',
+					// 	'$major',
+					// 	'$yearLevel',
+					// 	'',
+					// 	'',
+					// 	'$scholarship',
+					// 	'$type_program'
+					// )";
 				}
 			}
 			
@@ -318,35 +403,49 @@
 		$disciplinary = $_POST['disciplinary'];
 		$accomodation = $_POST['accomodation'];
 
-		$sql_query = "INSERT INTO proposed_field_study_in_bila(
-			STUDENT_COUNT,
-			STUDENT_ID,
-			PROPOSED_PROG_INBOUND,
-			COURSE_1_INBOUND,
-			COURSE_2_INBOUND,
-			COURSE_3_INBOUND,
-			COURSE_4_INBOUND,
-			COURSE_5_INBOUND,
-			RESEARCH_TOPIC_INBOUND,
-			INTENDED_SEM_STUDY_INBOUND,
-			DESCRIPTION_ACTION_STATUS_INBOUND,
-			REASON_STUDYING_INBOUND,
-			ACCOMODATION_INBOUND
-		) VALUES (
-			'',
-			'$getSes_studentID',
-			'$proposedProg',
-			'$course1',
-			'$course2',
-			'$course3',
-			'$course4',
-			'$course5',
-			'$research',
-			'$sem',
-			'$reason',
-			'$disciplinary',
-			'$accomodation'
-		)";
+		$sql_query = "UPDATE proposed_field_study_in_bila SET
+			PROPOSED_PROG_INBOUND = '$proposedProg',
+			COURSE_1_INBOUND = '$course1',
+			COURSE_2_INBOUND = '$course2',
+			COURSE_3_INBOUND = '$course3',
+			COURSE_4_INBOUND = '$course4',
+			COURSE_5_INBOUND = '$course5',
+			RESEARCH_TOPIC_INBOUND = '$research',
+			INTENDED_SEM_STUDY_INBOUND = '$sem',
+			DESCRIPTION_ACTION_STATUS_INBOUND = '$reason',
+			REASON_STUDYING_INBOUND = '$disciplinary',
+			ACCOMODATION_INBOUND ='$accomodation'
+			WHERE STUDENT_ID = '$getSes_studentID' "
+
+		// $sql_query = "INSERT INTO proposed_field_study_in_bila(
+		// 	STUDENT_COUNT,
+		// 	STUDENT_ID,
+		// 	PROPOSED_PROG_INBOUND,
+		// 	COURSE_1_INBOUND,
+		// 	COURSE_2_INBOUND,
+		// 	COURSE_3_INBOUND,
+		// 	COURSE_4_INBOUND,
+		// 	COURSE_5_INBOUND,
+		// 	RESEARCH_TOPIC_INBOUND,
+		// 	INTENDED_SEM_STUDY_INBOUND,
+		// 	DESCRIPTION_ACTION_STATUS_INBOUND,
+		// 	REASON_STUDYING_INBOUND,
+		// 	ACCOMODATION_INBOUND
+		// ) VALUES (
+		// 	'',
+		// 	'$getSes_studentID',
+		// 	'$proposedProg',
+		// 	'$course1',
+		// 	'$course2',
+		// 	'$course3',
+		// 	'$course4',
+		// 	'$course5',
+		// 	'$research',
+		// 	'$sem',
+		// 	'$reason',
+		// 	'$disciplinary',
+		// 	'$accomodation'
+		// )";
 		$query_db = mysqli_query($conn, $sql_query);
 
 		if($query_db)
@@ -370,30 +469,40 @@
 		$disabilities = $_POST['disabilities'];
 		$illness = $_POST['illness'];
 		
+		$sql_query = "UPDATE medical_english_inbound SET
+			DO_YOU_SMOKE_INBOUND = '$smoker',
+		 	DESCRIBE_DISABILI_INBOUND = '$disabilities',
+		 	DESCRIBE_ILL_INBOUND = '$illness',
+		 	COMPLETE_TOEF_INBOUND = '$toeflTest',
+		 	COMPLETE_TOEF_SCORE_INBOUND = '$toeflScore',
+		 	INTEND_TAKE_TOEF_INBOUND = '$toeflFuture',
+		 	INTEND_TAKE_TOEF_DATE_INBOUND = '$toeflDate',
+		 	INTEND_TAKE_TOEF_TYPE_INBOUND = '$toeflType'
+			WHERE STUDENT_ID = '$getSes_studentID' ":
 
-		$sql_query = "INSERT INTO medical_english_inbound(
-			STUDENT_COUNT,
-			STUDENT_ID,
-			DO_YOU_SMOKE_INBOUND,
-			DESCRIBE_DISABILI_INBOUND,
-			DESCRIBE_ILL_INBOUND,
-			COMPLETE_TOEF_INBOUND,
-			COMPLETE_TOEF_SCORE_INBOUND,
-			INTEND_TAKE_TOEF_INBOUND,
-			INTEND_TAKE_TOEF_DATE_INBOUND,
-			INTEND_TAKE_TOEF_TYPE_INBOUND
-		) VALUES(
-			'',
-			'$getSes_studentID',
-			'$smoker',
-			'$disabilities',
-			'$illness',
-			'$toeflTest',
-			'$toeflScore',
-			'$toeflFuture',
-			'$toeflDate',
-			'$toeflType'			
-		)";
+		// $sql_query = "INSERT INTO medical_english_inbound(
+		// 	STUDENT_COUNT,
+		// 	STUDENT_ID,
+		// 	DO_YOU_SMOKE_INBOUND,
+		// 	DESCRIBE_DISABILI_INBOUND,
+		// 	DESCRIBE_ILL_INBOUND,
+		// 	COMPLETE_TOEF_INBOUND,
+		// 	COMPLETE_TOEF_SCORE_INBOUND,
+		// 	INTEND_TAKE_TOEF_INBOUND,
+		// 	INTEND_TAKE_TOEF_DATE_INBOUND,
+		// 	INTEND_TAKE_TOEF_TYPE_INBOUND
+		// ) VALUES(
+		// 	'',
+		// 	'$getSes_studentID',
+		// 	'$smoker',
+		// 	'$disabilities',
+		// 	'$illness',
+		// 	'$toeflTest',
+		// 	'$toeflScore',
+		// 	'$toeflFuture',
+		// 	'$toeflDate',
+		// 	'$toeflType'			
+		// )";
 		$query_db = mysqli_query($conn, $sql_query);
 
 		if($query_db)
@@ -410,15 +519,19 @@
 	{
 		$expectation_area = $_POST['expectation_area'];
 
-		$sql_query = "INSERT INTO expectation_prog_inbound(
-			STUDENT_COUNT,
-			STUDENT_ID,
-			EXPECTATION_PROG
-		) VALUES (
-			'',
-			'$getSes_studentID',
-			'$expectation_area'
-		)";
+		$sql_query = "UPDATE expectation_prog_inbound SET
+		EXPECTATION_PROG = '$expectation_area' 
+		WHERE STUDENT_ID = '$getSes_studentID' ";
+
+		// $sql_query = "INSERT INTO expectation_prog_inbound(
+		// 	STUDENT_COUNT,
+		// 	STUDENT_ID,
+		// 	EXPECTATION_PROG
+		// ) VALUES (
+		// 	'',
+		// 	'$getSes_studentID',
+		// 	'$expectation_area'
+		// )";
 		$query_db = mysqli_query($conn, $sql_query);
 
 		if($query_db)
