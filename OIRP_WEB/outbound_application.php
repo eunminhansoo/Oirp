@@ -395,11 +395,9 @@
 			$query_db = mysqli_query($conn, $sql_query);
 			
 			$sql_query1 = "UPDATE country_univ_outbound SET
-				STUDENT_COUNT,
-				STUDENT_ID,
-				APPLICATION_PROG,
-				COUNTRY_OUT,
-				UNIVERSITY_OUT
+				APPLICATION_PROG = '$application_prog',
+				COUNTRY_OUT = '$country',
+				UNIVERSITY_OUT = '$get_univ'
 				WHERE STUDENT_ID = '$getses_StudentID'
 			";
 			// $sql_query1 = "INSERT INTO country_univ_outbound
@@ -423,10 +421,10 @@
 			if($query_db && $query_db1)
 			{
 				echo 'success';
-				header("Location: student_homeS.php");
+				//header("Location: student_home.php");
 			}else{
-				// echo 'error';
-				header("Location: error_page.php");
+				 echo 'error';
+				//header("Location: error_page.php");
 			}
 		}
 
