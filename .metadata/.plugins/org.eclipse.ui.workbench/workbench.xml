@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="18" version="2.0">
+<workbench progressCount="43" version="2.0">
 <workbenchAdvisor/>
 <window height="738" maximized="true" width="1024" x="-421" y="-13">
 <fastViewData fastViewLocation="1024"/>
@@ -12,7 +12,7 @@
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="38" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="84" y="22"/>
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -33,23 +33,35 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.php.editor" name="error_page.php" partName="error_page.php" path="C:/xampp/htdocs/OIRP/OIRP_WEB/error_page.php" title="error_page.php" tooltip="OIRP_WEB/error_page.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/error_page.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="791" selectionTopPixel="0"/>
+<editor id="org.eclipse.php.editor" name="student_home.php" partName="student_home.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/student_home.php" title="student_home.php" tooltip="OIRP_WEB/student_home.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/student_home.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4063" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.php.editor" name="index.php" partName="index.php" path="C:/xampp/htdocs/OIRP/OIRP_WEB/index.php" title="index.php" tooltip="OIRP_WEB/index.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/index.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="998" selectionTopPixel="0"/>
+<editor id="org.eclipse.php.editor" name="inboundform1.php" partName="inboundform1.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/inboundform1.php" title="inboundform1.php" tooltip="OIRP_WEB/inboundform1.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/inboundform1.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1528" selectionTopPixel="1683"/>
+</editor>
+<editor id="org.eclipse.php.editor" name="database_connection.php" partName="database_connection.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/database_connection.php" title="database_connection.php" tooltip="OIRP_WEB/database_connection.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/database_connection.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="406" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.php.editor" name="inbound_application.php" partName="inbound_application.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/inbound_application.php" title="inbound_application.php" tooltip="OIRP_WEB/inbound_application.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/inbound_application.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6942" selectionTopPixel="4776"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.php.editor" name="administrator.php" partName="administrator.php" path="C:/xampp/htdocs/OIRP_capstone/OIRP_WEB/administrator.php" title="administrator.php" tooltip="OIRP_WEB/administrator.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OIRP_WEB/administrator.php"/>
+<editorState selectionHorizontalPixel="229" selectionLength="0" selectionOffset="544" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
-<view id="org.eclipse.pde.runtime.LogView" partName="Error Log">
-<viewState activate="true" allSessions="true" column2="300" column3="150" column4="150" error="true" groupBy="0" info="true" limit="50" ok="true" orderType="2" orderValue="-1" show_filter_text="true" useLimit="true" warning="true"/>
-</view>
 <view id="org.eclipse.php.ui.explorer" partName="PHP Explorer">
 <viewState group_libraries="1" isWindowWorkingSet="false" layout="1" linkWithEditor="0" rootMode="1" workingSetName="">
 <customFilters userDefinedPatternsEnabled="false">
@@ -74,9 +86,16 @@
 </customFilters>
 </viewState>
 </view>
+<view id="org.eclipse.pde.runtime.LogView" partName="Error Log">
+<viewState activate="true" allSessions="true" column2="300" column3="150" column4="150" error="true" groupBy="0" info="true" limit="50" ok="true" orderType="2" orderValue="-1" show_filter_text="true" useLimit="true" warning="true"/>
+</view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
+<expanded>
+<category IMemento.internal.id="Warnings (15 items)"/>
+<category IMemento.internal.id="Warnings"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -189,7 +208,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.22" ratioLeft="220" ratioRight="780" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.75" ratioLeft="462" ratioRight="154" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.9531502" ratioLeft="590" ratioRight="29" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.debug.ui.PHPDebugOutput" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
@@ -225,161 +244,167 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inboundform2.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/student_home.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/student_home_process.php"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inbound_application.php"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inboundform1.php"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inboundform1.php"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inbound_application.php"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/outbound_application.php"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/outboundform3.php"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/error_page.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/student_home.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/register_php.php"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/index.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/student_home.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/administrator.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inboundform1.php"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" path="/OIRP_WEB/inbound_application.php"/>
 </editors>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
+<item historyLabel="inbound_application.php" index="2">
+<position info="not_deleted" x="6958" y="44"/>
 </item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="1956" y="1"/>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="1444" y="0"/>
 </item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
+<item historyLabel="inboundform1.php" index="3">
+<position info="not_deleted" x="1528" y="0"/>
 </item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2177" y="0"/>
+<item historyLabel="student_home.php" index="0">
+<position info="not_deleted" x="4186" y="0"/>
 </item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="1444" y="0"/>
 </item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2232" y="0"/>
+<item historyLabel="inboundform1.php" index="3">
+<position info="not_deleted" x="1309" y="20"/>
 </item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="1444" y="0"/>
 </item>
-<item historyLabel="inbound_application.php" index="1">
-<position/>
+<item historyLabel="student_home.php" index="0">
+<position info="not_deleted" x="3751" y="0"/>
 </item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="636" y="0"/>
 </item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="1913" y="0"/>
+<item historyLabel="student_home.php" index="0">
+<position info="not_deleted" x="4381" y="0"/>
 </item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="636" y="0"/>
 </item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="1913" y="0"/>
+<item historyLabel="student_home.php" index="4">
+<position info="not_deleted" x="4279" y="0"/>
 </item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
+<item historyLabel="student_home.php" index="4">
+<position info="not_deleted" x="4145" y="0"/>
 </item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2206" y="0"/>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="288" y="0"/>
 </item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
+<item historyLabel="student_home.php" index="4">
+<position info="not_deleted" x="4185" y="0"/>
 </item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2206" y="0"/>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="958" y="0"/>
 </item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2064" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2064" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position/>
-</item>
-<item historyLabel="inboundform1.php" index="2">
-<position info="not_deleted" x="427" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="1738" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position info="not_deleted" x="8284" y="2"/>
-</item>
-<item historyLabel="inboundform1.php" index="2">
-<position info="not_deleted" x="427" y="0"/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2172" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2180" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position info="not_deleted" x="3920" y="0"/>
-</item>
-<item historyLabel="inboundform1.php" index="2">
-<position info="not_deleted" x="427" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position info="not_deleted" x="3894" y="0"/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="1783" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position info="not_deleted" x="3944" y="0"/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="1910" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position info="not_deleted" x="3944" y="0"/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="2232" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position info="not_deleted" x="1432" y="0"/>
-</item>
-<item historyLabel="inbound_application.php" index="1">
-<position info="not_deleted" x="1908" y="0"/>
-</item>
-<item historyLabel="inboundform2.php" index="0">
-<position info="not_deleted" x="1432" y="0"/>
-</item>
-<item historyLabel="inboundform1.php" index="3"/>
-<item historyLabel="inboundform2.php" index="0"/>
-<item historyLabel="inbound_application.php" index="4">
-<position info="not_deleted" x="1908" y="0"/>
-</item>
-<item historyLabel="outbound_application.php" index="5">
-<position info="not_deleted" x="3543" y="0"/>
-</item>
-<item historyLabel="outboundform3.php" index="6">
-<position info="not_deleted" x="1013" y="0"/>
-</item>
-<item historyLabel="error_page.php" index="7">
-<position info="not_deleted" x="791" y="0"/>
-</item>
-<item active="true" historyLabel="index.php" index="8">
+<item historyLabel="register_php.php" index="5">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="676" y="0"/>
+</item>
+<item historyLabel="register_php.php" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="student_home.php" index="4">
+<position info="not_deleted" x="4185" y="0"/>
+</item>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="676" y="0"/>
+</item>
+<item historyLabel="register_php.php" index="5">
+<position info="not_deleted" x="118" y="7"/>
+</item>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="733" y="0"/>
+</item>
+<item historyLabel="student_home.php" index="4">
+<position info="not_deleted" x="4140" y="7"/>
+</item>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="1198" y="0"/>
+</item>
+<item historyLabel="student_home.php" index="4">
+<position info="not_deleted" x="4140" y="7"/>
+</item>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="1198" y="0"/>
+</item>
+<item historyLabel="student_home.php" index="4">
+<position info="not_deleted" x="4049" y="0"/>
+</item>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="939" y="0"/>
+</item>
+<item historyLabel="register_php.php" index="5">
+<position info="not_deleted" x="118" y="7"/>
+</item>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="1021" y="0"/>
+</item>
+<item historyLabel="register_php.php" index="5">
+<position info="not_deleted" x="1082" y="12"/>
+</item>
+<item historyLabel="student_home_process.php" index="1">
+<position info="not_deleted" x="940" y="0"/>
+</item>
+<item historyLabel="index.php" index="6">
+<position info="not_deleted" x="3775" y="94"/>
+</item>
+<item historyLabel="student_home.php" index="7">
+<position info="not_deleted" x="4049" y="0"/>
+</item>
+<item historyLabel="administrator.php" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="inboundform1.php" index="9">
+<position info="not_deleted" x="1309" y="20"/>
+</item>
+<item historyLabel="inboundform1.php" index="9">
+<position info="not_deleted" x="1528" y="0"/>
+</item>
+<item historyLabel="inbound_application.php" index="10">
+<position info="not_deleted" x="6958" y="44"/>
+</item>
+<item historyLabel="administrator.php" index="8">
+<position info="not_deleted" x="5579" y="0"/>
+</item>
+<item historyLabel="administrator.php" index="8">
+<position/>
+</item>
+<item historyLabel="inboundform1.php" index="9">
+<position info="not_deleted" x="1528" y="0"/>
+</item>
+<item historyLabel="student_home.php" index="7">
+<position info="not_deleted" x="4247" y="55"/>
+</item>
+<item historyLabel="administrator.php" index="8">
+<position info="not_deleted" x="5529" y="0"/>
+</item>
+<item historyLabel="inbound_application.php" index="10">
+<position info="not_deleted" x="6942" y="0"/>
+</item>
+<item historyLabel="inboundform1.php" index="9">
+<position info="not_deleted" x="1528" y="0"/>
+</item>
+<item historyLabel="student_home.php" index="7">
+<position info="not_deleted" x="4063" y="0"/>
+</item>
+<item historyLabel="administrator.php" index="8">
+<position info="not_deleted" x="5577" y="0"/>
+</item>
+<item historyLabel="inboundform1.php" index="9">
+<position info="not_deleted" x="1528" y="0"/>
+</item>
+<item active="true" historyLabel="administrator.php" index="8">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -387,12 +412,6 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="topLeft"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="right"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -400,11 +419,31 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
-<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="administrator.php" tooltip="OIRP_WEB/administrator.php">
+<persistable path="/OIRP_WEB/administrator.php"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="register_php.php" tooltip="OIRP_WEB/register_php.php">
+<persistable path="/OIRP_WEB/register_php.php"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="inbound_application.php" tooltip="OIRP_WEB/inbound_application.php">
+<persistable path="/OIRP_WEB/inbound_application.php"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="database_connection.php" tooltip="OIRP_WEB/database_connection.php">
+<persistable path="/OIRP_WEB/database_connection.php"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="inboundform1.php" tooltip="OIRP_WEB/inboundform1.php">
+<persistable path="/OIRP_WEB/inboundform1.php"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="student_home_process.php" tooltip="OIRP_WEB/student_home_process.php">
+<persistable path="/OIRP_WEB/student_home_process.php"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="student_home.php" tooltip="OIRP_WEB/student_home.php">
+<persistable path="/OIRP_WEB/student_home.php"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="index.php" tooltip="OIRP_WEB/index.php">
 <persistable path="/OIRP_WEB/index.php"/>
 </file>
@@ -423,32 +462,11 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="outbound_application.php" tooltip="OIRP_WEB/outbound_application.php">
 <persistable path="/OIRP_WEB/outbound_application.php"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="inbound_application.php" tooltip="OIRP_WEB/inbound_application.php">
-<persistable path="/OIRP_WEB/inbound_application.php"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="inboundform2.php" tooltip="OIRP_WEB/inboundform2.php">
 <persistable path="/OIRP_WEB/inboundform2.php"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="inboundform1.php" tooltip="OIRP_WEB/inboundform1.php">
-<persistable path="/OIRP_WEB/inboundform1.php"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="apply.php" tooltip="OIRP_WEB/apply.php">
 <persistable path="/OIRP_WEB/apply.php"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="database_connection.php" tooltip="OIRP_WEB/database_connection.php">
-<persistable path="/OIRP_WEB/database_connection.php"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="home_page.php" tooltip="OIRP_WEB/home_page.php">
-<persistable path="/OIRP_WEB/home_page.php"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="register_php.php" tooltip="OIRP_WEB/register_php.php">
-<persistable path="/OIRP_WEB/register_php.php"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="register.php" tooltip="OIRP_WEB/register.php">
-<persistable path="/OIRP_WEB/register.php"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.php.editor" name="loginPhp.php" tooltip="OIRP_WEB/loginPhp.php">
-<persistable path="/OIRP_WEB/loginPhp.php"/>
 </file>
 </mruList>
 </workbench>
