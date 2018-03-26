@@ -24,7 +24,7 @@
 					<li><a href="inboundform1.php">Personal Information</a></li>
 					<li><a href="inboundform2.php">Educational Backround</a></li>
 					<li><a href="inboundform3.php">Proposed Field of Study</a></li>
-					<li><a href="inboundform4.php">English Proficiency & Medical Info</a></li>
+					<li><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
 					<li><a href="inboundform5.php">Expectations from the Program</a></li>
 				</ul>
 			</nav>
@@ -33,68 +33,69 @@
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>
-							<input type="text" name="citizenship" id="citizenship" class="form-control">
+							<input type="text" name="citizenship" id="citizenship" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,25}" maxlength="25" required>
 						</div>
 						<div class="col-sm-5">
 							<label>Nationality</label>
-							<input type="text" name="nationality" id="nationality" class="form-control">
+							<input type="text" name="nationality" id="nationality" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,25}" maxlength="25" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Passport No.</label>
-							<input type="text" name="passport" id="passport" class="form-control">
+							<input type="text" name="passport" id="passport" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" required>
 						</div>
 						<div class="col-sm-3">
 							<label>Validity Date</label>
-							<input type="date" name="validity" id="validity" class="form-control">
+							<input type="date" name="validity" id="validity" class="form-control" required>
 						</div>
 						<div class="col-sm-3">
 							<label>Date of Issuance</label>
-							<input type="date" name="issuance" id="issuance" class="form-control">
+							<input type="date" name="issuance" id="issuance" class="form-control" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Mailing Address</label>
-							<input type="text" name="address" id="address" class="form-control"  maxlength="120">
+							<input type="text" name="address" id="address" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" required>
 						</div>					
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
-							<input type="text" name="telephone" id="telephone" class="form-control">
+							<p>country code - area code - telephone number </p>
+							<input type="text" name="telephone" id="telephone" class="form-control"  placeholder="ex: +63-2-406-1611" pattern="([0-9+- ()]){1,30}" maxlength=30 required>
 						</div>
 						<div class="col-sm-5">
 							<label>Mobile Number</label>
-							<input type="text" name="mobile" id="mobile" class="form-control">
+							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: (+63)974887651" pattern="([0-9+- ()]){1,40}" maxlength=40 required>
 						</div>
 					</div>
 					
 					<div class="form-group row break">
 						<div class="col-sm-6">
 							<label>Person to Contact (in case of emergency)</label>
-							<input type="text" name="contactperson" id="contactperson" class="form-control">
+							<input type="text" name="contactperson" id="contactperson" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="60" required> 
 						</div>
 						<div class="col-sm-4">
 							<label>Relationship</label>
-							<input type="text" name="relCP" id="relCP" class="form-control">
+							<input type="text" name="relCP" id="relCP" class="form-control" pattern="(\p{L})([a-zA-Z- ]).{1,20}" maxlength="20" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Address</label>
-							<input type="text" name="addressCP" id="addressCP" class="form-control" maxlength="120">
+							<input type="text" name="addressCP" id="addressCP" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="emailCP" id="emailCP" class="form-control">
+							<input type="email" name="emailCP" id="emailCP" class="form-control" maxlength="60" required>
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
-							<input type="text" name="numberCP" id="numberCP" class="form-control">
+							<input type="text" name="numberCP" id="numberCP" class="form-control" pattern="([0-9+- ()]){1,30}" maxlength=30 required>
 						</div>
 					</div>
 						

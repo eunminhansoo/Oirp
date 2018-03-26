@@ -519,6 +519,9 @@
 	if(isset($_POST['btn_inform5']))
 	{
 		$expectation_area = $_POST['expectation_area'];
+		
+		str_replace("<", "&lt;", $expectation_area);
+		str_replace(">", "&gt;", $expectation_area);
 
 		$sql_query = "UPDATE expectation_prog_inbound SET
 		EXPECTATION_PROG = '$expectation_area' 

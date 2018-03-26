@@ -34,7 +34,7 @@
 					<li><a href="inboundform1.php">Personal Information</a></li>
 					<li><a href="inboundform2.php">Educational Backround</a></li>
 					<li><a href="inboundform3.php">Proposed Field of Study</a></li>
-					<li><a href="inboundform4.php">English Proficiency & Medical Info</a></li>
+					<li><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
 					<li><a href="inboundform5.php">Expectations from the Program</a></li>
 				</ul>
 			</nav>
@@ -44,7 +44,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Proposed Program</label>
-							<input type="text" name="proposedProg" id="proposedProg" class="form-control">
+							<input type="text" name="proposedProg" id="proposedProg" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,45}" maxlength="45" required>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -52,31 +52,31 @@
 							<label>Courses to be taken at UST</label> (Refer to the <a onclick="window.open('http://www.ust.edu.ph/academics/programs/')">UST website </a>)
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
-							    <input type="text" name="course1" id="course1" class="form-control">
+							    <input type="text" name="course1" id="course1" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,45}" maxlength="45" required>
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">2.</span>
-							    <input type="text" name="course2" id="course2" class="form-control">
+							    <input type="text" name="course2" id="course2" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,45}" maxlength="45">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">3.</span>
-							    <input type="text" name="course3" id="course3" class="form-control">
+							    <input type="text" name="course3" id="course3" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,45}" maxlength="45">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">4.</span>
-							    <input type="text" name="course4" id="course4" class="form-control">
+							    <input type="text" name="course4" id="course4" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,45}" maxlength="45">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">5.</span>
-							    <input type="text" name="course5" id="course5" class="form-control">
+							    <input type="text" name="course5" id="course5" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,45}" maxlength="45">
 							</div>
 						</div>
 					</div>
@@ -92,17 +92,17 @@
 						</div>
 						<div class="col-sm-7">
 							<label>Research Topic (if applicable)</label>
-							<input type="text" name="research" id="research" class="form-control">
+							<input type="text" name="research" id="research" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,50}" maxlength="50">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Reason for Application</label>
-							<input type="text" name="reason" id="reason" class="form-control">
+							<input type="text" name="reason" id="reason" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,25}" maxlength="25" required>
 						</div>
 						<div class="col-sm-5">
 							<label>Disciplinary Status/Action</label>
-							<input type="text" name="disciplinary" id="disciplinary" class="form-control">
+							<input type="text" name="disciplinary" id="disciplinary" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,25}" maxlength="25" required>
 						</div>
 					</div>
 					<div class="form-group row">

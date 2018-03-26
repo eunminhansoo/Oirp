@@ -34,7 +34,7 @@
 					<li><a href="inboundform1.php">Personal Information</a></li>
 					<li><a href="inboundform2.php">Educational Backround</a></li>
 					<li><a href="inboundform3.php">Proposed Field of Study</a></li>
-					<li><a href="inboundform4.php">English Proficiency & Medical Info</a></li>
+					<li><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
 					<li><a href="inboundform5.php">Expectations from the Program</a></li>
 				</ul>
 			</nav>
@@ -66,32 +66,32 @@
 						<div class="form-group row">
 							<div class="col-sm-5">
 									<label>Country of Origin</label>
-									<input type="text" name="countryText" id="countryText" class="form-control">
+									<input type="text" name="countryText" id="countryText" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,30}" maxlength="30">
 								</div>
 								<div class="col-sm-5">
 									<label>Home University</label>
-									<input type="text" name="homeUniversityText" id="homeUniversityText" class="form-control">
+									<input type="text" name="homeUniversityText" id="homeUniversityText" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,115}" maxlength="115">
 								</div>
 						</div>
 					</div>
 						<div class="form-group row">
 							<div class="col-sm-10">
 								<label>University Address</label>
-								<input type="text" name="univAddress" id="univAddress" class="form-control" maxlength="120">
+								<input type="text" name="univAddress" id="univAddress" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" required>
 							</div>
 						</div>
 					<div class="form-group row break">
 						<div class="col-sm-4">
 							<label>Degree Program</label>
-							<input type="text" name="program" id="program" class="form-control">
+							<input type="text" name="program" id="program" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,45}" maxlength="45" required>
 						</div>
 						<div class="col-sm-4">
 							<label>Major</label>
-							<input type="text" name="major" id="major" class="form-control">
+							<input type="text" name="major" id="major" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,30}" maxlength="30" required>
 						</div>
 						<div class="col-sm-2">
 							<label>Year Level</label>
-							<input type="number" name="yearlevel" id="yearlevel" class="form-control">
+							<input type="number" name="yearlevel" id="yearlevel" class="form-control" min="1" max="10" required>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -108,7 +108,7 @@
 							<input type="radio" name="type_program" value="Others" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
-							<input type="text" name="programText" id="proText" class="form-control" disabled>
+							<input type="text" name="programText" id="proText" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" disabled>
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 
@@ -148,7 +148,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarshipText" id="scholarshipText" value="" class="form-control" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
@@ -170,7 +170,7 @@
 								Please specify: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarloanText" id="scholarloanText" value="" class="form-control" disabled>
+								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
@@ -181,21 +181,21 @@
 					<div class="form-group row break">
 						<div class="col-sm-6">
 							<label>Officer to Contact</label>
-							<input type="text" name="officer" id="officer" class="form-control">
+							<input type="text" name="officer" id="officer" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="60" required>
 						</div>
 						<div class="col-sm-4">
 							<label>Designation</label>
-							<input type="text" name="designationO" id="designationO" class="form-control">
+							<input type="text" name="designationO" id="designationO" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="emailO" id="emailO" class="form-control">
+							<input type="email" name="emailO" id="emailO" class="form-control" required>
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
-							<input type="text" name="numberO" id="numberO" class="form-control">
+							<input type="text" name="numberO" id="numberO" class="form-control" pattern="([0-9+- ()]){1,40}" maxlength=40 required>
 						</div>	
 					</div>				
 					
