@@ -4,7 +4,7 @@
     $getses_StudentID = $_SESSION['student_id_session'];
     echo $getses_StudentID;
 	$message = '';
-	
+
 	
 	$query = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$getses_StudentID'");
 	while($rows = mysqli_fetch_array($query))
@@ -395,7 +395,7 @@
 			$query_db = mysqli_query($conn, $sql_query);
 			
 			$sql_query1 = "UPDATE country_univ_outbound SET
-				APPLICATION_PROG = $application_prog',
+				APPLICATION_PROG = '$application_prog',
 				COUNTRY_OUT = '$country',
 				UNIVERSITY_OUT = '$get_univ'
 				WHERE STUDENT_ID = '$getses_StudentID'
@@ -423,7 +423,7 @@
 				echo 'success';
 				//header("Location: student_home.php");
 			}else{
-				echo 'error';
+				 echo 'error';
 				//header("Location: error_page.php");
 			}
 		}
