@@ -1,20 +1,12 @@
 <?php
-	include 'database_connection.php';
-	session_start();
-	$get_studentID = $_SESSION['student_id_session'];
-	$sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$get_studentID' ";
-	$db_query = mysqli_query($conn, $sql_query);
-	while($row = mysqli_fetch_array($db_query)){
-		$familyName = $row['FAMILY_NAME'];
-		$givenName = $row['GIVEN_NAME'];
-		$status = $row['STATUS'];
-	}
+	include 'student_home_process.php';
+	
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome</title>
+		<title>Welcome to OIRP</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,6 +16,7 @@
 		<!--<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/stylus.css">-->
 		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/color_3.css">
 		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/style1.css">
+		<link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	
 	<body>
@@ -90,7 +83,7 @@
 					<span class="txtStyle" >APPLICATION FORM</span>
 					<a class="cms"><span class="glyphicon glyphicon-triangle-bottom"></span></a>
 					<div class="appietxt">
-						<span>File name</span>
+						<span><?php echo "$gen".". ".$familyName?> Application form</span>
 					</div>
 					<div class="appietxt1">
 						<a class="btn btn-secondary" id="btnClicksu">
@@ -102,20 +95,28 @@
 			</div>
 		</div>
 		<!--APPLICATION BOX END-->
-
+		
+		<form method="post" enctype="multipart/form-data">
 		<!--APPLICATION BOX START-->
-		<div class="col-xs-6" id="uploadbox">
-			<div class="boxxes">
-				<div class="exus">
-					<a class="btn btn-secondary" id="toggelexus"> <span class="glyphicon glyphicon-remove"></span></a>
-				</div>
-				<div class="appText">
-					<div class="">
-						<input type="file">
+			<div class="col-xs-6" id="uploadbox">
+				<div class="boxxes">
+					<div class="exus">
+						<a class="btn btn-secondary" id="toggelexus"> <span class="glyphicon glyphicon-remove"></span></a>
+					</div>
+					
+					<div class="appText">
+						<div class="">
+							<input type="file" name="pdfScan" id="pdfscan" disabled>
+						</div>
+						<div class="appText">
+							<div class="">
+								<button type="submit" name="btn_submit">Submit</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 		<!--APPLICATION BOX END-->
 
 
@@ -138,78 +139,21 @@
 				<p>international@ust.edu.ph</p>
 			</div>
 		</div>
-		
-	</body>
-<!--<body>
-	<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-	<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
-
-	<div class="header">
-		<img src='img/logo.png' height=auto>
-	</div>
-
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#status">Status</a></li>
-    <li><a href="#view">View Available Forms</a></li>
-    <li><a href="#upload">Upload a Document</a></li>
-    <li style="float:right"><a href="#about">Logout</a></li>
-  </ul><ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#status">Status</a></li>
-    <li><a href="#view">View Available Forms</a></li>
-    <li><a href="#upload">Upload a Document</a></li>
-    <li style="float:right"><a href="#about">Logout</a></li>
-  </ul>
-
-	<img src='img/arch.jpg' width=100% height=auto>
-	<form method="post">
-		<div class="col-sm-4 threepanel height">
-			<h2>UST Identity</h2>
-			<p>The University of Santo Tomas, the Pontifical, Royal, and Catholic University of the Philippines, is a Dominican institution of learning founded in 1611, under the patronage of St. Thomas Aquinas.</p>
-		</div>
-		<div class="col-sm-4 threepanel height">
-			<h2>Mission</h2>
-			<p>The University, in pursuit of truth, guided by reason and illumined by faith, dedicates herself to the generation, advancement, and transmission of knowledge to form competent and compassionate professionals, committed to the service of the Church, the nation, and the global community.</p>
-		</div>
-		<div class="col-sm-4 threepanel height">
-			<h2>Vision</h2>
-			<p>Faithful to its centuries-old tradition of excellence, the University of Santo Tomas envisions itself as a premier Catholic institution of learning in Asia, committed to the professional and moral formation of her stakeholders for social transformation.</p>
-	</div>
-		<div class="content col-sm-8 margin-left">
-			<h2>About UST</h2>
-			<p>While the University of Santo Tomas holds the distinction of being Asia's oldest existing university, its age is coupled with its preeminence in Philippine education. Not only does it boast of several firsts in the different realms of education, it also has administrators and faculty members who are holding leadership positions in the Philippines' policy-making bodies and professional organizations, helping influence policies for the betterment of the society in general.</p>
-		</div>
-		<div class="content col-sm-8 margin-left">
-			<h2>About OIRP</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div>
-			<div class="col-sm-5">
-				<img src="img/logo.png" class="img-responsive" height=50px>
-			</div>
-			<div class="col-sm-4">
-				<p>Office of International Relations and Programs</p>
-				<p>Espana Blvd., Sampaloc, Manila, Philippines 1015</p>
-				<p>406-1611 local 8658</p>
-				<p>international@ust.edu.ph</p>
-			</div>
-		</div>
-	</form>
-</body>-->
-
-	<script>
+		<script>
 		$(document).ready(function(){
 			$('#uploadbox').hide();
 
 			$('#btnClicksu').click(function(){
 				$('#uploadbox').show();
+				$('#pdfscan').prop('disabled', false);
 			});
 			$('#toggelexus').click(function(){
 				$('#uploadbox').hide();
+				$('#pdfscan').prop('disabled', true);
 			});
 		});
-			</script>
+	</script>
+	</body>
 	<script src="bootstrap-3.3.7-dist/js/jquery-1.11.0.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.superslides.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>

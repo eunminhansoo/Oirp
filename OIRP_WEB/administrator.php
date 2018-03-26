@@ -28,7 +28,7 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Applicationg Program</th>
+                                <th>Application Program</th>
                                 <th>Application Form</th>
                                 <th>DATE SUBMITED</th>
                                 <th>STATUS</th>
@@ -43,6 +43,7 @@
                                 $date = new DateTime($ddate);
 		                        $resultdate = $date->format('F j, Y,');
                             ?>
+                            <tfoot>
                             <tr>
                                 <td><?php echo "<a href=admin_student_application.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
                                 <td><?php echo $row['APPLICATION_PROG']; ?></td>
@@ -51,7 +52,8 @@
                                 <td></td>
                                 <td><form method="post" ><input type="checkbox" name="cb_num[]" value="<?php $studentID ?> " ></form></td>
                             </tr>
-                        <?php } ?> 
+                        <?php } ?>
+                        </tfoot> 
                         </tbody>
                     </table>
                 </div>
@@ -63,7 +65,7 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Applicationg Program</th>
+                                <th>Application Program</th>
                                 <th>Application Form</th>
                                 <th>DATE SUBMITED</th>
                                 <th>STATUS</th>
@@ -78,6 +80,7 @@
                                 $date1 = new DateTime($ddate1);
 		                        $resultdate1 = $date1->format('F j, Y,');
                             ?>
+                            <tfoot>
                             <tr>
                                 <td><?php echo "<a href=admin_student_application.php?studentName=".urlencode($studentID1).">".$fullname1."</a>" ?></td>
                                 <td><?php echo $row1['APPLICATION_PROG']; ?></td>
@@ -86,7 +89,8 @@
                                 <td></td>
                                 <td><form method="post" ><input type="checkbox" name="cb_num[]" value="<?php $studentID1 ?>" ></form></td>
                             </tr>
-                        <?php } ?> 
+                        <?php } ?>
+                        </tfoot> 
                         </tbody>
                     </table>
                 </div>

@@ -38,10 +38,19 @@
 						</div>
 					</div>
 					
-					<div class="form-group row break" align="right">
+					<div class="form-group row break col-xs-5">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary" formaction="inboundform4.php">Previous</button>
-							<input type="submit" name= "btn_form5" class="btn btn-primary" value="Next">
+						</div>
+					</div>
+					<div class="form-group row break col-xs-5">
+						<div class="col-sm-10">
+							<input type="submit" name="btnSaveinform5" class="btn btn-primary" value="Save">
+						</div>
+					</div>
+					<div class="form-group row break col-xs-3">
+						<div class="col-sm-10">
+							<input type="submit" name="btn_inform5" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>
