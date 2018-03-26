@@ -86,7 +86,7 @@
 	
 	//for inboundform2
 	
-	if(isset($_POST['btn_form2']))
+	if(isset($_POST['btn_inform2']))
 	{
 		//doPOST 
 		$country = $_POST['country'];
@@ -333,7 +333,7 @@
 					SPECIALIZATION_IN_BILA = '$major',
 					YEAR_LEVEL = '$yearLevel',
 					APPLICATION_FORM ='$scholarship',
-					APPLICATION_TYPE_PROG ='$scholarshipTextet'
+					APPLICATION_TYPE_PROG ='$type_program'
 					WHERE STUDENT_ID = '$getSes_studentID'";
 					// $sql_query = "INSERT INTO educ_background_inbound(
 					// 	STUDENT_COUNT,
@@ -389,7 +389,7 @@
 	}
 
 	// for inboundform3
-	if(isset($_POST['btn_form3']))
+	if(isset($_POST['btn_inform3']))
 	{
 		$proposedProg = $_POST['proposedProg'];
 		$course1 = $_POST['course1'];
@@ -415,7 +415,7 @@
 			DESCRIPTION_ACTION_STATUS_INBOUND = '$reason',
 			REASON_STUDYING_INBOUND = '$disciplinary',
 			ACCOMODATION_INBOUND ='$accomodation'
-			WHERE STUDENT_ID = '$getSes_studentID' "
+			WHERE STUDENT_ID = '$getSes_studentID' ";
 
 		// $sql_query = "INSERT INTO proposed_field_study_in_bila(
 		// 	STUDENT_COUNT,
@@ -446,6 +446,7 @@
 		// 	'$disciplinary',
 		// 	'$accomodation'
 		// )";
+
 		$query_db = mysqli_query($conn, $sql_query);
 
 		if($query_db)
@@ -458,7 +459,7 @@
 	}
 
 	// for inboundform4
-	if(isset($_POST['btn_form4']))
+	if(isset($_POST['btn_inform4']))
 	{
 		$toeflTest = $_POST['toeflTest'];
 		$toeflScore = $_POST['toeflScore'];
@@ -478,7 +479,7 @@
 		 	INTEND_TAKE_TOEF_INBOUND = '$toeflFuture',
 		 	INTEND_TAKE_TOEF_DATE_INBOUND = '$toeflDate',
 		 	INTEND_TAKE_TOEF_TYPE_INBOUND = '$toeflType'
-			WHERE STUDENT_ID = '$getSes_studentID' ":
+			WHERE STUDENT_ID = '$getSes_studentID' ";
 
 		// $sql_query = "INSERT INTO medical_english_inbound(
 		// 	STUDENT_COUNT,
@@ -515,7 +516,7 @@
 	}
 
 	// for inboundform5
-	if(isset($_POST['btn_form5']))
+	if(isset($_POST['btn_inform5']))
 	{
 		$expectation_area = $_POST['expectation_area'];
 
