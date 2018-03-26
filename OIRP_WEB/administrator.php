@@ -5,6 +5,17 @@
     
     $sql_query1 = "SELECT * FROM student INNER JOIN proposed_field_study ON student.STUDENT_ID = proposed_field_study.STUDENT_ID";
     $query1 = mysqli_query($conn, $sql_query1);
+    
+    if(isset($_POST['delete_inbound'])){
+    	$checkbox = $_POST['cb_single'];
+    	for($i = 0 ; $i <count($checkbox);$i++){
+    		$del_check = $checkbox[$i];
+    		$query = mysqli_query($conn, "DELETE FROM student WHERE PROJECT_NAME = '$del_check'");
+    	}
+    	if($query){
+    		 echo "<meta http-equiv=\"refresh\" content=\"0;URL=administrator.php\">";
+    	}
+    }
 ?>
 <html>
     <head>
@@ -35,6 +46,11 @@
                                 <th></th>
                             </tr>
                         </thead>
+                        <tfoot>
+                        	<tr>
+		                        <th><button type="submit" name="delete_inbound" class="btn btn-primary" >DELETE</button></th>
+	                        </tr>
+                        </tfoot>
                         <tbody>
                             <?php while($row = mysqli_fetch_array($query)){ 
                                 $studentID = $row['STUDENT_ID'];
@@ -72,6 +88,12 @@
                                 <th></th>
                             </tr>
                         </thead>
+                        <tfoot>
+                        	<tr>
+		                        <th><button type="submit" name="delete_outbound" class="btn btn-primary" >DELETE</button></th>
+		                        <th><button type="submit" name="send_outbound" class="btn btn-primary">SEND</button></th>
+	                        </tr>
+                        </tfoot>
                         <tbody>
                             <?php while($row1 = mysqli_fetch_array($query1)){ 
                                 $studentID1 = $row1['STUDENT_ID'];
@@ -80,7 +102,6 @@
                                 $date1 = new DateTime($ddate1);
 		                        $resultdate1 = $date1->format('F j, Y,');
                             ?>
-                            <tfoot>
                             <tr>
                                 <td><?php echo "<a href=admin_student_application.php?studentName=".urlencode($studentID1).">".$fullname1."</a>" ?></td>
                                 <td><?php echo $row1['APPLICATION_PROG']; ?></td>
@@ -90,8 +111,8 @@
                                 <td><form method="post" ><input type="checkbox" name="cb_num[]" value="<?php $studentID1 ?>" ></form></td>
                             </tr>
                         <?php } ?>
-                        </tfoot> 
                         </tbody>
+                        
                     </table>
                 </div>
             </div>

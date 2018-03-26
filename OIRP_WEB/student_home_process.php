@@ -41,7 +41,7 @@ include 'database_connection.php';
     	STUDENT_ID,
     	APPLICATION_PROG,
     	PDF_NAME,
-    	PDF_IMG,
+    	PDF_IMG
     	)VALUES(
     	'', 
     	'$get_studentID',
