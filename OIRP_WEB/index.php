@@ -1,5 +1,4 @@
 <?php
-	
 	include 'loginPhp.php';
 ?>
 <!DOCTYPE html>

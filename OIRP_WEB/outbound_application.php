@@ -2,6 +2,7 @@
 	include 'database_connection.php';
 	session_start();
     $getses_StudentID = $_SESSION['student_id_session'];
+    echo $getses_StudentID;
 	$message = '';
 
 	
@@ -266,6 +267,7 @@
 					APPLICATION_TYPE_PROG = '$type_program'
 					WHERE STUDENT_ID = '$getses_StudentID'
 				";
+				
 				// $sql_query = "INSERT INTO proposed_field_study
 				// 	(
 				// 		STUDENT_COUNT,
@@ -346,8 +348,6 @@
 					// 	 '$type_program'
 					// )";
 				}else{
-						$scholarshipText = '';
-
 						$sql_query = "UPDATE proposed_field_study SET
 							PROPOSED_PROG = '$proposedProg',
 							COURSE_1 = '$course1', 
@@ -395,11 +395,9 @@
 			$query_db = mysqli_query($conn, $sql_query);
 			
 			$sql_query1 = "UPDATE country_univ_outbound SET
-				STUDENT_COUNT,
-				STUDENT_ID,
-				APPLICATION_PROG,
-				COUNTRY_OUT,
-				UNIVERSITY_OUT
+				APPLICATION_PROG = '$application_prog',
+				COUNTRY_OUT = '$country',
+				UNIVERSITY_OUT = '$get_univ'
 				WHERE STUDENT_ID = '$getses_StudentID'
 			";
 			// $sql_query1 = "INSERT INTO country_univ_outbound
@@ -423,10 +421,10 @@
 			if($query_db && $query_db1)
 			{
 				echo 'success';
-				header("Location: student_homeS.php");
+				//header("Location: student_home.php");
 			}else{
-				// echo 'error';
-				header("Location: error_page.php");
+				 echo 'error';
+				//header("Location: error_page.php");
 			}
 		}
 
