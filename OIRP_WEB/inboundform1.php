@@ -32,7 +32,7 @@
 				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-5">
-							<label>Citizenship</label
+							<label>Citizenship</label>
 							<input type="text" name="citizenship" id="citizenship" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,25}" maxlength="25" required value="<?php echo $geSel_CITIZENSHIP_IN ?>">
 						</div>
 						<div class="col-sm-5">
