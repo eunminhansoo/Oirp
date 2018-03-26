@@ -19,7 +19,8 @@
 		</div>
 		
 		<div class="container-fluid">
-			<ul class="nav nav-stacked">
+			<nav class="col-sm-2 sidebar">
+				<ul class="nav nav-stacked">
 					<li><a href="inboundform1.php">Personal Information</a></li>
 					<li><a href="inboundform2.php">Educational Backround</a></li>
 					<li><a href="inboundform3.php">Proposed Field of Study</a></li>

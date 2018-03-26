@@ -1,3 +1,7 @@
+body{
+	background-color: #f5ffeb;
+}
+
 .header{
 	margin: 10px;
 }
@@ -93,7 +97,7 @@
 }
 
 .break{
-	margin-top: 50px;
+	margin-top: 70px;
 }
 .height{
 	height: 190px;

@@ -61,13 +61,25 @@
 								<p>Country of origin or home university not available? Click <a href="#" id="toTextCU">here</a>.</p>
 							</div>
 						</div>
-					</div>	
-					<div class="form-group row">
-						<div class="col-sm-10">
-							<label>University Address</label>
-							<input type="text" name="univAddress" id="univAddress" class="form-control" maxlength="120">
+					</div>
+					<div id="textCU">
+						<div class="form-group row">
+							<div class="col-sm-5">
+									<label>Country of Origin</label>
+									<input type="text" name="countryText" id="countryText" class="form-control">
+								</div>
+								<div class="col-sm-5">
+									<label>Home University</label>
+									<input type="text" name="homeUniversityText" id="homeUniversityText" class="form-control">
+								</div>
 						</div>
 					</div>
+						<div class="form-group row">
+							<div class="col-sm-10">
+								<label>University Address</label>
+								<input type="text" name="univAddress" id="univAddress" class="form-control" maxlength="120">
+							</div>
+						</div>
 					<div class="form-group row break">
 						<div class="col-sm-4">
 							<label>Degree Program</label>
