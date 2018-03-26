@@ -36,7 +36,7 @@ include 'database_connection.php';
     	echo $application_prog;
     	echo $familyName;
     	echo $get_studentID;
-		
+		//insert to table upload_pdf
 		$query_db = "INSERT INTO upload_pdf(STUDENT_COUNT,
 		 	STUDENT_ID,
 		  	APPLICATION_PROG,
@@ -49,7 +49,14 @@ include 'database_connection.php';
 			 	'$familyName',
 				'$pdfScan'
 			)";
-    	// $query_db = "INSERT INTO upload_pdf(
+		//insert to table admin_student_data
+		$query_db1 = "INSERT INTO admin_student_data(STUDENT_COUNT,
+		 	STUDENT_ID) VALUES (
+		 		'',
+		 		'$get_studentID'
+		 		)";
+		
+    	
     	// STUDENT_COUNT,
     	// STUDENT_ID,
     	// APPLICATION_PROG,
@@ -64,6 +71,7 @@ include 'database_connection.php';
     	// )";
     	
     	$query = mysqli_query($conn, $query_db);
+    	$query1 = mysqli_query($conn, $query_db1);
     
     	
     	if($query)
@@ -73,6 +81,15 @@ include 'database_connection.php';
 			}else{
 				header("Location: error_page.php");
 			}
+		
+    	if($query1)
+			{
+				echo 'success';
+				//header("Location: student_home.php");
+			}else{
+				header("Location: error_page.php");
+			}
+			
     	if (move_uploaded_file($_FILES['pdfScan']['tmp_name'], $target)) 
             {
                 $msg = "Upload Successful";
