@@ -33,34 +33,34 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Father's Name</label>
-							<input type="text" name="father" id="father" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="60" required>
+							<input type="text" name="father" id="father" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="60" value="<?php echo $getSel_FATHER_NAME_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Occupation</label>
-							<input type="text" name="fOccupation" id="fOccupation" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" required>
+							<input type="text" name="fOccupation" id="fOccupation" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" value="<?php echo $getSel_OCCUPATION_DADA_OUT?>" required>
 						</div>
 						<div class="col-sm-5">
 							<label>Company</label>
-							<input type="text" name="fCompany" id="fCompany" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" required>
+							<input type="text" name="fCompany" id="fCompany" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" value="<?php echo $getSel_COMPANY_DADA_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Address</label>
-							<input type="text" name="fAddress" id="fAddress" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" required>
+							<input type="text" name="fAddress" id="fAddress" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" value="<?php echo $getSel_ADDRESS_DADA_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
 							<p class="text_style" >Phone number or Mobile number</p>
-							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611" pattern="([0-9+- ()]){1,30}" maxlength=30 required>
+							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611" pattern="([0-9+- ()]){1,30}" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>" required>
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="fEmail" id="fEmail" class="form-control" required>
+							<input type="email" name="fEmail" id="fEmail" class="form-control" value="<?php echo $getSel_EMAIL_ADD_DADA_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -80,40 +80,40 @@
 					<div class="form-group row break">
 						<div class="col-sm-10">
 							<label>Mother's Name</label>
-							<input type="text" name="mother" id="mother" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="60" required>
+							<input type="text" name="mother" id="mother" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="60" value="<?php echo $getSel_MOTHER_NAME_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Occupation</label>
-							<input type="text" name="mOccupation" id="mOccupation" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" required>
+							<input type="text" name="mOccupation" id="mOccupation" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" value="<?php echo $getSel_OCCUPATION_MOM_OUT?>" required>
 						</div>
 						<div class="col-sm-5">
 							<label>Company</label>
-							<input type="text" name="mCompany" id="mCompany" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" required>
+							<input type="text" name="mCompany" id="mCompany" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" value="<?php echo $getSel_COMPANY_MOM_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Address</label>
-							<input type="text" name="mAddress" id="mAddress" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" required> 
+							<input type="text" name="mAddress" id="mAddress" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" value="<?php echo $getSel_ADDRESS_MOM_OUT?>" required> 
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
 							<p class="text_style" >Phone number or Mobile number</p>
-							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611" pattern="([0-9+- ()]){1,30}" maxlength=30 required>
+							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611" pattern="([0-9+- ()]){1,30}" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>" required>
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="mEmail" id="mEmail" class="form-control" required>
+							<input type="email" name="mEmail" id="mEmail" class="form-control" value="<?php echo $getSel_EMAIL_ADD_MOM_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Annual Income</label>
-							<select name="mIncome" class="form-control">
+							<select name="mIncome" id="mIncome" class="form-control">
 								<option value="PHP 8,001 - PHP 135,000">PHP 8,001 - PHP 135,000</option>
 								<option value="PHP 135,001 - PHP 250,000">PHP 135,001 - PHP 250,000</option>
 								<option value="PHP 250,001 - PHP 500,000">PHP 250,001 - PHP 500,000</option>
@@ -136,4 +136,8 @@
 		</div>
 	</body>
 </html>
+<script>
+var getdata = "<?php echo $getSel_ANNUAL_INCOME_DADA_OUT?>";
+	$("#mIncome > [value="+ getdata +"]").attr("selected", "true");
+</script>
 
