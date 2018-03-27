@@ -50,11 +50,11 @@
 				$getSel_APPLICATION_TYPE_PROG = $row2['APPLICATION_TYPE_PROG'];
 			}
 		//end inboundform2
-		
+
 		//start inboundform3
 			$query_select3 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$getSes_studentID'";
 			$get_select3 = mysqli_query($conn, $query_select3);
-			while($row3 = mysqli_fetch_array($query_select3)){
+			while($row3 = mysqli_fetch_array($get_select3)){
 				$getSel_PROPOSED_PROG_INBOUND = $row3['PROPOSED_PROG_INBOUND'];
 				$getSel_COURSE_1_INBOUND = $row3['COURSE_1_INBOUND'];
 				$getSel_COURSE_2_INBOUND = $row3['COURSE_2_INBOUND'];
@@ -63,7 +63,7 @@
 				$getSel_COURSE_5_INBOUND = $row3['COURSE_5_INBOUND'];
 				$getSel_RESEARCH_TOPIC_INBOUND = $row3['RESEARCH_TOPIC_INBOUND'];
 				$getSel_INTENDED_SEM_STUDY_INBOUND = $row3['INTENDED_SEM_STUDY_INBOUND'];
-				$getSel_COURSE_1_INBOUND = $row3['DESCRIPTION_ACTION_STATUS_INBOUND'];
+				$getSel_DESCRIPTION_ACTION_STATUS_INBOUND = $row3['DESCRIPTION_ACTION_STATUS_INBOUND'];
 				$getSel_REASON_STUDYING_INBOUND = $row3['REASON_STUDYING_INBOUND'];
 				$getSel_ACCOMODATION_INBOUND = $row3['ACCOMODATION_INBOUND'];
 			}

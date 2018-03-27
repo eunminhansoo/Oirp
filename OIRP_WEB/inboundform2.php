@@ -77,21 +77,21 @@
 						<div class="form-group row">
 							<div class="col-sm-10">
 								<label>University Address</label>
-								<input type="text" name="univAddress" id="univAddress" class="form-control" maxlength="120">
+								<input type="text" name="univAddress" id="univAddress" class="form-control" maxlength="120" value="<?php echo $getSel_UNIV_ADD_IN_BILA?>">
 							</div>
 						</div>
 					<div class="form-group row break">
 						<div class="col-sm-4">
 							<label>Degree Program</label>
-							<input type="text" name="program" id="program" class="form-control">
+							<input type="text" name="program" id="program" class="form-control" value="<?php echo $getSel_CURRENT_PROG_STUDY_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
 							<label>Major</label>
-							<input type="text" name="major" id="major" class="form-control">
+							<input type="text" name="major" id="major" class="form-control" value=" <?php echo $getSel_SPECIALIZATION_IN_BILA?>">
 						</div>
 						<div class="col-sm-2">
 							<label>Year Level</label>
-							<input type="number" name="yearlevel" id="yearlevel" class="form-control">
+							<input type="number" name="yearlevel" id="yearlevel" class="form-control" value="<?php echo $getSel_YEAR_LEVEL?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -181,21 +181,21 @@
 					<div class="form-group row break">
 						<div class="col-sm-6">
 							<label>Officer to Contact</label>
-							<input type="text" name="officer" id="officer" class="form-control">
+							<input type="text" name="officer" id="officer" class="form-control" value="<?php echo $getSel_NAME_OFFICER_CONTACT_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
 							<label>Designation</label>
-							<input type="text" name="designationO" id="designationO" class="form-control">
+							<input type="text" name="designationO" id="designationO" class="form-control" value="<?php echo $getSel_DESIGNATION_IN_BILA?>" >
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="emailO" id="emailO" class="form-control">
+							<input type="email" name="emailO" id="emailO" class="form-control" value="<?php echo $getSel_EMAIL_ADD_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
-							<input type="text" name="numberO" id="numberO" class="form-control">
+							<input type="text" name="numberO" id="numberO" class="form-control" value="<?php echo $getSel_TELEPHONE_NUM_BILA?>" >
 						</div>	
 					</div>				
 					
@@ -222,6 +222,7 @@
 
         $(document).ready(function(){ 
             var val = "<?php echo $res ?>";
+			var data = "<?php echo $getSel_COUNTRY_ORIGIN ?>";
 
 	   		$("#country").empty().append(val);
 			
@@ -329,7 +330,7 @@
 					$("#scholarshipOthers").prop('disabled', false);
 				});		
 			});			
-        	
+			
 		});
 	</script>
 </html>

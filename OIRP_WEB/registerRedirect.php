@@ -145,6 +145,37 @@
 				''
 			)";
 			mysqli_query($conn, $sql_query2);
+
+			$sql_query3 = "INSERT INTO proposed_field_study_in_bila(
+				STUDENT_COUNT,
+				STUDENT_ID,
+				PROPOSED_PROG_INBOUND,
+				COURSE_1_INBOUND,
+				COURSE_2_INBOUND,
+				COURSE_3_INBOUND,
+				COURSE_4_INBOUND,
+				COURSE_5_INBOUND,
+				RESEARCH_TOPIC_INBOUND,
+				INTENDED_SEM_STUDY_INBOUND,
+				DESCRIPTION_ACTION_STATUS_INBOUND,
+				REASON_STUDYING_INBOUND,
+				ACCOMODATION_INBOUND
+			) VALUES (
+				'',
+				'$studentID',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				'',
+				''
+			)";
+			mysqli_query($conn, $sql_query3);
 	}else{
 		if($appPROG == 'out'){
 			$sql_query = "INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, 
