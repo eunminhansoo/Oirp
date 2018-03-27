@@ -24,7 +24,7 @@
 					<li><a href="inboundform1.php">Personal Information</a></li>
 					<li><a href="inboundform2.php">Educational Backround</a></li>
 					<li><a href="inboundform3.php">Proposed Field of Study</a></li>
-					<li><a href="inboundform4.php">English Proficiency & Medical Info</a></li>
+					<li><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
 					<li><a href="inboundform5.php">Expectations from the Program</a></li>
 				</ul>
 			</nav>
@@ -34,7 +34,11 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Expectations from the Program (express in 1000 characters or less)</label>
+<<<<<<< HEAD
 							<textarea rows="5" cols="75" name="expectation_area" maxLength="1000" class="form-control"><?php echo $getSel_EXPECTATION_PROG?></textarea>
+=======
+							<textarea rows="5" cols="75" name="expectation_area" maxLength="1000" class="form-control" required></textarea>
+>>>>>>> origin/master
 						</div>
 					</div>
 					

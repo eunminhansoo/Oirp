@@ -182,13 +182,13 @@ $pdf->Cell(195,7,'I. PERSONAL INFORMATION','TB',2);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(30,7,'FAMILY NAME','BR',0);
-$pdf->Cell(85,7,$family_name,'BR',0);
+$pdf->Cell(85,7,"Lorem ipsum dolor sit amet, consectetuer adipiscin",'BR',0);
 $pdf->Cell(20,7,'GENDER','BR',0);
 $pdf->Cell(60,7,$gender,'B',1);
 $pdf->Cell(30,7,'GIVEN NAME','BR',0);
 $pdf->Cell(85,7,$given_name,'BR',0);
 $pdf->Cell(20,7,'NATIONALITY','BR',0);
-$pdf->Cell(60,7,$nationality_in,'B',1);
+$pdf->Cell(60,7,"Lorem ipsum dolor sit ame",'B',1);
 $pdf->Cell(30,7,'MIDDLE NAME','BR',0);
 $pdf->Cell(85,7,$middle_name,'BR',0);
 $pdf->Cell(20,7,'BIRTHDATE','BR',0);
@@ -197,24 +197,24 @@ $pdf->Cell(10,7,'AGE','BR',0);
 $pdf->Cell(15,7,$age,'B',1);
 
 $pdf->Cell(25,7,'PASSPORT NO.','BR',0);
-$pdf->Cell(35,7,$passport_num_in,'BR',0);
+$pdf->Cell(35,7,"Lorem ipsum dolor si",'BR',0);
 $pdf->Cell(30,7,'VALIDITY DATE','BR',0);
 $pdf->Cell(40,7,$validity_date_in,'BR',0);
 $pdf->Cell(30,7,'DATE OF ISSUANCE','BR',0);
 $pdf->Cell(35,7,$date_issuance_in,'B',1);
 
 $pdf->Cell(30,7,'MAILING ADDRESS','BR',0);
-$pdf->Cell(165,7,$mailing_add_in,'B',1);
+$pdf->Cell(165,7,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum socii",'B',1);
 
 $pdf->Cell(195,7,'','B',1);
 
 $pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
-$pdf->Cell(165,7,$email,'B',1);
+$pdf->Cell(165,7,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ae",'B',1);
 
 $pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
-$pdf->Cell(55,7,$telephone_num_in,'BR',0);
+$pdf->Cell(55,7,"Lorem ipsum dolor sit amet, co",'BR',0);
 $pdf->Cell(30,7,'MOBILE NUMBER','BR',0);
-$pdf->Cell(75,7,$mobile_num_in,'B',1);
+$pdf->Cell(75,7,"Lorem ipsum dolor sit amet, consectetuer",'B',1);
 
 $pdf->Cell(35,7,'PERSON TO CONTACT','BR',0);
 $pdf->Cell(85,7,$personal_contact_in_bila,'BR',0);
@@ -225,7 +225,7 @@ $pdf->Cell(175,7,$add_in_bila,'B',1);
 $pdf->Cell(30,7,'EMAIL ADDRESS','BR',0);
 $pdf->Cell(80,7,$email_add_in_bila,'BR',0);
 $pdf->Cell(35,7,'PHONE NUMBER','BR',0);
-$pdf->Cell(50,7,$telephone_num_in_bila,'B',1);
+$pdf->Cell(50,7,"Lorem ipsum dolor sit amet, co",'B',1);
 
 
 //Educational Background
@@ -240,19 +240,19 @@ $pdf->Cell(155,7,$univ_add_in_bila,'B',1);
 $pdf->Cell(50,7,'NAME OF OFFICER TO CONTACT','BR',0);
 $pdf->Cell(80,7,$name_officer_contact_in_bila,'BR',0);
 $pdf->Cell(30,7,'DESIGNATION','BR',0);
-$pdf->Cell(35,7,$designation_in_bila,'B',1);
+$pdf->Cell(35,7,"Lorem ipsum dolor si",'B',1);
 $pdf->Cell(50,7,'EMAIL ADDRESS OF OFFICER','BR',0);
 $pdf->Cell(70,7,$email_add_in_bila,'BR',0);
 $pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
 $pdf->Cell(40,7,$telephone_num_in_bila,'B',1);
 $pdf->Cell(50,7,'CURRENT PROGRAM OF STUDY','BR',0);
-$pdf->Cell(65,7,$current_prog_study_in_bila,'BR',0);
+$pdf->Cell(65,7,"Lorem ipsum dolor sit amet, consectetuer adip",'BR',0);
 $pdf->Cell(25,7,'SPECIALIZATION','BR',0);
-$pdf->Cell(55,7,$specialization_in_bila,'B',1);
+$pdf->Cell(55,7,"Lorem ipsum dolor sit amet, co",'B',1);
 $pdf->Cell(25,7,'YEAR LEVEL','BR',0);
 $pdf->Cell(40,7,$year_level,'BR',0);
 $pdf->Cell(70,7,'RECEPIENT OF SCHOLARSHIP/LOANS?','BR',0);
-$pdf->Cell(30,7,$scholar,'B',1);
+$pdf->Cell(30,7,"Lorem ipsum dolor si",'B',1);
 
 
 //Proposed Field of Study
@@ -273,11 +273,11 @@ $pdf->Cell(145,7,'5. '.$course_5_inbound,'B',1);
 $pdf->Cell(55,7,'INTENDED SEMESTER TO STUDY','BR',0);
 $pdf->Cell(35,7,$intended_sem_study_inbound,'BR',0);
 $pdf->Cell(30,7,'RESEARCH TOPIC','BR',0);
-$pdf->Cell(75,7,$research_topic_inbound,'B',1);
+$pdf->Cell(75,7,"Lorem ipsum dolor sit amet, consectetuer adipiscin",'B',1);
 $pdf->SetFont('Arial','',7);
 $pdf->Cell(60,7,'REASON FOR STUDYING IN HOST UNIVERSITY','BR',0);
 $pdf->SetFont('Arial','',8);
-$pdf->Cell(40,7,$reason_studying_inbound,'BR',0);
+$pdf->Cell(40,7,"Lorem ipsum dolor sit amet, co",'BR',0);
 $pdf->Cell(55,7,'DISCIPLINARY ACTION AND STATUS','BR',0);
 $pdf->Cell(40,7,$description_action_status_inbound,'B',0);
 
@@ -310,7 +310,7 @@ if($intend_take_toef_inbound=="Yes"){
 	$pdf->Cell(15,7,'Date: ','',0);
 	$pdf->Cell(20,5,$intend_take_toef_date_inbound,'B',0,'C');
 	$pdf->Cell(15,7,'Type: ','',0,'R');
-	$pdf->Cell(40,5,$intend_take_toef_type_inbound,'B',1,'C');
+	$pdf->Cell(40,5,"Lorem ipsum dolor si",'B',1,'C');
 } else{
 	$pdf->Cell(35,7,'','',1);
 }
@@ -368,7 +368,7 @@ $pdf->Rect(130,84,3,3);
 $pdf->Cell(25,7,'','',1,'C');
 $pdf->Rect(155,84,3,3);
 
-$pdf->Cell(165,7,'','',1);
+$pdf->Cell(165,10,'','',1);
 
 $pdf->Cell(25,6,'','',0);
 $pdf->Cell(80,6,"Signature of your English teacher in Home University",'T',0,'C');
@@ -385,39 +385,16 @@ $pdf->Cell(20,7,$do_you_smoke_inbound,'BR',0);
 $pdf->SetFont('Arial','',7);
 $pdf->Cell(85,7,'DO YOU HAVE ANY PHYSICAL DISABILITIES/PERSONAL PROBLEMS?','BR',0);
 $pdf->SetFont('Arial','',8);
-$pdf->Cell(60,7,$describe_disabili_inbound,'B',1);
+$pdf->Cell(60,7,"Lorem ipsum dolor sit amet, consectetuer",'B',1);
 $pdf->SetFont('Arial','',7);
 $pdf->Cell(85,7,'DO YOU HAVE ANY SERIOUS ILLNESS, CONDITIONS, OR ALLERGIES?','BR',0);
 $pdf->SetFont('Arial','',8);
-$pdf->Cell(110,7,$describe_ill_inbound,'B',1);
+$pdf->Cell(110,7,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo li",'B',1);
 
-//Airport Pickup
-$pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"VI. AIRPORT PICKUP (Airport pickup service is arranged only for a group consisting at least 10 or more students)",'TB',1);
-
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(45,7,'DATE AND TIME OF ARRIVAL','BR',0);
-$pdf->Cell(40,7,'','BR',0);
-$pdf->Cell(30,7,'FLIGHT NUMBER','BR',0);
-$pdf->Cell(40,7,'','BR',0);
-$pdf->Cell(30,7,'NAIA TERMINAL','BR',0);
-$pdf->Cell(10,7,'','B',1);
-
-//Insurance Information
-$pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"VII. INSURANCE INFORMATION",'TB',1);
-
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(50,7,"INSURANCE COMPANY'S NAME",'BR',0);
-$pdf->Cell(145,7,'','B',1);
-$pdf->Cell(30,7,'POLICY NUMBER','BR',0);
-$pdf->Cell(60,7,'','BR',0);
-$pdf->Cell(60,7,'AMOUNT OF COVERAGE IN US DOLLARS','BR',0);
-$pdf->Cell(45,7,'','B',1);
 
 //Accomodation Information
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"VIII. ACCOMMODATION INFORMATION",'TB',1);
+$pdf->Cell(195,7,"VI. ACCOMMODATION INFORMATION",'TB',1);
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(130,7,'DO YOU NEED ACCOMMODATION DURING THE PROGRAM? (SUBJECT TO AVAILABILITY)','BR',0);
 $pdf->SetFont('Arial','',8);
@@ -425,7 +402,7 @@ $pdf->Cell(65,7,$accomodation_inbound,'B',1);
 
 //Student's Signature
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"IX. STUDENT'S SIGNATURE",'TB',1);
+$pdf->Cell(195,7,"VII. STUDENT'S SIGNATURE",'TB',1);
 
 $pdf->SetFont('Arial','',9);
 $pdf->MultiCell(195,5,'I hereby apply for admission to study at University of Santo Tomas. I confirm that the information provided above is correct to the best of my knowledge.','',1);
@@ -438,10 +415,10 @@ $pdf->Cell(40,7,'Date','T',1,'C');
 
 //Home Institution Approval
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"X. HOME INSTITUTION APPROVAL",'TB',1);
+$pdf->Cell(195,7,"VIII. HOME INSTITUTION APPROVAL",'TB',1);
 
 $pdf->SetFont('Arial','',9);
-$pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming '.$intended_sem_study_inbound,'',1);
+$pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming ____ term (year)','',1);
 $pdf->Cell(195,7,'','',1);
 
 $pdf->Cell(15,7,'','',0);
@@ -451,10 +428,10 @@ $pdf->Cell(40,7,'Date','T',1,'C');
 
 //Expectations
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"XI. EXPECTATIONS FROM THE PROGRAM",'TB',1);
+$pdf->Cell(195,7,"IX. EXPECTATIONS FROM THE PROGRAM",'TB',1);
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(195,3,'','',1);
-$pdf->MultiCell(195,4,$expectation_prog,'',1);
+$pdf->MultiCell(195,4,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. N",'',1);
 $pdf->Cell(195,3,'','B');
 
 

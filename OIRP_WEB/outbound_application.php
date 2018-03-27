@@ -2,6 +2,7 @@
 	include 'database_connection.php';
 	session_start();
     $getses_StudentID = $_SESSION['student_id_session'];
+    echo $getses_StudentID;
 	$message = '';
 
 	
@@ -259,76 +260,77 @@
 					// 	'$prog_other'
 
 					// )";
-				}
+			}
 
-				if($type_program == "Bilateral")
-				{
-					$bilateral = $_POST['bilateral'];
+			if($type_program == "Bilateral")
+			{
+				$bilateral = $_POST['bilateral'];
 
-					if(isset($_POST['scholarloan'])){
+				if(isset($_POST['scholarloan'])){
 
-						$scholarloan = $_POST['scholarloan'];
+					$scholarloan = $_POST['scholarloan'];
 
-						if($scholarloan == 'Yes'){
+					if($scholarloan == 'Yes'){
 
-							$scholarloanText = $_POST['scholarloanText'];
-							
-						}else{
-							$scholarloanText = '';
-						}
+						$scholarloanText = $_POST['scholarloanText'];
+						
+					}else{
+						$scholarloanText = '';
 					}
-
-					$sql_query = "UPDATE proposed_field_study SET
-						PROPOSED_PROG = '$proposedProg',
-						COURSE_1 = '$course1', 
-						COURSE_2 = '$course2', 
-						COURSE_3 = '$course3', 
-						COURSE_4 = '$course4', 
-						COURSE_5 = '$course5',
-						SCHOLARSHIP_OUTBOUND = '$scholarloan',
-						SCHOLARSHIP_TEXT_OUTBOUND = '$scholarloanText',
-						APPLICATION_FORM = '$bilateral',
-						APPLICATION_TYPE_PROG = '$type_program'
-						WHERE STUDENT_ID = '$getses_StudentID'
-					";
-					// $sql_query = "INSERT INTO proposed_field_study
-					// 	(
-					// 		STUDENT_COUNT,
-					// 	 	STUDENT_ID,
-					// 	 	PROPOSED_PROG,
-					// 	 	COURSE_1, 
-					// 	 	COURSE_2, 
-					// 	 	COURSE_3, 
-					// 	 	COURSE_4, 
-					// 	 	COURSE_5,
-					// 		SCHOLARSHIP_OUTBOUND,
-					// 		SCHOLARSHIP_TEXT_OUTBOUND,
-					// 	 	APPLICATION_FORM,
-					// 		APPLICATION_TYPE_PROG
-					// 	) VALUES 
-					// 	(
-					// 		 '',
-					// 		 '$getses_StudentID',
-					// 		 '$proposedProg',
-					// 		 '$course1',
-					// 		 '$course2',
-					// 		 '$course3',
-					// 		 '$course4',
-					// 		 '$course5',
-					// 		 '$scholarloan',
-					// 		 '$scholarloanText',
-					// 		 '$bilateral',
-					// 		 '$type_program'
-					// 	)";		
 				}
 
-				if($type_program == "Scholarship")
-				{
-					$scholarship = $_POST['scholarship'];
+				$sql_query = "UPDATE proposed_field_study SET
+					PROPOSED_PROG = '$proposedProg',
+					COURSE_1 = '$course1', 
+					COURSE_2 = '$course2', 
+					COURSE_3 = '$course3', 
+					COURSE_4 = '$course4', 
+				 	COURSE_5 = '$course5',
+					SCHOLARSHIP_OUTBOUND = '$scholarloan',
+					SCHOLARSHIP_TEXT_OUTBOUND = '$scholarloanText',
+				 	APPLICATION_FORM = '$bilateral',
+					APPLICATION_TYPE_PROG = '$type_program'
+					WHERE STUDENT_ID = '$getses_StudentID'
+				";
+				
+				// $sql_query = "INSERT INTO proposed_field_study
+				// 	(
+				// 		STUDENT_COUNT,
+				// 	 	STUDENT_ID,
+				// 	 	PROPOSED_PROG,
+				// 	 	COURSE_1, 
+				// 	 	COURSE_2, 
+				// 	 	COURSE_3, 
+				// 	 	COURSE_4, 
+				// 	 	COURSE_5,
+				// 		SCHOLARSHIP_OUTBOUND,
+				// 		SCHOLARSHIP_TEXT_OUTBOUND,
+				// 	 	APPLICATION_FORM,
+				// 		APPLICATION_TYPE_PROG
+				// 	) VALUES 
+				// 	(
+				// 		 '',
+				// 		 '$getses_StudentID',
+				// 		 '$proposedProg',
+				// 		 '$course1',
+				// 		 '$course2',
+				// 		 '$course3',
+				// 		 '$course4',
+				// 		 '$course5',
+				// 		 '$scholarloan',
+				// 		 '$scholarloanText',
+				// 		 '$bilateral',
+				// 		 '$type_program'
+				// 	)";		
+			}
 
-					if($scholarship == "OTHERS")
-					{
-						$scholarshipText = $_POST['scholarshipText'];
+			if($type_program == "Scholarship")
+			{
+				$scholarship = $_POST['scholarship'];
+
+				if($scholarship == "OTHERS")
+				{
+					$scholarshipText = $_POST['scholarshipText'];
 
 						$sql_query = "UPDATE proposed_field_study SET
 							PROPOSED_PROG = '$proposedProg',
