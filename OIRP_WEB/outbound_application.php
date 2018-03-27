@@ -2,7 +2,6 @@
 	include 'database_connection.php';
 	session_start();
     $getses_StudentID = $_SESSION['student_id_session'];
-    echo $getses_StudentID;
 	$message = '';
 
 	
@@ -34,7 +33,48 @@
 
 		// START OUTBOUNDFORM2
 			$sql_select1 = "SELECT * FROM guardian_info_outbound WHERE STUDENT_ID = '$getses_StudentID' ";
+			$get_select1 = mysqli_query($conn, $sql_select1);
+			while($row1 = mysqli_fetch_array($get_select1)){
+				$getSel_FATHER_NAME_OUT = $row1['FATHER_NAME_OUT'];
+				$getSel_OCCUPATION_DADA_OUT = $row1['OCCUPATION_DADA_OUT'];
+				$getSel_COMPANY_DADA_OUT = $row1['COMPANY_DADA_OUT'];
+				$getSel_ADDRESS_DADA_OUT = $row1['ADDRESS_DADA_OUT'];				
+				$getSel_EMAIL_ADD_DADA_OUT = $row1['EMAIL_ADD_DADA_OUT'];
+				$getSel_CONTACT_NUM_DADA_OUT = $row1['CONTACT_NUM_DADA_OUT'];
+				$getSel_ANNUAL_INCOME_DADA_OUT = $row1['ANNUAL_INCOME_DADA_OUT'];
+				$getSel_MOTHER_NAME_OUT = $row1['MOTHER_NAME_OUT'];
+				$getSel_OCCUPATION_MOM_OUT = $row1['OCCUPATION_MOM_OUT'];
+				$getSel_COMPANY_MOM_OUT = $row1['COMPANY_MOM_OUT'];
+				$getSel_ADDRESS_MOM_OUT = $row1['ADDRESS_MOM_OUT'];
+				$getSel_EMAIL_ADD_MOM_OUT = $row1['EMAIL_ADD_MOM_OUT'];
+				$getSel_CONTACT_NUM_MOM_OUT = $row1['CONTACT_NUM_MOM_OUT'];
+				$getSel_ANNUAL_INCOME_MOM_OUT = $row1['ANNUAL_INCOME_MOM_OUT'];
+			}
 		// END OUTBOUNDFORM2
+
+		// start outboundform3
+			$sql_select2 = "SELECT * FROM proposed_field_study WHERE STUDENT_ID ='$getses_StudentID' ";
+			$get_select2 = mysqli_query($conn, $sql_select2);
+			while($row2 = mysqli_fetch_array($get_select2)){
+				$getSel_PROPOSED_PROG = $row2['PROPOSED_PROG'];
+				$getSel_COURSE_1 = $row2['COURSE_1'];
+				$getSel_COURSE_2 = $row2['COURSE_2'];
+				$getSel_COURSE_3 = $row2['COURSE_3'];
+				$getSel_COURSE_4 = $row2['COURSE_4'];
+				$getSel_COURSE_5 = $row2['COURSE_5'];
+				$getSel_SCHOLARSHIP_OUTBOUND = $row2['SCHOLARSHIP_OUTBOUND'];
+				$getSel_SCHOLARSHIP_TEXT_OUTBOUND = $row2['SCHOLARSHIP_TEXT_OUTBOUND'];
+				$getSel_APPLICATION_FORM = $row2['APPLICATION_FORM'];
+				$getSel_APPLICATION_TYPE_PROG = $row2['APPLICATION_TYPE_PROG'];
+			}
+			$sql_select3 = "SELECT * FROM country_univ_outbound WHERE STUDENT_ID ='$getses_StudentID' ";
+			$get_select3 = mysqli_query($conn, $sql_select3);
+			while($row3 = mysqli_fetch_array($get_select3)){
+				$getSel_APPLICATION_PROG = $row3['APPLICATION_PROG'];
+				$getSel_COUNTRY_OUT = $row3['COUNTRY_OUT'];
+				$getSel_UNIVERSITY_OUT = $row3['UNIVERSITY_OUT'];
+			}
+		// end outboundform3
 	// END GET THE DATA FROM DATABSE~~~~
 	
 	//for outboundform1
