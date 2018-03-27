@@ -68,7 +68,7 @@
 						</div>
 						<div class="col-sm-5">
 							<label>Mobile Number</label>
-							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: (+63)974887651" pattern="([0-9+- ()]){1,40}" maxlength=40 required  value="<?php echo $geSel_MOBILE_NUM_IN?>">
+							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: (+63)974887651" pattern="([0-9+- ()]){1,40}" maxlength=40 required value="<?php echo $geSel_MOBILE_NUM_IN?>">
 						</div>
 					</div>
 					

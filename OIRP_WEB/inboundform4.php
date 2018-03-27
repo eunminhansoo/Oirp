@@ -47,11 +47,7 @@
 							<p>Score: </p>
 						</div>
 						<div class="col-sm-2">
-<<<<<<< HEAD
-							<input type="number" name="toeflScore" id="toeflScore" class="form-control" value="<?php echo $getSel_COMPLETE_TOEF_SCORE_INBOUND ?>" disabled>
-=======
-							<input type="number" name="toeflScore" id="toeflScore" class="form-control" min="1" disabled>
->>>>>>> origin/master
+							<input type="number" name="toeflScore" id="toeflScore" class="form-control" min="1" disabled value="<?php echo $getSel_COMPLETE_TOEF_SCORE_INBOUND ?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -76,11 +72,7 @@
 							<p>Type: </p>
 						</div>
 						<div class="col-sm-2">
-<<<<<<< HEAD
-							<input type="text" name="toeflType" id="toeflType" class="form-control" value="<?php echo $getSel_INTEND_TAKE_TOEF_TYPE_INBOUND?>" disabled>
-=======
-							<input type="text" name="toeflType" id="toeflType" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,25}" maxlength="25" disabled>
->>>>>>> origin/master
+							<input type="text" name="toeflType" id="toeflType" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,25}" maxlength="25" disabled  value="<?php echo $getSel_INTEND_TAKE_TOEF_TYPE_INBOUND?>">
 						</div>
 					</div>
 					
@@ -98,21 +90,13 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Any physical disabilities or personal problems?</label>
-<<<<<<< HEAD
-							<input type="text" name="disabilities" id="disabilities" class="form-control" value="<?php echo $getSel_DESCRIBE_DISABILI_INBOUND ?>">
-=======
-							<input type="text" name="disabilities" id="disabilities" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,40}" maxlength="40" required>
->>>>>>> origin/master
+							<input type="text" name="disabilities" id="disabilities" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,40}" maxlength="40" required value="<?php echo $getSel_DESCRIBE_DISABILI_INBOUND ?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Any serious illness, conditions, or allergies?</label>
-<<<<<<< HEAD
-							<input type="text" name="illness" id="illness" class="form-control" value="<?php echo $getSel_DESCRIBE_ILL_INBOUND?>" >
-=======
-							<input type="text" name="illness" id="illness" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,75}" maxlength="75" required>
->>>>>>> origin/master
+							<input type="text" name="illness" id="illness" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,75}" maxlength="75" required value="<?php echo $getSel_DESCRIBE_ILL_INBOUND?>">
 						</div>
 					</div>
 					
