@@ -441,7 +441,7 @@ $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"X. HOME INSTITUTION APPROVAL",'TB',1);
 
 $pdf->SetFont('Arial','',9);
-$pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming ____ term (year)','',1);
+$pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming '.$intended_sem_study_inbound,'',1);
 $pdf->Cell(195,7,'','',1);
 
 $pdf->Cell(15,7,'','',0);

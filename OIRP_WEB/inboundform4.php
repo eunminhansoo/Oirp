@@ -24,7 +24,7 @@
 					<li><a href="inboundform1.php">Personal Information</a></li>
 					<li><a href="inboundform2.php">Educational Backround</a></li>
 					<li><a href="inboundform3.php">Proposed Field of Study</a></li>
-					<li><a href="inboundform4.php">English Proficiency & Medical Info</a></li>
+					<li><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
 					<li><a href="inboundform5.php">Expectations from the Program</a></li>
 				</ul>
 			</nav>
@@ -38,7 +38,7 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-2">
-							<input type="radio" name="toeflTest" id="toeflTestYes" value="Yes"> Yes
+							<input type="radio" name="toeflTest" id="toeflTestYes" value="Yes" required> Yes
 						</div>
 						<div class="col-sm-2">
 							<input type="radio" name="toeflTest" id="toeflTestNo" value="No"> No
@@ -47,7 +47,7 @@
 							<p>Score: </p>
 						</div>
 						<div class="col-sm-2">
-							<input type="number" name="toeflScore" id="toeflScore" class="form-control" disabled>
+							<input type="number" name="toeflScore" id="toeflScore" class="form-control" min="1" disabled value="<?php echo $getSel_COMPLETE_TOEF_SCORE_INBOUND ?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -57,7 +57,7 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-2">
-							<input type="radio" name="toeflFuture" id="toeflFutureYes" value="Yes"> Yes
+							<input type="radio" name="toeflFuture" id="toeflFutureYes" value="Yes" required> Yes
 						</div>
 						<div class="col-sm-2">
 							<input type="radio" name="toeflFuture" id="toeflFutureNo" value="No"> No
@@ -66,13 +66,13 @@
 							<p>Date: </p>
 						</div>
 						<div class="col-sm-2">
-							<input type="date" name="toeflDate" id="toeflDate" class="form-control" disabled>
+							<input type="date" name="toeflDate" id="toeflDate" class="form-control" value="<?php echo $getSel_INTEND_TAKE_TOEF_DATE_INBOUND?>" disabled>
 						</div>
 						<div class="col-sm-1">
 							<p>Type: </p>
 						</div>
 						<div class="col-sm-2">
-							<input type="text" name="toeflType" id="toeflType" class="form-control" disabled>
+							<input type="text" name="toeflType" id="toeflType" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,25}" maxlength="25" disabled  value="<?php echo $getSel_INTEND_TAKE_TOEF_TYPE_INBOUND?>">
 						</div>
 					</div>
 					
@@ -81,7 +81,7 @@
 							<label>Are you a smoker?</label>
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="smoker" id="smokerYes" value="Yes"> Yes
+							<input type="radio" name="smoker" id="smokerYes" value="Yes" required> Yes
 						</div>
 						<div class="col-sm-2">
 							<input type="radio" name="smoker" id="smokerNo" value="No"> No
@@ -90,13 +90,13 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Any physical disabilities or personal problems?</label>
-							<input type="text" name="disabilities" id="disabilities" class="form-control">
+							<input type="text" name="disabilities" id="disabilities" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,40}" maxlength="40" required value="<?php echo $getSel_DESCRIBE_DISABILI_INBOUND ?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Any serious illness, conditions, or allergies?</label>
-							<input type="text" name="illness" id="illness" class="form-control">
+							<input type="text" name="illness" id="illness" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,75}" maxlength="75" required value="<?php echo $getSel_DESCRIBE_ILL_INBOUND?>">
 						</div>
 					</div>
 					

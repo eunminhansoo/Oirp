@@ -22,16 +22,16 @@
 					        
 	        	<div>
 					<div class="form-group">
-						<input type="text" name="family_name" class="input form-control" placeholder="Enter Surname" required/>
+						<input type="text" name="family_name" class="input form-control" placeholder="Enter Surname" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,50}" maxlength="50" required/>
 					</div>
 					<div class="form-group">
-						<input type="text" name="given_name" class="input form-control" placeholder="Enter Given Name" required/>
+						<input type="text" name="given_name" class="input form-control" placeholder="Enter Given Name" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,50}" maxlength="50" required/>
 					</div>
 					<div class="form-group">
-						<input type="text" name="middle_name" class="input form-control" placeholder="Enter Middle Name"/>
+						<input type="text" name="middle_name" class="input form-control" placeholder="Enter Middle Name" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,50}" maxlength="50" required/>
 					</div>
 					<div class="form-group">
-						<input type="text" name="email" class="input form-control" placeholder="Enter Email" required/>
+						<input type="text" name="email" class="input form-control" placeholder="Enter Email" maxlength="60" required/>
 					</div>
 					<div class="dropdown">
 						<select name="gender" class="selectpicker">
@@ -43,7 +43,7 @@
 						<input type="date" name="birthday" id="birthday" class="form-control" required/>
 					</div>
 	        		<div class="form-group no_space_betweem">					
-						<input type="text" name="birthplace" class="form-control" placeholder="Enter your Birthplace" required/>
+						<input type="text" name="birthplace" class="form-control" placeholder="Enter your Birthplace" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" required/>
 					</div>
 					<div class="form-group no_space_betweem">					
 						<div>
