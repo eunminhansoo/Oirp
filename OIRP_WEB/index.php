@@ -23,8 +23,7 @@
 		</div>
 
 		<img src='img/arch.jpg' width=100% height=auto>
-		<form method="post">
-		<div class="container-fluid three">
+		<!-- div class="container-fluid three">
 			<div class="col-sm-4 threepanel">
 				<div class="">
 					<h2>UST Identity</h2>
@@ -43,7 +42,7 @@
 					<p>Faithful to its centuries-old tradition of excellence, the University of Santo Tomas envisions itself as a premier Catholic institution of learning in Asia, committed to the professional and moral formation of her stakeholders for social transformation.</p>
 				</div>
 			</div>
-		</div>
+		</div-->
 			<div class="content col-sm-8 margin-left">
 				<h2>About UST</h2>
 				<br>
