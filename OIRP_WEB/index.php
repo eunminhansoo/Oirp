@@ -58,7 +58,7 @@
 				<h3 style="text-align: center">LOGIN</h3>
 				<?php// echo $error_message?>
 				<br>
-				<form action="post">
+				<form method="post">
 					<div class="form-group">
 						<input type="text" name="email" class="input form-control" placeholder="Enter Email or Username" pattern="[^<>]" required/>
 					</div>
