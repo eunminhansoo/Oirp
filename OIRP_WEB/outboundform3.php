@@ -177,11 +177,19 @@
 					
 					
 					
-					<div class="form-group row break" align="right">
+					<div class="form-group row break col-xs-5">
 						<div class="col-sm-10">
-							<button type="submit" class="btn btn-primary" formaction="outboundform2.php">Previous</button>
-							<input type="submit" name="btn_save3" class="btn btn-primary" value="Save">
-							<input type="submit" name="btn_from3" class="btn btn-primary" value="Submit">
+							<button type="submit" class="btn btn-primary" formaction="inboundform1.php">Previous</button>
+						</div>
+					</div>
+					<div class="form-group row break col-xs-5">
+						<div class="col-sm-10">
+							<input type="submit" name="btnSaveoutform3" class="btn btn-primary" value="Save">
+						</div>
+					</div>
+					<div class="form-group row break col-xs-3">
+						<div class="col-sm-10">
+							<input type="submit" name="btn_form3" class="btn btn-primary" value="Next">
 						</div>
 					</div>
 				</form>
@@ -291,9 +299,9 @@
 					$("#scholarshipOthers").prop('disabled', false);
 				});		
 			});	
-			var getradio = "<?php echo $getSel_APPLICATION_FORM?>";
+			var getradio = "<?php echo $getSel_APPLICATION_TYPE_PROG?>";
 			if (getradio) { // check if variable is empty or not
-				$(':radio[value='+ getradio +']').prop('checked', true);
+				$("input[name=type_program][value="+ getradio +"]").attr('checked', true);
 			}
 			var getradio1 = "<?php echo $getSel_APPLICATION_TYPE_PROG ?>";
 			if (getradio1) { // check if variable is empty or not

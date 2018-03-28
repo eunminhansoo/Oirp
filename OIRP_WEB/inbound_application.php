@@ -633,7 +633,15 @@
 				// )";
 				$query_db = mysqli_query($conn, $sql_query);
 
-				if($query_db)
+				$query_db = mysqli_query($conn, $sql_query);
+					$query_db3 = "UPDATE student SET
+					PAGINATION = 'submited' 
+					WHERE STUDENT_ID ='$getSes_studentID'
+					";
+
+				$checkQuery3 = mysqli_query($conn, $query_db3);
+
+				if($query_db && $checkQuery3)
 				{
 					header("Location: student_home.php");
 				}else{
@@ -730,14 +738,15 @@
 				$checkQuery2 = mysqli_query($conn, $query_db1);
 
 				$query_db3 = "UPDATE student SET
-				PAGINATION = 'inbound page 1';
+				PAGINATION = 'inbound page 1' 
+				WHERE STUDENT_ID ='$getSes_studentID'
 				";
 
 				$checkQuery3 = mysqli_query($conn, $query_db3);
 
 				if($checkQuery1 && $checkQuery2 && $checkQuery3)
 				{
-					header("Location: inboundform2.php");
+					header("Location: student_home.php");
 				}else
 				{
 					header("Location: error_page.php");
@@ -748,7 +757,7 @@
 
 		//for inboundform2
 		
-			if(isset($_POST['btn_inform2']))
+			if(isset($_POST['btnSaveinform2']))
 			{
 				//doPOST 
 				$country = $_POST['country'];
@@ -1037,10 +1046,17 @@
 					
 					$query_db = mysqli_query($conn, $sql_query);
 
-					if($query_db)
+					$query_page = "UPDATE student SET
+					PAGINATION = 'inbound page 2' 
+					WHERE STUDENT_ID ='$getSes_studentID'
+					";
+
+					$checkQuery_page = mysqli_query($conn, $query_page);
+
+					if($query_db && $checkQuery_page)
 					{
-						// echo 'success';
-						header("Location: inboundform3.php");
+						echo 'success';
+						header("Location: student_home.php");
 					}else{
 						header("Location: error_page.php");
 					}
@@ -1052,7 +1068,7 @@
 		// end for inboundform2
 
 		// for inboundform3
-			if(isset($_POST['btn_inform3']))
+			if(isset($_POST['btnSaveinform3']))
 			{
 				$proposedProg = $_POST['proposedProg'];
 				$course1 = $_POST['course1'];
@@ -1111,11 +1127,18 @@
 				// )";
 
 				$query_db = mysqli_query($conn, $sql_query);
+				
+				$query_db3 = "UPDATE student SET
+					PAGINATION = 'inbound page 3' 
+					WHERE STUDENT_ID ='$getSes_studentID'
+				";
 
-				if($query_db)
+				$checkQuery3 = mysqli_query($conn, $query_db3);
+
+				if($query_db && $checkQuery3)
 				{
 					// echo 'success';
-					header("Location: inboundform4.php");
+					header("Location: student_home.php");
 				}else{
 					header("Location: error_page.php");
 				}
@@ -1123,7 +1146,7 @@
 		// end for inboundform3
 
 		// for inboundform4
-			if(isset($_POST['btn_inform4']))
+			if(isset($_POST['btnSaveinform4']))
 			{
 				$toeflTest = $_POST['toeflTest'];
 				$toeflScore = $_POST['toeflScore'];
@@ -1169,11 +1192,19 @@
 				// 	'$toeflType'			
 				// )";
 				$query_db = mysqli_query($conn, $sql_query);
+				
+				$query_db = mysqli_query($conn, $sql_query);
+					$query_db3 = "UPDATE student SET
+					PAGINATION = 'inbound page 4' 
+					WHERE STUDENT_ID ='$getSes_studentID'
+					";
 
-				if($query_db)
+				$checkQuery3 = mysqli_query($conn, $query_db3);
+
+				if($query_db && $checkQuery3)
 				{
 					// echo 'success';
-					header("Location: inboundform5.php");
+					header("Location: student_home.php");
 				}else{
 					header("Location: error_page.php");
 				}
@@ -1181,7 +1212,7 @@
 		// end for inboundform4
 
 		// for inboundform5
-			if(isset($_POST['btn_inform5']))
+			if(isset($_POST['btnSaveinform5']))
 			{
 				$expectation_area = $_POST['expectation_area'];
 				
@@ -1202,8 +1233,15 @@
 				// 	'$expectation_area'
 				// )";
 				$query_db = mysqli_query($conn, $sql_query);
+				
+					$query_db3 = "UPDATE student SET
+					PAGINATION = 'inbound page 5' 
+					WHERE STUDENT_ID ='$getSes_studentID'
+					";
 
-				if($query_db)
+				$checkQuery3 = mysqli_query($conn, $query_db3);
+
+				if($query_db && $checkQuery3)
 				{
 					header("Location: student_home.php");
 				}else{
