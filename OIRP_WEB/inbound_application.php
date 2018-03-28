@@ -54,7 +54,7 @@
 		//start inboundform3
 			$query_select3 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$getSes_studentID'";
 			$get_select3 = mysqli_query($conn, $query_select3);
-			while($row3 = mysqli_fetch_array($query_select3)){
+			while($row3 = mysqli_fetch_array($get_select3)){
 				$getSel_PROPOSED_PROG_INBOUND = $row3['PROPOSED_PROG_INBOUND'];
 				$getSel_COURSE_1_INBOUND = $row3['COURSE_1_INBOUND'];
 				$getSel_COURSE_2_INBOUND = $row3['COURSE_2_INBOUND'];
