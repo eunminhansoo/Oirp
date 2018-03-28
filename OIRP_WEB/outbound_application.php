@@ -109,111 +109,111 @@
 				WHERE STUDENT_ID = '$getses_StudentID'
 				";
 
-			// $sql_query = "INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, 
-			// `NATIONALITY_OUT`, `CITIZENSHIP_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, 
-			// `MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`
-			// ) VALUES ('', '$getses_StudentID', '$nationality_out', '$citizenship_out', 
-			// '$passport_num_out', '$validity_date_out', '$date_issuance_out', '$mailing_add_out', 
-			// '$telephone_num_out', '$mobile_num_out', '$college_institute_faculty_out', '$program$program', '$year_level_out')";
-			
-			$query_db = mysqli_query($conn, $sql_query);
-
-			if($query_db)
-			{
-				// echo 'success';
-				header("Location: outboundform2.php");
-			}else{
-				// echo 'error';
-				header("Location: error_page.php");
-			}
-		}
-	// END for outboundform1
-	
-	//FOR FORM 2
-	
-		if(isset($_POST['btn_form2']))
-		{
-			// FATHER
-			$father = $_POST['father'];
-			$fOccupation = $_POST['fOccupation'];
-			$fCompany = $_POST['fCompany'];
-			$fAddress = $_POST['fAddress'];
-			$fEmail = $_POST['fEmail'];
-			$fNumber = $_POST['fNumber'];
-			$fIncome = $_POST['fIncome'];
-			//MOTHER
-			$mother = $_POST['mother'];
-			$mOccupation = $_POST['mOccupation'];
-			$mCompany = $_POST['mCompany'];
-			$mAddress = $_POST['mAddress'];
-			$mEmail = $_POST['mEmail'];
-			$mNumber = $_POST['mNumber'];
-			$mIncome = $_POST['mIncome'];
-			
-			//QUERY
-			
-			$sql_query = "UPDATE guardian_info_outbound SET
-				FATHER_NAME_OUT = '$father',
-				OCCUPATION_DADA_OUT = '$fOccupation',
-				COMPANY_DADA_OUT = '$fCompany',
-				ADDRESS_DADA_OUT = '$fAddress',
-				EMAIL_ADD_DADA_OUT = '$fEmail',
-				CONTACT_NUM_DADA_OUT = '$fNumber',
-				ANNUAL_INCOME_DADA_OUT = '$fIncome',
-				MOTHER_NAME_OUT = '$mother',
-				OCCUPATION_MOM_OUT = '$mOccupation',
-				COMPANY_MOM_OUT = '$mCompany',
-				ADDRESS_MOM_OUT = '$mAddress',
-				EMAIL_ADD_MOM_OUT = '$mEmail',
-				CONTACT_NUM_MOM_OUT = '$mNumber',
-				ANNUAL_INCOME_MOM_OUT = '$mIncome'
-				WHERE STUDENT_ID = '$getses_StudentID'
-			";
-			// $sql_query = "INSERT INTO guardian_info_outbound(
-			// 	STUDENT_COUNT, 
-			// 	STUDENT_ID,
-			// 	FATHER_NAME_OUT,
-			// 	OCCUPATION_DADA_OUT,
-			// 	COMPANY_DADA_OUT,
-			// 	ADDRESS_DADA_OUT,
-			// 	EMAIL_ADD_DADA_OUT,
-			// 	CONTACT_NUM_DADA_OUT,
-			// 	ANNUAL_INCOME_DADA_OUT,
-			// 	MOTHER_NAME_OUT,
-			// 	OCCUPATION_MOM_OUT,
-			// 	COMPANY_MOM_OUT,
-			// 	ADDRESS_MOM_OUT,
-			// 	EMAIL_ADD_MOM_OUT,
-			// 	CONTACT_NUM_MOM_OUT,
-			// 	ANNUAL_INCOME_MOM_OUT
-			// 	) VALUES (
-			// 	'',
-			// 	'$getses_StudentID',
-			// 	'$father',
-			// 	'$fOccupation',
-			// 	'$fCompany',
-			// 	'$fAddress',
-			// 	'$fEmail',
-			// 	'$fNumber',
-			// 	'$fIncome',
-			// 	'$mother',
-			// 	'$mOccupation',
-			// 	'$mCompany',
-			// 	'$mAddress',
-			// 	'$mEmail',
-			// 	'$mNumber',
-			// 	'$mIncome')";
-
+				// $sql_query = "INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, 
+				// `NATIONALITY_OUT`, `CITIZENSHIP_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, 
+				// `MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`
+				// ) VALUES ('', '$getses_StudentID', '$nationality_out', '$citizenship_out', 
+				// '$passport_num_out', '$validity_date_out', '$date_issuance_out', '$mailing_add_out', 
+				// '$telephone_num_out', '$mobile_num_out', '$college_institute_faculty_out', '$program$program', '$year_level_out')";
+				
 				$query_db = mysqli_query($conn, $sql_query);
 
 				if($query_db)
 				{
 					// echo 'success';
-					header("Location: outboundform3.php");
+					header("Location: outboundform2.php");
 				}else{
 					// echo 'error';
 					header("Location: error_page.php");
 				}
+			}
+		// END for outboundform1
+		
+		//FOR FORM 2
+		
+			if(isset($_POST['btn_form2']))
+			{
+				// FATHER
+				$father = $_POST['father'];
+				$fOccupation = $_POST['fOccupation'];
+				$fCompany = $_POST['fCompany'];
+				$fAddress = $_POST['fAddress'];
+				$fEmail = $_POST['fEmail'];
+				$fNumber = $_POST['fNumber'];
+				$fIncome = $_POST['fIncome'];
+				//MOTHER
+				$mother = $_POST['mother'];
+				$mOccupation = $_POST['mOccupation'];
+				$mCompany = $_POST['mCompany'];
+				$mAddress = $_POST['mAddress'];
+				$mEmail = $_POST['mEmail'];
+				$mNumber = $_POST['mNumber'];
+				$mIncome = $_POST['mIncome'];
+				
+				//QUERY
+				
+				$sql_query = "UPDATE guardian_info_outbound SET
+					FATHER_NAME_OUT = '$father',
+					OCCUPATION_DADA_OUT = '$fOccupation',
+					COMPANY_DADA_OUT = '$fCompany',
+					ADDRESS_DADA_OUT = '$fAddress',
+					EMAIL_ADD_DADA_OUT = '$fEmail',
+					CONTACT_NUM_DADA_OUT = '$fNumber',
+					ANNUAL_INCOME_DADA_OUT = '$fIncome',
+					MOTHER_NAME_OUT = '$mother',
+					OCCUPATION_MOM_OUT = '$mOccupation',
+					COMPANY_MOM_OUT = '$mCompany',
+					ADDRESS_MOM_OUT = '$mAddress',
+					EMAIL_ADD_MOM_OUT = '$mEmail',
+					CONTACT_NUM_MOM_OUT = '$mNumber',
+					ANNUAL_INCOME_MOM_OUT = '$mIncome'
+					WHERE STUDENT_ID = '$getses_StudentID'
+				";
+				// $sql_query = "INSERT INTO guardian_info_outbound(
+				// 	STUDENT_COUNT, 
+				// 	STUDENT_ID,
+				// 	FATHER_NAME_OUT,
+				// 	OCCUPATION_DADA_OUT,
+				// 	COMPANY_DADA_OUT,
+				// 	ADDRESS_DADA_OUT,
+				// 	EMAIL_ADD_DADA_OUT,
+				// 	CONTACT_NUM_DADA_OUT,
+				// 	ANNUAL_INCOME_DADA_OUT,
+				// 	MOTHER_NAME_OUT,
+				// 	OCCUPATION_MOM_OUT,
+				// 	COMPANY_MOM_OUT,
+				// 	ADDRESS_MOM_OUT,
+				// 	EMAIL_ADD_MOM_OUT,
+				// 	CONTACT_NUM_MOM_OUT,
+				// 	ANNUAL_INCOME_MOM_OUT
+				// 	) VALUES (
+				// 	'',
+				// 	'$getses_StudentID',
+				// 	'$father',
+				// 	'$fOccupation',
+				// 	'$fCompany',
+				// 	'$fAddress',
+				// 	'$fEmail',
+				// 	'$fNumber',
+				// 	'$fIncome',
+				// 	'$mother',
+				// 	'$mOccupation',
+				// 	'$mCompany',
+				// 	'$mAddress',
+				// 	'$mEmail',
+				// 	'$mNumber',
+				// 	'$mIncome')";
+
+					$query_db = mysqli_query($conn, $sql_query);
+
+					if($query_db)
+					{
+						// echo 'success';
+						header("Location: outboundform3.php");
+					}else{
+						// echo 'error';
+						header("Location: error_page.php");
+					}
 
 			}
 		//END FOR FORM 2
