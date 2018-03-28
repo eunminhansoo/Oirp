@@ -24,8 +24,8 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
 				
-		<div class="header">
-			<img src='img/logo.png' height=auto>
+		<div class="container-fluid">
+			<img src='img/logo.png' class="img-responsive">
 		</div>
 		
 		<div class="container-fluid">
@@ -66,28 +66,28 @@
 						<div class="form-group row">
 							<div class="col-sm-5">
 									<label>Country of Origin</label>
-									<input type="text" name="countryText" id="countryText" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,30}" maxlength="30">
+									<input type="text" name="countryText" id="countryText" class="form-control" pattern="[^<>].{1,30}" maxlength="30">
 								</div>
 								<div class="col-sm-5">
 									<label>Home University</label>
-									<input type="text" name="homeUniversityText" id="homeUniversityText" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,115}" maxlength="115">
+									<input type="text" name="homeUniversityText" id="homeUniversityText" class="form-control" pattern="[^<>].{1,115}" maxlength="115">
 								</div>
 						</div>
 					</div>
 						<div class="form-group row">
 							<div class="col-sm-10">
 								<label>University Address</label>
-								<input type="text" name="univAddress" id="univAddress" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" required value="<?php echo $getSel_UNIV_ADD_IN_BILA?>">
+								<input type="text" name="univAddress" id="univAddress" class="form-control" pattern="[^<>].{1,115}" maxlength="115" required value="<?php echo $getSel_UNIV_ADD_IN_BILA?>">
 							</div>
 						</div>
 					<div class="form-group row break">
 						<div class="col-sm-4">
 							<label>Degree Program</label>
-							<input type="text" name="program" id="program" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,45}" maxlength="45" required value="<?php echo $getSel_CURRENT_PROG_STUDY_IN_BILA?>">
+							<input type="text" name="program" id="program" class="form-control" pattern="[^<>].{1,45}" maxlength="45" required value="<?php echo $getSel_CURRENT_PROG_STUDY_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
 							<label>Major</label>
-							<input type="text" name="major" id="major" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,30}" maxlength="30" required value=" <?php echo $getSel_SPECIALIZATION_IN_BILA?>">
+							<input type="text" name="major" id="major" class="form-control" pattern="[^<>].{1,30}" maxlength="30" required value=" <?php echo $getSel_SPECIALIZATION_IN_BILA?>">
 						</div>
 						<div class="col-sm-2">
 							<label>Year Level</label>
@@ -108,7 +108,7 @@
 							<input type="radio" name="type_program" value="Others" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
-							<input type="text" name="programText" id="proText" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" disabled>
+							<input type="text" name="programText" id="proText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 
@@ -148,7 +148,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
@@ -170,7 +170,7 @@
 								Please specify: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
@@ -181,11 +181,11 @@
 					<div class="form-group row break">
 						<div class="col-sm-6">
 							<label>Officer to Contact</label>
-							<input type="text" name="officer" id="officer" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="60" required value="<?php echo $getSel_NAME_OFFICER_CONTACT_IN_BILA?>">
+							<input type="text" name="officer" id="officer" class="form-control" pattern="[^0-9<>].{1,20}" maxlength="60" required value="<?php echo $getSel_NAME_OFFICER_CONTACT_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
 							<label>Designation</label>
-							<input type="text" name="designationO" id="designationO" class="form-control"  pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" required value="<?php echo $getSel_DESIGNATION_IN_BILA?>">
+							<input type="text" name="designationO" id="designationO" class="form-control"  pattern="[^<>].{1,20}" maxlength="20" required value="<?php echo $getSel_DESIGNATION_IN_BILA?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -195,7 +195,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
-							<input type="text" name="numberO" id="numberO" class="form-control" pattern="([0-9+- ()]){1,40}" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
+							<input type="text" name="numberO" id="numberO" class="form-control" pattern="([+]\d{1,4})([\s]\d{2,3}[-]\d{2,3}[-]\d{3,4})" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
 						</div>	
 					</div>				
 					

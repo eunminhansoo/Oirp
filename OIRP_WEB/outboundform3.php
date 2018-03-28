@@ -52,7 +52,7 @@
 							<input type="radio" name="type_program" value="Others" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
-							<input type="text" name="programText" id="proText" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" disabled>
+							<input type="text" name="programText" id="proText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 
@@ -92,7 +92,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
@@ -114,7 +114,7 @@
 								Please specify: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
@@ -138,7 +138,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Proposed Program</label>
-							<input type="text" name="proposedProg" id="proposedProg" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,45}" maxlength="45" value="<?php echo $getSel_PROPOSED_PROG?>" required>
+							<input type="text" name="proposedProg" id="proposedProg" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_PROPOSED_PROG?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -146,31 +146,31 @@
 							<label>Courses</label>
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
-							    <input type="text" name="course1" id="course1" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1?>">
+							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">2.</span>
-							    <input type="text" name="course2" id="course2" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_2?>">
+							    <input type="text" name="course2" id="course2" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_2?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">3.</span>
-							    <input type="text" name="course3" id="course3" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_3?>">
+							    <input type="text" name="course3" id="course3" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_3?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">4.</span>
-							    <input type="text" name="course4" id="course4" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_4?>">
+							    <input type="text" name="course4" id="course4" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_4?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">5.</span>
-							    <input type="text" name="course5" id="course5" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_5?>">
+							    <input type="text" name="course5" id="course5" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_5?>">
 							</div>
 						</div>
 					</div>

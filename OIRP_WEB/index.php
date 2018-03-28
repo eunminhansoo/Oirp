@@ -53,17 +53,15 @@
 				<p>More about <a href="" onclick="window.open('http://www.ust.edu.ph/')">UST</a></p>
 			</div>
 			<div class="login col-sm-3 pull-right login">
-				<div class="white">
-					Login
-				</div>
+				<h3 style="text-align: center">LOGIN</h3>
 				<?php// echo $error_message?>
 				<br>
 				<form action="post">
 					<div class="form-group">
-						<input type="text" name="email" class="input form-control" placeholder="Enter Email"/>
+						<input type="text" name="email" class="input form-control" placeholder="Enter Email or Username" pattern="[^<>]" required/>
 					</div>
 					<div class="form-group">
-						<input type="password" name="password" class="input form-control" placeholder="Enter Password"/>
+						<input type="password" name="password" class="input form-control" placeholder="Enter Password" required/>
 					</div>
 					<button type="submit" name="btn_login" class="button btn btn-block btn-primary">Login</button>
 					<p style="text-align: center">OR</p>

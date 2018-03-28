@@ -14,8 +14,8 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
  		
-		<div class="header ">
-			<img src='img/logo.png' height=auto class="img-responsive" >
+		<div class="container-fluid ">
+			<img src='img/logo.png' class="img-responsive" >
 		</div>
 		
 		<div class="container-fluid">
@@ -33,17 +33,17 @@
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>
-							<input type="text" name="citizenship" id="citizenship" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,25}" maxlength="25" required value="<?php echo $geSel_CITIZENSHIP_IN ?>">
+							<input type="text" name="citizenship" id="citizenship" class="form-control" pattern="[^0-9<>].{1,25}" maxlength="25" required value="<?php echo $geSel_CITIZENSHIP_IN ?>">
 						</div>
 						<div class="col-sm-5">
 							<label>Nationality</label>
-							<input type="text" name="nationality" id="nationality" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,25}" maxlength="25" required value="<?php echo $geSel_NATIONALITY_IN?>">
+							<input type="text" name="nationality" id="nationality" class="form-control" pattern="[^0-9<>].{1,25}" maxlength="25" required value="<?php echo $geSel_NATIONALITY_IN?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Passport No.</label>
-							<input type="text" name="passport" id="passport" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,20}" maxlength="20" required value="<?php echo $geSel_PASSPORT_NUM_IN?>">
+							<input type="text" name="passport" id="passport" class="form-control" pattern="[^<>].{1,20}" maxlength="20" required value="<?php echo $geSel_PASSPORT_NUM_IN?>">
 						</div>
 						<div class="col-sm-3">
 							<label>Validity Date</label>
@@ -57,36 +57,36 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Mailing Address</label>
-							<input type="text" name="address" id="address" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" required value="<?php echo $geSel_MAILING_ADD_IN?>">
+							<input type="text" name="address" id="address" class="form-control" pattern="[^<>].{1,115}" maxlength="115" required value="<?php echo $geSel_MAILING_ADD_IN?>">
 						</div>					
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
 							<p>country code - area code - telephone number </p>
-							<input type="text" name="telephone" id="telephone" class="form-control"  placeholder="ex: +63-2-406-1611" pattern="([0-9+- ()]){1,30}" maxlength=30 required value="<?php echo $geSel_TELEPHONE_NUM_IN?>">
+							<input type="text" name="telephone" id="telephone" class="form-control"  placeholder="ex: +63 2-406-1611" pattern="([+]\d{1,4})([\s]\d{2,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 required value="<?php echo $geSel_TELEPHONE_NUM_IN?>">
 						</div>
 						<div class="col-sm-5">
 							<label>Mobile Number</label>
-							<p>(country code) telephone number</p>
-							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: (+63)974887651" pattern="([0-9+- ()]){1,40}" maxlength=40 required value="<?php echo $geSel_MOBILE_NUM_IN?>">
+							<p>country code - telephone number</p>
+							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: +63 974-887-6512" pattern="([+]\d{1,4})([\s]\d{2,3}[-]\d{2,3}[-]\d{3,4})" maxlength=40 required value="<?php echo $geSel_MOBILE_NUM_IN?>">
 						</div>
 					</div>
 					
 					<div class="form-group row break">
 						<div class="col-sm-6">
 							<label>Person to Contact (in case of emergency)</label>
-							<input type="text" name="contactperson" id="contactperson" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="60" required value="<?php echo $getSel_PERSONAL_CONTACT_IN_BILA?>"> 
+							<input type="text" name="contactperson" id="contactperson" class="form-control" pattern="[^<>].{1,20}" maxlength="60" required value="<?php echo $getSel_PERSONAL_CONTACT_IN_BILA?>"> 
 						</div>
 						<div class="col-sm-4">
 							<label>Relationship</label>
-							<input type="text" name="relCP" id="relCP" class="form-control" pattern="(\p{L})([a-zA-Z.,()'+-!&*|/: ]).{1,20}" maxlength="20" required value="<?php echo $getSel_RELATIONSHIP_IN_BILA?>">
+							<input type="text" name="relCP" id="relCP" class="form-control" pattern="[^<>].{1,20}" maxlength="20" required value="<?php echo $getSel_RELATIONSHIP_IN_BILA?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Address</label>
-							<input type="text" name="addressCP" id="addressCP" class="form-control" pattern="(\p{L})([a-zA-Z0-9.,()'+-!&*|/: ]).{1,115}" maxlength="115" required  value="<?php echo $getSel_ADD_IN_BILA?>">
+							<input type="text" name="addressCP" id="addressCP" class="form-control" pattern="[^<>].{1,115}" maxlength="115" required  value="<?php echo $getSel_ADD_IN_BILA?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -96,7 +96,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
-							<input type="text" name="numberCP" id="numberCP" class="form-control" pattern="([0-9+- ()]){1,30}" maxlength=30 required value="<?php echo $getSel_TELEPHONE_NUM_IN_BILA?>">
+							<input type="text" name="numberCP" id="numberCP" class="form-control" pattern="([+]\d{1,4})([\s]\d{2,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 required value="<?php echo $getSel_TELEPHONE_NUM_IN_BILA?>">
 						</div>
 					</div>
 						
