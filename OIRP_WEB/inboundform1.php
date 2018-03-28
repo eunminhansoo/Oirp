@@ -64,12 +64,12 @@
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
 							<p>country code - area code - telephone number </p>
-							<input type="text" name="telephone" id="telephone" class="form-control"  placeholder="ex: +63 2-406-1611" pattern="([+]\d{1,4})([\s]\d{2,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 required value="<?php echo $geSel_TELEPHONE_NUM_IN?>">
+							<input type="text" name="telephone" id="telephone" class="form-control"  placeholder="ex: +63 2-406-1611" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 required value="<?php echo $geSel_TELEPHONE_NUM_IN?>">
 						</div>
 						<div class="col-sm-5">
 							<label>Mobile Number</label>
 							<p>country code - telephone number</p>
-							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: +63 974-887-6512" pattern="([+]\d{1,4})([\s]\d{2,3}[-]\d{2,3}[-]\d{3,4})" maxlength=40 required value="<?php echo $geSel_MOBILE_NUM_IN?>">
+							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: +63 974-887-6512" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=40 required value="<?php echo $geSel_MOBILE_NUM_IN?>">
 						</div>
 					</div>
 					
