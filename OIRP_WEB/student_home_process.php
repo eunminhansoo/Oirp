@@ -9,8 +9,9 @@ include 'database_connection.php';
 	while($row = mysqli_fetch_array($db_query)){
 		$familyName = $row['FAMILY_NAME'];
 		$givenName = $row['GIVEN_NAME'];
-		//$status = $row['STATUS'];
+		$status = $row['STATUS'];
 		$application_prog = $row['APPLICATION_PROG'];
+		$pagination = $row['PAGINATION'];
 		$gender = $row['GENDER'];
 
 		if($gender == "Female")

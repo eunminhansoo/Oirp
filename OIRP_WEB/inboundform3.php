@@ -137,3 +137,11 @@
 		</div>
 	</body>
 </html>
+<script>
+	
+	var getradio = "<?php echo $getSel_ACCOMODATION_INBOUND?>";
+	if (getradio) { // check if variable is empty or not
+		$(":radio[value="+ getradio +"]").prop('checked', true);
+	}
+	
+</script>

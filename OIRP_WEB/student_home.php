@@ -82,10 +82,35 @@
 					<div class="appietxt">
 						<span><?php echo "$gen".". ".$familyName?> Application form</span>
 					</div>
+							
 					<div class="appietxt1">
 						<a class="btn btn-secondary" id="btnClicksu">
-							<span>Upload Application form /</span>
-							<span class="caf"> Continue Application form</span>
+							<?php
+								if($pagination == 'inbound page 1'){
+									echo '<span class="caf"> Continue Application form</span>';
+								}
+								else if($pagination == 'inbound page 2'){
+									echo '<span class="caf"> Continue Application form</span>';
+								}else if($pagination == 'inbound page 3'){
+									echo '<span class="caf"> Continue Application form</span>';
+								}else if($pagination == 'inbound page 4'){
+									echo '<span class="caf"> Continue Application form</span>';
+								}else if($pagination == 'inbound page 5'){
+									echo '<span class="caf"> Continue Application form</span>';
+								}else if($pagination == 'outbound page 1'){
+									echo '<span class="caf"> Continue Application form</span>';
+								}else if($pagination == 'outbound page 2'){
+									echo '<span class="caf"> Continue Application form</span>';
+								}else if($pagination == 'outbound page 3'){
+									echo '<span class="caf"> Continue Application form</span>';
+								}else {
+									if($pagination == 'submited'){
+										echo '<span>Upload Application form </span>';
+									}
+								}
+							?>
+							<!--<span>Upload Application form </span>-->
+							<!--<span class="caf"> Continue Application form</span>-->
 						</a>
 					</div>
 				</div>
@@ -138,11 +163,34 @@
 		</div>
 		<script>
 		$(document).ready(function(){
+			var page = "<?php echo $pagination ?>";
 			$('#uploadbox').hide();
 
 			$('#btnClicksu').click(function(){
-				$('#uploadbox').show();
-				$('#pdfscan').prop('disabled', false);
+				if(page == "inbound page 1"){
+					window.location.href = "inboundform1.php";
+				}else if(page == "inbound page 2"){
+					window.location.href = "inboundform2.php";
+				}else if(page == "inbound page 3"){
+					window.location.href = "inboundform3.php";
+				}else if(page == "inbound page 2"){
+					window.location.href = "inboundform3.php";
+				}else if(page == "inbound page 4"){
+					window.location.href = "inboundform4.php";
+				}else if(page == "inbound page 5"){
+					window.location.href = "inboundform5.php";
+				}else if(page == "outbound page 1"){
+					window.location.href = "outboundform1.php";
+				}else if(page == "outbound page 2"){
+					window.location.href = "outboundform2.php";
+				}else if(page == "outbound page 3"){
+					window.location.href = "outboundform3.php";
+				}else{
+					if(page == "submited"){
+						$('#uploadbox').show();
+						$('#pdfscan').prop('disabled', false);
+					}
+				}
 			});
 			$('#toggelexus').click(function(){
 				$('#uploadbox').hide();

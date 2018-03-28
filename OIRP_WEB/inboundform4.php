@@ -139,7 +139,21 @@
         	    $("#toeflDate").prop('disabled', true);
         	    $("#toeflType").prop('disabled', true);
 			});
-			
+
+			var getradio = "<?php echo $getSel_DO_YOU_SMOKE_INBOUND ?>";
+			if (getradio) { // check if variable is empty or not
+				$(':radio[name=smoker][value='+ getradio +']').prop('checked', true);
+			}
+
+			var getradio1 = "<?php echo $getSel_COMPLETE_TOEF_INBOUND ?>";
+			if (getradio1) { // check if variable is empty or not
+				$(':radio[name=toeflTest][value='+ getradio1 +']').prop('checked', true);
+			}
+
+			var getradio2 = "<?php echo $getSel_INTEND_TAKE_TOEF_INBOUND ?>";
+			if (getradio2) { // check if variable is empty or not
+				$(':radio[name=toeflFuture][value='+ getradio2 +']').prop('checked', true);
+			}
 		});
 	</script>
 </html>
