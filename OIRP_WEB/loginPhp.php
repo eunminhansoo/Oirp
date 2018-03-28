@@ -5,6 +5,8 @@
 	if (isset($_POST['btn_login'])){
 		$email = $_POST['email'];
 		$pass_word = $_POST['password'];
+		str_replace("<", "&lt;", $pass_word);
+		str_replace(">", "&gt;", $pass_word);
 		$date = $pass_word;
 		if (DateTime::createFromFormat('d/m/Y', $date) !== FALSE) {
 		// it's a date

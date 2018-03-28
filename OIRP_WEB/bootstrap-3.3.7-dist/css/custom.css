@@ -2,8 +2,9 @@ body{
 	background-color: #f5ffeb;
 }
 
-.header{
-	margin: 10px;
+.white-center {
+	color: white;
+	font-family: 'Times New Roman';
 }
 
 .header > h1,
@@ -39,10 +40,10 @@ body{
 	border-left: 1px solid white;	
 }
 
-.threepanel:hover{
+/*.threepanel:hover{
 	background-color: #333333;
 	color: white;
-}
+}*/
 
 .threepanel > p{
 	font-family: 'Helvetica';

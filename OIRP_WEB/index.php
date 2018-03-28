@@ -23,8 +23,7 @@
 		</div>
 
 		<img src='img/arch.jpg' width=100% height=auto>
-		<form method="post">
-		<div class="container-fluid three">
+		<!-- div class="container-fluid three">
 			<div class="col-sm-4 threepanel">
 				<div class="">
 					<h2>UST Identity</h2>
@@ -43,7 +42,7 @@
 					<p>Faithful to its centuries-old tradition of excellence, the University of Santo Tomas envisions itself as a premier Catholic institution of learning in Asia, committed to the professional and moral formation of her stakeholders for social transformation.</p>
 				</div>
 			</div>
-		</div>
+		</div-->
 			<div class="content col-sm-8 margin-left">
 				<h2>About UST</h2>
 				<br>
@@ -53,17 +52,15 @@
 				<p>More about <a href="" onclick="window.open('http://www.ust.edu.ph/')">UST</a></p>
 			</div>
 			<div class="login col-sm-3 pull-right login">
-				<div class="white">
-					Login
-				</div>
+				<h3 style="text-align: center">LOGIN</h3>
 				<?php// echo $error_message?>
 				<br>
 				<form action="post">
 					<div class="form-group">
-						<input type="text" name="email" class="input form-control" placeholder="Enter Email"/>
+						<input type="text" name="email" class="input form-control" placeholder="Enter Email or Username" pattern="[^<>]" required/>
 					</div>
 					<div class="form-group">
-						<input type="password" name="password" class="input form-control" placeholder="Enter Password"/>
+						<input type="password" name="password" class="input form-control" placeholder="Enter Password" required/>
 					</div>
 					<button type="submit" name="btn_login" class="button btn btn-block btn-primary">Login</button>
 					<p style="text-align: center">OR</p>
