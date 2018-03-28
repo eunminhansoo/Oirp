@@ -1,0 +1,13 @@
+<?php
+    include 'database_connection.php';
+
+    $getStudentID = $_GET['studentName'];
+    echo $getStudentID;
+    
+    $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
+                            $result = mysqli_query($conn, $sql);
+                            while($row = mysqli_fetch_array($result)){
+                            	$file = $row['PDF_IMG'];
+                            }
+                            
+?>

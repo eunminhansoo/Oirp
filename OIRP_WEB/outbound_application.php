@@ -483,16 +483,26 @@
 				// 	'$get_univ'
 				// )";
 
+<<<<<<< HEAD
+			if($query_db && $query_db1)
+			{
+				echo 'success';
+				header("Location: student_home.php");
+			}else{
+				 echo 'error';
+				header("Location: error_page.php");
+=======
 				$query_db1 = mysqli_query($conn, $sql_query1);
 
 				if($query_db && $query_db1)
 				{
-					echo 'success';
-					//header("Location: student_home.php");
+					//echo 'success';
+					header("Location: student_home.php");
 				}else{
-					echo 'error';
-					//header("Location: error_page.php");
+					//echo 'error';
+					header("Location: error_page.php");
 				}
+>>>>>>> origin/master
 			}
 
 		}
