@@ -290,7 +290,15 @@
 					$("#scholarshipSHARE").prop('disabled', false);
 					$("#scholarshipOthers").prop('disabled', false);
 				});		
-			});				
+			});	
+			var getradio = "<?php echo $getSel_APPLICATION_FORM?>";
+			if (getradio) { // check if variable is empty or not
+				$(':radio[value='+ getradio +']').prop('checked', true);
+			}
+			var getradio1 = "<?php echo $getSel_APPLICATION_TYPE_PROG ?>";
+			if (getradio1) { // check if variable is empty or not
+				$(':radio[value='+ getradio1 +']').prop('checked', true);
+			}			
 		});
 	</script>
 </html>

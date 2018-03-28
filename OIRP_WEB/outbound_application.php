@@ -487,11 +487,11 @@
 
 				if($query_db && $query_db1)
 				{
-					echo 'success';
-					//header("Location: student_home.php");
+					//echo 'success';
+					header("Location: student_home.php");
 				}else{
-					echo 'error';
-					//header("Location: error_page.php");
+					//echo 'error';
+					header("Location: error_page.php");
 				}
 			}
 
