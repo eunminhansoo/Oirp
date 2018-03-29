@@ -24,7 +24,8 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
 				
-		<div class="container-fluid">
+		<div class="">
+		<div class="header">
 			<img src='img/logo.png' class="img-responsive">
 		</div>
 		
@@ -216,6 +217,7 @@
 					</div>
 				</form>
 			</div>
+		</div>
 		</div>
 	</body>
 	<script>
