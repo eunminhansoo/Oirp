@@ -16,9 +16,9 @@
       <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 </head>
 <body>
-  <div class="container-fluid">
-		<div class="container-fluid">
-			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
+  <div class="">
+		<div class="header">
+			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
   <ul>
     <li><a href="#home">Home</a></li>

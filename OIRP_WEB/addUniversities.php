@@ -34,8 +34,8 @@
 		<script src="bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
   		<script src="bootstrap-3.3.7-dist/js/jquery-ui.js"></script>
   
-		<div class="">
 		<div class="container-fluid">
+		<div class="header">
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
 		<div class="container-fluid">

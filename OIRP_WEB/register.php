@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-		<div class="container-fluid">
+		<div class="header">
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
 	

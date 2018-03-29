@@ -7,11 +7,11 @@
 	<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width = device-width, initial-scale = 1">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	<body>
@@ -19,7 +19,7 @@
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		
 		<div class="">
-		<div class="container-fluid">
+		<div class="header">
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
 		<img src='img/arch.jpg' width=100% height=auto>
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		
-			<div class="content col-sm-9">
+		<div class="content col-sm-9">
 			<span class="header" style="padding-left: 50px; float: inherit;">
 				<h2>About UST</h2>
 				<br>
@@ -52,29 +52,49 @@
 				<p>While the University of Santo Tomas holds the distinction of being Asia's oldest existing university, its age is coupled with its preeminence in Philippine education. Not only does it boast of several firsts in the different realms of education, it also has administrators and faculty members who are holding leadership positions in the Philippines' policy-making bodies and professional organizations, helping influence policies for the betterment of the society in general.</p>
 				<br>
 				<p>More about <a href="" onclick="window.open('http://www.ust.edu.ph/')">UST</a></p>
+				<br>
+				<h2>About OIRP</h2>
+				<br>
+				<p>Internationalization is a thrust of the University of Santo Tomas, in its attempt to foster mutually beneficial and enriching partnerships with educational institutions, associations, and consortia. Such a thrust has several facets: student mobility, academic and administrative staff mobility, program mobility, research collaboration, and the conduct of joint scientific/academic activities.</p>
+				<p>All these are facilitated by the Office of International Relations and Programs (OIRP), established in 2013. The OIRP liaises with the different faculties, colleges, institutes, and schools, which have their own Internationalization Coordinators, for the efficient management of the University's linkages.</p>
+				<br>
+				<p>More about <a href="" onclick="window.open('http://www.ust.edu.ph/linkages/internationalization-2/')">OIRP</a></p>
 			</span>
-			</div>
+		</div>
 			
-			<div class="login col-sm-3 pull-sm-right">
-				<h3 style="text-align: center">LOGIN</h3>
-				<?php// echo $error_message?>
-				<br>
-				<form method="post">
-					<div class="form-group">
-						<input type="text" name="email" class="input form-control" placeholder="Enter Email or Username" pattern="[^<>].{1,30}" required/>
-					</div>
-					<div class="form-group">
-						<input type="password" name="password" class="input form-control" placeholder="Enter Password" required/>
-					</div>
-					<button type="submit" name="btn_login" class="button btn btn-block btn-primary">Login</button>
-					<p style="text-align: center">OR</p>
-				</form>
-				<form action="register.php">
-					<button type="submit" class="button btn btn-block btn-primary">Register</button>
-				</form>
-				<br>
-			</div>
-			<div class="content col-sm-9">
+			<div class="col-sm-3 pull-sm-right login">
+					<br>
+					<h3 style="text-align: center">LOGIN</h3>
+					<?php// echo $error_message?>
+					<br>
+					<form method="post">
+						<div class="form-group">
+							<input type="text" name="email" class="input form-control" placeholder="Enter Email or Username" pattern="[^<>].{1,30}" required/>
+						</div>
+						<div class="form-group">
+							<input type="password" name="password" class="input form-control" placeholder="Enter Password" required/>
+						</div>
+						<button type="submit" name="btn_login" class="button btn btn-block btn-primary">Login</button>
+						<p style="text-align: center">OR</p>
+					</form>
+					<form action="register.php">
+						<button type="submit" class="button btn btn-block btn-primary">Register</button>
+					</form>
+					<br>
+					<p style="color: #848484">*Note: for students, please use your birthday (mmddyyyy) as your password.</p>
+					<br>
+				</div>
+				<!-- div class="col-sm-3 login" style="background-color: #00a1e4;"-->
+				<div class="col-sm-3 login" style="background-color: #848484;">
+					<br>
+					<h3 style="text-align: center">CONTACT US</h3><br>
+					<p>Office of International Relations and Programs<br>
+					Espana Blvd., Sampaloc, Manila, Philippines 1015<br>
+					406-1611 local 8658<br>
+					international@ust.edu.ph</p>
+					<br>
+				</div>
+			<!-- div class="content col-sm-9">
 			<span class="header" style="padding-left: 50px; float: inherit;">
 				<h2>About OIRP</h2>
 				<br>
@@ -83,17 +103,9 @@
 				<br>
 				<p>More about <a href="" onclick="window.open('http://www.ust.edu.ph/linkages/internationalization-2/')">OIRP</a></p>
 			</span>
-			</div>
+			</div-->
 			<div class="footer">
-				<div class="col-sm-7">
-					<img src="img/logo.png" class="img-responsive" height=50px>
-				</div>
-				<div class="col-sm-5">
-					<p>Office of International Relations and Programs<br>
-					Espana Blvd., Sampaloc, Manila, Philippines 1015<br>
-					406-1611 local 8658<br>
-					international@ust.edu.ph</p>
-				</div>
+					&copy; University of Santo Tomas 2018
 			</div>
 		</div>
 	</body>

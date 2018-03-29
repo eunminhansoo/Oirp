@@ -24,8 +24,8 @@
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 
 		<div class="">
-		<div class="container-fluid">
-			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
+		<div class="header">
+			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
 
 		<!--HOVER LIST STARTO-->

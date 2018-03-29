@@ -25,7 +25,7 @@
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
 				
 		<div class="container-fluid">
-		<div class="container-fluid">
+		<div class="header">
 			<img src='img/logo.png' class="img-responsive">
 		</div>
 		
