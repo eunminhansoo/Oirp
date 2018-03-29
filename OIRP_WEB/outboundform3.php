@@ -52,7 +52,7 @@
 							<input type="radio" name="type_program" value="Others" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
-							<input type="text" name="programText" id="proText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
+							<input type="text" name="programText" id="proText" class="form-control" pattern="[^<>].{1,20}" value="<?php echo $getSel_APPLICATION_FORM?>" maxlength="20" disabled>
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 
@@ -92,7 +92,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" value="<?php echo $getSel_APPLICATION_FORM?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
@@ -114,7 +114,7 @@
 								Please specify: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_TEXT_OUTBOUND?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
@@ -192,6 +192,7 @@
 							<input type="submit" name="btn_form3" class="btn btn-primary" value="Next">
 						</div>
 					</div>
+					
 				</form>
 			</div>
 		</div>
@@ -220,6 +221,7 @@
 				});
 			}).trigger('change');	
 
+			// START TYPE OF PROGRAM
 			$("#scholarshipOptions").hide();
         	$("#bilateralOptions").hide();
         	$("#scholarloanrow").hide();
@@ -230,6 +232,7 @@
 	            $("#scholarloanrow").hide();
 	            $("#proText").prop('disabled', true);
             });	
+
 
         	$('#proBilateral').click(function(){
             	$("#bilateralOptions").show();
@@ -299,14 +302,79 @@
 					$("#scholarshipOthers").prop('disabled', false);
 				});		
 			});	
+			
 			var getradio = "<?php echo $getSel_APPLICATION_TYPE_PROG?>";
 			if (getradio) { // check if variable is empty or not
-				$("input[name=type_program][value="+ getradio +"]").attr('checked', true);
+				$(":radio[name=type_program][value="+ getradio +"]").prop('checked', true);
 			}
-			var getradio1 = "<?php echo $getSel_APPLICATION_TYPE_PROG ?>";
-			if (getradio1) { // check if variable is empty or not
-				$(':radio[value='+ getradio1 +']').prop('checked', true);
-			}			
+
+			if(document.getElementById('proBilateral').checked == true){
+				document.getElementById('proText').value = " ";
+				$("#bilateralOptions").show();
+                $("#scholarshipOptions").hide();
+                $("#scholarloanrow").show();
+                $("#proText").prop('disabled', true);
+				$("#1year").prop('disabled', false);
+				$("#1sem").prop('disabled', false);
+				$("#shortStudy").prop('disabled', false);
+				$("#scholarloanYes").prop('disabled', false);
+				$("#scholarloanNo").prop('disabled', false);
+
+				var radioBila = "<?php echo $getSel_APPLICATION_FORM?>";
+				if(radioBila){
+					$(':radio[name=bilateral][value='+ radioBila +']').prop('checked', true);
+				}
+				// if (radioBila) { // check if variable is empty or not
+				// 	$(':radio[name=bilateral][value='+ radioBila +']').prop('checked', true);
+					
+				// }
+				var radioscholarBila = "<?php echo $getSel_SCHOLARSHIP_OUTBOUND?>"
+				if(radioscholarBila){
+					$(':radio[name=scholarloan][value='+ radioscholarBila +']').prop('checked', true);
+				}
+
+				if(document.getElementById('scholarloanYes').checked == true){
+					$("#scholarloanText").prop('disabled', false);
+				}
+
+			}
+			if(document.getElementById('proScholar').checked == true){
+				document.getElementById('proText').value = " ";
+				$("#scholarshipOptions").show();
+	            $("#bilateralOptions").hide();
+	            $("#scholarloanrow").hide();
+	            $("#proText").prop('disabled', true);
+				$("#scholarshipAIMS").prop('disabled', false);
+				$("#scholarshipSHARE").prop('disabled', false);
+				$("#scholarshipOthers").prop('disabled', false);
+
+				var radioScholar = "<?php echo $getSel_APPLICATION_FORM ?>";
+
+				$(':radio[id=scholarshipOthers]').prop('checked', true);
+				if(document.getElementById('scholarshipOthers').checked == true){
+					$("#scholarshipText").prop('disabled', false);
+
+				}
+			}
+
+			if(document.getElementById('proOthers').checked == true){
+				document.getElementById('scholarshipText').value = ' ';
+				$("#bilateralOptions").hide();
+                $("#scholarshipOptions").hide();
+                $("#scholarloanrow").show();
+        		$("#proText").prop('disabled', false);
+				$("#scholarloanYes").prop('disabled', false);
+				$("#scholarloanNo").prop('disabled', false);
+
+				var radioscholarOther = "<?php echo $getSel_SCHOLARSHIP_OUTBOUND?>"
+				if(radioscholarOther){
+					$(':radio[name=scholarloan][value='+ radioscholarOther +']').prop('checked', true);
+				}
+
+				if(document.getElementById('scholarloanYes').checked == true){
+					$("#scholarloanText").prop('disabled', false);
+				}
+			}		
 		});
 	</script>
 </html>

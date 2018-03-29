@@ -56,7 +56,7 @@
 			
 			<div class="login col-sm-3 pull-sm-right">
 				<h3 style="text-align: center">LOGIN</h3>
-				<?php// echo $error_message?>
+				<?php echo $error_message?>
 				<br>
 				<form method="post">
 					<div class="form-group">

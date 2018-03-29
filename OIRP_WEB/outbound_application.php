@@ -251,7 +251,7 @@
 					if($type_program == "Others")
 					{
 						$programText = $_POST['programText'];
-						$prog_other = 'Bilateral';
+						// $prog_other = 'Bilateral';
 
 						if(isset($_POST['scholarloan'])){
 							$scholarloan = $_POST['scholarloan'];
@@ -272,7 +272,7 @@
 							SCHOLARSHIP_OUTBOUND = '$scholarloan',
 							SCHOLARSHIP_TEXT_OUTBOUND = '$scholarloanText',
 							APPLICATION_FORM = '$programText',
-							APPLICATION_TYPE_PROG = '$prog_other'
+							APPLICATION_TYPE_PROG = '$type_program'
 							WHERE STUDENT_ID = '$getses_StudentID'
 						";
 						// $sql_query = "INSERT INTO proposed_field_study(
@@ -697,7 +697,7 @@
 					if($type_program == "Others")
 					{
 						$programText = $_POST['programText'];
-						$prog_other = 'Bilateral';
+						// $prog_other = 'Bilateral';
 
 						if(isset($_POST['scholarloan'])){
 							$scholarloan = $_POST['scholarloan'];
@@ -718,7 +718,7 @@
 							SCHOLARSHIP_OUTBOUND = '$scholarloan',
 							SCHOLARSHIP_TEXT_OUTBOUND = '$scholarloanText',
 							APPLICATION_FORM = '$programText',
-							APPLICATION_TYPE_PROG = '$prog_other'
+							APPLICATION_TYPE_PROG = '$type_program'
 							WHERE STUDENT_ID = '$getses_StudentID'
 						";
 						// $sql_query = "INSERT INTO proposed_field_study(
@@ -829,6 +829,8 @@
 								COURSE_3 = '$course3', 
 								COURSE_4 = '$course4', 
 								COURSE_5 = '$course5',
+								SCHOLARSHIP_OUTBOUND = ' ',
+								SCHOLARSHIP_TEXT_OUTBOUND = ' ',
 								APPLICATION_FORM = '$scholarshipText',
 								APPLICATION_TYPE_PROG = '$type_program'
 								WHERE STUDENT_ID = '$getses_StudentID'
@@ -872,6 +874,8 @@
 									COURSE_3 = '$course3', 
 									COURSE_4 = '$course4', 
 									COURSE_5 = '$course5',
+									SCHOLARSHIP_OUTBOUND = ' ',
+									SCHOLARSHIP_TEXT_OUTBOUND = ' ',
 									APPLICATION_FORM = '$scholarship',
 									APPLICATION_TYPE_PROG = '$type_program'
 									WHERE STUDENT_ID = '$getses_StudentID'
