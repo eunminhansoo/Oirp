@@ -17,9 +17,10 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
-
-		<div class="header">
-			<img src='img/logo.png' height=auto class="img-responsive">
+		
+		<div class="">
+		<div class="container-fluid">
+			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
 		<img src='img/arch.jpg' width=100% height=auto>
 		<div class="container-fluid three">
@@ -84,15 +85,16 @@
 			</span>
 			</div>
 			<div class="footer">
+				<div class="col-sm-7">
+					<img src="img/logo.png" class="img-responsive" height=50px>
+				</div>
 				<div class="col-sm-5">
 					<p>Office of International Relations and Programs<br>
 					Espana Blvd., Sampaloc, Manila, Philippines 1015<br>
 					406-1611 local 8658<br>
 					international@ust.edu.ph</p>
 				</div>
-				<div class="col-sm-7">
-					<img src="img/logo.png" class="img-responsive" height=50px>
-				</div>
 			</div>
+		</div>
 	</body>
 </html>

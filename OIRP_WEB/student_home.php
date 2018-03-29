@@ -23,8 +23,9 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 
-		<div class="header">
-			<img src='img/logo.png' height=auto>
+		<div class="">
+		<div class="container-fluid">
+			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
 
 		<!--HOVER LIST STARTO-->
@@ -161,6 +162,7 @@
 				<p>international@ust.edu.ph</p>
 			</div>
 		</div>
+	 	</div>
 		<script>
 		$(document).ready(function(){
 			var page = "<?php echo $pagination ?>";

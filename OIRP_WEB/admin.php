@@ -17,9 +17,10 @@
       <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 </head>
 <body>
-  <div class="header">
-		<img src='img/logo.png' height=auto>
-	</div>
+ 	<div class="">
+		<div class="container-fluid">
+			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
+		</div>
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#status">Statistics</a></li>
@@ -30,6 +31,6 @@
   </ul>
 
   <img src='img/arch.jpg' width=100% height=auto>
-
+	</div>
 </body>
 </html>

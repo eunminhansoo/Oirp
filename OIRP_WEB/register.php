@@ -14,6 +14,11 @@
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	<body>
+		<div class="container-fluid">
+		<div class="container-fluid">
+			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
+		</div>
+	
 		 <form method="post">
 			<div class="container div_center_signUp">
 				<script src="bootstrap-3.3.7-dist/js/style.js"></script>
@@ -57,6 +62,7 @@
 				<?php echo $message?>
 			</div>
 		</form>
+		</div>
 	</body>
 	<script>
 		$(document).ready(function(){
