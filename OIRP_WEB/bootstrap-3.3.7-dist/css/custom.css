@@ -1,11 +1,17 @@
 body{
 	/*background-color: #f5ffeb;*/
 	background-color: #fafafa;
+	min-height: 100%;
 }
 
 .white-center {
 	
 	font-family: 'Times New Roman';
+}
+
+.header{
+	background-color: white;
+
 }
 
 .header > h1,
@@ -84,14 +90,26 @@ body{
 
 }
 
-.whitespace{
-	color: white;
+.info{
+	text-align: center;
+	background-color: #848484; 
+	padding-bottom: 50px;
+}
+
+.main{
+	padding-bottom: 50px;
+	overflow: auto;
 }
 
 .footer{
 	text-align: center;
-	margin: 10px;
-	color: #848484;
+	background-color: #00a1e4;
+  	bottom: 0;
+   	height:50px; 
+   	margin-top: -50px;
+   	padding-top: 20px;   	
+   	position: relative;
+   	clear: both;
 }
 
 .sidebar{
