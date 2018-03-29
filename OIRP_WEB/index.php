@@ -60,7 +60,7 @@
 				<br>
 				<form method="post">
 					<div class="form-group">
-						<input type="text" name="email" class="input form-control" placeholder="Enter Email or Username" pattern="[^<>]" required/>
+						<input type="text" name="email" class="input form-control" placeholder="Enter Email or Username" pattern="[^<>].{1,30}" required/>
 					</div>
 					<div class="form-group">
 						<input type="password" name="password" class="input form-control" placeholder="Enter Password" required/>
