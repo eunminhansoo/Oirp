@@ -37,18 +37,22 @@ include 'database_connection.php';
     	echo $application_prog;
     	echo $familyName;
     	echo $get_studentID;
+		$date = date('Ymd');
+		echo $date;
 		//insert to table upload_pdf
 		$query_db = "INSERT INTO upload_pdf(STUDENT_COUNT,
 		 	STUDENT_ID,
 		  	APPLICATION_PROG,
 		   	PDF_NAME,
-		    PDF_IMG
+		    PDF_IMG,
+			DATE_SUBMITTED
 			) VALUES (
 				'', 
 			 	'$get_studentID',
 			 	'$application_prog',
 			 	'$familyName',
-				'$pdfScan'
+				'$pdfScan',
+				'$date'
 			)";
 		//insert to table admin_student_data
 		$query_db1 = "INSERT INTO admin_student_data(STUDENT_COUNT,
