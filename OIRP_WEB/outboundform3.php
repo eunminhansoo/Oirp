@@ -350,12 +350,19 @@
 				$("#scholarshipSHARE").prop('disabled', false);
 				$("#scholarshipOthers").prop('disabled', false);
 
-				var radioScholar = "<?php echo $getSel_APPLICATION_FORM ?>";
-
-				$(':radio[id=scholarshipOthers]').prop('checked', true);
-				if(document.getElementById('scholarshipOthers').checked == true){
-					$("#scholarshipText").prop('disabled', false);
-
+				var radioScholar = "<?php echo $getSel_APPLICATION_FORM?>";
+				if(radioScholar == 'AIMS' || radioScholar == 'SHARE'){
+					if(radioScholar){
+						$(':radio[name=scholarship][value='+ radioScholar +']').prop('checked', true);
+						document.getElementById('scholarshipText').value = " ";
+					}
+				}else{
+					if(radioScholar != 'AIMS' || radioScholar != 'SHARE'){
+						$(':radio[id=scholarshipOthers]').prop('checked', true);
+						if(document.getElementById('scholarshipOthers').checked == true){
+							$("#scholarshipText").prop('disabled', false);
+						}
+					}
 				}
 			}
 
