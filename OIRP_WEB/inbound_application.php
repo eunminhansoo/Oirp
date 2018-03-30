@@ -241,7 +241,7 @@
 						SCHOLARSHIP_IN_BILA = '$scholarloan',
 						SCHOLARSHIP_TEXT_IN_BILA = '$scholarloanText',
 						APPLICATION_FORM ='$programText',
-						APPLICATION_TYPE_PROG ='$prog_other'
+						APPLICATION_TYPE_PROG ='$type_program'
 						WHERE STUDENT_ID = '$getSes_studentID'";
 
 						// $sql_query = "INSERT INTO educ_background_inbound(
@@ -820,7 +820,7 @@
 						SCHOLARSHIP_IN_BILA = '$scholarloan',
 						SCHOLARSHIP_TEXT_IN_BILA = '$scholarloanText',
 						APPLICATION_FORM ='$programText',
-						APPLICATION_TYPE_PROG ='$prog_other'
+						APPLICATION_TYPE_PROG ='$type_program'
 						WHERE STUDENT_ID = '$getSes_studentID'";
 
 						// $sql_query = "INSERT INTO educ_background_inbound(
