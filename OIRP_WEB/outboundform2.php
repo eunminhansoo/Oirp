@@ -57,7 +57,7 @@
 						<div class="col-sm-4">
 							<label>Contact Number</label>
 							<p class="text_style" >Phone number or Mobile number</p>
-							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611" pattern="([+]\d{1,4})([\s]\d{2,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>" required>
+							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})"  maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>" required>
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
@@ -104,7 +104,7 @@
 						<div class="col-sm-4">
 							<label>Contact Number</label>
 							<p class="text_style" >Phone number or Mobile number</p>
-							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="ex: (+63)974887651 or +63-2-406-1611" pattern="([+]\d{1,4})([\s]\d{2,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>" required>
+							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>" required>
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
