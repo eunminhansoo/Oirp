@@ -141,6 +141,8 @@
 			$('#toeflFutureNo').click(function(){
         	    $("#toeflDate").prop('disabled', true);
         	    $("#toeflType").prop('disabled', true);
+				docuemnt.getElementById('toeflDate').value = " ";
+				docuemnt.getElementById('toeflType').value = " ";
 			});
 
 			var getradio = "<?php echo $getSel_DO_YOU_SMOKE_INBOUND ?>";
@@ -153,9 +155,16 @@
 				$(':radio[name=toeflTest][value='+ getradio1 +']').prop('checked', true);
 			}
 
+			if(document.getElementById('toeflTestYes').checked == true){
+				$("#toeflScore").prop('disabled', false);
+			}
 			var getradio2 = "<?php echo $getSel_INTEND_TAKE_TOEF_INBOUND ?>";
 			if (getradio2) { // check if variable is empty or not
 				$(':radio[name=toeflFuture][value='+ getradio2 +']').prop('checked', true);
+			}
+			if(document.getElementById('toeflFutureYes').checked == true){
+				$("#toeflDate").prop('disabled', false);
+        	    $("#toeflType").prop('disabled', false);
 			}
 		});
 	</script>
