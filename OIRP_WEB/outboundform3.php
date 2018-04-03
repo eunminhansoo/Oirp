@@ -44,7 +44,7 @@
 							<label>Type of program:</label>
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="Bilateral" id="proBilateral"> Exchange through bilateral agreement
+							<input type="radio" name="type_program" value="Bilateral" id="proBilateral" required> Exchange through bilateral agreement
 						</div>
 						<div class="col-sm-2">
 							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through scholarship
@@ -180,7 +180,7 @@
 					
 					<div class="form-group row break col-xs-5">
 						<div class="col-sm-10">
-							<button type="submit" class="btn btn-primary" formaction="inboundform1.php">Previous</button>
+							<button type="submit" class="btn btn-primary" formaction="outboundform2.php">Previous</button>
 						</div>
 					</div>
 					<div class="form-group row break col-xs-5">

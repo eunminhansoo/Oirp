@@ -100,7 +100,7 @@
 							<label>Type of program:</label>
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="Bilateral" id="proBilateral" > Exchange through bilateral agreement
+							<input type="radio" name="type_program" value="Bilateral" id="proBilateral" required> Exchange through bilateral agreement
 						</div>
 						<div class="col-sm-2">
 							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through scholarship

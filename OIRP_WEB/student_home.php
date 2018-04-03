@@ -13,9 +13,8 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-		<!--<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/stylus.css">-->
-		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/color_3.css">
-		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/style1.css">
+		<!-- link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/stylus.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/color_3.css"-->
 		<link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	
@@ -27,7 +26,7 @@
 		<div class="header">
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
-
+		
 		<!--HOVER LIST STARTO-->
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
@@ -37,7 +36,7 @@
 			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
 		</div>
 		<!--HOVER LIST ENDOO-->
-
+		
 		<!--NAV BAR START-->
 		<div>
 			<div class="menu_white2">
@@ -73,15 +72,15 @@
 			</div>
 		</div>
 		<!--NAV BART END-->
-
+	<div class="main container-fluid">
 		<!--APPLICATION BOX START-->
-		<div class="col-xs-6">
-			<div class="boxxes">
-				<div class="appText">
-					<span class="txtStyle" >APPLICATION FORM</span>
-					<a class="cms"><span class="glyphicon glyphicon-triangle-bottom"></span></a>
+		<div class="col-sm-6">
+			<div class="boxxes container-fluid">
+				<div class="col-sm-12">
+					<span><h2 class="txtStyle">APPLICATION FORM</h2></span>
+					<!-- a class="cms"><span class="glyphicon glyphicon-triangle-bottom"></span></a-->
 					<div class="appietxt">
-						<span><?php echo "$gen".". ".$familyName?> Application form</span>
+						<span><h3><?php echo "$gen".". ".$familyName?>'s Application form</h3></span>
 					</div>
 							
 					<div class="appietxt1">
@@ -121,48 +120,26 @@
 		
 		<form method="post" enctype="multipart/form-data">
 		<!--APPLICATION BOX START-->
-			<div class="col-xs-6" id="uploadbox">
-				<div class="boxxes">
-					<div class="exus">
-						<a class="btn btn-secondary" id="toggelexus"> <span class="glyphicon glyphicon-remove"></span></a>
-					</div>
-					
-					<div class="appText">
-						<div class="">
-							<input type="file" name="pdfScan" id="pdfscan" disabled>
+			<div class="col-sm-6" id="uploadbox">
+				<div class="boxxes container-fluid">
+					<div class="col-sm-12" style="padding-top: 10px; padding-bottom: 20px;">
+						<div class="exus" style="float: right;">
+							<a class="btn btn-secondary" id="toggelexus"><span class="glyphicon glyphicon-remove"></span></a>
 						</div>
-						<div class="appText">
-							<div class="">
-								<button type="submit" name="btn_submit">Submit</button>
-							</div>
+						<br>
+						<div class="form-group" style="padding-top: 20px;">
+							<input type="file" name="pdfScan" id="pdfscan" class="form-control-file" disabled>
+						</div>
+						<div class="">
+							<button type="submit" name="btn_submit" class="btn">Submit</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</form>
 		<!--APPLICATION BOX END-->
-
-
-		<div class="content col-sm-8 margin-left">
-			<h2>About UST</h2>
-			<p>While the University of Santo Tomas holds the distinction of being Asia's oldest existing university, its age is coupled with its preeminence in Philippine education. Not only does it boast of several firsts in the different realms of education, it also has administrators and faculty members who are holding leadership positions in the Philippines' policy-making bodies and professional organizations, helping influence policies for the betterment of the society in general.</p>
-		</div>
-		<div class="content col-sm-8 margin-left">
-			<h2>About OIRP</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="menu_white2" >
-			<div class="col-sm-5">
-				<img src="img/logo.png" class="img-responsive" height=50px>
-			</div>
-			<div class="col-sm-4 ">
-				<p>Office of International Relations and Programs</p>
-				<p>Espana Blvd., Sampaloc, Manila, Philippines 1015</p>
-				<p>406-1611 local 8658</p>
-				<p>international@ust.edu.ph</p>
-			</div>
-		</div>
-	 	</div>
+	</div>
+	</div>
 		<script>
 		$(document).ready(function(){
 			var page = "<?php echo $pagination ?>";

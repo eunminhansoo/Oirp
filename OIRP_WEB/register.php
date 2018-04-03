@@ -44,7 +44,7 @@
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<input type="text" name="email" class="input form-control" placeholder="Enter Email" maxlength="60" required/>
+						<input type="email" name="email" class="input form-control" placeholder="Enter Email" maxlength="60" required/>
 					</div>
 					</div>
 					<div class="form-group row">

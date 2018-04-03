@@ -27,26 +27,26 @@
 			<div class="container-fluid three">
 				<div class="col-sm-4 threepanel">
 					<div class="">
-						<h2><b>UST Identity</b></h2>
+						<h2 class="txtStyle"><b>UST Identity</b></h2>
 						<p>The University of Santo Tomas, the Pontifical, Royal, and Catholic University of the Philippines, is a Dominican institution of learning founded in 1611, under the patronage of St. Thomas Aquinas.</p>
 					</div>
 				</div>
 				<div class="col-sm-4 threepanel">
 					<div class="">
-						<h2><b>Mission</b></h2>
+						<h2 class="txtStyle"><b>Mission</b></h2>
 						<p>The University, in pursuit of truth, guided by reason and illumined by faith, dedicates herself to the generation, advancement, and transmission of knowledge to form competent and compassionate professionals, committed to the service of the Church, the nation, and the global community.</p>
 					</div>
 				</div>
 				<div class="col-sm-4 threepanel">
 					<div class="">
-						<h2><b>Vision</b></h2>
+						<h2 class="txtStyle"><b>Vision</b></h2>
 						<p>Faithful to its centuries-old tradition of excellence, the University of Santo Tomas envisions itself as a premier Catholic institution of learning in Asia, committed to the professional and moral formation of her stakeholders for social transformation.</p>
 					</div>
 				</div>
 			</div>
 			
 			<div class="content col-sm-9">
-				<span class="header" style="padding-left: 50px; float: inherit;">
+				<span class="" style="padding-left: 50px; float: inherit;">
 					<h2>About UST</h2>
 					<br>
 					<p>The University of Santo Tomas is one of the top four universities in the Philippines and is consistently ranked among the top 1000 universities in the whole world. UST is both timeless, owing to its more than four hundred years of quality Catholic education, and timely, as it continuously responds to the needs of the present.</p>
@@ -82,7 +82,7 @@
 						<button type="submit" class="button btn btn-block btn-primary">Register</button>
 					</form>
 					<br>
-					<p style="color: #848484">*Note: for students, please use your birthday (mmddyyyy) as your password.</p>
+					<p style="color: #848484">*Note: for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password.</p>
 					<br>
 				</div>
 				<!-- div class="col-sm-3 login" style="background-color: #00a1e4;"-->

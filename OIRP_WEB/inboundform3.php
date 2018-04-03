@@ -53,13 +53,13 @@
 							<label>Courses to be taken at UST</label> (Refer to the <a onclick="window.open('http://www.ust.edu.ph/academics/programs/')">UST website </a>)
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
-							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>].{1,45}" maxlength="45" required value="<?php echo $getSel_COURSE_1_INBOUND?>">
+							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1_INBOUND?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">2.</span>
-							    <input type="text" name="course2" id="course2" class="form-control" pattern="[^<>].{1,45}" maxlength="45" required value="<?php echo $getSel_COURSE_2_INBOUND?>">
+							    <input type="text" name="course2" id="course2" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_2_INBOUND?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
@@ -111,7 +111,7 @@
 							<label>Do you need accommodation during the program? (subject to availability)</label>
 						</div>
 						<div class="col-sm-1">
-							<input type="radio" name="accomodation" value="Yes"> Yes
+							<input type="radio" name="accomodation" value="Yes" required> Yes
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="accomodation" value="No"> No
