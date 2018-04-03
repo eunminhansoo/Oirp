@@ -39,7 +39,7 @@
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<input type="text" name="middle_name" class="input form-control" placeholder="Enter Middle Name" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
+						<input type="text" name="middle_name" class="input form-control" placeholder="Enter Middle Name" pattern="[^0-9<>].{1,50}" maxlength="50"/>
 					</div>
 					</div>
 					<div class="form-group row">

@@ -313,6 +313,7 @@
 			if(document.getElementById('proBilateral').checked == true){
 				document.getElementById('proText').value = " ";
 				$("#bilateralOptions").show();
+				$("#bilateralOptions1").show();
                 $("#scholarshipOptions").hide();
                 $("#scholarloanrow").show();
                 $("#proText").prop('disabled', true);
@@ -322,15 +323,12 @@
 				$("#scholarloanYes").prop('disabled', false);
 				$("#scholarloanNo").prop('disabled', false);
 
-				var radioBila = "<?php echo $getSel_APPLICATION_FORM?>";
-				if(radioBila){
-					$(':radio[name=bilateral][value='+ radioBila +']').prop('checked', true);
-				}
-				// if (radioBila) { // check if variable is empty or not
+				// var radioBila = "<?php echo $getSel_APPLICATION_FORM?>";
+				// if(radioBila){
 				// 	$(':radio[name=bilateral][value='+ radioBila +']').prop('checked', true);
-					
 				// }
-				var radioscholarBila = "<?php echo $getSel_SCHOLARSHIP_OUTBOUND?>"
+
+				var radioscholarBila = "<?php echo $getSel_SCHOLARSHIP_OUTBOUND?>";
 				if(radioscholarBila){
 					$(':radio[name=scholarloan][value='+ radioscholarBila +']').prop('checked', true);
 				}
