@@ -1,5 +1,7 @@
 body{
-	background-color: #f5ffeb;
+	/*background-color: #f5ffeb;*/
+	background-color: #fafafa;
+	min-height: 100%;
 }
 
 .white-center {
@@ -7,19 +9,22 @@ body{
 	font-family: 'Times New Roman';
 }
 
-.header > h1,
-.header > h2,
-.header > h3,
-.header > h4,
-.header > h5,
-.header > h6{
+.header{
+	background-color: white;
+
+}
+
+.content > span > h1,
+.content > span > h2,
+.content > span > h3,
+.content > span > h4,
+.content > span > h5,
+.content > span > h6{
 	font-family: 'Times New Roman';
 }
 
-
 .login{
 	background-color: #333333;
-	padding: 30px;
 	color: white;
 }
 
@@ -33,7 +38,7 @@ body{
 }
 
 .threepanel{
-	background-color: #fabd15;
+	background-color: #fec00f;
 	text-align: justify;
 	padding-top: 20px;
 	border-right: 1px solid white;
@@ -59,7 +64,7 @@ body{
 }
 
 .three{
-	background-color: #fabd15;
+	background-color: #fec00f;
 	padding: 20px;
 }
 
@@ -67,6 +72,7 @@ body{
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 20px;
+	padding-top: 
 }
 
 .content > p{
@@ -84,12 +90,26 @@ body{
 
 }
 
-.whitespace{
-	color: white;
+.info{
+	text-align: center;
+	background-color: #848484; 
+	padding-bottom: 50px;
+}
+
+.main{
+	padding-bottom: 50px;
+	overflow: auto;
 }
 
 .footer{
-	margin: 10px;
+	text-align: center;
+	background-color: #00a1e4;
+  	bottom: 0;
+   	height:50px; 
+   	margin-top: -50px;
+   	padding-top: 20px;   	
+   	position: relative;
+   	clear: both;
 }
 
 .sidebar{
@@ -103,7 +123,7 @@ body{
 	height: 190px;
 }
 .button{
-	background-color: #fabd15 !important;
+	background-color: #fec00f !important;
 	color: black !important;
 }
 .margin-left{
@@ -195,14 +215,19 @@ span.bordernavbar{
 
 /*create box*/
 .boxxes{
-	margin-right: 70px;
+	/*margin-right: 70px;
 	margin-top: 20px;
 	margin-left: 30px;
 	margin-bottom: 100px;
 	padding-bottom: 100px;
-	width: 600px; 
+	width: 600px; */
+	margin: 5%;
+	padding-top: 50px;
+	padding-right: 10px;
+	padding-bottom: 50px;
 	border: solid 2px black;
 	border-radius: 20px;
+	
 }
 .appText{
 	padding-left: 20px;
@@ -210,20 +235,17 @@ span.bordernavbar{
 }
 .txtStyle{
 	font-family: "Century Gothic";
-	font-size: 30px;
 	font-weight: bold;
 }
 .appietxt{
 	padding-left: 50px;
-	font-size: 30px;
 }
 .cms{
 	font-size: 30px;
 	color: black;
 }
 .appietxt1{
-	padding-left: 60px;
-	font-size: 15px;
+	padding-left: 45px;
 }
 .caf{
 	color: #F1948A;

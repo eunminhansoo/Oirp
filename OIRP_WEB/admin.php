@@ -18,8 +18,8 @@
 </head>
 <body>
  	<div class="">
-		<div class="container-fluid">
-			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
+		<div class="header">
+			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
   <ul>
     <li><a href="#home">Home</a></li>
