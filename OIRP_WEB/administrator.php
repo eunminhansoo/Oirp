@@ -117,7 +117,7 @@
 	                        <tfoot>
 	                        	<tr>
 			                        <th><button type="submit" name="delete_outbound" class="btn btn-primary" >DELETE</button></th>
-			                        <th><button type="submit" name="send_outbound" class="btn btn-primary">SEND</button></th>
+			                        
 		                        </tr>
 	                        </tfoot>
 	                        <tbody>
