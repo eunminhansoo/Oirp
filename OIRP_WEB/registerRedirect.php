@@ -231,10 +231,12 @@
 					COURSE_3, 
 				 	COURSE_4, 
 				 	COURSE_5,
-					SCHOLARSHIP_OUTBOUND,
-					SCHOLARSHIP_TEXT_OUTBOUND,
-				 	APPLICATION_FORM,
-					APPLICATION_TYPE_PROG
+					TYPE_OF_PROGRAM,
+					TYPE_OF_PROG_OTHER,
+					TYPE_OF_FORM,
+					TYPE_OF_FORM_OTHER,
+					SCHOLARSHIP_LOAN,
+					SCHOLARSHIP_LOAN_OTHER
 				) VALUES 
 				(
 					'',
@@ -245,6 +247,8 @@
 					'',
 					'',
 				 	'',
+					'',
+					'',
 					'',
 					'',
 					'',

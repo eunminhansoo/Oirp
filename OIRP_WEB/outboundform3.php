@@ -54,7 +54,7 @@
 							<input type="radio" name="type_program" value="Others" id="proOthers"> Others: 
 						</div>
 						<div class="col-sm-3">
-							<input type="text" name="programText" id="proText" class="form-control" pattern="[^<>].{1,20}" value="<?php echo $getSel_APPLICATION_FORM?>" maxlength="20" disabled>
+							<input type="text" name="programText" id="proText" class="form-control" pattern="[^<>].{1,20}" value="<?php echo $getSel_TYPE_OF_PROG_OTHER?>" maxlength="20" disabled>
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 
@@ -94,7 +94,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" value="<?php echo $getSel_APPLICATION_FORM?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
@@ -116,10 +116,32 @@
 								Please specify: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_TEXT_OUTBOUND?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_LOAN_OTHER?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div id="scholarloanrow1">
+							<div class="col-sm-4">
+								<label>Are you a recipient of scholarship or loan?: </label>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan1" id="scholarloanYes1" value="Yes" disabled> Yes
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan1" id="scholarloanNo1" value="No" disabled> No
+							</div>
+							<div class="col-sm-1">
+								Please specify: 
+							</div>
+							<div class="col-sm-2">
+								<input type="text" name="scholarloanText1" id="scholarloanText1" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_LOAN_OTHER?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan1" value="" checked="checked" hidden> 
 							</div>
 						</div>
 					</div>
