@@ -50,13 +50,6 @@
 	                 </div>
 	                 </div>
 	                 <br>
-	                 <select name="status">
-  						<option value="Pending">Pending</option>
-  						<option value="Approved">Approved</option>
-  						<option value="Denied">Denined</option>
-  						<option value="Qualified">Qualified</option>
-  						<option value="Not-Qualified">Not-Qualified</option>
-  						<option value="audi">On-going</option>
-</select>
+	                 
 	</body>
 </html>
