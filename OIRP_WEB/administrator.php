@@ -83,6 +83,7 @@
 	                                $fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
 	                                $ddate = $row['DATE_ENROLL'];
 	                                $date = new DateTime($ddate);
+									$status = $row['STATUS'];
 									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
 									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
 			                        $resultdate = $date->format('F j, Y,');
@@ -106,7 +107,7 @@
 	                                <!--<td><?php //echo $row['TYPE_OF_PROGRAM']; ?></td>
 	                                <td><?php //echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>-->
 									<td><?php echo $resultdate ?></td>
-	                                <td><?php?></td>
+	                                <td><?php echo $status?></td>
 	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentID ?>"></td>
 	                            </tr>
 	                        <?php } ?>
@@ -142,6 +143,7 @@
 	                                $ddate1 = $row1['DATE_ENROLL'];
 									$get_TYPE_OF_PROGRAM1 = $row1['TYPE_OF_PROGRAM'];
 									$get_TYPE_OF_FORM1 = $row1['TYPE_OF_FORM'];
+									$status1 = $row1['STATUS'];
 	                                $date1 = new DateTime($ddate1);
 			                        $resultdate1 = $date1->format('F j, Y,');
 	                            ?>
@@ -163,7 +165,7 @@
 	                                <!--<td><?php //echo $row1['APPLICATION_PROG']; ?></td>
 	                                <td><?php //echo $row1['APPLICATION_TYPE_PROG'].": ".$row1['APPLICATION_FORM']; ?></td>-->
 	                                <td><?php echo $resultdate1 ?></td>
-	                                <td></td>
+	                                <td><?php echo $status1?></td>
 	                                <td><form method="post" ><input type="checkbox" name="cb_num_out[]" value="<?php echo $studentID1 ?>" ></form></td>
 	                            </tr>
 	                        <?php } ?>
