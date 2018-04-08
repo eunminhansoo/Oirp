@@ -68,6 +68,8 @@
 				$getSel_TYPE_OF_FORM_OTHER = $row2['TYPE_OF_FORM_OTHER'];
 				$getSel_SCHOLARSHIP_LOAN = $row2['SCHOLARSHIP_LOAN'];
 				$getSel_SCHOLARSHIP_LOAN_OTHER = $row2['SCHOLARSHIP_LOAN_OTHER'];
+				$getSel_SCHOLARSHIP_LOAN1 = $row2['SCHOLARSHIP_LOAN1'];
+				$getSel_SCHOLARSHIP_LOAN_OTHER1 = $row2['SCHOLARSHIP_LOAN_OTHER1'];
 			}
 			$sql_select3 = "SELECT * FROM country_univ_outbound WHERE STUDENT_ID ='$getses_StudentID' ";
 			$get_select3 = mysqli_query($conn, $sql_select3);
@@ -83,7 +85,7 @@
 	
 		//for outboundform1
 		
-			if(isset($_POST['btn_from1'])){
+			if(isset($_POST['btn_outform1'])){
 				$citizenship_out = $_POST['citizenship'];
 				$nationality_out = $_POST['nationality'];
 				$passport_num_out = $_POST['passport'];
@@ -273,8 +275,10 @@
 							COURSE_5 = '$course5',
 							TYPE_OF_PROGRAM = '$type_program',
 							TYPE_OF_PROG_OTHER = '$programText',
-							SCHOLARSHIP_LOAN = '$scholarloan',
-							SCHOLARSHIP_LOAN_OTHER = '$scholarloanText'
+							SCHOLARSHIP_LOAN = ' ',
+							SCHOLARSHIP_LOAN_OTHER = ' ',
+							SCHOLARSHIP_LOAN1 = '$scholarloan',
+							SCHOLARSHIP_LOAN_OTHER1 = '$scholarloanText'
 							WHERE STUDENT_ID = '$getses_StudentID'
 						";
 						// $sql_query = "INSERT INTO proposed_field_study(
@@ -333,9 +337,13 @@
 							COURSE_4 = '$course4', 
 							COURSE_5 = '$course5',
 							TYPE_OF_PROGRAM = '$type_program',
+							TYPE_OF_PROG_OTHER = ' ',
 							TYPE_OF_FORM = '$bilateral',
+							TYPE_OF_FORM_OTHER = ' ',
 							SCHOLARSHIP_LOAN = '$scholarloan',
-							SCHOLARSHIP_LOAN_OTHER = '$scholarloanText'
+							SCHOLARSHIP_LOAN_OTHER = '$scholarloanText',
+							SCHOLARSHIP_LOAN1 = ' ',
+							SCHOLARSHIP_LOAN_OTHER1 = ' '
 							WHERE STUDENT_ID = '$getses_StudentID'
 						";
 						
@@ -386,8 +394,13 @@
 									COURSE_4 = '$course4', 
 									COURSE_5 = '$course5',
 									TYPE_OF_PROGRAM = '$type_program',
+									TYPE_OF_PROGRAM_OTHER = ' ',
 									TYPE_OF_FORM = '$scholarship',
-									TYPE_OF_FORM_OTHER = '$scholarshipText'
+									TYPE_OF_FORM_OTHER = '$scholarshipText',
+									SCHOLARSHIP_LOAN = ' ',
+									SCHOLARSHIP_LOAN_OTHER = ' ',
+									SCHOLARSHIP_LOAN1 = ' ',
+									SCHOLARSHIP_LOAN_OTHER1 = ' '
 									WHERE STUDENT_ID = '$getses_StudentID'
 								";
 								// $sql_query = "INSERT INTO proposed_field_study
@@ -430,7 +443,13 @@
 										COURSE_4 = '$course4', 
 										COURSE_5 = '$course5',
 										TYPE_OF_PROGRAM = '$type_program',
-										TYPE_OF_FORM = '$scholarship'
+										TYPE_OF_PROGRAM_OTHER = ' ',
+										TYPE_OF_FORM = '$scholarship',
+										TYPE_OF_FORM_OTHER = ' ',
+										SCHOLARSHIP_LOAN = ' ',
+										SCHOLARSHIP_LOAN_OTHER = ' ',
+										SCHOLARSHIP_LOAN1 = ' ',
+										SCHOLARSHIP_LOAN_OTHER1 = ' '
 										WHERE STUDENT_ID = '$getses_StudentID'
 									";
 									// $sql_query = "INSERT INTO proposed_field_study
@@ -720,10 +739,10 @@
 							COURSE_5 = '$course5',
 							TYPE_OF_PROGRAM = '$type_program',
 							TYPE_OF_PROG_OTHER = '$programText',
-							TYPE_OF_FORM = ' ',
-							TYPE_OF_FORM_OTHER = ' ',
-							SCHOLARSHIP_LOAN = '$scholarloan',
-							SCHOLARSHIP_LOAN_OTHER = '$scholarloanText'
+							SCHOLARSHIP_LOAN = ' ',
+							SCHOLARSHIP_LOAN_OTHER = ' ',
+							SCHOLARSHIP_LOAN1 = '$scholarloan',
+							SCHOLARSHIP_LOAN_OTHER1 = '$scholarloanText'
 							WHERE STUDENT_ID = '$getses_StudentID'
 						";
 						// $sql_query = "INSERT INTO proposed_field_study(
@@ -786,7 +805,9 @@
 							TYPE_OF_FORM = '$bilateral',
 							TYPE_OF_FORM_OTHER = ' ',
 							SCHOLARSHIP_LOAN = '$scholarloan',
-							SCHOLARSHIP_LOAN_OTHER = '$scholarloanText'
+							SCHOLARSHIP_LOAN_OTHER = '$scholarloanText',
+							SCHOLARSHIP_LOAN1 = ' ',
+							SCHOLARSHIP_LOAN_OTHER1 = ' '
 							WHERE STUDENT_ID = '$getses_StudentID'
 						";
 						
@@ -837,11 +858,13 @@
 									COURSE_4 = '$course4', 
 									COURSE_5 = '$course5',
 									TYPE_OF_PROGRAM = '$type_program',
-									TYPE_OF_PROG_OTHER = ' ',
+									TYPE_OF_PROGRAM_OTHER = ' ',
 									TYPE_OF_FORM = '$scholarship',
 									TYPE_OF_FORM_OTHER = '$scholarshipText',
 									SCHOLARSHIP_LOAN = ' ',
-									SCHOLARSHIP_LOAN_OTHER = ' '
+									SCHOLARSHIP_LOAN_OTHER = ' ',
+									SCHOLARSHIP_LOAN1 = ' ',
+									SCHOLARSHIP_LOAN_OTHER1 = ' '
 									WHERE STUDENT_ID = '$getses_StudentID'
 								";
 								// $sql_query = "INSERT INTO proposed_field_study
@@ -884,11 +907,13 @@
 										COURSE_4 = '$course4', 
 										COURSE_5 = '$course5',
 										TYPE_OF_PROGRAM = '$type_program',
-										TYPE_OF_PROG_OTHER = ' ',
+										TYPE_OF_PROGRAM_OTHER = ' ',
 										TYPE_OF_FORM = '$scholarship',
 										TYPE_OF_FORM_OTHER = ' ',
 										SCHOLARSHIP_LOAN = ' ',
-										SCHOLARSHIP_LOAN_OTHER = ' '
+										SCHOLARSHIP_LOAN_OTHER = ' ',
+										SCHOLARSHIP_LOAN1 = ' ',
+										SCHOLARSHIP_LOAN_OTHER1 = ' '
 										WHERE STUDENT_ID = '$getses_StudentID'
 									";
 									// $sql_query = "INSERT INTO proposed_field_study

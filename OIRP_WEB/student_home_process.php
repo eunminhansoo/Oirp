@@ -33,12 +33,8 @@ include 'database_connection.php';
     	$pdfScan = $_FILES['pdfScan']['name'];
     	
     	
-    	echo $pdfScan;
-    	echo $application_prog;
-    	echo $familyName;
-    	echo $get_studentID;
+    	
 		$date = date('Ymd');
-		echo $date;
 		//insert to table upload_pdf
 		$query_db = "INSERT INTO upload_pdf(STUDENT_COUNT,
 		 	STUDENT_ID,
@@ -79,22 +75,20 @@ include 'database_connection.php';
     	$query1 = mysqli_query($conn, $query_db1);
     
     	
-    	if($query)
+    	if($query && $query1)
 			{
-				echo 'success';
+				$sql_query1 = "UPDATE student SET
+					PAGINATION = 'Submitted PDF'
+					WHERE STUDENT_ID = '$get_studentID'
+					";
+					mysqli_query($conn, $sql_query1);
+					echo "<meta http-equiv='refresh' content='0'>";
 				//header("Location: student_home.php");
 			}else{
 				header("Location: error_page.php");
 			}
 		
-    	if($query1)
-			{
-				echo 'success';
-				//header("Location: student_home.php");
-			}else{
-				header("Location: error_page.php");
-			}
-			
+    	
     	if (move_uploaded_file($_FILES['pdfScan']['tmp_name'], $target)) 
             {
                 $msg = "Upload Successful";

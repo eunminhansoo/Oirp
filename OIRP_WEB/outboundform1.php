@@ -34,7 +34,7 @@
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Citizenship</label>
-							<input type="text" name="citizenship" id="citizenship" class="form-control" pattern="[^<>].{1,25}" maxlength="25" value="<?php echo $setSel_CITIZENSHIP_OUT?>" required>
+							<input type="text" name="citizenship" id="citizenship" class="form-control"  value="<?php echo $setSel_CITIZENSHIP_OUT?>" required>
 						</div>
 						<div class="col-sm-5">
 							<label>Nationality</label>

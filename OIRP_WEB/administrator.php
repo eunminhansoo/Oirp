@@ -83,15 +83,30 @@
 	                                $fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
 	                                $ddate = $row['DATE_ENROLL'];
 	                                $date = new DateTime($ddate);
+									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
+									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
 			                        $resultdate = $date->format('F j, Y,');
 	                            ?>
 	                            <tfoot>
 	                            <tr>
 	                                <td><?php echo "<a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
-	                                <td><?php echo $row['APPLICATION_PROG']; ?></td>
-	                                <td><?php echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>
-	                                <td><?php echo $resultdate ?></td>
-	                                <td></td>
+									<?php
+										if($get_TYPE_OF_PROGRAM == 'Others'){
+											echo "<td>Bilateral</td>";
+											echo "<td>".$row['TYPE_OF_PROG_OTHER']."</td>";
+										}else{
+											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+											if($get_TYPE_OF_FORM == 'OTHERS'){
+												echo "<td>".$row['TYPE_OF_FORM_OTHER']."</td>";
+											}else{
+												echo "<td>".$get_TYPE_OF_FORM."</td>";
+											}
+										}
+									?>
+	                                <!--<td><?php //echo $row['TYPE_OF_PROGRAM']; ?></td>
+	                                <td><?php //echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>-->
+									<td><?php echo $resultdate ?></td>
+	                                <td><?php?></td>
 	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentID ?>"></td>
 	                            </tr>
 	                        <?php } ?>
@@ -125,13 +140,28 @@
 	                                $studentID1 = $row1['STUDENT_ID'];
 	                                $fullname1 = $row1['FAMILY_NAME'].", ".$row1['GIVEN_NAME']." ".$row1['MIDDLE_NAME'];
 	                                $ddate1 = $row1['DATE_ENROLL'];
+									$get_TYPE_OF_PROGRAM1 = $row1['TYPE_OF_PROGRAM'];
+									$get_TYPE_OF_FORM1 = $row1['TYPE_OF_FORM'];
 	                                $date1 = new DateTime($ddate1);
 			                        $resultdate1 = $date1->format('F j, Y,');
 	                            ?>
 	                            <tr>
 	                                <td><?php echo "<a href=admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a>" ?></td>
-	                                <td><?php echo $row1['APPLICATION_PROG']; ?></td>
-	                                <td><?php echo $row1['APPLICATION_TYPE_PROG'].": ".$row1['APPLICATION_FORM']; ?></td>
+									<?php
+										if($get_TYPE_OF_PROGRAM1 == 'Others'){
+											echo "<td>Bilateral</td>";
+											echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
+										}else{
+											echo "<td>".$get_TYPE_OF_PROGRAM1."</td>";
+											if($get_TYPE_OF_FORM1 == 'OTHERS'){
+												echo "<td>".$row1['TYPE_OF_FORM_OTHER']."</td>";
+											}else{
+												echo "<td>".$get_TYPE_OF_FORM1."</td>";
+											}
+										}
+									?>
+	                                <!--<td><?php //echo $row1['APPLICATION_PROG']; ?></td>
+	                                <td><?php //echo $row1['APPLICATION_TYPE_PROG'].": ".$row1['APPLICATION_FORM']; ?></td>-->
 	                                <td><?php echo $resultdate1 ?></td>
 	                                <td></td>
 	                                <td><form method="post" ><input type="checkbox" name="cb_num_out[]" value="<?php echo $studentID1 ?>" ></form></td>

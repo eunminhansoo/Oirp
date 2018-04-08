@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2018 at 07:50 AM
+-- Generation Time: Apr 08, 2018 at 05:05 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -31,8 +31,17 @@ CREATE TABLE `upload_pdf` (
   `STUDENT_ID` varchar(15) NOT NULL,
   `APPLICATION_PROG` varchar(50) NOT NULL,
   `PDF_NAME` varchar(500) NOT NULL,
-  `PDF_IMG` varchar(50000) NOT NULL
+  `PDF_IMG` varchar(50000) NOT NULL,
+  `DATE_SUBMITTED` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `upload_pdf`
+--
+
+INSERT INTO `upload_pdf` (`STUDENT_COUNT`, `STUDENT_ID`, `APPLICATION_PROG`, `PDF_NAME`, `PDF_IMG`, `DATE_SUBMITTED`) VALUES
+(1, '20180406001-out', 'outbound', 'Milabo', '[FINALS] ICS 115 REVIEWER.pdf', '2018-04-08'),
+(2, '20180408004-in', 'inbound', 'Lee', '[FINALS] ICS 115 REVIEWER.pdf', '2018-04-08');
 
 --
 -- Indexes for dumped tables
@@ -52,7 +61,7 @@ ALTER TABLE `upload_pdf`
 -- AUTO_INCREMENT for table `upload_pdf`
 --
 ALTER TABLE `upload_pdf`
-  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

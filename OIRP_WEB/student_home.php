@@ -103,9 +103,11 @@
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'outbound page 3'){
 									echo '<span class="caf"> Continue Application form</span>';
-								}else {
-									if($pagination == 'submited'){
-										echo '<span>Upload Application form </span>';
+								}else if($pagination == 'submited'){
+									echo '<span>Upload Application form </span>';
+								}else{
+									if($pagination == 'Submitted PDF'){
+										echo '<span>Wait for Confirmation</span>';
 									}
 								}
 							?>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2018 at 07:09 AM
+-- Generation Time: Apr 08, 2018 at 05:01 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -37,7 +37,7 @@ CREATE TABLE `expectation_prog_inbound` (
 --
 
 INSERT INTO `expectation_prog_inbound` (`STUDENT_COUNT`, `STUDENT_ID`, `EXPECTATION_PROG`) VALUES
-(1, '20180309002-in', 'HUHHUHUUHUHU LUBAYAN MO AKLOOOOO~~~!!!!');
+(1, '20180408004-in', 'Ok urin meoributeo balkkeutkkaji jeonbu da\r\nJjeo jjeoreo\r\nHaruui jeolbaneul jageobe jjeo jjeoreo\r\nJageopsire jjeoreo sareo cheongchuneun sseogeogado\r\nDeokbune moro gado dallineun seonggonggado\r\nSonyeodeura deo keuge sorijilleo jjeo jjeoreong\r\nBamsae ilhaessji everyday\r\nNiga keulleobeseo nol ttae yeah\r\nTtan nyeoseokdeulgwaneun dareuge\r\nI donâ€™t wanna say yes\r\nI donâ€™t wanna say yes\r\nSorichyeobwa all right\r\nMomi tabeoridorok all night (all night)\r\nCause we got fire (fire!)\r\nHigher (higher!)\r\nI gotta make it, I gotta make it\r\nJjeoreo!');
 
 --
 -- Indexes for dumped tables

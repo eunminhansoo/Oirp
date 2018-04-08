@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2018 at 07:10 AM
+-- Generation Time: Apr 08, 2018 at 05:01 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -39,18 +39,22 @@ CREATE TABLE `educ_background_inbound` (
   `TELEPHONE_NUM_BILA` varchar(500) DEFAULT NULL,
   `SPECIALIZATION_IN_BILA` varchar(500) DEFAULT NULL,
   `YEAR_LEVEL` varchar(500) DEFAULT NULL,
-  `SCHOLARSHIP_IN_BILA` varchar(500) DEFAULT NULL,
-  `SCHOLARSHIP_TEXT_IN_BILA` varchar(500) DEFAULT NULL,
-  `APPLICATION_FORM` varchar(500) DEFAULT NULL,
-  `APPLICATION_TYPE_PROG` varchar(500) DEFAULT NULL
+  `TYPE_OF_PROGRAM` varchar(100) NOT NULL,
+  `TYPE_OF_PROG_OTHER` varchar(100) NOT NULL,
+  `TYPE_OF_FORM` varchar(100) NOT NULL,
+  `TYPE_OF_FORM_OTHER` varchar(100) NOT NULL,
+  `SCHOLARSHIP_LOAN` varchar(100) NOT NULL,
+  `SCHOLARSHIP_LOAN_OTHER` varchar(100) NOT NULL,
+  `SCHOLARSHIP_LOAN1` varchar(100) NOT NULL,
+  `SCHOLARSHIP_LOAN_OTHER1` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `educ_background_inbound`
 --
 
-INSERT INTO `educ_background_inbound` (`STUDENT_COUNT`, `STUDENT_ID`, `COUNTRY_ORIGIN`, `HOME_UNIV_IN_BILA`, `UNIV_ADD_IN_BILA`, `NAME_OFFICER_CONTACT_IN_BILA`, `EMAIL_ADD_IN_BILA`, `CURRENT_PROG_STUDY_IN_BILA`, `DESIGNATION_IN_BILA`, `TELEPHONE_NUM_BILA`, `SPECIALIZATION_IN_BILA`, `YEAR_LEVEL`, `SCHOLARSHIP_IN_BILA`, `SCHOLARSHIP_TEXT_IN_BILA`, `APPLICATION_FORM`, `APPLICATION_TYPE_PROG`) VALUES
-(1, '20180309002-in', 'Germany', 'Helmholtz Zentrum Fur Infektionsforschung Gmbh, Br', 'GEMANY BIBIBIBIT', 'asfadfa', 'a@gmail.com', 'iics', 'sfdafas', '313123', 'BS. IS ', '3', '', '', 'sadasd', 'Scholarship');
+INSERT INTO `educ_background_inbound` (`STUDENT_COUNT`, `STUDENT_ID`, `COUNTRY_ORIGIN`, `HOME_UNIV_IN_BILA`, `UNIV_ADD_IN_BILA`, `NAME_OFFICER_CONTACT_IN_BILA`, `EMAIL_ADD_IN_BILA`, `CURRENT_PROG_STUDY_IN_BILA`, `DESIGNATION_IN_BILA`, `TELEPHONE_NUM_BILA`, `SPECIALIZATION_IN_BILA`, `YEAR_LEVEL`, `TYPE_OF_PROGRAM`, `TYPE_OF_PROG_OTHER`, `TYPE_OF_FORM`, `TYPE_OF_FORM_OTHER`, `SCHOLARSHIP_LOAN`, `SCHOLARSHIP_LOAN_OTHER`, `SCHOLARSHIP_LOAN1`, `SCHOLARSHIP_LOAN_OTHER1`) VALUES
+(1, '20180408004-in', 'Australia', 'Australian Catholic University', 'dsfsdfg', 'asfdasf', 'as@gmail.com', 'BS. IT', 'KJGKGKG', '+63 974-887-6512', '            BS.IT', '4', 'Others', ' hey', ' ', ' ', ' ', ' ', 'No', '');
 
 --
 -- Indexes for dumped tables
