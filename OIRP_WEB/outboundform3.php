@@ -9,6 +9,8 @@
 	while($row = mysqli_fetch_array($result)) {
 		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
 	}
+	
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,10 +67,10 @@
 								<label>Bilateral Options:</label>
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="1 Year" id="1year" disabled> 1 year
+								<input type="radio" name="bilateral" value="1 Year" id="1year" disabled <?php echo ($getSel_APPLICATION_FORM=='1year') ?'checked':'' ?>> 1 year
 							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="1 Sem" id="1sem" disabled> 1 sem
+								<input type="radio" name="bilateral" value="1 Sem" id="1sem" disabled <?php echo ($getSel_APPLICATION_FORM=='1sem') ?'checked':'' ?>> 1 sem
 							</div>
 							<div class="col-sm-2">
 								<input type="radio" name="bilateral" value="Short Study Abroad" id="shortStudy" disabled> Short Study Abroad
@@ -278,8 +280,7 @@
         	$('#scholarshipSHARE').click(function(){
         	    $("#scholarshipText").prop('disabled', true);
 			});	
-			
-			$(document).ready(function(){
+        	
 				$('#proBilateral').click(function(){
 					$("#scholarshipAIMS").prop('disabled', true);
 					$("#scholarshipSHARE").prop('disabled', true);
@@ -290,9 +291,7 @@
 					$("#scholarloanYes").prop('disabled', false);
 					$("#scholarloanNo").prop('disabled', false);
 				});		
-			});
-
-			$(document).ready(function(){
+			
 				$('#proScholar').click(function(){
 					$("#1year").prop('disabled', true);
 					$("#1sem").prop('disabled', true);
@@ -303,7 +302,7 @@
 					$("#scholarshipSHARE").prop('disabled', false);
 					$("#scholarshipOthers").prop('disabled', false);
 				});		
-			});	
+		
 			
 			var getradio = "<?php echo $getSel_APPLICATION_TYPE_PROG?>";
 			if (getradio) { // check if variable is empty or not

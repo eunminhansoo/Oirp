@@ -309,7 +309,7 @@
         	$('#scholarshipSHARE').click(function(){
         	    $("#scholarshipText").prop('disabled', true);
 			});	
-			$(document).ready(function(){
+			
 				$('#proBilateral').click(function(){
 					$("#scholarshipAIMS").prop('disabled', true);
 					$("#scholarshipSHARE").prop('disabled', true);
@@ -320,8 +320,8 @@
 					$("#scholarloanYes").prop('disabled', false);
 					$("#scholarloanNo").prop('disabled', false);
 				});		
-			});
-			$(document).ready(function(){
+			
+
 				$('#proScholar').click(function(){
 					$("#1year").prop('disabled', true);
 					$("#1sem").prop('disabled', true);
@@ -332,7 +332,7 @@
 					$("#scholarshipSHARE").prop('disabled', false);
 					$("#scholarshipOthers").prop('disabled', false);
 				});		
-			});
+				
 			var getradio = "<?php echo $getSel_APPLICATION_TYPE_PROG?>";
 			if (getradio) { // check if variable is empty or not
 				$(":radio[name=type_program][value="+ getradio +"]").prop('checked', true);
