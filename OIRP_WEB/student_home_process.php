@@ -78,13 +78,14 @@ include 'database_connection.php';
     	if($query && $query1)
 			{
 				$sql_query1 = "UPDATE student SET
-					PAGINATION = 'Submitted PDF'
-					WHERE STUDENT_ID = '$get_studentID'
-					";
-					mysqli_query($conn, $sql_query1);
-					echo "<meta http-equiv='refresh' content='0'>";
+				PAGINATION = 'Submitted PDF'
+				WHERE STUDENT_ID = '$get_studentID'
+				";
+				mysqli_query($conn, $sql_query1);
+				echo "<meta http-equiv='refresh' content='0'>";
 				//header("Location: student_home.php");
 			}else{
+				//echo 'error';
 				header("Location: error_page.php");
 			}
 		
