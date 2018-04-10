@@ -10,6 +10,7 @@
                             	$file = $row['PDF_IMG'];
                             	
                             }
+    
     $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
         $queryBD = mysqli_query($conn, $query);
     $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
@@ -50,6 +51,17 @@
 	                 </div>
 	                 </div>
 	                 <br>
-	                 
+	                 <select name="status">
+  						<option value="Pending">Pending</option>
+  						<option value="Approved">Approved</option>
+  						<option value="Denied">Denined</option>
+  						<option value="On-Going">On-going</option>
+  						<option value="Completed">Completed</option>
+</select>
+<button type="submit" name="update_status" class="btn btn-primary" >CONFIRM</button>
+</form>
+<form action="administrator.php">
+    <input type="submit" class="btn btn-primary" value="Back" />
+</form>
 	</body>
 </html>

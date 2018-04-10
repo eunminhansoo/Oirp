@@ -129,8 +129,21 @@
 							<div class="col-sm-2">
 								<input type="radio" name="bilateral" value="Short Study Abroad" id="shortStudy" disabled> Short Study Abroad
 							</div>
+						</div>
+					</div>
+					<div id="bilateralOptions1">
+						<div class="form-group row">
+							<div class="col-sm-2">
+								<label>Bilateral Options:</label>
+							</div>
 							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
+								<input type="radio" name="bilateral1" value="1 Year" id="1year" disabled> 1 year
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="bilateral1" value="1 Sem" id="1sem" disabled> 1 sem
+							</div>
+							<div class="col-sm-2">
+								<input type="radio" name="bilateral1" value="Short Study Abroad" id="shortStudy" disabled> Short Study Abroad
 							</div>
 						</div>
 					</div>
@@ -350,27 +363,21 @@
 				$("#scholarloanYes").prop('disabled', false);
 				$("#scholarloanNo").prop('disabled', false);
 
-				var radioBila = "<?php echo $getSel_APPLICATION_FORM?>";
-				if(radioBila){
-					$(':radio[name=bilateral][value='+ radioBila +']').prop('checked', true);
-				}
-				// if (radioBila) { // check if variable is empty or not
-				// 	$(':radio[name=bilateral][value='+ radioBila +']').prop('checked', true);
-					
-				// }
-
 				var radioscholarBila = "<?php echo $getSel_SCHOLARSHIP_IN_BILA?>";
-
 				if(radioscholarBila){
 					$(':radio[name=scholarloan][value='+ radioscholarBila +']').prop('checked', true);
 				}
-					
+
 				if(document.getElementById('scholarloanYes').checked == true){
 					$("#scholarloanText").prop('disabled', false);
 				}
 
-
+				var hehe = "<?php echo $getSel_APPLICATION_FORM?>";
+				if(hehe){
+					$(':radio[name=bilateral][value='+ hehe +']').prop('checked', true);
+				}
 			}
+
 			if(document.getElementById('proScholar').checked == true){
 				document.getElementById('proText').value = " ";
 				$("#scholarshipOptions").show();
