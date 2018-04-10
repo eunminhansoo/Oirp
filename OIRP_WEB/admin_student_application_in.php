@@ -12,7 +12,37 @@
     $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
     $queryBD = mysqli_query($conn, $query);
     $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
-    $queryCU = mysqli_query($conn, $query1);               
+    $queryCU = mysqli_query($conn, $query1);   
+
+	if(isset($_POST['update_status'])){
+		$status = $_POST['status']; 
+
+		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+		
+		$query_db = mysqli_query($conn, $query2);
+
+		if($query_db){
+			header("Location:admin_student_application_in.php?studentName=$getStudentID");
+			$sel_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+			$queryy_db = mysqli_query($conn, $sel_query);
+			while($rrow = mysqli_fetch_array($queryy_db)){
+				$sel_query = $rrow['STATUS'];
+			}
+			if($sel_query == 'Approved'){
+
+				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
+				$sel_check_db = mysqli_query($conn, $sel_check_query);
+				if(mysqli_num_rows($sel_check_db) <= 0){
+					$ins_query = "INSERT INTO `admin_college` (`STUDENT_COUNT`, `STUDENT_ID`, `PROPOSED_PROGRAM`, `COURSE_1`, `COURSE_2`, `COURSE_3`, `COURSE_4`, `COURSE_5`) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
+					mysqli_query($conn, $ins_query);
+				}
+			}else{
+				$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
+				mysqli_query($conn, $del_query);
+			}   
+		}
+	}        
+
 ?>
 <html>
 	<head>
@@ -128,12 +158,5 @@
 	</body>
 </html>
 <?php
-	if(isset($_POST['update_status'])){
-		$status = $_POST['status'];
-
-		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-		
-		mysqli_query($conn, $query2);
-		header("Location:admin_student_application_in.php?studentName=$getStudentID");
-	}
+	
 ?>
