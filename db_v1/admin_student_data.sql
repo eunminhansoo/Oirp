@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2018 at 05:05 PM
+-- Generation Time: Apr 08, 2018 at 05:00 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -23,34 +23,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `upload_pdf`
+-- Table structure for table `admin_student_data`
 --
 
-CREATE TABLE `upload_pdf` (
+CREATE TABLE `admin_student_data` (
   `STUDENT_COUNT` int(11) NOT NULL,
-  `STUDENT_ID` varchar(15) NOT NULL,
-  `APPLICATION_PROG` varchar(50) NOT NULL,
-  `PDF_NAME` varchar(500) NOT NULL,
-  `PDF_IMG` varchar(50000) NOT NULL,
-  `DATE_SUBMITTED` date NOT NULL
+  `STUDENT_ID` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `upload_pdf`
+-- Dumping data for table `admin_student_data`
 --
 
-INSERT INTO `upload_pdf` (`STUDENT_COUNT`, `STUDENT_ID`, `APPLICATION_PROG`, `PDF_NAME`, `PDF_IMG`, `DATE_SUBMITTED`) VALUES
-(1, '20180406001-out', 'outbound', 'Milabo', '[FINALS] ICS 115 REVIEWER.pdf', '2018-04-08'),
-(2, '20180408004-in', 'inbound', 'Lee', '[FINALS] ICS 115 REVIEWER.pdf', '2018-04-08');
+INSERT INTO `admin_student_data` (`STUDENT_COUNT`, `STUDENT_ID`) VALUES
+(1, '20180406001-out'),
+(2, '20180408004-in');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `upload_pdf`
+-- Indexes for table `admin_student_data`
 --
-ALTER TABLE `upload_pdf`
+ALTER TABLE `admin_student_data`
   ADD UNIQUE KEY `STUDENT_COUNT` (`STUDENT_COUNT`);
 
 --
@@ -58,9 +54,9 @@ ALTER TABLE `upload_pdf`
 --
 
 --
--- AUTO_INCREMENT for table `upload_pdf`
+-- AUTO_INCREMENT for table `admin_student_data`
 --
-ALTER TABLE `upload_pdf`
+ALTER TABLE `admin_student_data`
   MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

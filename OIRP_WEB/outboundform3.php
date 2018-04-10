@@ -140,7 +140,7 @@
 								Please specify: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarloanText1" id="scholarloanText1" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_LOAN_OTHER?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarloanText1" id="scholarloanText1" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_LOAN_OTHER1?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan1" value="" checked="checked" hidden> 

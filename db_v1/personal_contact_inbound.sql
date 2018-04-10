@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2018 at 07:08 AM
+-- Generation Time: Apr 08, 2018 at 05:03 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -37,6 +37,13 @@ CREATE TABLE `personal_contact_inbound` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `personal_contact_inbound`
+--
+
+INSERT INTO `personal_contact_inbound` (`STUDENT_COUNT`, `STUDENT_ID`, `PERSONAL_CONTACT_IN_BILA`, `RELATIONSHIP_IN_BILA`, `ADD_IN_BILA`, `EMAIL_ADD_IN_BILA`, `TELEPHONE_NUM_IN_BILA`) VALUES
+(1, '20180408004-in', 'sf35sdfsdf', 'ljh', 'khkj', 'kh@gmail.com', '+63 974-887-6512');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -54,7 +61,7 @@ ALTER TABLE `personal_contact_inbound`
 -- AUTO_INCREMENT for table `personal_contact_inbound`
 --
 ALTER TABLE `personal_contact_inbound`
-  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

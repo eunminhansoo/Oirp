@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2018 at 07:10 AM
+-- Generation Time: Apr 08, 2018 at 05:01 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -35,6 +35,13 @@ CREATE TABLE `country_univ_outbound` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `country_univ_outbound`
+--
+
+INSERT INTO `country_univ_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, `APPLICATION_PROG`, `COUNTRY_OUT`, `UNIVERSITY_OUT`) VALUES
+(1, '20180406001-out', 'outbound', 'Australia', 'Australian Catholic University');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -52,7 +59,7 @@ ALTER TABLE `country_univ_outbound`
 -- AUTO_INCREMENT for table `country_univ_outbound`
 --
 ALTER TABLE `country_univ_outbound`
-  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `STUDENT_COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

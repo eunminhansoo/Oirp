@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2018 at 07:07 AM
+-- Generation Time: Apr 08, 2018 at 05:04 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -47,7 +47,7 @@ CREATE TABLE `proposed_field_study_in_bila` (
 --
 
 INSERT INTO `proposed_field_study_in_bila` (`STUDENT_COUNT`, `STUDENT_ID`, `PROPOSED_PROG_INBOUND`, `COURSE_1_INBOUND`, `COURSE_2_INBOUND`, `COURSE_3_INBOUND`, `COURSE_4_INBOUND`, `COURSE_5_INBOUND`, `RESEARCH_TOPIC_INBOUND`, `INTENDED_SEM_STUDY_INBOUND`, `DESCRIPTION_ACTION_STATUS_INBOUND`, `REASON_STUDYING_INBOUND`, `ACCOMODATION_INBOUND`) VALUES
-(1, '20180309002-in', 'iicsalkn', 'oiuoiuo', 'iuoi', 'uoi', 'uoi', '', '2nd Semester', 'dfgghadeee', 'asdasd', ' asdfagsdea', 'Yes');
+(1, '20180408004-in', 'Information Technology', 'CS 123', 'IT 205', 'IS 205', 'math103', 'IT 204', '', '2nd Semester', 'gjgjhsdgfjhg', 'kjjbki', 'Yes');
 
 --
 -- Indexes for dumped tables

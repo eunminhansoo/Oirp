@@ -12,6 +12,7 @@
 			$("#scholarshipOptions").hide();
 			$("#scholarloanrow").show();
 			$("#scholarloanrow1").hide();
+			$('#proText').prop('disabled', true);
 			$("#1year").prop('disabled', false);
 			$("#1sem").prop('disabled', false);
 			$("#shortStudy").prop('disabled', false);
@@ -43,6 +44,7 @@
 	        $("#scholarshipOptions").show();
 	        $("#bilateralOptions").hide();
 	        $("#scholarloanrow").hide();
+			$("#scholarloanrow1").hide();
 	        $("#proText").prop('disabled', true);
 			$("#scholarshipAIMS").prop('disabled', false);
 			$("#scholarshipSHARE").prop('disabled', false);
@@ -77,7 +79,7 @@
 			});
 
 			var radioOther = "<?php echo $getSel_TYPE_OF_PROGRAM?>";
-			var radioOtherSholarLoan = "<?php echo $getSel_SCHOLARSHIP_LOAN?>";
+			var radioOtherSholarLoan = "<?php echo $getSel_SCHOLARSHIP_LOAN1?>";
 			
 			if(radioOther == 'Others'){
 				$("#scholarloanText1").prop('disabled', false);
@@ -87,6 +89,10 @@
 				$(':radio[name=scholarloan1][value='+ radioOtherSholarLoan +']').prop('checked', true);
 				if(document.getElementById('scholarloanYes1').checked == true){
 					$("#scholarloanText1").prop('disabled', false);
+				}else{
+					if(document.getElementById('scholarloanNo1').checked == true){
+						$("#scholarloanText1").prop('disabled', true);
+					}
 				}
 			}
         });
@@ -163,7 +169,7 @@
 			});
 
 			var radioOther = "<?php echo $getSel_TYPE_OF_PROGRAM?>";
-			var radioOtherSholarLoan = "<?php echo $getSel_SCHOLARSHIP_LOAN?>";
+			var radioOtherSholarLoan = "<?php echo $getSel_SCHOLARSHIP_LOAN1?>";
 			
 			if(radioOther == 'Others'){
 				$("#scholarloanText1").prop('disabled', false);
@@ -173,6 +179,10 @@
 				$(':radio[name=scholarloan1][value='+ radioOtherSholarLoan +']').prop('checked', true);
 				if(document.getElementById('scholarloanYes1').checked == true){
 					$("#scholarloanText1").prop('disabled', false);
+				}else{
+					if(document.getElementById('scholarloanNo1').checked == true){
+						$("#scholarloanText1").prop('disabled', true);
+					}
 				}
 			}
 		}	
