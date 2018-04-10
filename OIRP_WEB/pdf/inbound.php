@@ -1,11 +1,13 @@
 <?php
 require('fpdf/fpdf.php');
 
+session_start();
+$studentno = $_SESSION['student_id_session'];
+
 //db connection
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
 
-$studentno = '20180309002-in';
 
 //student
 $sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
@@ -39,7 +41,7 @@ while ($row = $result->fetch_array()){
 }
 
 //educ_background_inbound
-$sql = "select home_univ_in_bila,current_prog_study_in_bila,specialization_in_bila,year_level,scholarship_in_bila,scholarship_text_in_bila,application_form,application_type_prog from educ_background_inbound where student_id = '".$studentno."'";
+$sql = "select home_univ_in_bila,current_prog_study_in_bila,specialization_in_bila,year_level,scholarship_loan_other,SCHOLARSHIP_LOAN_OTHER1,type_of_program from educ_background_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
@@ -47,14 +49,13 @@ while ($row = $result->fetch_array()){
 	$current_prog_study_in_bila = $row['current_prog_study_in_bila'];
 	$specialization_in_bila = $row['specialization_in_bila'];
 	$year_level = $row['year_level'];
-	$scholarship_in_bila = $row['scholarship_in_bila'];
-	$scholarship_text_in_bila = $row['scholarship_text_in_bila'];
-	$application_form = $row['application_form'];
-	$application_type_prog = $row['application_type_prog'];
+	$scholarship_in_bila = $row['SCHOLARSHIP_LOAN_OTHER'];
+	$scholarship_text_in_bila = $row['SCHOLARSHIP_LOAN_OTHER1'];
+	$application_form = $row['type_of_program'];
 }
 
 //proposed_field_study_in_bila
-$sql = "select proposed_prog_inbound,course_1_inbound,course_2_inbound,course_3_inbound,course_4_inbound,course_5_inbound from proposed_field_study_in_bila where student_id ='".$studentno."'";
+$sql = "select proposed_prog_inbound,course_1_inbound,course_2_inbound,course_3_inbound,course_4_inbound,course_5_inbound,INTENDED_SEM_STUDY_INBOUND from proposed_field_study_in_bila where student_id ='".$studentno."'";
 $result = $conn->query($sql);
 
 while($row = $result->fetch_array()){
@@ -64,6 +65,7 @@ while($row = $result->fetch_array()){
 	$course_3_inbound = $row['course_3_inbound'];
 	$course_4_inbound = $row['course_4_inbound'];
 	$course_5_inbound = $row['course_5_inbound'];
+	$intended_sem_study_inbound = $row['INTENDED_SEM_STUDY_INBOUND'];
 	
 }
 
@@ -202,7 +204,7 @@ $pdf->SetFont('Arial','',8);
 $pdf->Cell(50,7,'HOME UNIVERSITY','BR',0);
 $pdf->Cell(145,7,$home_univ_in_bila,'B',1);
 $pdf->Cell(50,7,'DEGREE PROGRAM','BR',0);
-$pdf->Cell(55,7,$current_program_study_in_bila,'BR',0);
+$pdf->Cell(55,7,$current_prog_study_in_bila,'BR',0);
 $pdf->Cell(20,7,'MAJOR','BR',0);
 $pdf->Cell(70,7,$specialization_in_bila,'B',1);
 $pdf->Cell(50,7,'YEAR LEVEL','BR',0);
@@ -342,7 +344,7 @@ $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"VI. HOME INSTITUTION APPROVAL",'TB',1);
 
 $pdf->SetFont('Arial','',9);
-$pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming '.$intended_sem_study_inbound,'',1);
+$pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming '.$intended_sem_study_inbound.'.','',1);
 $pdf->Cell(195,7,'','',1);
 
 $pdf->Cell(15,7,'','',0);
