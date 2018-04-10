@@ -11,7 +11,7 @@
 	    	$checkbox = $_POST['cb_num_in'];
 	    	for($i = 0 ; $i < count($checkbox);$i++){
 	    		$del_check = $checkbox[$i];
-	    		$query_del = mysqli_query($conn, "DELETE FROM admin_student_data WHERE STUDENT_ID = '$del_check'");
+	    		$query_del = mysqli_query($conn, "DELETE FROM admin_college WHERE STUDENT_ID = '$del_check'");
 	    	}
 	    	if($query_del){
 	    		echo "success";
@@ -94,8 +94,8 @@
 		</div>
 		<!--NAV BART END-->
 		<form>
-			<div class="">
-				<div class="col-xs-6">
+			<div class="container">
+				<div class="">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
@@ -123,11 +123,11 @@
 									$status = $row['STATUS'];
 									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
 									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-			                        $resultdate = $date->format('F j, Y,');
+			                        $resultdate = $date->format('F j, Y');
 	                            ?>
 	                            <tfoot>
 	                            <tr>
-	                                <td><?php echo "<a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
+	                                <td><?php echo "<a href=admin_college_form.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
 									<?php
 										if($get_TYPE_OF_PROGRAM == 'Others'){
 											echo "<td>Bilateral</td>";
