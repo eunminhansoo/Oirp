@@ -50,6 +50,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
     <body>
@@ -117,8 +118,8 @@
 		<!--NAV BART END-->
 
         <form method="post">	  
-	        <div class="">
-	            <div class="col-xs-6">
+	        <div class="container-fluid">
+	            <div class="col-sm-6">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
@@ -176,7 +177,7 @@
 	                    </table>
 	                </div>
 	            </div>
-	            <div class="col-xs-6">
+	            <div class="col-sm-6">
 	                <h2>OUTBOUND</h2>
 	                <div class="table-responsive">
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >

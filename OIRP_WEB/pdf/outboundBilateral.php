@@ -1,11 +1,12 @@
 <?php
 require('fpdf/fpdf.php');
 
+session_start();
+$studentno = $_SESSION['student_id_session'];
+
 //db connection
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
-
-$studentno = '20180309001-out';
 
 $sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
 $result = $conn->query($sql);
@@ -23,7 +24,7 @@ while ($row = $result->fetch_array()){
 
 $birth_dec = base64_decode($birthday);
 
-$sql = "select citizenship_out,nationality_out,passport_num_out,validity_date_out,date_issuance_out,mailing_add_out,telephone_num_out,mobile_num_out from personal_info_outbound where student_id = '".$studentno."'";
+$sql = "select citizenship_out,nationality_out,passport_num_out,validity_date_out,date_issuance_out,mailing_add_out,telephone_num_out,mobile_num_out,college_institute_faculty_out,degree_prog_out,year_level_out from personal_info_outbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
@@ -72,7 +73,7 @@ while ($row = $result->fetch_array()){
 }
 
 //proposed_field_study 
-$sql = "select proposed_prog,course_1,course_2,course_3,course_4,course_5,scholarship_outbound,scholarship_text_outbound,application_form,application_type_prog from proposed_field_study where student_id = '".$studentno."'";
+$sql = "select proposed_prog,course_1,course_2,course_3,course_4,course_5,SCHOLARSHIP_LOAN_OTHER,SCHOLARSHIP_LOAN_OTHER1,type_of_program from proposed_field_study where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while($row = $result->fetch_array()){
@@ -82,10 +83,9 @@ while($row = $result->fetch_array()){
 	$course_3 = $row['course_3'];
 	$course_4 = $row['course_4'];
 	$course_5 = $row['course_5'];
-	$scholarship_outbound = $row['scholarship_outbound'];
-	$scholarship_text_outbound = $row['scholarship_text_outbound'];
-	$application_form = $row['application_form'];
-	$application_type_prog = $row['application_type_prog'];
+	$scholarship_outbound = $row['SCHOLARSHIP_LOAN_OTHER'];
+	$scholarship_text_outbound = $row['SCHOLARSHIP_LOAN_OTHER1'];
+	$application_form = $row['type_of_program'];
 }
 
 
@@ -253,9 +253,9 @@ $pdf->Cell(195,7,'III. PROPOSED FIELD OF STUDY','TB',1);
 
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(40,7,'COUNTRY','BR',0);
-$pdf->Cell(155,7,'','B',1);
+$pdf->Cell(155,7,$country_out,'B',1);
 $pdf->Cell(40,7,'UNIVERSITY','BR',0);
-$pdf->Cell(155,7,'','B',1);
+$pdf->Cell(155,7,$university_out,'B',1);
 $pdf->Cell(195,7,'','B',1);
 
 $pdf->Cell(50,7,'PROPOSED PROGRAM','BR',0);

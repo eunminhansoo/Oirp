@@ -97,7 +97,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
-							<input type="text" name="numberCP" id="numberCP" class="form-control" pattern="([+]\d{1,4})([\s]\d{2,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 required value="<?php echo $getSel_TELEPHONE_NUM_IN_BILA?>">
+							<input type="text" name="numberCP" id="numberCP" class="form-control" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 required value="<?php echo $getSel_TELEPHONE_NUM_IN_BILA?>">
 						</div>
 					</div>
 						

@@ -1,11 +1,12 @@
 <?php
 require('fpdf/fpdf.php');
 
+session_start();
+$studentno = $_SESSION['student_id_session'];
+
 //db connection
 $conn = mysqli_connect("localhost", "root", "","oirp_db");
 $db = mysqli_select_db($conn, "oirp_db");
-
-$studentno = '20180309002-in';
 
 //student
 $sql = "select email,family_name,given_name,middle_name,gender,birthday,age,birthplace from student where student_id = '".$studentno."'";
@@ -53,30 +54,30 @@ while($row = $result->fetch_array()){
 }
 
 //educ_background_inbound
-$sql = "select home_univ_in_bila,univ_add_in_bila,name_officer_contact_in_bila,designation_in_bila,email_add_in_bila,current_prog_study_in_bila,designation_in_bila,telephone_num_bila,specialization_in_bila,year_level,scholarship_in_bila,scholarship_text_in_bila,application_form,application_type_prog from educ_background_inbound where student_id = '".$studentno."'";
+$sql = "select home_univ_in_bila,univ_add_in_bila,name_officer_contact_in_bila,designation_in_bila,email_add_in_bila,current_prog_study_in_bila,designation_in_bila,telephone_num_bila,specialization_in_bila,year_level,scholarship_loan_other,SCHOLARSHIP_LOAN_OTHER1,type_of_program from educ_background_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
-	$home_univ_bila = $row['home_univ_bila'];
+	$home_univ_bila = $row['home_univ_in_bila'];
 	$univ_add_in_bila = $row['univ_add_in_bila'];
 	$current_prog_study_in_bila = $row['current_prog_study_in_bila'];
 	$specialization_in_bila = $row['specialization_in_bila'];
 	$year_level = $row['year_level'];
-	$scholarship_in_bila = $row['scholarship_in_bila'];
-	$scholarship_text_in_bila = $row['scholarship_text_in_bila'];
-	$application_form = $row['application_form'];
-	$application_type_prog = $row['application_type_prog'];
+	$scholarship_in_bila = $row['SCHOLARSHIP_LOAN_OTHER'];
+	$scholarship_text_in_bila = $row['SCHOLARSHIP_LOAN_OTHER1'];
+	$application_form = $row['type_of_program'];
 	$name_officer_contact_in_bila = $row['name_officer_contact_in_bila'];
 	$designation_in_bila = $row['designation_in_bila'];
-	$mailing_add_in = $row['mailing_add_in'];
-	$telephone_num_in = $row['telephone_num_in'];
-	$mobile_num_in = $row['mobile_num_in'];
 }
 
 if($scholarship_text_in_bila==null){
 	$scholar = $scholarship_in_bila;
 } else{
 	$scholar = $scholarship_text_in_bila;
+}
+
+if ($scholar==""){
+	$scholar = "No";
 }
 
 //proposed_field_study_in_bila
@@ -418,7 +419,7 @@ $pdf->SetFont('Arial','B',9);
 $pdf->Cell(195,7,"VIII. HOME INSTITUTION APPROVAL",'TB',1);
 
 $pdf->SetFont('Arial','',9);
-$pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming '.$intended_sem_study_inbound,'',1);
+$pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming '.$intended_sem_study_inbound.'.','',1);
 $pdf->Cell(195,7,'','',1);
 
 $pdf->Cell(15,7,'','',0);
