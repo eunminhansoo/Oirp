@@ -30,81 +30,85 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
-		<div class="col-xs-5">
-			<?php 
-				echo "<embed src='images/".$file."'  width='800px' height='100%'>";
-			?>
-		</div>
-		 <div class="col-xs-push-3 col-xs-5">
-	    	<h2>Basic Information</h2>
-			<?php
-				while($row = mysqli_fetch_array($queryBD)){
-					$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-				}
-				while($row1 = mysqli_fetch_array($queryCU)){
-					$country = $row1['COUNTRY_OUT'];
-					$university = $row1['UNIVERSITY_OUT'];
-				}
-				while($row2 = mysqli_fetch_array($queryPF)){
-					$application_prog = $row2['TYPE_OF_PROGRAM'];
-					$application_prog_other = $row2['TYPE_OF_PROG_OTHER'];
-					$application_form = $row2['TYPE_OF_FORM'];
-					$application_form_other = $row2['TYPE_OF_FORM_OTHER'];
-				}
-			?>
-			<div>
-					<span><b>Full Name:</b></span> <span> <?php echo $fullname?></span>
-				</div>
-				<div>
-					<span><b>Type of Program:</b></span> 
-					<span>
-						<?php
-							if($application_prog == 'Others'){
-								echo 'Bilateral';
-							}else{
-								echo $application_prog;
-							}
-						?>
-					</span>
-				</div>
-				<div>
-					<span><b>Type of Form:</b></span>
-					<span>
-						<?php  
-							if($application_prog == 'Others'){
-								echo $application_prog_other;
-							}else{
-								if($application_form == 'OTHERS'){
-									echo $application_form_other;
+		
+		<div class="container-responsive">
+			<div class="col-sm-7">
+				<?php 
+					echo "<embed src='images/".$file."'  width='100%' height='100%'>";
+				?>
+			</div>
+			 <div class="col-sm-5">
+		    	<p style="margin-top: 100px;"><h2>Basic Information</h2></p>
+				<?php
+					while($row = mysqli_fetch_array($queryBD)){
+						$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
+					}
+					while($row1 = mysqli_fetch_array($queryCU)){
+						$country = $row1['COUNTRY_OUT'];
+						$university = $row1['UNIVERSITY_OUT'];
+					}
+					while($row2 = mysqli_fetch_array($queryPF)){
+						$application_prog = $row2['TYPE_OF_PROGRAM'];
+						$application_prog_other = $row2['TYPE_OF_PROG_OTHER'];
+						$application_form = $row2['TYPE_OF_FORM'];
+						$application_form_other = $row2['TYPE_OF_FORM_OTHER'];
+					}
+				?>
+					<br>
+					<p>
+						<span><b>Full Name:</b></span> <span> <?php echo $fullname?></span>
+					</p>
+					<p>
+						<span><b>Type of Program: </b></span> 
+						<span>
+							<?php
+								if($application_prog == 'Others'){
+									echo 'Bilateral';
 								}else{
-									echo $application_form;
+									echo $application_prog;
 								}
-							}
-						?>
-					</span>
-				</div>
-				<div>
-					<span><b>Chosen Country:</b></span><span><?php echo $country?></span>
-				</div>
-				<div>
-					<span><b>Chosen University:</b></span><span><?php echo $university?></span>
-				</div>
-			<!--<div class="table-responsive">
-	            <table class="table table-striped table-bordered table-hover" >
-					
-	            	<tr>
-	                    <td><h3>FullName:</h3><td>            
-	                    <td><?php //echo $fullname ?></td><br>
-	                    <td><h3>Application:</h3><td><br>
-	                    <td><?php //echo $application_prog ?></td>
-	                    <td><h3>Country Destination:</h3><td>            
-	                    <td><?php //echo $country ?></td><br>
-	                    <td><h3>University:</h3><td><br>
-	                    <td><?php //echo $university ?></td> 
-	                </tr>
-	            </table>
-	        </div>-->
-	    </div>
-	    <br>         
+							?>
+						</span>
+					</p>
+					<p>
+						<span><b>Type of Form: </b></span>
+						<span>
+							<?php  
+								if($application_prog == 'Others'){
+									echo $application_prog_other;
+								}else{
+									if($application_form == 'OTHERS'){
+										echo $application_form_other;
+									}else{
+										echo $application_form;
+									}
+								}
+							?>
+						</span>
+					</p>
+					<p>
+						<span><b>Chosen Country: </b></span><span><?php echo $country?></span>
+					</p>
+					<p>
+						<span><b>Chosen University: </b></span><span><?php echo $university?></span>
+					</p>
+				<!--<div class="table-responsive">
+		            <table class="table table-striped table-bordered table-hover" >
+						
+		            	<tr>
+		                    <td><h3>FullName:</h3><td>            
+		                    <td><?php //echo $fullname ?></td><br>
+		                    <td><h3>Application:</h3><td><br>
+		                    <td><?php //echo $application_prog ?></td>
+		                    <td><h3>Country Destination:</h3><td>            
+		                    <td><?php //echo $country ?></td><br>
+		                    <td><h3>University:</h3><td><br>
+		                    <td><?php //echo $university ?></td> 
+		                </tr>
+		            </table>
+		        </div>-->
+		    </div>
+		    <br>
+	    </div>        
 	</body>
 </html>

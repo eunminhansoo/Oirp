@@ -1,6 +1,5 @@
 <?php
 	include 'student_home_process.php';
-	
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -13,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
 		<!-- link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/stylus.css">
 		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/color_3.css"-->
 		<link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
@@ -117,12 +117,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		<!--APPLICATION BOX END-->
 		
 		<form method="post" enctype="multipart/form-data">
 		<!--APPLICATION BOX START-->
-			<div class="col-sm-6" id="uploadbox">
+			<div id="uploadbox">
 				<div class="boxxes container-fluid">
 					<div class="col-sm-12" style="padding-top: 10px; padding-bottom: 20px;">
 						<div class="exus" style="float: right;">
@@ -140,6 +139,18 @@
 			</div>
 		</form>
 		<!--APPLICATION BOX END-->
+	</div>
+
+	<div class="col-sm-6">
+		<div class="container-fluid boxxes">
+			<div class="col-sm-12" style="padding-top: 5px; padding-bottom: 5px;">
+				<p><h2>INSTRUCTIONS</h2><p>
+		
+				<p>1. Go to My Application and fill out the online form. If you are unable to finish the form, you may save it and work on it on your on time.</p>
+				<p>2. Once submitted, a PDF form will be generated which needs to be signed by the parties mentioned. Upload the form once the signatories are complete.</p>
+				<p>3. Your application will be reviewed by the Office of International Relations and Programs and by the colleges or departments involved. You may refer to your Status to see the progress of your application. 
+			</div>
+		</div>
 	</div>
 	</div>
 		<script>
