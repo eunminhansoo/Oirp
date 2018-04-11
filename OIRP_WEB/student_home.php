@@ -1,6 +1,5 @@
 <?php
 	include 'student_home_process.php';
-	
 ?>
 <!DOCTYPE HTML>
 <html lang="en">

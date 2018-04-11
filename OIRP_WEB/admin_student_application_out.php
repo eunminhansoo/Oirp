@@ -38,7 +38,7 @@
 				?>
 			</div>
 			 <div class="col-sm-5">
-		    	<p style="margin-top: 100px;"><h2>Basic Information</h2></p>
+		    	<p style="margin-top: 80px;"><h2>Basic Information</h2></p>
 				<?php
 					while($row = mysqli_fetch_array($queryBD)){
 						$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
