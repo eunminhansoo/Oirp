@@ -103,9 +103,9 @@
 								}else if($pagination == 'outbound page 2'){
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'outbound page 3'){
-									echo '<span class="caf"> Continue Application form</span>';
+									echo '<span class="caf"> Continue Application form</spapan>';
 								}else if($pagination == 'submited'){
-									echo '<span>Upload Application form </span>';
+									echo '<br><span>Upload Application form </span>';
 								}else{
 									if($pagination == 'Submitted PDF'){
 										echo '<span>Wait for Confirmation</span>';
@@ -115,6 +115,19 @@
 							<!--<span>Upload Application form </span>-->
 							<!--<span class="caf"> Continue Application form</span>-->
 						</a>
+						<?php 
+						if($pagination == 'submited'){
+							if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
+								echo '<span><a href="pdf/outboundBilateral.php">Open PDF form</a></span>';
+							} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
+								echo '<span><a href="pdf/outbound.php">Open PDF form</a> </span>';
+							} elseif($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
+								echo '<span ><a href="pdf/inboundBilateral.php">Open PDF form</a></span>';
+							} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
+								echo '<span><a href="pdf/inbound.php">Open PDF form</a> </span>';
+							}
+						}
+						?>
 					</div>
 				</div>
 			</div>
@@ -130,7 +143,7 @@
 						</div>
 						<br>
 						<div class="form-group" style="padding-top: 20px;">
-							<input type="file" name="pdfScan" id="pdfscan" class="form-control-file" disabled>
+							<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" disabled>
 						</div>
 						<div class="">
 							<button type="submit" name="btn_submit" class="btn">Submit</button>
@@ -197,5 +210,5 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
-	
+
 </html>
