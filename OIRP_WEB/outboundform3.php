@@ -215,7 +215,7 @@
 					</div>
 					<div class="form-group row break col-xs-3">
 						<div class="col-sm-10">
-							<input type="submit" name="btn_form3" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_form3" class="btn btn-primary" onclick="myFunction()" value="Next">
 						</div>
 					</div>
 					
@@ -224,7 +224,15 @@
 		</div>
 		</div>
 	</body>
+	<?php
+		$get_query = "SELECT * FROM proposed_field_study WHERE STUDENT_ID = '$getses_StudentID'";
+		$get_db = mysqli_query($conn, $get_query);
+		while($rrow = mysqli_fetch_array($get_db)){
+			$type_prog = $rrow['TYPE_OF_PROGRAM'];
+		}
+	?>
 	<script>
+		var typeProg = "<?php echo $type_prog?>";
 		$(document).ready(function(){
 			var val = "<?php echo $res ?>";
 	   		$("#country").empty().append(val);

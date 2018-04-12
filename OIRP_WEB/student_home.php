@@ -30,7 +30,7 @@
 		<!--HOVER LIST STARTO-->
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="#">Status <?php echo $status ?></a>
+			<a href="#">Status:<span style="color: red"> <?php if($status == 'Qualified'){echo $status; }?></span></a>
 			<a href="#">My Application</a>
 			<a href="#">Clients</a>
 			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>

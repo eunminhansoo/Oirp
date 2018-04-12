@@ -394,7 +394,7 @@
 									COURSE_4 = '$course4', 
 									COURSE_5 = '$course5',
 									TYPE_OF_PROGRAM = '$type_program',
-									TYPE_OF_PROGRAM_OTHER = ' ',
+									TYPE_OF_PROG_OTHER = ' ',
 									TYPE_OF_FORM = '$scholarship',
 									TYPE_OF_FORM_OTHER = '$scholarshipText',
 									SCHOLARSHIP_LOAN = ' ',
@@ -443,7 +443,7 @@
 										COURSE_4 = '$course4', 
 										COURSE_5 = '$course5',
 										TYPE_OF_PROGRAM = '$type_program',
-										TYPE_OF_PROGRAM_OTHER = ' ',
+										TYPE_OF_PROG_OTHER = ' ',
 										TYPE_OF_FORM = '$scholarship',
 										TYPE_OF_FORM_OTHER = ' ',
 										SCHOLARSHIP_LOAN = ' ',
@@ -520,8 +520,8 @@
 
 						if($query_db && $query_db1 && $checkQuery3)
 						{
+								header("Location: student_home.php");
 							//echo 'success';
-							header("Location: student_home.php");
 						}else{
 							//echo 'error';
 							header("Location: error_page.php");
