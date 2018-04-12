@@ -1,13 +1,14 @@
 <?php
     include 'database_connection.php';
 
-    $sel_query = "SELECT DISTICT FROM yearly ORDER BY COUNT ASC";
+    $sel_query = "SELECT yearly FROM yearly ORDER BY COUNT ASC";
     $sel_db = mysqli_query($conn, $sel_query);
 
-    // $res;
-    // while($row = mysqli_fetch_array($sel_db)){
-    //     $res .= "<option value='".$row["YEAR"]."'>".$row["YEAR"]."</option>";
-    // }
+    $res="";
+    while($row = mysqli_fetch_array($sel_db)){
+		$res .= "<option value='".$row["yearly"]."'>".$row["yearly"]."</option>";
+    }
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -95,13 +96,18 @@
 		</div>
 		<!--NAV BART END-->
 
-        <div class="dropdown col-xs-offset-11">
-            <select name="year" id="year"></select>
+        <div class="col-xs-offset-10">
+            <select name="year" id="year" class="form-control"></select>
         </div>
+        <div class="col-xs-2"></div>
         <div class="container" id="container" style="width:100%; height:400px;"></div>
 
         <script type="text/javascript">
             $(document).ready(function(){
+				var year = "<?php echo $res?>";
+				$("#year").empty().append(year);
+
+
                 var data;
                 var options ={
                 chart: {
