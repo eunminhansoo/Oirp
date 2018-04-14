@@ -73,11 +73,13 @@ while ($row = $result->fetch_array()){
 }
 
 //proposed_field_study 
-$sql = "select proposed_prog,course_1,course_2,course_3,course_4,course_5,SCHOLARSHIP_LOAN_OTHER,SCHOLARSHIP_LOAN_OTHER1,type_of_program from proposed_field_study where student_id = '".$studentno."'";
+$sql = "select proposed_prog,course_1,course_2,course_3,course_4,course_5,SCHOLARSHIP_LOAN_OTHER,SCHOLARSHIP_LOAN_OTHER1,type_of_form from proposed_field_study where student_id = '".$studentno."'";
 $result = $conn->query($sql);
+
 
 while($row = $result->fetch_array()){
 	$proposed_prog = $row['proposed_prog'];
+	$application_form = $row['type_of_form'];
 	$course_1 = $row['course_1'];
 	$course_2 = $row['course_2'];
 	$course_3 = $row['course_3'];
@@ -85,7 +87,7 @@ while($row = $result->fetch_array()){
 	$course_5 = $row['course_5'];
 	$scholarship_outbound = $row['SCHOLARSHIP_LOAN_OTHER'];
 	$scholarship_text_outbound = $row['SCHOLARSHIP_LOAN_OTHER1'];
-	$application_form = $row['type_of_program'];
+	
 }
 
 
@@ -99,11 +101,6 @@ function Header()
     // Images
     $this->Image('../img/line.png', 60,33,150,8);
     $this->Image('../img/triangle1.png', 8,5,90,36);
-    if ($application_form=="SHARE"){
-    	$this->Image('../img/SHARE.png',12,15,45);
-    } else if ($application_form=="AIMS"){
-    	$this->Image('../img/AIMS.jpg',15,15,50);
-    }
     $this->Image('../img/ust.jpg', 185,5,25);
     
     //UST
@@ -144,6 +141,11 @@ $pdf = new PDF('P','mm','A4');
 $pdf->AddPage();
 
 //content
+if ($application_form=="SHARE"){
+	$pdf->Image('../img/SHARE.png',12,15,45);
+} else if ($application_form=="AIMS"){
+	$pdf->Image('../img/AIMS.jpg',15,15,50);
+}
 
 //2x2 pic
 $pdf->Rect(155,45,50.8,50.8);

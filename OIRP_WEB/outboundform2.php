@@ -61,7 +61,7 @@
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="fEmail" id="fEmail" class="form-control" value="<?php echo $getSel_EMAIL_ADD_DADA_OUT?>">
+							<input type="email" name="fEmail" id="fEmail" class="form-control" maxlength="50" value="<?php echo $getSel_EMAIL_ADD_DADA_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -108,7 +108,7 @@
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="mEmail" id="mEmail" class="form-control" value="<?php echo $getSel_EMAIL_ADD_MOM_OUT?>">
+							<input type="email" name="mEmail" id="mEmail" class="form-control" maxlength="50" value="<?php echo $getSel_EMAIL_ADD_MOM_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
