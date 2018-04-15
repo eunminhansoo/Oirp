@@ -84,6 +84,22 @@
 					</div>
 							
 					<div class="appietxt1">
+					<div style="margin-left: 15px; margin-top: 25px;">
+						<?php 
+							if($pagination == 'submited'){
+								if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
+									echo '<span><a href="pdf/outboundBilateral.php">Open PDF form</a></span>';
+								} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
+									echo '<span><a href="pdf/outbound.php">Open PDF form</a> </span>';
+								} elseif($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
+									echo '<span ><a href="pdf/inboundBilateral.php">Open PDF form</a></span>';
+								} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
+									echo '<span><a href="pdf/inbound.php">Open PDF form</a> </span>';
+								}
+							}
+						?>
+						
+					</div>
 						<a class="btn btn-secondary" id="btnClicksu">
 							<?php
 								if($pagination == 'inbound page 1'){
@@ -114,19 +130,7 @@
 							<!--<span>Upload Application form </span>-->
 							<!--<span class="caf"> Continue Application form</span>-->
 						</a>
-						<?php 
-						if($pagination == 'submited'){
-							if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
-								echo '<span><a href="pdf/outboundBilateral.php">Open PDF form</a></span>';
-							} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
-								echo '<span><a href="pdf/outbound.php">Open PDF form</a> </span>';
-							} elseif($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
-								echo '<span ><a href="pdf/inboundBilateral.php">Open PDF form</a></span>';
-							} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
-								echo '<span><a href="pdf/inbound.php">Open PDF form</a> </span>';
-							}
-						}
-						?>
+						
 					</div>
 				</div>
 			</div>
@@ -157,7 +161,7 @@
 	<div class="col-sm-6">
 		<div class="container-fluid boxxes">
 			<div class="col-sm-12" style="padding-top: 5px; padding-bottom: 5px;">
-				<p><h2>INSTRUCTIONS</h2><p>
+				<p><h2>GUIDE</h2><p>
 		
 				<p>1. Go to My Application and fill out the online form. If you are unable to finish the form, you may save it and work on it on your on time.</p>
 				<p>2. Once submitted, a PDF form will be generated which needs to be signed by the parties mentioned. Upload the form once the signatories are complete.</p>
@@ -203,6 +207,7 @@
 			});
 		});
 	</script>
+	</div>
 	</body>
 	<script src="bootstrap-3.3.7-dist/js/jquery-1.11.0.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.superslides.min.js"></script>
