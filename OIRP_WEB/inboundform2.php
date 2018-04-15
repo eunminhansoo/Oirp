@@ -10,8 +10,6 @@
 		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
 	}
 	
-	echo $res;
-	
 ?>
 
 <!DOCTYPE html>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2018 at 06:37 AM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Apr 15, 2018 at 07:34 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `oirp_db`
@@ -26,10 +26,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `yearly`
 --
 
-CREATE TABLE IF NOT EXISTS `yearly` (
-`COUNT` int(11) NOT NULL,
+CREATE TABLE `yearly` (
+  `COUNT` int(11) NOT NULL,
   `YEARLY` varchar(500) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `yearly`
@@ -49,7 +49,7 @@ INSERT INTO `yearly` (`COUNT`, `YEARLY`) VALUES
 -- Indexes for table `yearly`
 --
 ALTER TABLE `yearly`
- ADD PRIMARY KEY (`COUNT`);
+  ADD PRIMARY KEY (`COUNT`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -59,7 +59,7 @@ ALTER TABLE `yearly`
 -- AUTO_INCREMENT for table `yearly`
 --
 ALTER TABLE `yearly`
-MODIFY `COUNT` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,25 +1,40 @@
 <?php
     include 'database_connection.php';
-
+    // include 'graph_button.php';
     $sel_query = "SELECT yearly FROM yearly ORDER BY COUNT ASC";
     $sel_db = mysqli_query($conn, $sel_query);
 
     $res="";
     while($row = mysqli_fetch_array($sel_db)){
-		$res .= "<option value='".$row["yearly"]."'>".$row["yearly"]."</option>";
+         $setYear = $row["yearly"];
+        $res .="<button type'submit' class='btn btn-secondary bbtn col-xs-12' id='".$setYear."'value='".$setYear."'name='".$setYear."'>".$setYear."</button>";
     }
-    
+     session_start();
+     $get_year = $_SESSION['$set_yearly1'];
+
+    $sele_query = "SELECT * FROM yearly";
+     $sele_db = mysqli_query($conn, $sele_query);
+
+     while($rows = mysqli_fetch_array($sele_db)){
+        $yearlyy = $rows['YEARLY'];
+        if(isset($_POST[$yearlyy])){
+            $get_year = $_POST[$yearlyy];
+           
+            $_SESSION['$set_yearly'] = $get_year;
+        }
+     }
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Highcharts using mysql php- parsing JSON data</title>
-        <script
+        <title></title>
+        <!--<script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>-->
         <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
         <meta charset="utf-8">
@@ -28,9 +43,55 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
+    <style>
+        /*DROPDOWN DESIGN*/
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content button {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown button:hover {background-color: #ddd}
+
+        .show {display:block;}
+
+        .bbtn{
+            padding: 0;
+            border: none;
+            background: none;
+        }
+    </style>
     <body>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
@@ -95,20 +156,30 @@
 			</div>
 		</div>
 		<!--NAV BART END-->
+        <div>
+            <div class="dropdown col-xs-5">
+                <button onclick="myFunction()" class="dropbtn">Data Year</button>
+                <form method="post">
+                    <div id="myDropdown" class="dropdown-content">
 
-        <div class="col-xs-offset-10">
-            <select name="year" id="year" class="form-control"></select>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-3">
+                <span>Outbound Student <?php echo $get_year?></span>
+            </div>
         </div>
-        <div class="col-xs-2"></div>
+
         <div class="container" id="container" style="width:100%; height:400px;"></div>
 
         <script type="text/javascript">
             $(document).ready(function(){
+                
 				var year = "<?php echo $res?>";
-				$("#year").empty().append(year);
-
+				$("#myDropdown").empty().append(year);
 
                 var data;
+                var getYear;
                 var options ={
                 chart: {
                         plotBackgroundColor: null,
@@ -119,7 +190,7 @@
 
                 },
                 title: {
-                    text: 'Outbound Student 2015'
+                    text: ' '
                 },
                 tooltip: {
                     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -142,6 +213,25 @@
                 var chart = new Highcharts.Chart(options);
                 });
             });
+
+            function myFunction() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+                }
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                    if (!event.target.matches('.dropbtn')) {
+
+                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                        var i;
+                        for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                        }
+                    }
+                }
         </script>
     </body>
     <script src="bootstrap-3.3.7-dist/js/jquery-1.11.0.min.js"></script>

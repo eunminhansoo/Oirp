@@ -1,10 +1,8 @@
 <?Php
-
-    // if(isset($_POST['']){
-
-    // }
     //   check out the php manual for more about this
     //   This is just for database connection 
+    // include 'graph_button.php';
+
     $dbhost = 'localhost';
     $dbname = 'oirp_db';  
     $dbuser = 'root';                  
@@ -20,13 +18,22 @@
         
         die($ex->getMessage());
     }
-     //from here we select the table and display records of table using while loop
-    $stmt=$dbcon->prepare("SELECT * FROM 2015_Previous_data");
+ 
+    session_start();
+    $get_year = '2015';
+    if(!empty($_SESSION['$set_yearly'])){
+        $get_year = $_SESSION['$set_yearly'];
+    }
+        $_SESSION['$set_yearly1'] = $get_year;
+
+    // //from here we select the table and display records of table using while loop
+    $stmt=$dbcon->prepare("SELECT * FROM total_data WHERE YEAR = '$get_year'");
     $stmt->execute();
     $json = [];
     while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
         $json[]= [(string)$COUNTRY, (int)$NUMBER_STUDENT];
+        $json1 = $get_year;
     }
     echo json_encode($json);
 ?>
