@@ -56,12 +56,12 @@
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
-							<p class="text_style" >Phone number or Mobile number</p>
-							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})"  maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>">
+							<p class="text_style" >ex: +63 2-406-1611 or +63 974-887-6512</p>
+							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="Phone number or Mobile number" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})"  maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="fEmail" id="fEmail" class="form-control" value="<?php echo $getSel_EMAIL_ADD_DADA_OUT?>">
+							<input type="email" name="fEmail" id="fEmail" class="form-control" maxlength="50" value="<?php echo $getSel_EMAIL_ADD_DADA_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -103,12 +103,12 @@
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
-							<p class="text_style" >Phone number or Mobile number</p>
-							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>">
+							<p class="text_style" >ex: +63 2-406-1611 or +63 974-887-6512</p>
+							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="Phone number or Mobile number" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="mEmail" id="mEmail" class="form-control" value="<?php echo $getSel_EMAIL_ADD_MOM_OUT?>">
+							<input type="email" name="mEmail" id="mEmail" class="form-control" maxlength="50" value="<?php echo $getSel_EMAIL_ADD_MOM_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -126,17 +126,17 @@
 					</div>
 					
 					
-					<div class="form-group row break col-xs-5">
+					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary" formaction="outboundform1.php">Previous</button>
 						</div>
 					</div>
-					<div class="form-group row break col-xs-5">
+					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
 							<input type="submit" name="btnSaveoutform2" class="btn btn-primary" value="Save">
 						</div>
 					</div>
-					<div class="form-group row break col-xs-3">
+					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
 							<input type="submit" name="btn_form2" class="btn btn-primary" value="Next">
 						</div>
@@ -145,7 +145,6 @@
 			</div>
 			</div>
 		</div>
-		<?php echo $getSel_ANNUAL_INCOME_DADA_OUT ?>
 	</body>
 </html>
 <script type="text/javascript">

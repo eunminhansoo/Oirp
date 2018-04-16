@@ -25,6 +25,21 @@ include 'database_connection.php';
 		}
 	}
 	
+	$type_of_program = "";
+	if ($application_prog == 'outbound'){
+		$sql_query = "select type_of_program from proposed_field_study where student_id = '$get_studentID'";
+		$db_query = mysqli_query($conn, $sql_query);
+		while($row = mysqli_fetch_array($db_query)){
+			$type_of_program = $row['type_of_program'];
+		}
+	} elseif ($application_prog == 'inbound'){
+		$sql_query = "select type_of_program from educ_background_inbound where student_id = '$get_studentID'";
+		$db_query = mysqli_query($conn, $sql_query);
+		while($row = mysqli_fetch_array($db_query)){
+			$type_of_program = $row['type_of_program'];
+		}
+	} 
+	
 	
 	if(isset($_POST['btn_submit']))
     {
@@ -56,6 +71,7 @@ include 'database_connection.php';
 		 		'',
 		 		'$get_studentID'
 		 		)";
+		
 		
     	
     	// STUDENT_COUNT,
@@ -90,14 +106,18 @@ include 'database_connection.php';
     	if($query && $query1)
 			{
 				$sql_query1 = "UPDATE student SET
-				PAGINATION = 'Submitted PDF'
-				WHERE STUDENT_ID = '$get_studentID'
-				";
-				mysqli_query($conn, $sql_query1);
-				//echo "<meta http-equiv='refresh' content='0'>";
+					PAGINATION = 'Submitted PDF'
+					WHERE STUDENT_ID = '$get_studentID'
+					";
+					mysqli_query($conn, $sql_query1);
+					echo "<meta http-equiv='refresh' content='0'>";
+					
+
+				$sql_query2 = "UPDATE student set STATUS = 'Pending' where STUDENT_ID = '$get_studentID'";
+				mysqli_query($conn, $sql_query2);
+				
 				//header("Location: student_home.php");
-			}else{
-				//echo 'error';
+			} else{
 				header("Location: error_page.php");
 			}
 		

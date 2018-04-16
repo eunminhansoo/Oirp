@@ -41,7 +41,15 @@
 				mysqli_query($conn, $del_query);
 			}   
 		}
-	}        
+	}
+
+	$sql = "select college from colleges where id > 1 order by college asc";
+	$result = mysqli_query($conn, $sql);
+	
+	$col='';
+	while($row = mysqli_fetch_array($result)) {
+		$col .=  "<option value='".$row['college']."'>".$row['college']."</option>";
+	}
 
 ?>
 <html>
@@ -54,6 +62,9 @@
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	<body>
+		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		
 		<div class="container-fluid">
 			<div class="col-sm-7">
 				<?php 
@@ -61,7 +72,7 @@
 				?>
 			</div>
 			<div class="col-sm-5">
-				<p style="margin-top: 100px;"><h2>Basic Information</h2></p>
+				<p style="margin-top: 80px;"><h2>Basic Information</h2></p>
 					<?php
 						while($row = mysqli_fetch_array($queryBD)){
 							$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
@@ -133,10 +144,10 @@
 							<p>
 								<span><b>Status: </b></span>
 								<span>
-									<select name="status">
+									<select name="status" id="status" onChange="func(this);">
 										<option value="Pending">Pending</option>
 										<option value="Approved">Approved</option>
-										<option value="Denied">Denined</option>
+										<option value="Denied">Denied</option>
 										<option value="On-Going">On-going</option>
 										<option value="Completed">Completed</option>
 									</select>
@@ -145,18 +156,46 @@
 							<br>
 							<p>
 								<div class="col-xs-4">
-									<button type="submit" name="update_status" class="btn btn-primary" >CONFIRM</button>
+									<button type="submit" name="update_status" class="btn btn-primary" >Confirm</button>
 								</div>
 								<div class="col-xs-4">
 									<input type="submit" class="btn btn-primary" value="Back" />
 								</div>
-								
 							</p>
 						</form>
 					</div>
+					
+					<div id="send" class="col-sm-5">
+						<div class="container-fluid">
+							<div class="form-group row">
+								<br>
+								<p><span><b>College: </b></span></p>
+								<p><select name="college" id="college" size=15 multiple>
+								</select></p>
+							</div>	
+							<div class="form-group row">
+								<input type="submit" value="Send" class="btn btn-primary">
+							</div>
+						</div>
+					</div>
 				</div>
 	</body>
+	<script>
+		$(document).ready(function(){
+			var val = "<?php echo $col ?>";
+			$("#college").empty().append(val);
+
+			$("#send").hide();
+		});
+
+		function func(sel) {
+		    var stat = (sel.options[sel.selectedIndex]).text;
+
+		  	if(stat === 'Approved'){
+				$("#send").show();
+		  	} else{
+				$("#send").hide();
+		  	}
+		}
+	</script>
 </html>
-<?php
-	
-?>

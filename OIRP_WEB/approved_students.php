@@ -1,9 +1,11 @@
 <?php
 	include 'database_connection.php';
     //$sql_query = "SELECT * FROM student INNER JOIN educ_background_inbound ON student.STUDENT_ID = educ_background_inbound.STUDENT_ID";
-    $sql_query = "SELECT * FROM admin_college a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ";
+    $sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN proposed_field_study c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved'";
     $query = mysqli_query($conn, $sql_query);
 
+	$sql_query1 = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved'";
+    $query1 = mysqli_query($conn, $sql_query1);
 
 ?>
 
@@ -30,9 +32,7 @@
 		<!--HOVER LIST STARTO-->
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="#">Status <?php //echo $status ?></a>
-			<a href="#">My Application</a>
-			<a href="#">Clients</a>
+			<a href="graph.php">Statistics</a>
 			<a href="approved_students.php">Approved Students</a>
 			<a href="qualified_students.php">Qualified Students</a>
 			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
@@ -57,7 +57,7 @@
 								</div>
 								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 									<ul class="nav navbar-nav navbar-right" >
-										<li><a href="#upload">Home</a></li>
+										<li><a href="administrator.php">Home</a></li>
 										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
 										<li>
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -83,8 +83,9 @@
 		<!--NAV BART END-->
 		<form>
 			<div class="container">
-				<div class="">
-	                <h2>INBOUND</h2>
+				<h2>Approved Students</h2>
+				<div class="col-sm-6">
+	                <h2>OUTBOUND</h2>
 	                <div class="table-responsive">
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
 	                        <thead>
@@ -141,7 +142,70 @@
 	                    </table>
 	                </div>
 	            </div>
+				 <div class="col-sm-6">
+	                <h2>INBOUND</h2>
+	                <div class="table-responsive">
+	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
+	                        <thead>
+	                            <tr>
+	                                <th>Name</th>
+	                                <th>Application Program</th>
+	                                <th>Application Form</th>
+	                                <th>DATE SUBMITED</th>
+	                                <th>STATUS</th>
+	                                <th></th>
+	                            </tr>
+	                        </thead>
+	                        <tfoot>
+	                        	<tr>
+			                        <th><button type="submit" name="delete_inbound" class="btn btn-primary" >DELETE</button></th>
+		                        </tr>
+	                        </tfoot>
+	                        <tbody>
+	                            <?php while($row1 = mysqli_fetch_array($query1)){ 
+	                                $studentID = $row1['STUDENT_ID'];
+	                                $fullname = $row1['FAMILY_NAME'].", ".$row1['GIVEN_NAME']." ".$row1['MIDDLE_NAME'];
+	                                $ddate = $row1['DATE_ENROLL'];
+	                                $date = new DateTime($ddate);
+									$status = $row1['STATUS'];
+									$get_TYPE_OF_PROGRAM = $row1['TYPE_OF_PROGRAM'];
+									$get_TYPE_OF_FORM = $row1['TYPE_OF_FORM'];
+			                        $resultdate = $date->format('F j, Y,');
+	                            ?>
+	                            <tfoot>
+	                            <tr>
+	                                <td><?php echo "<a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
+									<?php
+										if($get_TYPE_OF_PROGRAM == 'Others'){
+											echo "<td>Bilateral</td>";
+											echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
+										}else{
+											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+											if($get_TYPE_OF_FORM == 'OTHERS'){
+												echo "<td>".$row1['TYPE_OF_FORM_OTHER']."</td>";
+											}else{
+												echo "<td>".$get_TYPE_OF_FORM."</td>";
+											}
+										}
+									?>
+	                                <!--<td><?php //echo $row['TYPE_OF_PROGRAM']; ?></td>
+	                                <td><?php //echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>-->
+									<td><?php echo $resultdate ?></td>
+	                                <td><?php echo $status?></td>
+	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentID ?>"></td>
+	                            </tr>
+	                        <?php } ?>
+	                        </tfoot> 
+	                        </tbody>
+	                    </table>
+	                </div>
+	            </div>
 			</div>
 		</form>
     </body>
+	<script src="bootstrap-3.3.7-dist/js/jquery-1.11.0.min.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/jquery.superslides.min.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
 </html>

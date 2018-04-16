@@ -41,7 +41,7 @@ while ($row = $result->fetch_array()){
 }
 
 //educ_background_inbound
-$sql = "select home_univ_in_bila,current_prog_study_in_bila,specialization_in_bila,year_level,scholarship_loan_other,SCHOLARSHIP_LOAN_OTHER1,type_of_program from educ_background_inbound where student_id = '".$studentno."'";
+$sql = "select home_univ_in_bila,current_prog_study_in_bila,specialization_in_bila,year_level,scholarship_loan_other,SCHOLARSHIP_LOAN_OTHER1,type_of_form from educ_background_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
@@ -51,7 +51,7 @@ while ($row = $result->fetch_array()){
 	$year_level = $row['year_level'];
 	$scholarship_in_bila = $row['SCHOLARSHIP_LOAN_OTHER'];
 	$scholarship_text_in_bila = $row['SCHOLARSHIP_LOAN_OTHER1'];
-	$application_form = $row['type_of_program'];
+	$application_form = $row['type_of_form'];
 }
 
 //proposed_field_study_in_bila
@@ -100,12 +100,6 @@ function Header()
     // Images
     $this->Image('../img/line.png', 7,32,150,8);
     $this->Image('../img/triangle2.png',117,5,90,35);
-    if ($scholarship_in_bila=="AIMS"){
-    	$this->Image('../img/AIMS.jpg',150,12,45);
-    } 
-    else if ($scholarship_in_bila=="SHARE"){
-    	$this->Image('../img/SHARE.png',150,12,45);
-    }
     $this->Image('../img/ust.jpg', 7,5,25);
     
     //UST
@@ -148,6 +142,12 @@ $pdf = new PDF('P','mm','A4');
 $pdf->AddPage();
 
 //content
+if ($application_form=="AIMS"){
+	$pdf->Image('../img/AIMS.jpg',150,12,45);
+}
+else if ($application_form=="SHARE"){
+	$pdf->Image('../img/SHARE.png',150,12,45);
+}
 
 //2x2 pic
 $pdf->Rect(155,43,50.8,50.8);

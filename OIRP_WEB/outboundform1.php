@@ -70,13 +70,13 @@
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
-							<p>country code - area code - telephone number </p>
-							<input type="text" name="telephone" id="telephone" class="form-control" placeholder="ex: +63 2-406-1611" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 value="<?php echo $setSel_TELEPHONE_NUM_OUT?>" required>
+							<p>ex: +63 2-406-1611</p>
+							<input type="text" name="telephone" id="telephone" class="form-control" placeholder="country code - area code - telephone number" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 value="<?php echo $setSel_TELEPHONE_NUM_OUT?>" required>
 						</div>
 						<div class="col-sm-5">
 							<label>Mobile Number</label>
-							<p>(country code) telephone number</p>
-							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: +63 974-887-6512" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=40 value="<?php echo $setSel_MOBILE_NUM_OUT?>" required>
+							<p>ex: +63 974-887-6512</p>
+							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="country code - telephone number" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=40 value="<?php echo $setSel_MOBILE_NUM_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row break">

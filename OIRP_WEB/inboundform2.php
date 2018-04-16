@@ -235,17 +235,17 @@
 						</div>	
 					</div>				
 					
-					<div class="form-group row break col-xs-5">
+					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary" formaction="inboundform1.php">Previous</button>
 						</div>
 					</div>
-					<div class="form-group row break col-xs-5">
+					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
 							<input type="submit" name="btnSaveinform2" class="btn btn-primary" value="Save">
 						</div>
 					</div>
-					<div class="form-group row break col-xs-3">
+					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
 							<input type="submit" name="btn_inform2" class="btn btn-primary" value="Next">
 						</div>

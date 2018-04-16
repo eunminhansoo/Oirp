@@ -30,7 +30,7 @@
 		<!--HOVER LIST STARTO-->
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="#">Status <?php echo $status ?></a>
+			<a href="#">Status:<span style="color: red"> <?php if($status == 'Qualified'){echo $status; }?></span></a>
 			<a href="#">My Application</a>
 			<a href="#">Clients</a>
 			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
@@ -84,6 +84,22 @@
 					</div>
 							
 					<div class="appietxt1">
+					<div style="margin-left: 15px; margin-top: 25px;">
+						<?php 
+							if($pagination == 'submited'){
+								if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
+									echo '<span><a href="pdf/outboundBilateral.php">Open PDF form</a></span>';
+								} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
+									echo '<span><a href="pdf/outbound.php">Open PDF form</a> </span>';
+								} elseif($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
+									echo '<span ><a href="pdf/inboundBilateral.php">Open PDF form</a></span>';
+								} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
+									echo '<span><a href="pdf/inbound.php">Open PDF form</a> </span>';
+								}
+							}
+						?>
+						
+					</div>
 						<a class="btn btn-secondary" id="btnClicksu">
 							<?php
 								if($pagination == 'inbound page 1'){
@@ -102,9 +118,9 @@
 								}else if($pagination == 'outbound page 2'){
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'outbound page 3'){
-									echo '<span class="caf"> Continue Application form</span>';
+									echo '<span class="caf"> Continue Application form</spapan>';
 								}else if($pagination == 'submited'){
-									echo '<span>Upload Application form </span>';
+									echo '<br><span>Upload Application form </span>';
 								}else{
 									if($pagination == 'Submitted PDF'){
 										echo '<span>Wait for Confirmation</span>';
@@ -114,6 +130,7 @@
 							<!--<span>Upload Application form </span>-->
 							<!--<span class="caf"> Continue Application form</span>-->
 						</a>
+						
 					</div>
 				</div>
 			</div>
@@ -129,7 +146,7 @@
 						</div>
 						<br>
 						<div class="form-group" style="padding-top: 20px;">
-							<input type="file" name="pdfScan" id="pdfscan" class="form-control-file" disabled>
+							<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" disabled>
 						</div>
 						<div class="">
 							<button type="submit" name="btn_submit" class="btn">Submit</button>
@@ -144,7 +161,7 @@
 	<div class="col-sm-6">
 		<div class="container-fluid boxxes">
 			<div class="col-sm-12" style="padding-top: 5px; padding-bottom: 5px;">
-				<p><h2>INSTRUCTIONS</h2><p>
+				<p><h2>GUIDE</h2><p>
 		
 				<p>1. Go to My Application and fill out the online form. If you are unable to finish the form, you may save it and work on it on your on time.</p>
 				<p>2. Once submitted, a PDF form will be generated which needs to be signed by the parties mentioned. Upload the form once the signatories are complete.</p>
@@ -190,11 +207,12 @@
 			});
 		});
 	</script>
+	</div>
 	</body>
 	<script src="bootstrap-3.3.7-dist/js/jquery-1.11.0.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.superslides.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
-	
+
 </html>
