@@ -19,7 +19,6 @@
         $yearlyy = $rows['YEARLY'];
         if(isset($_POST[$yearlyy])){
             $get_year = $_POST[$yearlyy];
-           
             $_SESSION['$set_yearly'] = $get_year;
         }
      }
@@ -166,7 +165,7 @@
                 </form>
             </div>
             <div class="col-xs-3">
-                <span>Outbound Student <?php echo $get_year?></span>
+                <span><b><h3>Outbound Student <?php echo $get_year?></h3></b></span>
             </div>
         </div>
 
@@ -200,9 +199,12 @@
                         allowPointSelect: true,
                         cursor: 'pointer',
                         dataLabels: {
-                            enabled: false
-                        },
-                        showInLegend: true
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
                     }
                 },
                 series: [{

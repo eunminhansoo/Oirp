@@ -81,6 +81,7 @@
 		<!--NAV BART END-->
 		<form>
 			<div class="container">
+				<h1>Qualified Students</h1>
 				<div class="">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
