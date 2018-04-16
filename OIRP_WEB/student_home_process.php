@@ -71,6 +71,18 @@ include 'database_connection.php';
     	// '$pdfScan'
     	// )";
     	
+		//insert to comment
+		$query_notification = "INSERT INTO notification(STUDENT_COUNT,
+		STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		COMMENT_STATUS) VALUES ('',
+		'$get_studentID',
+		'$familyName',
+		'$givenName',
+		'')";
+		
+    	$comment = mysqli_query($conn, $query_notification);
     	$query = mysqli_query($conn, $query_db);
     	$query1 = mysqli_query($conn, $query_db1);
     
@@ -82,7 +94,7 @@ include 'database_connection.php';
 				WHERE STUDENT_ID = '$get_studentID'
 				";
 				mysqli_query($conn, $sql_query1);
-				echo "<meta http-equiv='refresh' content='0'>";
+				//echo "<meta http-equiv='refresh' content='0'>";
 				//header("Location: student_home.php");
 			}else{
 				//echo 'error';
