@@ -90,8 +90,6 @@ while($row = $result->fetch_array()){
 	
 }
 
-$application_form = "UMAP";
-
 
 class PDF extends FPDF
 {
