@@ -158,10 +158,26 @@
 							<a class="btn btn-secondary" id="toggelexus"><span class="glyphicon glyphicon-remove"></span></a>
 						</div>
 						<br>
-						<div class="form-group" style="padding-top: 20px;">
-							<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" disabled>
+						<div id="fileType">
+							<div class="form-group" style="padding-top: 20px;">
+								<div class="col-xs-4">
+									<span>Upload PDF:</span>
+								</div>
+								<div class="col-xs-4">
+									<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" disabled>
+								</div>
+							</div>
+							<br>
+							<div class="form-group" style="padding-top: 20px;">
+								<div class="col-xs-4">
+									<span>Upload Transcript:</span>
+								</div>
+								<div class="col-xs-4">
+									<input type="file" name="TAscan" id="taScan" class="custom-file-input form-control-file" disabled/>
+								</div>
+							</div>
 						</div>
-						<div class="">
+						<div class="col-xs-12">
 							<button type="submit" name="btn_submit" class="btn">Submit</button>
 						</div>
 					</div>
@@ -211,12 +227,14 @@
 					if(page == "submited"){
 						$('#uploadbox').show();
 						$('#pdfscan').prop('disabled', false);
+						$('#taScan').prop('disabled', false);
 					}
 				}
 			});
 			$('#toggelexus').click(function(){
 				$('#uploadbox').hide();
 				$('#pdfscan').prop('disabled', true);
+				$('#taScan').prop('disabled', true);
 			});
 		});
 	</script>
