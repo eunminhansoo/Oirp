@@ -31,8 +31,21 @@
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
 			<a href="#">Status:<span style="color: red"> <?php if($status == 'Qualified'){echo $status; }?></span></a>
-			<a href="#">My Application</a>
-			<a href="#">Clients</a>
+			<?php 
+				if($pagination == 'submited'){
+					if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
+						echo '<a href="pdf/outboundBilateral.php">My Application</a>';
+					} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
+						echo '<a href="pdf/outbound.php">My Application</a>';
+					} else if($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
+						echo '<a href="pdf/inboundBilateral.php">My Application</a>';
+					} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
+						echo '<a href="pdf/inbound.php">My Application</a>';
+					}else{
+						echo '<a href="#">My Application</a>';
+					}
+				}
+			?>
 			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
 		</div>
 		<!--HOVER LIST ENDOO-->

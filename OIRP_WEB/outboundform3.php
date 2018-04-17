@@ -67,13 +67,13 @@
 							<div class="col-sm-2">
 								<label>Bilateral Options:</label>
 							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="1 Year" id="1year" disabled> 1 Year
+							<div class="col-sm-2">
+								<input type="radio" name="bilateral" value="1Year" id="1year" disabled> 1 Year
 							</div>
-							<div class="col-sm-1">
+							<div class="col-sm-2">
 								<input type="radio" name="bilateral" value="1 Sem" id="1sem" disabled> 1 Sem
 							</div>
-							<div class="col-sm-1">
+							<div class="col-sm-3">
 								<input type="radio" name="bilateral" value="Short Study Abroad" id="shortStudy" disabled> Short Study Abroad
 							</div>
 							<div class="col-sm-1">
