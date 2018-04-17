@@ -227,7 +227,7 @@
 					<div class="form-group row">
 						<div class="col-sm-6">
 							<label>Email Address</label>
-							<input type="email" name="emailO" id="emailO" class="form-control" required value="<?php echo $getSel_EMAIL_ADD_IN_BILA?>">
+							<input type="email" name="emailO" id="emailO" class="form-control" required value="<?php echo $getSel_EMAIL_ADD_IN_BILA_OFFIC?>">
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
