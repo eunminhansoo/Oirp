@@ -90,6 +90,8 @@ while($row = $result->fetch_array()){
 	
 }
 
+$application_form = "UMAP";
+
 
 class PDF extends FPDF
 {
@@ -141,10 +143,13 @@ $pdf = new PDF('P','mm','A4');
 $pdf->AddPage();
 
 //content
+
 if ($application_form=="SHARE"){
 	$pdf->Image('../img/SHARE.png',12,15,45);
 } else if ($application_form=="AIMS"){
 	$pdf->Image('../img/AIMS.jpg',15,15,50);
+} else if ($application_form=="UMAP"){
+	$pdf->Image('../img/UMAP.png',15,15,60);
 }
 
 //2x2 pic
@@ -256,8 +261,21 @@ $pdf->Cell(80,7,$email_add_mom_out,'B',1);
 $pdf->Cell(40,7,'ANNUAL INCOME','BR',0);
 $pdf->Cell(155,7,$annual_income_mom_out,'B',1);
 
-$pdf->Cell(195,7,'','',1);
-$pdf->Cell(195,7,'','',1);
+//$pdf->Cell(195,7,'','',1);
+//$pdf->Cell(195,7,'','',1);
+
+//new page
+$pdf->AddPage();
+
+if ($application_form=="AIMS"){
+	$pdf->Image('../img/AIMS.jpg',12,12,45);
+}
+else if ($application_form=="SHARE"){
+	$pdf->Image('../img/SHARE.png',15,12,50);
+}
+else if ($application_form=="UMAP"){
+	$pdf->Image('../img/UMAP.png',15,12,60);
+}
 
 //Courses/Program
 $pdf->SetFont('Arial','B',9);

@@ -13,6 +13,8 @@
     $queryBD = mysqli_query($conn, $query);
     $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
     $queryCU = mysqli_query($conn, $query1);   
+	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
+    $queryPF = mysqli_query($conn, $query2);
 
 	if(isset($_POST['update_status'])){
 		$status = $_POST['status']; 
@@ -124,66 +126,104 @@
 					<p>
 						<span> <b>Home University: </b></span> <span> <?php echo $university?></span> 
 					</p>
-				<!--<div class="table-responsive">
-					<table class="table table-striped table-bordered table-hover" >
-								
-							
-						<tr>
-							<td><h3>FullName:</h3><td>            
-							<td><?php //echo $fullname ?></td><br>
-							<td><h3>Application:</h3><td><br>
-							<td><?php //echo $application_prog ?></td>
-							<td><h3>Country:</h3><td>            
-							<td><?php //echo $country ?></td><br>
-							<td><h3>University:</h3><td><br>
-							<td><?php //echo $university ?></td> 
-						</tr>
-					</table>
-					<div-->
-						<form method="post">
-							<p>
-								<span><b>Status: </b></span>
-								<span>
-									<select name="status" id="status" onChange="func(this);">
-										<option value="Pending">Pending</option>
-										<option value="Approved">Approved</option>
-										<option value="Denied">Denied</option>
-										<option value="On-Going">On-going</option>
-										<option value="Completed">Completed</option>
-									</select>
-								</span>
-							</p>
+					<form method="post">
+						<p>
+							<span><b>Status: </b></span>
+							<span>
+								<select name="status" id="status" onChange="func(this);">
+									<option value="Pending">Pending</option>
+									<option value="Approved">Approved</option>
+									<option value="Denied">Denied</option>
+									<option value="On-Going">On-going</option>
+									<option value="Completed">Completed</option>
+								</select>
+							</span>
+						</p>
+						<br>
+						<p>
+							<div id="conf" class="col-xs-4">
+								<button type="submit" name="update_status" class="btn btn-primary" >Confirm</button>
+							</div>
+							<div id="backuu" class="col-xs-4">
+								<input type="submit" class="btn btn-primary" value="Back" />
+							</div>
+						</p>
+					</form>
+				</div>
+				<?php
+					while($pf_row = mysqli_fetch_array($queryPF)){
+						$pf_COURSE_1_INBOUND = $pf_row['COURSE_1_INBOUND'];
+						$pf_COURSE_2_INBOUND = $pf_row['COURSE_2_INBOUND'];
+						$pf_COURSE_3_INBOUND = $pf_row['COURSE_3_INBOUND'];
+						$pf_COURSE_4_INBOUND = $pf_row['COURSE_4_INBOUND'];
+						$pf_COURSE_5_INBOUND = $pf_row['COURSE_5_INBOUND'];
+					}
+				?>
+				<div id="send" class="col-sm-5">
+					<div class="container-fluid">
+						<div class="form-group row">
 							<br>
+							<p><span><b>College: </b></span></p>
+							<p><select name="college" id="college" size=15 multiple>
+							</select></p>
+						</div>	
+						<div class="form-group row">
+							<input type="submit" value="Send" class="btn btn-primary">
+						</div>
+						<!--<div>
 							<p>
-								<div class="col-xs-4">
-									<button type="submit" name="update_status" class="btn btn-primary" >Confirm</button>
-								</div>
-								<div class="col-xs-4">
-									<input type="submit" class="btn btn-primary" value="Back" />
-								</div>
+								<b><span>Course 1: </span></b><span><?php echo $pf_COURSE_1_INBOUND?></span>
 							</p>
-						</form>
-					</div>
-					
-					<div id="send" class="col-sm-5">
-						<div class="container-fluid">
-							<div class="form-group row">
-								<br>
-								<p><span><b>College: </b></span></p>
-								<p><select name="college" id="college" size=15 multiple>
-								</select></p>
-							</div>	
-							<div class="form-group row">
-								<input type="submit" value="Send" class="btn btn-primary">
+							<div class="">
+								<select name="course1" id="college">
+
+								</select>
 							</div>
 						</div>
+						<div>
+							<p>
+								<b><span>Course 2: </span></b><span><?php echo $pf_COURSE_2_INBOUND?></span>
+							</p>
+							<select name="course2" id="college1">
+
+							</select>
+						</div>
+						<div>
+							<p>
+								<b><span>Course 3: </span></b><span><?php echo $pf_COURSE_3_INBOUND?></span>
+							</p>
+							<select name="course3" id="college2">
+
+							</select>
+						</div>
+						<div>
+							<p>
+								<b><span>Course 4: </span></b><span><?php echo $pf_COURSE_4_INBOUND?></span>
+							</p>
+							<select name="course4" id="college3">
+
+							</select>
+						</div>
+						<div>
+							<p>
+								<b><span>Course 5: </span></b><span><?php echo $pf_COURSE_5_INBOUND?></span>
+							</p>
+							<select name="course5" id="college4">
+
+							</select>
+						</div>-->
 					</div>
 				</div>
+			</div>
 	</body>
 	<script>
 		$(document).ready(function(){
 			var val = "<?php echo $col ?>";
 			$("#college").empty().append(val);
+			$("#college1").empty().append(val);
+			$("#college2").empty().append(val);
+			$("#college3").empty().append(val);
+			$("#college4").empty().append(val);
 
 			$("#send").hide();
 		});
@@ -193,8 +233,12 @@
 
 		  	if(stat === 'Approved'){
 				$("#send").show();
+				$("#backuu").hide();
+				$("#conf").hide();
 		  	} else{
 				$("#send").hide();
+				$("#backuu").show();
+				$("#conf").show();
 		  	}
 		}
 	</script>

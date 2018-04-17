@@ -1,6 +1,5 @@
 <script>
 	$(document).ready(function(){
-
 		$("#scholarshipOptions").hide();
 		$("#bilateralOptions").hide();
 		$("#scholarloanrow").hide();
@@ -18,6 +17,8 @@
 			$("#shortStudy").prop('disabled', false);
 			$("#scholarloanYes").prop('disabled', false);
 			$("#scholarloanNo").prop('disabled', false);
+			$(':radio[name=scholarship]').prop('checked', false);
+			$(':radio[name=scholarloan1]').prop('checked', false);
 
 			$('#scholarloanYes').click(function(){
 				$("#scholarloanText").prop('disabled', false);
@@ -28,14 +29,25 @@
 			var radioscholarBilaOption = "<?php echo $getSel_SCHOLARSHIP_LOAN?>";
 			
 			if(radioscholarBilaOption){
-				$(':radio[name=scholarloan][value='+ radioscholarBila +']').prop('checked', true);
+				$(':radio[name=scholarloan][value='+ radioscholarBilaOption +']').prop('checked', true);
+
 				if(document.getElementById('scholarloanYes').checked == true){
 					$("#scholarloanText").prop('disabled', false);
 				}
 			}
 
+			if(radioBilaOption == "1 Year"){
+				radioBilaOption = "1year";
+			}else if(radioBilaOption == "1 Sem"){
+				radioBilaOption = "1sem";
+			}else{
+				if(radioBilaOption == "Short Study Abroad"){
+					radioBilaOption = "shortStudy";
+				}
+			}
+
 			if(radioBilaOption){
-				$(':radio[name=bilateral][value'+radioBilaOption+']').prop('checked', true);
+				$(':radio[name=bilateral][id=1year]').prop('checked', true);
 			}
 			
 		});
@@ -49,6 +61,9 @@
 			$("#scholarshipAIMS").prop('disabled', false);
 			$("#scholarshipSHARE").prop('disabled', false);
 			$("#scholarshipOthers").prop('disabled', false);
+			$(':radio[name=scholarloan1]').prop('checked', false);
+			$(':radio[name=bilateral]').prop('checked', false);
+			$(':radio[name=scholarloan]').prop('checked', false);
 
 			$('#scholarshipOthers').click(function(){
         	    $('#scholarshipText').prop('disabled', false);
@@ -73,6 +88,9 @@
 			$("#scholarloanYes1").prop('disabled', false);
 			$("#scholarloanNo1").prop('disabled', false);
 			$('#scholarloanText1').prop('disabled', true);
+			$(':radio[name=scholarship]').prop('checked', false);
+			$(':radio[name=bilateral]').prop('checked', false);
+			$(':radio[name=scholarloan]').prop('checked', false);
 			
 			$('#scholarloanYes1').click(function(){
 				$("#scholarloanText1").prop('disabled', false);
@@ -114,6 +132,8 @@
 			$("#shortStudy").prop('disabled', false);
 			$("#scholarloanYes").prop('disabled', false);
 			$("#scholarloanNo").prop('disabled', false);
+			$(':radio[name=scholarship]').prop('checked', false);
+			$(':radio[name=scholarloan1]').prop('checked', false);
 
 			var radioBilaOption = "<?php echo $getSel_TYPE_OF_FORM?>";
 			var radioscholarBilaOption = "<?php echo $getSel_SCHOLARSHIP_LOAN?>";
@@ -125,9 +145,19 @@
 					$("#scholarloanText").prop('disabled', false);
 				}
 			}
+			
+			if(radioBilaOption == "1 Year"){
+				radioBilaOption = "1year";
+			}else if(radioBilaOption == "1 Sem"){
+				radioBilaOption = "1sem";
+			}else{
+				if(radioBilaOption == "Short Study Abroad"){
+					radioBilaOption = "shortStudy";
+				}
+			}
 
 			if(radioBilaOption){
-				$(':radio[name=bilateral][value'+ radioBilaOption +']').prop('checked', true);
+				$(':radio[name=bilateral][id=1year]').prop('checked', true);
 			}
 		}
 		
@@ -140,6 +170,9 @@
 			$("#scholarshipAIMS").prop('disabled', false);
 			$("#scholarshipSHARE").prop('disabled', false);
 			$("#scholarshipOthers").prop('disabled', false);
+			$(':radio[name=scholarloan1]').prop('checked', false);
+			$(':radio[name=bilateral]').prop('checked', false);
+			$(':radio[name=scholarloan]').prop('checked', false);
 
 			$('#scholarshipOthers').click(function(){
         	    $('#scholarshipText').prop('disabled', false);
@@ -163,6 +196,9 @@
         	$("#proText").prop('disabled', false);
 			$("#scholarloanYes1").prop('disabled', false);
 			$("#scholarloanNo1").prop('disabled', false);
+			$(':radio[name=scholarship]').prop('checked', false);
+			$(':radio[name=bilateral]').prop('checked', false);
+			$(':radio[name=scholarloan]').prop('checked', false);
 
 			$('#scholarloanYes1').click(function(){
 				$("#scholarloanText1").prop('disabled', false);

@@ -87,6 +87,18 @@ include 'database_connection.php';
     	// '$pdfScan'
     	// )";
     	
+		//insert to comment
+		$query_notification = "INSERT INTO notification(STUDENT_COUNT,
+		STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		COMMENT_STATUS) VALUES ('',
+		'$get_studentID',
+		'$familyName',
+		'$givenName',
+		'')";
+		
+    	$comment = mysqli_query($conn, $query_notification);
     	$query = mysqli_query($conn, $query_db);
     	$query1 = mysqli_query($conn, $query_db1);
     

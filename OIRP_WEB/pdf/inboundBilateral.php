@@ -63,12 +63,11 @@ while ($row = $result->fetch_array()){
 	$current_prog_study_in_bila = $row['current_prog_study_in_bila'];
 	$specialization_in_bila = $row['specialization_in_bila'];
 	$year_level = $row['year_level'];
-	$year_level = $row['year_level'];
 	$scholarship_in_bila = $row['SCHOLARSHIP_LOAN_OTHER'];
 	$scholarship_text_in_bila = $row['SCHOLARSHIP_LOAN_OTHER1'];
+	$application_form = $row['type_of_program'];
 	$name_officer_contact_in_bila = $row['name_officer_contact_in_bila'];
 	$designation_in_bila = $row['designation_in_bila'];
-
 }
 
 if($scholarship_text_in_bila==null){
@@ -77,7 +76,7 @@ if($scholarship_text_in_bila==null){
 	$scholar = $scholarship_text_in_bila;
 }
 
-if ($scholar==""){
+if ($scholar==" "||$scholar==null){
 	$scholar = "No";
 }
 
@@ -330,47 +329,47 @@ $pdf->Cell(25,6,'GOOD','',0,'C');
 $pdf->Cell(25,6,'EXCELLENT','',1,'C');
 
 $pdf->Cell(50,7,'Reading','',0,'R');
+$pdf->Cell(29,7,'','',0,'C');
+$pdf->Rect(80,66,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,62,3,3);
+$pdf->Rect(105,66,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,62,3,3);
-$pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,62,3,3);
+$pdf->Rect(130,66,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,62,3,3);
+$pdf->Rect(155,66,3,3);
 
 
 $pdf->Cell(50,7,'Writing','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,69,3,3);
+$pdf->Rect(80,73,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,69,3,3);
+$pdf->Rect(105,73,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,69,3,3);
+$pdf->Rect(130,73,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,69,3,3);
+$pdf->Rect(155,73,3,3);
 
 $pdf->Cell(50,7,'Speaking','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,76,3,3);
+$pdf->Rect(80,80,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,76,3,3);
+$pdf->Rect(105,80,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,76,3,3);
+$pdf->Rect(130,80,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,76,3,3);
+$pdf->Rect(155,80,3,3);
 
 $pdf->Cell(50,7,'Listening','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,84,3,3);
+$pdf->Rect(80,87,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,84,3,3);
+$pdf->Rect(105,87,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,84,3,3);
+$pdf->Rect(130,87,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,84,3,3);
+$pdf->Rect(155,87,3,3);
 
-$pdf->Cell(165,7,'','',1);
+$pdf->Cell(165,10,'','',1);
 
 $pdf->Cell(25,6,'','',0);
 $pdf->Cell(80,6,"Signature of your English teacher in Home University",'T',0,'C');
@@ -393,33 +392,10 @@ $pdf->Cell(85,7,'DO YOU HAVE ANY SERIOUS ILLNESS, CONDITIONS, OR ALLERGIES?','BR
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(110,7,$describe_ill_inbound,'B',1);
 
-//Airport Pickup
-$pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"VI. AIRPORT PICKUP (Airport pickup service is arranged only for a group consisting at least 10 or more students)",'TB',1);
-
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(45,7,'DATE AND TIME OF ARRIVAL','BR',0);
-$pdf->Cell(40,7,'','BR',0);
-$pdf->Cell(30,7,'FLIGHT NUMBER','BR',0);
-$pdf->Cell(40,7,'','BR',0);
-$pdf->Cell(30,7,'NAIA TERMINAL','BR',0);
-$pdf->Cell(10,7,'','B',1);
-
-//Insurance Information
-$pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"VII. INSURANCE INFORMATION",'TB',1);
-
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(50,7,"INSURANCE COMPANY'S NAME",'BR',0);
-$pdf->Cell(145,7,'','B',1);
-$pdf->Cell(30,7,'POLICY NUMBER','BR',0);
-$pdf->Cell(60,7,'','BR',0);
-$pdf->Cell(60,7,'AMOUNT OF COVERAGE IN US DOLLARS','BR',0);
-$pdf->Cell(45,7,'','B',1);
 
 //Accomodation Information
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"VIII. ACCOMMODATION INFORMATION",'TB',1);
+$pdf->Cell(195,7,"VI. ACCOMMODATION INFORMATION",'TB',1);
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(130,7,'DO YOU NEED ACCOMMODATION DURING THE PROGRAM? (SUBJECT TO AVAILABILITY)','BR',0);
 $pdf->SetFont('Arial','',8);
@@ -427,7 +403,7 @@ $pdf->Cell(65,7,$accomodation_inbound,'B',1);
 
 //Student's Signature
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"IX. STUDENT'S SIGNATURE",'TB',1);
+$pdf->Cell(195,7,"VII. STUDENT'S SIGNATURE",'TB',1);
 
 $pdf->SetFont('Arial','',9);
 $pdf->MultiCell(195,5,'I hereby apply for admission to study at University of Santo Tomas. I confirm that the information provided above is correct to the best of my knowledge.','',1);
@@ -440,7 +416,7 @@ $pdf->Cell(40,7,'Date','T',1,'C');
 
 //Home Institution Approval
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"X. HOME INSTITUTION APPROVAL",'TB',1);
+$pdf->Cell(195,7,"VIII. HOME INSTITUTION APPROVAL",'TB',1);
 
 $pdf->SetFont('Arial','',9);
 $pdf->MultiCell(195,5,'I certify that the above student has been approved for participation in the exchange program for the coming '.$intended_sem_study_inbound.'.','',1);
@@ -453,7 +429,7 @@ $pdf->Cell(40,7,'Date','T',1,'C');
 
 //Expectations
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(195,7,"XI. EXPECTATIONS FROM THE PROGRAM",'TB',1);
+$pdf->Cell(195,7,"IX. EXPECTATIONS FROM THE PROGRAM",'TB',1);
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(195,3,'','',1);
 $pdf->MultiCell(195,4,$expectation_prog,'',1);

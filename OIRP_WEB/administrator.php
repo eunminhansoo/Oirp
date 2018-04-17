@@ -51,11 +51,13 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
     <body>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		
 
 		<div class="">
 		<div class="header">
@@ -93,11 +95,14 @@
 										<li><a href="administrator.php">Home</a></li>
 										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
 										<li>
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<a href="#notifications-panel" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          									<i data-count="2" class="oi oi-bell notification-icon" aria-label="Nofitication centre"></i>
+        								</a>
+										<!--  	<a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
 												<span class="bordernavbar"></span>
 												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
 												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
-											</a>
+											</a> -->
 										</li>
 										<li>
 											<a href="#" class="btn btn-secondary" id="menu-toggle">
@@ -128,14 +133,9 @@
 	                                <th>Application Form</th>
 	                                <th>DATE SUBMITED</th>
 	                                <th>STATUS</th>
-	                                <th></th>
+	                                <th><button type="submit" name="delete_inbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
 	                        </thead>
-	                        <tfoot>
-	                        	<tr>
-			                        <th><button type="submit" name="delete_inbound" class="btn btn-primary" >DELETE</button></th>
-		                        </tr>
-	                        </tfoot>
 	                        <tbody>
 	                            <?php while($row = mysqli_fetch_array($query)){ 
 	                                $studentID = $row['STUDENT_ID'];
@@ -186,15 +186,9 @@
 	                                <th>Application Form</th>
 	                                <th>DATE SUBMITED</th>
 	                                <th>STATUS</th>
-	                                <th></th>
+	                                <th><button type="submit" name="delete_outbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
 	                        </thead>
-	                        <tfoot>
-	                        	<tr>
-			                        <th><button type="submit" name="delete_outbound" class="btn btn-primary" >DELETE</button></th>
-			                        
-		                        </tr>
-	                        </tfoot>
 	                        <tbody>
 	                            <?php while($row1 = mysqli_fetch_array($query1)){ 
 	                                $studentID1 = $row1['STUDENT_ID'];
