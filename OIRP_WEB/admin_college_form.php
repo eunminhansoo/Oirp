@@ -12,12 +12,26 @@
     $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
     $queryBD = mysqli_query($conn, $query);
     $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
-    $queryCU = mysqli_query($conn, $query1);   
+    $queryCU = mysqli_query($conn, $query1);  
+
+	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
+    $queryPF = mysqli_query($conn, $query2); 
 
 	if(isset($_POST['update_status'])){
 		$status = $_POST['status']; 
+		$course1 = $_POST['course1'];
+		$course2 = $_POST['course2'];
+		$course3 = $_POST['course3'];
+		$course4 = $_POST['course4'];
+		$course5 = $_POST['course5'];
 
-		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+		$query2 = "UPDATE student SET STATUS = '$status',
+		COURSE_1_INBOUND = '$course1',
+		COURSE_2_INBOUND = '$course2',
+		COURSE_3_INBOUND = '$course3',
+		COURSE_4_INBOUND = '$course4',
+		COURSE_5_INBOUND = '$course5'
+		WHERE STUDENT_ID = '$getStudentID'";
 		
 		$query_db = mysqli_query($conn, $query2);
 	}        
@@ -108,16 +122,55 @@
 				<div>
 					<form method="post">
 						<div>
-							<select name="status">
+							<!--<select name="status">
 								<option value="Qualified">Qualified</option>
 								<option value="Not-Qualified">Not-Qualified</option>
-							</select>
+							</select>-->
+							<div class="col-sm-3">
+								Qualified <input type="radio" name="status" id="qualified" value="Qualified"/>
+							</div>
+							<div class="col-sm-4">
+							Not-Qualified <input type="radio" name="status" id="notQualified" value="Not-Qualified"/>
+							</div>
 						</div>
-						<div class="col-xs-4">
-							<button type="submit" name="update_status" class="btn btn-primary" >CONFIRM</button>
+						<?php
+							while($row2 = mysqli_fetch_array($queryPF)){
+								$course1 = $row2['COURSE_1_INBOUND'];
+								$course2 = $row2['COURSE_2_INBOUND'];
+								$course3 = $row2['COURSE_3_INBOUND'];
+								$course4 = $row2['COURSE_4_INBOUND'];
+								$course5 = $row2['COURSE_5_INBOUND'];
+							}
+						?>
+						<div id="courses" class="col-xs-11">
+							<div>
+								<span><b>Course 1: </b></span><span><?php echo $course1 ?></span>
+								<input type="text" name="course1" id="course1" placeholder="Enter Designated College" />
+							</div>
+							<div>
+								<span><b>Course 2: </b></span><span><?php echo $course2 ?></span>
+								<input type="text" name="course2" id="course2" placeholder="Enter Designated College" />
+							</div>
+							<div>
+								<span><b>Course 3: </b></span><span><?php echo $course3 ?></span>
+								<input type="text" name="course3" id="course3" placeholder="Enter Designated College" />
+							</div>
+							<div>
+								<span><b>Course 4: </b></span><span><?php echo $course4 ?></span>
+								<input type="text" name="course4" id="course4" placeholder="Enter Designated College" />
+							</div>
+							<div>
+								<span><b>Course 5: </b></span><span><?php echo $course5 ?></span>
+								<input type="text" name="course5" id="course5" placeholder="Enter Designated College" />
+							</div>
 						</div>
-						<div class="col-xs-4">
-							<input type="submit" class="btn btn-primary" value="Back" />
+						<div class="col-xs-9">
+							<div class="col-xs-6">
+								<button type="submit" name="update_status" class="btn btn-primary" >CONFIRM</button>
+							</div>
+							<div class="col-xs-4">
+								<input type="submit" class="btn btn-primary" value="Back" formaction="administrator_college.php" />
+							</div>
 						</div>
 					</form>
 				</div>
