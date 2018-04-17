@@ -5,12 +5,17 @@
     $sel_db = mysqli_query($conn, $sel_query);
 
     $res="";
+    $get_year = "2015";
     while($row = mysqli_fetch_array($sel_db)){
          $setYear = $row["yearly"];
         $res .="<button type'submit' class='btn btn-secondary bbtn col-xs-12' id='".$setYear."'value='".$setYear."'name='".$setYear."'>".$setYear."</button>";
     }
      session_start();
-     $get_year = $_SESSION['$set_yearly1'];
+//      $get_year = $_SESSION['$set_yearly1'];
+     
+     if(!empty($_SESSION['$set_yearly1'])){
+     	$get_year = $_SESSION['$set_yearly1'];
+     }
 
     $sele_query = "SELECT * FROM yearly";
      $sele_db = mysqli_query($conn, $sele_query);
@@ -36,6 +41,10 @@
         <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/exporting.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/export-data.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/highcharts.js"></script>
+        
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
