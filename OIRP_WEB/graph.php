@@ -10,23 +10,21 @@
          $setYear = $row["yearly"];
         $res .="<button type'submit' class='btn btn-secondary bbtn col-xs-12' id='".$setYear."'value='".$setYear."'name='".$setYear."'>".$setYear."</button>";
     }
-     session_start();
-//      $get_year = $_SESSION['$set_yearly1'];
-     
-     if(!empty($_SESSION['$set_yearly1'])){
-     	$get_year = $_SESSION['$set_yearly1'];
-     }
+    session_start();
+    if(!empty($_SESSION['$set_yearly1'])){
+        $get_year = $_SESSION['$set_yearly1'];
+    }
 
     $sele_query = "SELECT * FROM yearly";
-     $sele_db = mysqli_query($conn, $sele_query);
+    $sele_db = mysqli_query($conn, $sele_query);
 
-     while($rows = mysqli_fetch_array($sele_db)){
+    while($rows = mysqli_fetch_array($sele_db)){
         $yearlyy = $rows['YEARLY'];
         if(isset($_POST[$yearlyy])){
             $get_year = $_POST[$yearlyy];
             $_SESSION['$set_yearly'] = $get_year;
         }
-     }
+    }
 
 ?>
 <!DOCTYPE html>
