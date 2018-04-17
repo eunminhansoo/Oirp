@@ -41,7 +41,7 @@ while ($row = $result->fetch_array()){
 }
 
 //educ_background_inbound
-$sql = "select home_univ_in_bila,current_prog_study_in_bila,specialization_in_bila,year_level,scholarship_loan_other,SCHOLARSHIP_LOAN_OTHER1,type_of_form from educ_background_inbound where student_id = '".$studentno."'";
+$sql = "select home_univ_in_bila,current_prog_study_in_bila,specialization_in_bila,year_level,SCHOLARSHIP_LOAN_OTHER,SCHOLARSHIP_LOAN_OTHER1,type_of_form,type_of_program from educ_background_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
@@ -52,6 +52,7 @@ while ($row = $result->fetch_array()){
 	$scholarship_in_bila = $row['SCHOLARSHIP_LOAN_OTHER'];
 	$scholarship_text_in_bila = $row['SCHOLARSHIP_LOAN_OTHER1'];
 	$application_form = $row['type_of_form'];
+	$type_of_program = $row['type_of_program'];
 }
 
 //proposed_field_study_in_bila
@@ -102,6 +103,7 @@ function Header()
     $this->Image('../img/triangle2.png',117,5,90,35);
     $this->Image('../img/ust.jpg', 7,5,25);
     
+    
     //UST
     $this->SetFont('Arial','B',20);
     $this->Cell(25,5,'');
@@ -146,7 +148,10 @@ if ($application_form=="AIMS"){
 	$pdf->Image('../img/AIMS.jpg',150,12,45);
 }
 else if ($application_form=="SHARE"){
-	$pdf->Image('../img/SHARE.png',150,12,45);
+	$pdf->Image('../img/SHARE.png',150,12,50);
+}
+else if ($application_form=="UMAP"){
+	$pdf->Image('../img/UMAP.png',150,12,60);
 }
 
 //2x2 pic
@@ -228,7 +233,20 @@ $pdf->Cell(145,7,'4. '.$course_4_inbound,'B',2);
 $pdf->Cell(145,7,'5. '.$course_5_inbound,'B',1);
 
 
-$pdf->Cell(195,50,'','',1);
+//$pdf->Cell(195,50,'','',1);
+
+//new page
+$pdf->AddPage();
+
+if ($application_form=="AIMS"){
+	$pdf->Image('../img/AIMS.jpg',150,12,45);
+}
+else if ($application_form=="SHARE"){
+	$pdf->Image('../img/SHARE.png',150,12,50);
+}
+else if ($application_form=="UMAP"){
+	$pdf->Image('../img/UMAP.png',150,12,60);
+}
 
 //English Proficiency
 $pdf->SetFont('Arial','B',9);
@@ -277,44 +295,44 @@ $pdf->Cell(25,7,'EXCELLENT','',1,'C');
 
 $pdf->Cell(50,7,'Reading','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,105,3,3);
+$pdf->Rect(80,109,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,105,3,3);
+$pdf->Rect(105,109,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,105,3,3);
+$pdf->Rect(130,109,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,105,3,3);
+$pdf->Rect(155,109,3,3);
 
 
 $pdf->Cell(50,7,'Writing','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,112,3,3);
+$pdf->Rect(80,116,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,112,3,3);
+$pdf->Rect(105,116,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,112,3,3);
+$pdf->Rect(130,116,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,112,3,3);
+$pdf->Rect(155,116,3,3);
 
 $pdf->Cell(50,7,'Speaking','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,119,3,3);
+$pdf->Rect(80,123,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,119,3,3);
+$pdf->Rect(105,123,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,119,3,3);
+$pdf->Rect(130,123,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,119,3,3);
+$pdf->Rect(155,123,3,3);
 
 $pdf->Cell(50,7,'Listening','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,126,3,3);
+$pdf->Rect(80,130,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,126,3,3);
+$pdf->Rect(105,130,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,126,3,3);
+$pdf->Rect(130,130,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,126,3,3);
+$pdf->Rect(155,130,3,3);
 
 $pdf->Cell(165,7,'','',1);
 
