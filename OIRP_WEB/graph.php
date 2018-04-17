@@ -39,6 +39,10 @@
         <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/exporting.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/export-data.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/highcharts.js"></script>
+        
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
