@@ -34,7 +34,7 @@
 			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
 					<li><a href="inboundform1.php">Personal Information</a></li>
-					<li><a href="inboundform2.php">Educational Backround</a></li>
+					<li class="active"><a href="inboundform2.php">Educational Backround</a></li>
 					<li><a href="inboundform3.php">Proposed Field of Study</a></li>
 					<li><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
 					<li><a href="inboundform5.php">Expectations from the Program</a></li>
@@ -216,7 +216,7 @@
 					</div>				
 					<div class="form-group row break">
 						<div class="col-sm-6">
-							<label>Officer to Contact</label>
+							<label>Person to Contact from International Office</label>
 							<input type="text" name="officer" id="officer" class="form-control" pattern="[^0-9<>].{1,20}" maxlength="60" required value="<?php echo $getSel_NAME_OFFICER_CONTACT_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
@@ -231,7 +231,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
-							<input type="text" name="numberO" id="numberO" class="form-control" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
+							<input type="text" name="numberO" id="numberO" class="form-control" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
 						</div>	
 					</div>				
 					

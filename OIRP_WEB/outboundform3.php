@@ -36,7 +36,7 @@
 				<ul class="nav nav-stacked">
 					<li><a href="outboundform1.php">Personal Information</a></li>
 					<li><a href="outboundform2.php">Guardian's Information</a></li>
-					<li><a href="outboundform3.php">Proposed Field of Study</a></li>
+					<li class="active"><a href="outboundform3.php">Proposed Field of Study</a></li>
 				</ul>
 			</nav>
 			
@@ -106,7 +106,7 @@
 					<div class="form-group row">
 						<div id="scholarloanrow">
 							<div class="col-sm-4">
-								<label>Are you a recipient of scholarship or loan?: </label>
+								<label>Are you a recipient of scholarship?: </label>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" id="scholarloanYes" value="Yes" disabled> Yes
@@ -128,7 +128,7 @@
 					<div class="form-group row">
 						<div id="scholarloanrow1">
 							<div class="col-sm-4">
-								<label>Are you a recipient of scholarship or loan?: </label>
+								<label>Are you a recipient of scholarship?: </label>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan1" id="scholarloanYes1" value="Yes" disabled> Yes

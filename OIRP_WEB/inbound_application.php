@@ -9,7 +9,6 @@
 			$query_select = "SELECT * FROM personal_info_inbound WHERE STUDENT_ID = '$getSes_studentID' ";
 			$get_select = mysqli_query($conn, $query_select);
 			while($row = mysqli_fetch_array($get_select)){
-				$geSel_CITIZENSHIP_IN = $row['CITIZENSHIP_IN'];
 				$geSel_NATIONALITY_IN = $row['NATIONALITY_IN'];
 				$geSel_PASSPORT_NUM_IN = $row['PASSPORT_NUM_IN'];
 				$geSel_VALIDITY_DATE_IN = $row['VALIDITY_DATE_IN'];
@@ -104,7 +103,6 @@
 		//for inboundform1
 			if(isset($_POST['btn_inform1']))
 			{
-				$citizenship = $_POST['citizenship'];
 				$nationality = $_POST['nationality'];
 				$passport = $_POST['passport'];
 				$validity = $_POST['validity'];
@@ -119,7 +117,6 @@
 				$numberCP = $_POST['numberCP'];
 
 				$query_db = "UPDATE personal_info_inbound SET
-				CITIZENSHIP_IN = '$citizenship',
 				NATIONALITY_IN = '$nationality',
 				PASSPORT_NUM_IN = '$passport',
 				VALIDITY_DATE_IN = '$validity',
@@ -133,7 +130,7 @@
 				// 	STUDENT_COUNT, 
 				// 	STUDENT_ID, 
 				// 	APPLICATION_PROG, 
-				// 	CITIZENSHIP_IN,
+				// 	_IN,
 				// 	NATIONALITY_IN, 
 				// 	PASSPORT_NUM_IN, 
 				// 	VALIDITY_DATE_IN, 
@@ -708,7 +705,6 @@
 		//for inboundform1
 			if(isset($_POST['btnSaveinform1']))
 			{
-				$citizenship = $_POST['citizenship'];
 				$nationality = $_POST['nationality'];
 				$passport = $_POST['passport'];
 				$validity = $_POST['validity'];
@@ -723,7 +719,6 @@
 				$numberCP = $_POST['numberCP'];
 
 				$query_db = "UPDATE personal_info_inbound SET
-				CITIZENSHIP_IN = '$citizenship',
 				NATIONALITY_IN = '$nationality',
 				PASSPORT_NUM_IN = '$passport',
 				VALIDITY_DATE_IN = '$validity',

@@ -9,6 +9,7 @@
 	while($row = mysqli_fetch_array($result)) {
 		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
 	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,7 @@
 				<ul class="nav nav-stacked">
 					<li><a href="inboundform1.php">Personal Information</a></li>
 					<li><a href="inboundform2.php">Educational Backround</a></li>
-					<li><a href="inboundform3.php">Proposed Field of Study</a></li>
+					<li class="active"><a href="inboundform3.php">Proposed Field of Study</a></li>
 					<li><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
 					<li><a href="inboundform5.php">Expectations from the Program</a></li>
 				</ul>
@@ -44,13 +45,13 @@
 				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Proposed Program</label>
+							<label>Proposed Program</label> (Refer to the <a onclick="window.open('http://www.ust.edu.ph/academics/programs/')">UST website </a>)
 							<input type="text" name="proposedProg" id="proposedProg" class="form-control" pattern="[^<>].{1,45}" maxlength="45" required value="<?php echo $getSel_PROPOSED_PROG_INBOUND?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Courses to be taken at UST</label> (Refer to the <a onclick="window.open('http://www.ust.edu.ph/academics/programs/')">UST website </a>)
+							<label>Courses to be taken at UST</label> 
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
 							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1_INBOUND?>">

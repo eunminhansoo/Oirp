@@ -14,7 +14,7 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		
-		<div class="container-fluid">
+		<div class="">
 		<div class="header">
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>	
 		</div>
@@ -26,7 +26,7 @@
 					<li><a href="inboundform2.php">Educational Backround</a></li>
 					<li><a href="inboundform3.php">Proposed Field of Study</a></li>
 					<li><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
-					<li><a href="inboundform5.php">Expectations from the Program</a></li>
+					<li class="active"><a href="inboundform5.php">Expectations from the Program</a></li>
 				</ul>
 			</nav>
 			

@@ -26,7 +26,7 @@
 					<li><a href="inboundform1.php">Personal Information</a></li>
 					<li><a href="inboundform2.php">Educational Backround</a></li>
 					<li><a href="inboundform3.php">Proposed Field of Study</a></li>
-					<li><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
+					<li class="active"><a href="inboundform4.php">English Proficiency & Medical Information</a></li>
 					<li><a href="inboundform5.php">Expectations from the Program</a></li>
 				</ul>
 			</nav>
@@ -76,6 +76,9 @@
 						<div class="col-sm-2">
 							<input type="text" name="toeflType" id="toeflType" class="form-control" pattern="[^<>].{1,25}" maxlength="25" disabled  value="<?php echo $getSel_INTEND_TAKE_TOEF_TYPE_INBOUND?>">
 						</div>
+					</div>
+					<div class="row col-sm-10">
+						<p><b>Note:</b> In the absence of TOEFL test or equivalent, English proficiency must be assessed by an English teacher in Home University</p>
 					</div>
 					
 					<div class="form-group row break">
