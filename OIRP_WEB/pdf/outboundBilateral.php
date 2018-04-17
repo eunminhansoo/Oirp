@@ -24,11 +24,10 @@ while ($row = $result->fetch_array()){
 
 $birth_dec = base64_decode($birthday);
 
-$sql = "select citizenship_out,nationality_out,passport_num_out,validity_date_out,date_issuance_out,mailing_add_out,telephone_num_out,mobile_num_out,college_institute_faculty_out,degree_prog_out,year_level_out from personal_info_outbound where student_id = '".$studentno."'";
+$sql = "select nationality_out,passport_num_out,validity_date_out,date_issuance_out,mailing_add_out,telephone_num_out,mobile_num_out,college_institute_faculty_out,degree_prog_out,year_level_out from personal_info_outbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
-	$citizenship_out = $row['citizenship_out'];
 	$nationality_out = $row['nationality_out'];
 	$passport_num_out = $row['passport_num_out'];
 	$date_issuance_out = $row['date_issuance_out'];
@@ -155,8 +154,8 @@ $pdf->Cell(20,7,'GENDER','BR',0);
 $pdf->Cell(60,7,$gender,'B',1);
 $pdf->Cell(30,7,'GIVEN NAME','BR',0);
 $pdf->Cell(85,7,$given_name,'BR',0);
-$pdf->Cell(20,7,'CITIZENSHIP','BR',0);
-$pdf->Cell(60,7,$citizenship_out,'B',1);
+$pdf->Cell(20,7,'NATIONALITY','BR',0);
+$pdf->Cell(60,7,$nationality_out,'B',1);
 $pdf->Cell(30,7,'MIDDLE NAME','BR',0);
 $pdf->Cell(85,7,$middle_name,'BR',0);
 $pdf->Cell(20,7,'BIRTHDATE','BR',0);

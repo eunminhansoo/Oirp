@@ -12,13 +12,22 @@
 			$("#scholarloanrow").show();
 			$("#scholarloanrow1").hide();
 			$('#proText').prop('disabled', true);
-			$("#1year").prop('disabled', false);
 			$("#1sem").prop('disabled', false);
+			$("#othersBi").prop('disabled', false);
 			$("#shortStudy").prop('disabled', false);
 			$("#scholarloanYes").prop('disabled', false);
 			$("#scholarloanNo").prop('disabled', false);
 			$(':radio[name=scholarship]').prop('checked', false);
 			$(':radio[name=scholarloan1]').prop('checked', false);
+
+			$('#othersBi').click(function(){
+				$("#biText").prop('disabled', false);
+			});
+
+			$('#1sem').click(function(){
+				$("#biText").prop('disabled', true);
+				document.getElementById('biText').value = " ";
+			});
 
 			$('#scholarloanYes').click(function(){
 				$("#scholarloanText").prop('disabled', false);
