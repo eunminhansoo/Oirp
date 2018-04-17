@@ -93,14 +93,9 @@
 	                                <th>Application Form</th>
 	                                <th>DATE SUBMITED</th>
 	                                <th>STATUS</th>
-	                                <th></th>
+	                                <th><button type="submit" name="delete_inbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
 	                        </thead>
-	                        <tfoot>
-	                        	<tr>
-			                        <th><button type="submit" name="delete_inbound" class="btn btn-primary" >DELETE</button></th>
-		                        </tr>
-	                        </tfoot>
 	                        <tbody>
 	                            <?php while($row = mysqli_fetch_array($query)){ 
 	                                $studentID = $row['STUDENT_ID'];

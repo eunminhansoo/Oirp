@@ -34,13 +34,13 @@
 			<?php 
 				if($pagination == 'submited'){
 					if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
-						echo '<a href="pdf/outboundBilateral.php">My Application</a>';
+						echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
 					} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
-						echo '<a href="pdf/outbound.php">My Application</a>';
+						echo '<a href="pdf/outbound.php" target="_blank">My Application</a>';
 					} else if($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
-						echo '<a href="pdf/inboundBilateral.php">My Application</a>';
+						echo '<a href="pdf/inboundBilateral.php" target="_blank">My Application</a>';
 					} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
-						echo '<a href="pdf/inbound.php">My Application</a>';
+						echo '<a href="pdf/inbound.php" target="_blank">My Application</a>';
 					}else{
 						echo '<a href="#">My Application</a>';
 					}
@@ -101,13 +101,13 @@
 						<?php 
 							if($pagination == 'submited'){
 								if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
-									echo '<span><a href="pdf/outboundBilateral.php">Open PDF form</a></span>';
+									echo '<span><a href="pdf/outboundBilateral.php" target="_blank">Open PDF form</a></span>';
 								} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
-									echo '<span><a href="pdf/outbound.php">Open PDF form</a> </span>';
+									echo '<span><a href="pdf/outbound.php" target="_blank">Open PDF form</a> </span>';
 								} elseif($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
-									echo '<span ><a href="pdf/inboundBilateral.php">Open PDF form</a></span>';
+									echo '<span ><a href="pdf/inboundBilateral.php" target="_blank">Open PDF form</a></span>';
 								} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
-									echo '<span><a href="pdf/inbound.php">Open PDF form</a> </span>';
+									echo '<span><a href="pdf/inbound.php" target="_blank">Open PDF form</a> </span>';
 								}
 							}
 						?>
