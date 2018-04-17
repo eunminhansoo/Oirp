@@ -212,10 +212,6 @@
 
 							</select>
 						</div>-->
-						<br>
-						<div class="form-group row">
-							<input type="submit" value="Send" class="btn btn-primary">
-						</div>
 					</div>
 				</div>
 			</div>
