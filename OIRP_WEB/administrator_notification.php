@@ -1,47 +1,3 @@
-<?php 
-include 'database_connection.php';
-
-
-if(isset($_POST["view"]))
-{
- if($_POST["view"] != '')
- {
-  $update_query = "UPDATE notification SET COMMENT_STATUS=1 WHERE COMMENT_STATUS=0";
-  mysqli_query($conn, $update_query);
- }
- $query = "SELECT * FROM notification ORDER BY COMMENT_ID DESC LIMIT 10";
- $result = mysqli_query($conn, $query);
- $output = '';
- 
- if(mysqli_num_rows($result) > 0)
- {
-  while($row = mysqli_fetch_array($result))
-  {
-   $output .= '
-   <li>
-    <a href="#">
-     <strong>'.$row["LASTNAME"].'</strong><br />
-    </a>
-   </li>
-   <li class="divider"></li>
-   ';
-  }
- }
- else
- {
-  $output .= '<li><a href="#" class="text-bold text-italic">No Notification Found</a></li>';
- }
- 
- $query_1 = "SELECT * FROM notification WHERE comment_status=0";
- $result_1 = mysqli_query($conn, $query_1);
- $count = mysqli_num_rows($result_1);
- $data = array(
-  'notification'   => $output,
-  'unseen_notification' => $count
- );
- echo json_encode($data);
-}
-?>
 <!DOCTYPE html>
 <html>
  <head>
@@ -56,7 +12,7 @@ if(isset($_POST["view"]))
    <nav class="navbar navbar-inverse">
     <div class="container-fluid">
      <div class="navbar-header">
-      <a class="navbar-brand" href="#">Webslesson Tutorial</a>
+      <a class="navbar-brand" href="#">Sample</a>
      </div>
      <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
@@ -66,9 +22,7 @@ if(isset($_POST["view"]))
      </ul>
     </div>
    </nav>
-   <br />
-   <h2 align="center">Facebook Style Header Notification using PHP Ajax Bootstrap</h2>
-   <br />
+
    
   </div>
  </body>
@@ -80,7 +34,7 @@ $(document).ready(function(){
  function load_unseen_notification(view = '')
  {
   $.ajax({
-   url:"administrator_notification.php",
+   url:"fetch_comment.php",
    method:"POST",
    data:{view:view},
    dataType:"json",
@@ -102,9 +56,6 @@ $(document).ready(function(){
   load_unseen_notification('yes');
  });
  
- setInterval(function(){ 
-  load_unseen_notification();; 
- }, 5000);
  
 });
 </script>
