@@ -167,22 +167,17 @@
 						<span><b>Chosen University: </b></span><span><?php echo $university?></span>
 					</p>
 					<p>
-						<div>
-							<div class="col-xs-5"><b>Transcript of Recored: </b></div>
-							<div>
-								<?php echo "<a href=showTOR.php?numnum=".urldecode($getStudentID)." target='_blank'>".$torScan."</a>"?>
-							</div>
-						</div>
+						<span><b>Transcript of Record: </b></span>
+						<?php echo "<a href=showTOR.php?numnum=".urldecode($getStudentID)." target='_blank'>".$torScan."</a>"?>
 					</p>
 					<p>
-						<div>
+						<span><b>Status: </b></span>
 							<select name="status" id="status" onChange="func(this);">
 								<option value="Qualified">Qualified</option>
 								<option value="Not-Qualified">Not-Qualified</option>
 								<option value="On-Going">On-going</option>
 								<option value="Completed">Completed</option>
 							</select>
-						</div>
 					</p>
 					<p>
 						<div id="conf" class="col-xs-4">
@@ -193,28 +188,32 @@
 						</div>
 					</p>
 					<br>
-					<!--<div id="certUp">
-						<div class="col-xs-6">
-							<span>Upload a Certificate of Completion</span>
+					<div id="certUp" class="break">
+						<div class="col-xs-3">
+							<span><b>Upload Certificate of Completion</b></span>
 						</div>
 						<div class="col-xs-3">
 							<input type="file" name="certfile" id="certfile"/>
 						</div>
-					</div>-->
+					</div>
 				</div>
 				<br>
 			</div> 
 		</form>       
 	</body>
 	<script>
-		// function func(sel) {
-		//     var stat = (sel.options[sel.selectedIndex]).text;
+		$(document).ready(function(){
+			$("#certUp").hide();
+		});
+	
+		 function func(sel) {
+		     var stat = (sel.options[sel.selectedIndex]).text;
 
-		//   	if(stat == 'Completed'){
-		// 		$("#certUp").show();
-		//   	} else{
-		// 		$("#certUp").hide();
-		//   	}
-		// }
+		   	if(stat === 'Completed'){
+		 		$("#certUp").show();
+		   	} else{
+		 		$("#certUp").hide();
+		   	}
+		}
 	</script>
 </html>
