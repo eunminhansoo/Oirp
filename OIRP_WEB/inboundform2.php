@@ -104,13 +104,13 @@
 							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through Scholarship
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="ShortStudy" id="proBilateral" required> Short Study Abroad 
+							<input type="radio" name="type_program" value="ShortStudy" id="ShortStudy" required> Short Study Abroad 
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="studyTour" id="proBilateral" required> Study Tour 
+							<input type="radio" name="type_program" value="StudyTour" id="StudyTour" required> Study Tour 
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="ServiceLearning" id="proBilateral" required> Service Learning
+							<input type="radio" name="type_program" value="ServiceLearning" id="ServiceLearning" required> Service Learning
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 
@@ -119,35 +119,22 @@
 					<div id="bilateralOptions">
 						<div class="form-group row">
 							<div class="col-sm-2">
-								<label>Bilateral Options:</label>
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="1 Year" id="1year" disabled> 1 year
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="bilateral" value="1 Sem" id="1sem" disabled> 1 sem
+								<label>Duration:</label>
 							</div>
 							<div class="col-sm-2">
-								<input type="radio" name="bilateral" value="Short Study Abroad" id="shortStudy" disabled> Short Study Abroad
+								<input type="radio" name="bilateral" value="1 Sem" id="1sem" disabled> 1 Sem
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="bilateral" value="Others" id="othersBi" disabled> Others: 
+							</div>
+							<div class="col-sm-2">
+								<input type="text" name="bilateralText" id="biText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" disabled>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
 							</div>
 						</div>
 					</div>
-					<!--<div id="bilateralOptions1">
-						<div class="form-group row">
-							<div class="col-sm-2">
-								<label>Bilateral Options:</label>
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="bilateral1" value="1 Year" id="1year" disabled> 1 year
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="bilateral1" value="1 Sem" id="1sem" disabled> 1 sem
-							</div>
-							<div class="col-sm-2">
-								<input type="radio" name="bilateral1" value="Short Study Abroad" id="shortStudy" disabled> Short Study Abroad
-							</div>
-						</div>
-					</div>-->
 					<div id="scholarshipOptions">	
 						<div class="form-group row">
 							<div class="col-sm-2">
@@ -160,10 +147,13 @@
 								<input type="radio" name="scholarship" id="scholarshipSHARE" value="SHARE" disabled> SHARE
 							</div>
 							<div class="col-sm-1">
+								<input type="radio" name="scholarship" id="scholarshipUMAP" value="UMAP" disabled> UMAP
+							</div>
+							<div class="col-sm-1">
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $getSel_TYPE_OF_FORM_OTHER ?>" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
@@ -173,7 +163,7 @@
 					<div class="form-group row">
 						<div id="scholarloanrow">
 							<div class="col-sm-4">
-								<label>Are you a recipient of scholarship or loan?: </label>
+								<label>Are you a recipient of scholarship?: </label>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" id="scholarloanYes" value="Yes" disabled> Yes
@@ -191,8 +181,8 @@
 								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
 							</div>
 						</div>
-					</div>	
-					<div class="form-group row">
+					</div>
+					<!--<div class="form-group row">
 						<div id="scholarloanrow1">
 							<div class="col-sm-4">
 								<label>Are you a recipient of scholarship or loan?: </label>
@@ -213,7 +203,7 @@
 								<input type="radio" name="scholarloan1" value="" checked="checked" hidden> 
 							</div>
 						</div>
-					</div>				
+					</div>				-->
 					<div class="form-group row break">
 						<div class="col-sm-6">
 							<label>Person to Contact from International Office</label>
