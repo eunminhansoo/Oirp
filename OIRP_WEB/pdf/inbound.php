@@ -111,13 +111,14 @@ function Header()
     $this->SetFont('Arial','',10);
     $this->Cell(175,7,'(Founded in 1611, Manila, Philippines)',0,2);
     $this->SetFont('Arial','',14);
-    $this->Cell(175,3,'Office of International Relations and Programs',0,1);
+    $this->Cell(175,3,'Office of International Relations and Programs',0,2);
+    $this->SetFont('Arial','',10);
+    $this->Cell(175,7,'Student Exchange through '.$application_form,'',1);
     
     //Student
     $this->SetTextColor(255,255,255);
     $this->SetFont('Arial','B',12);
-    $this->Cell(195,9,'','',1);
-    $this->Cell(195,5,'APPLICATION FORM FOR INBOUND STUDENTS');
+    $this->Cell(195,8,'APPLICATION FORM FOR INBOUND STUDENTS');
     
     
     // Line break
