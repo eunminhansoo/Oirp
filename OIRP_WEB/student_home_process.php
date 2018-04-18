@@ -103,6 +103,7 @@ include 'database_connection.php';
 		'')";
 		
     	$comment = mysqli_query($conn, $query_notification);
+    	//end of insert comment 
     	$query = mysqli_query($conn, $query_db);
     	$query1 = mysqli_query($conn, $query_db1);
     

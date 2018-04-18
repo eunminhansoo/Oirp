@@ -4,6 +4,7 @@
 		$("#bilateralOptions").hide();
 		$("#scholarloanrow").hide();
 		$("#scholarloanrow1").hide();
+		$("#scholarloanrow2").hide();
 
 		$('#proBilateral').click(function(){
 
@@ -12,13 +13,22 @@
 			$("#scholarloanrow").show();
 			$("#scholarloanrow1").hide();
 			$('#proText').prop('disabled', true);
-			$("#1year").prop('disabled', false);
 			$("#1sem").prop('disabled', false);
+			$("#othersBi").prop('disabled', false);
 			$("#shortStudy").prop('disabled', false);
 			$("#scholarloanYes").prop('disabled', false);
 			$("#scholarloanNo").prop('disabled', false);
 			$(':radio[name=scholarship]').prop('checked', false);
 			$(':radio[name=scholarloan1]').prop('checked', false);
+
+			$('#othersBi').click(function(){
+				$("#biText").prop('disabled', false);
+			});
+
+			$('#1sem').click(function(){
+				$("#biText").prop('disabled', true);
+				document.getElementById('biText').value = " ";
+			});
 
 			$('#scholarloanYes').click(function(){
 				$("#scholarloanText").prop('disabled', false);
@@ -60,6 +70,7 @@
 	        $("#proText").prop('disabled', true);
 			$("#scholarshipAIMS").prop('disabled', false);
 			$("#scholarshipSHARE").prop('disabled', false);
+			$("#scholarshipUMAP").prop('disabled', false);
 			$("#scholarshipOthers").prop('disabled', false);
 			$(':radio[name=scholarloan1]').prop('checked', false);
 			$(':radio[name=bilateral]').prop('checked', false);
@@ -169,6 +180,7 @@
 	        $("#proText").prop('disabled', true);
 			$("#scholarshipAIMS").prop('disabled', false);
 			$("#scholarshipSHARE").prop('disabled', false);
+			$("#scholarshipUMAP").prop('disabled', false);
 			$("#scholarshipOthers").prop('disabled', false);
 			$(':radio[name=scholarloan1]').prop('checked', false);
 			$(':radio[name=bilateral]').prop('checked', false);

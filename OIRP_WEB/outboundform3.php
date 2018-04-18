@@ -11,7 +11,14 @@
 		$res .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
 	}
 	
+	$sql = "select distinct country from share_universities order by country asc";
+	$result = mysqli_query($conn, $sql);
 	
+	$share;
+	while($row = mysqli_fetch_array($result)) {
+		$share .=  "<option value='".$row["country"]."'>".$row["country"]."</option>";
+	}
+		
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +43,7 @@
 				<ul class="nav nav-stacked">
 					<li><a href="outboundform1.php">Personal Information</a></li>
 					<li><a href="outboundform2.php">Guardian's Information</a></li>
-					<li><a href="outboundform3.php">Proposed Field of Study</a></li>
+					<li class="active"><a href="outboundform3.php">Proposed Field of Study</a></li>
 				</ul>
 			</nav>
 			
@@ -47,16 +54,16 @@
 							<label>Type of program:</label>
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="Bilateral" id="proBilateral" required> Exchange through bilateral agreement
+							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through Scholarship
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through scholarship
+							<input type="radio" name="type_program" value="ShortStudy" id="proBilateral" required> Short Study Abroad 
 						</div>
-						<div class="col-sm-1">
-							<input type="radio" name="type_program" value="Others" id="proOthers"> Others: 
+						<div class="col-sm-2">
+							<input type="radio" name="type_program" value="studyTour" id="proBilateral" required> Study Tour 
 						</div>
-						<div class="col-sm-3">
-							<input type="text" name="programText" id="proText" class="form-control" pattern="[^<>].{1,20}" value="<?php echo $getSel_TYPE_OF_PROG_OTHER?>" maxlength="20" disabled>
+						<div class="col-sm-2">
+							<input type="radio" name="type_program" value="ServiceLearning" id="proBilateral" required> Service Learning
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 
@@ -65,16 +72,16 @@
 					<div id="bilateralOptions">
 						<div class="form-group row">
 							<div class="col-sm-2">
-								<label>Bilateral Options:</label>
-							</div>
-							<div class="col-sm-2">
-								<input type="radio" name="bilateral" value="1Year" id="1year" disabled> 1 Year
+								<label>Duration:</label>
 							</div>
 							<div class="col-sm-2">
 								<input type="radio" name="bilateral" value="1 Sem" id="1sem" disabled> 1 Sem
 							</div>
-							<div class="col-sm-3">
-								<input type="radio" name="bilateral" value="Short Study Abroad" id="shortStudy" disabled> Short Study Abroad
+							<div class="col-sm-1">
+								<input type="radio" name="bilateral" value="Others" id="othersBi" disabled> Others: 
+							</div>
+							<div class="col-sm-2">
+								<input type="text" name="bilateralText" id="biText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
@@ -93,6 +100,9 @@
 								<input type="radio" name="scholarship" id="scholarshipSHARE" value="SHARE" disabled> SHARE
 							</div>
 							<div class="col-sm-1">
+								<input type="radio" name="scholarship" id="scholarshipUMAP" value="UMAP" disabled> UMAP
+							</div>
+							<div class="col-sm-1">
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
@@ -106,7 +116,7 @@
 					<div class="form-group row">
 						<div id="scholarloanrow">
 							<div class="col-sm-4">
-								<label>Are you a recipient of scholarship or loan?: </label>
+								<label>Are you a recipient of scholarship?: </label>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" id="scholarloanYes" value="Yes" disabled> Yes
@@ -128,7 +138,7 @@
 					<div class="form-group row">
 						<div id="scholarloanrow1">
 							<div class="col-sm-4">
-								<label>Are you a recipient of scholarship or loan?: </label>
+								<label>Are you a recipient of scholarship?: </label>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan1" id="scholarloanYes1" value="Yes" disabled> Yes
@@ -148,15 +158,51 @@
 						</div>
 					</div>
 					<div class="form-group row">
+						<div id="scholarloanrow2">
+							<div class="col-sm-4">
+								<label>Are you a recepient of scholarship?: </label>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan2" id="scholarloanYes2" value="Yes" disabled> Yes
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan2" id="scholarloanNo2" value="No" disabled> No
+							</div>
+							<div class="col-sm-1">
+								Please specify: 
+							</div>
+							<div class="col-sm-2">
+								<input type="text" name="scholarloanText2" id="scholarloanText2" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_LOAN_OTHER1?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
+							</div>
+							<div class="col-sm-1">
+								<input type="radio" name="scholarloan2" value="" checked="checked" hidden> 
+							</div>
+						</div>
+					</div>
+					<div class="form-group row" id="countrydiv">
 						<div class="col-sm-5">
 							<label>Chosen Country</label>
-							<select name="country" id="country" class="form-control">
-						
+							<select id="country" id="country" class="form-control">
+							
 							</select>
 						</div>
 						<div class="col-sm-5">
 							<label>Chosen University</label>
 							<select name="university" id="university" class="form-control">
+								
+							</select>
+						</div>
+					</div>
+					<div class="form-group row" id="sharediv">
+						<div class="col-sm-5">
+							<label>Chosen Country</label>
+							<select id="shcountry" id="shcountry" class="form-control">
+							
+							</select>
+						</div>
+						<div class="col-sm-5">
+							<label>Chosen University</label>
+							<select name="shuniversity" id="shuniversity" class="form-control">
 							
 							</select>
 						</div>
@@ -235,7 +281,18 @@
 		var typeProg = "<?php echo $type_prog?>";
 		$(document).ready(function(){
 			var val = "<?php echo $res ?>";
-	   		$("#country").empty().append(val);
+			var sh = "<?php echo $share ?>";
+
+			$("#country").empty().append(val);
+			$("#shcountry").empty().append(sh);
+
+			$("#sharediv").hide();
+			
+			$("#scholarshipSHARE").click(function(){
+				$("#sharediv").show();
+				$("#countrydiv").hide();
+			});
+
 			
 			$("#country").change(function(){
 			    $.ajax({
@@ -253,6 +310,24 @@
 			        }
 				});
 			}).trigger('change');
+
+			$("#shcountry").change(function(){
+			    $.ajax({
+				    type: "POST",
+			        url: "share_universities.php",   
+			        data: {
+				        shcountry: $("#shcountry").val(),
+			       	},
+			        success: function(e) {
+				        $('#shuniversity').empty();
+			            $('#shuniversity').append(e);
+			        },
+			        error: function(response) {
+			            alert("error");
+			        }
+				});
+			}).trigger('change');
+			
 		});
 	</script>
 	<?php

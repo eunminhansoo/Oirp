@@ -24,7 +24,7 @@
 			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
 					<li><a href="outboundform1.php">Personal Information</a></li>
-					<li><a href="outboundform2.php">Guardian's Information</a></li>
+					<li class="active"><a href="outboundform2.php">Guardian's Information</a></li>
 					<li><a href="outboundform3.php">Proposed Field of Study</a></li>
 				</ul>
 			</nav>
@@ -57,7 +57,7 @@
 						<div class="col-sm-4">
 							<label>Contact Number</label>
 							<p class="text_style" >ex: +63 2-406-1611 or +63 974-887-6512</p>
-							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="Phone number or Mobile number" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})"  maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>">
+							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="Phone number or Mobile number" pattern="([+]\d{1,4})([\d\s-+]{7,15})"  maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
@@ -104,7 +104,7 @@
 						<div class="col-sm-4">
 							<label>Contact Number</label>
 							<p class="text_style" >ex: +63 2-406-1611 or +63 974-887-6512</p>
-							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="Phone number or Mobile number" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>">
+							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="Phone number or Mobile number" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
