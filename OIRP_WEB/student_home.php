@@ -160,19 +160,19 @@
 						<br>
 						<div id="fileType">
 							<div class="form-group" style="padding-top: 20px;">
-								<div class="col-xs-4">
-									<span>Upload PDF:</span>
+								<div class="col-xs-4 col-xs-push-1">
+									<span><b>Upload PDF:</b></span>
 								</div>
-								<div class="col-xs-4">
+								<div class="col-xs-4 col-xs-push-1">
 									<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" disabled>
 								</div>
 							</div>
 							<br>
 							<div class="form-group" style="padding-top: 20px;">
-								<div class="col-xs-4">
-									<span>Upload Transcript:</span>
+								<div class="col-xs-6">
+									<span><b>Upload Transcript of Records:</b></span>
 								</div>
-								<div class="col-xs-4">
+								<div class="col-xs-3 col-xs-pull-1">
 									<input type="file" name="TAscan" id="taScan" class="custom-file-input form-control-file" disabled/>
 								</div>
 							</div>
