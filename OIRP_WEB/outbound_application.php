@@ -18,7 +18,6 @@
 			$get_select = mysqli_query($conn, $sql_select);
 			while($row = mysqli_fetch_array($get_select)){
 				$setSel_NATIONALITY_OUT = $row['NATIONALITY_OUT'];
-				$setSel_CITIZENSHIP_OUT = $row['CITIZENSHIP_OUT'];
 				$setSel_PASSPORT_NUM_OUT = $row['PASSPORT_NUM_OUT'];
 				$setSel_VALIDITY_DATE_OUT = $row['VALIDITY_DATE_OUT'];
 				$setSel_DATE_ISSUANCE_OUT = $row['DATE_ISSUANCE_OUT'];
@@ -86,7 +85,6 @@
 		//for outboundform1
 		
 			if(isset($_POST['btn_outform1'])){
-				$citizenship_out = $_POST['citizenship'];
 				$nationality_out = $_POST['nationality'];
 				$passport_num_out = $_POST['passport'];
 				$date_issuance_out = $_POST['issuance'];
@@ -100,7 +98,6 @@
 
 				$sql_query = "UPDATE personal_info_outbound SET
 				NATIONALITY_OUT = '$nationality_out',
-				CITIZENSHIP_OUT = '$citizenship_out',
 				PASSPORT_NUM_OUT = '$passport_num_out',
 				VALIDITY_DATE_OUT = '$validity_date_out',
 				DATE_ISSUANCE_OUT = '$date_issuance_out',
@@ -536,7 +533,6 @@
 		//for outboundform1
 		
 			if(isset($_POST['btnSaveoutform1'])){
-				$citizenship_out = $_POST['citizenship'];
 				$nationality_out = $_POST['nationality'];
 				$passport_num_out = $_POST['passport'];
 				$date_issuance_out = $_POST['issuance'];
@@ -550,7 +546,6 @@
 
 				$sql_query = "UPDATE personal_info_outbound SET
 				NATIONALITY_OUT = '$nationality_out',
-				CITIZENSHIP_OUT = '$citizenship_out',
 				PASSPORT_NUM_OUT = '$passport_num_out',
 				VALIDITY_DATE_OUT = '$validity_date_out',
 				DATE_ISSUANCE_OUT = '$date_issuance_out',

@@ -24,11 +24,10 @@ while ($row = $result->fetch_array()){
 
 $birth_dec = base64_decode($birthday);
 
-$sql = "select citizenship_out,nationality_out,passport_num_out,validity_date_out,date_issuance_out,mailing_add_out,telephone_num_out,mobile_num_out,college_institute_faculty_out,degree_prog_out,year_level_out from personal_info_outbound where student_id = '".$studentno."'";
+$sql = "select nationality_out,passport_num_out,validity_date_out,date_issuance_out,mailing_add_out,telephone_num_out,mobile_num_out,college_institute_faculty_out,degree_prog_out,year_level_out from personal_info_outbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
-	$citizenship_out = $row['citizenship_out'];
 	$nationality_out = $row['nationality_out'];
 	$passport_num_out = $row['passport_num_out'];
 	$date_issuance_out = $row['date_issuance_out'];
@@ -89,8 +88,6 @@ while($row = $result->fetch_array()){
 	$scholarship_text_outbound = $row['SCHOLARSHIP_LOAN_OTHER1'];
 	
 }
-
-$application_form = "UMAP";
 
 
 class PDF extends FPDF
@@ -169,8 +166,8 @@ $pdf->Cell(110,7,$middle_name,'B',1);
 
 $pdf->Cell(25,7,'GENDER','BR',0);
 $pdf->Cell(35,7,$gender,'BR',0);
-$pdf->Cell(30,7,'CITIZENSHIP','BR',0);
-$pdf->Cell(50,7,$citizenship_out,'B',1);
+$pdf->Cell(30,7,'NATIONALITY','BR',0);
+$pdf->Cell(50,7,$nationality_out,'B',1);
 $pdf->Cell(25,7,'BIRTHDATE','BR',0);
 $pdf->Cell(35,7,$birth_dec,'BR',0);
 $pdf->Cell(30,7,'AGE','BR',0);
@@ -313,16 +310,6 @@ $pdf->Cell(35,7,'Assessed by: ','',0);
 $pdf->Cell(165,7,'','',1);
 
 $pdf->Cell(35,7,'','',0);
-$pdf->Cell(80,7,"International Relations Coordinator",'T',0,'C');
-$pdf->Cell(20,7,'','',0);
-$pdf->Cell(50,7,'Signature and Date','T',1,'C');
-
-$pdf->Cell(165,7,'','',1);
-$pdf->Cell(165,7,'','',1);
-$pdf->Cell(35,7,'Approved by: ','',0);
-$pdf->Cell(165,7,'','',1);
-
-$pdf->Cell(35,7,'','',0);
 $pdf->Cell(80,7,"Program Chair",'T',0,'C');
 $pdf->Cell(20,7,'','',0);
 $pdf->Cell(50,7,'Signature and Date','T',1,'C');
@@ -330,6 +317,16 @@ $pdf->Cell(50,7,'Signature and Date','T',1,'C');
 $pdf->Cell(165,7,'','',1);
 $pdf->Cell(165,7,'','',1);
 $pdf->Cell(35,7,'Certified by: ','',0);
+$pdf->Cell(165,7,'','',1);
+
+$pdf->Cell(35,7,'','',0);
+$pdf->Cell(80,7,"International Relations Coordinator",'T',0,'C');
+$pdf->Cell(20,7,'','',0);
+$pdf->Cell(50,7,'Signature and Date','T',1,'C');
+
+$pdf->Cell(165,7,'','',1);
+$pdf->Cell(165,7,'','',1);
+$pdf->Cell(35,7,'Endorsed by: ','',0);
 $pdf->Cell(165,7,'','',1);
 
 $pdf->Cell(35,7,'','',0);

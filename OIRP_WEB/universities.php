@@ -12,6 +12,9 @@
 	}
 	
 	echo $results;
+
 	//mysql_free_result($result);
 	//echo $sql;
+	
+	
 ?>

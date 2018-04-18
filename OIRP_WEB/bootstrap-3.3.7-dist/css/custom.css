@@ -14,6 +14,14 @@ body{
 
 }
 
+.active{
+	background-color: #dcf0f7;
+}
+
+.active > a {
+	color: #8e8e8e;
+}
+
 .content > span > h1,
 .content > span > h2,
 .content > span > h3,

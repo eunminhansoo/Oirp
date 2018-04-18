@@ -23,7 +23,7 @@
 		<div class="container-fluid">
 			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
-					<li><a href="outboundform1.php">Personal Information</a></li>
+					<li class="active"><a href="outboundform1.php">Personal Information</a></li>
 					<li><a href="outboundform2.php">Guardian's Information</a></li>
 					<li><a href="outboundform3.php">Proposed Field of Study</a></li>
 				</ul>
@@ -32,27 +32,21 @@
 			<div class="col-sm-9 container-fluid">
 				<form method="post" action="outboundform2.php">
 					<div class="form-group row">
-						<div class="col-sm-5">
-							<label>Citizenship</label>
-							<input type="text" name="citizenship" id="citizenship" class="form-control"  value="<?php echo $setSel_CITIZENSHIP_OUT?>" required>
-						</div>
-						<div class="col-sm-5">
+						<div class="col-sm-3">
 							<label>Nationality</label>
 							<input type="text" name="nationality" id="nationality" class="form-control" pattern="[^<>].{1,25}" maxlength="25" value="<?php echo $setSel_NATIONALITY_OUT?>" required>
 						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<label>Passport No.</label>
 							<input type="text" name="passport" id="passport" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $setSel_PASSPORT_NUM_OUT ?>" required>
 						</div>
-						<div class="col-sm-3">
-							<label>Validity Date</label>
-							<input type="date" name="validity" id="validity" class="form-control" value="<?php echo $setSel_VALIDITY_DATE_OUT?>" required>
-						</div>
-						<div class="col-sm-3">
+						<div class="col-sm-2">
 							<label>Date of Issuance</label>
 							<input type="date" name="issuance" id="issuance" class="form-control" value="<?php echo $setSel_DATE_ISSUANCE_OUT?>"  required>
+						</div>
+						<div class="col-sm-2">
+							<label>Validity Date</label>
+							<input type="date" name="validity" id="validity" class="form-control" value="<?php echo $setSel_VALIDITY_DATE_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -71,12 +65,12 @@
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
 							<p>ex: +63 2-406-1611</p>
-							<input type="text" name="telephone" id="telephone" class="form-control" placeholder="country code - area code - telephone number" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=30 value="<?php echo $setSel_TELEPHONE_NUM_OUT?>" required>
+							<input type="text" name="telephone" id="telephone" class="form-control" placeholder="country code - area code - telephone number" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 value="<?php echo $setSel_TELEPHONE_NUM_OUT?>" required>
 						</div>
 						<div class="col-sm-5">
 							<label>Mobile Number</label>
 							<p>ex: +63 974-887-6512</p>
-							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="country code - telephone number" pattern="([+]\d{1,4})([\s]\d{1,3}[-]\d{2,3}[-]\d{3,4})" maxlength=40 value="<?php echo $setSel_MOBILE_NUM_OUT?>" required>
+							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="country code - telephone number" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 value="<?php echo $setSel_MOBILE_NUM_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row break">

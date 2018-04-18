@@ -26,11 +26,10 @@ while ($row = $result->fetch_array()){
 $birth_dec = base64_decode($birthday);
 
 //personal_info_inbound
-$sql = "select citizenship_in,nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
+$sql = "select nationality_in,passport_num_in,validity_date_in,date_issuance_in,mailing_add_in,telephone_num_in,mobile_num_in from personal_info_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
-	$citizenship_in = $row['citizenship_in'];
 	$nationality_in = $row['nationality_in'];
 	$passport_num_in = $row['passport_num_in'];
 	$validity_date_in = $row['validity_date_in'];
