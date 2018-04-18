@@ -172,7 +172,7 @@
 						</div>
 						<!--<div>
 							<p>
-								<b><span>Course 1: </span></b><span><?php echo $pf_COURSE_1_INBOUND?></span>
+								<b><span>Course 1: </span></b><span><?php //echo $pf_COURSE_1_INBOUND?></span>
 							</p>
 							<div class="">
 								<select name="course1" id="college">
@@ -182,7 +182,7 @@
 						</div>
 						<div>
 							<p>
-								<b><span>Course 2: </span></b><span><?php echo $pf_COURSE_2_INBOUND?></span>
+								<b><span>Course 2: </span></b><span><?php //echo $pf_COURSE_2_INBOUND?></span>
 							</p>
 							<select name="course2" id="college1">
 
@@ -190,7 +190,7 @@
 						</div>
 						<div>
 							<p>
-								<b><span>Course 3: </span></b><span><?php echo $pf_COURSE_3_INBOUND?></span>
+								<b><span>Course 3: </span></b><span><?php //echo $pf_COURSE_3_INBOUND?></span>
 							</p>
 							<select name="course3" id="college2">
 
@@ -198,7 +198,7 @@
 						</div>
 						<div>
 							<p>
-								<b><span>Course 4: </span></b><span><?php echo $pf_COURSE_4_INBOUND?></span>
+								<b><span>Course 4: </span></b><span><?php //echo $pf_COURSE_4_INBOUND?></span>
 							</p>
 							<select name="course4" id="college3">
 
@@ -206,7 +206,7 @@
 						</div>
 						<div>
 							<p>
-								<b><span>Course 5: </span></b><span><?php echo $pf_COURSE_5_INBOUND?></span>
+								<b><span>Course 5: </span></b><span><?php //echo $pf_COURSE_5_INBOUND?></span>
 							</p>
 							<select name="course5" id="college4">
 
@@ -220,11 +220,6 @@
 		$(document).ready(function(){
 			var val = "<?php echo $col ?>";
 			$("#college").empty().append(val);
-			$("#college1").empty().append(val);
-			$("#college2").empty().append(val);
-			$("#college3").empty().append(val);
-			$("#college4").empty().append(val);
-
 			$("#send").hide();
 		});
 
