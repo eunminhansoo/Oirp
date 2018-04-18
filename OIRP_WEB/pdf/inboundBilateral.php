@@ -53,7 +53,7 @@ while($row = $result->fetch_array()){
 }
 
 //educ_background_inbound
-$sql = "select home_univ_in_bila,univ_add_in_bila,name_officer_contact_in_bila,designation_in_bila,email_add_in_bila,current_prog_study_in_bila,designation_in_bila,telephone_num_bila,specialization_in_bila,year_level,scholarship_loan_other,SCHOLARSHIP_LOAN_OTHER1,type_of_program from educ_background_inbound where student_id = '".$studentno."'";
+$sql = "select home_univ_in_bila,univ_add_in_bila,name_officer_contact_in_bila,designation_in_bila,email_add_in_bila,current_prog_study_in_bila,designation_in_bila,telephone_num_bila,specialization_in_bila,year_level,scholarship_loan_other,SCHOLARSHIP_LOAN_OTHER1,type_of_program,type_of_form from educ_background_inbound where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_array()){
@@ -65,6 +65,7 @@ while ($row = $result->fetch_array()){
 	$scholarship_in_bila = $row['SCHOLARSHIP_LOAN_OTHER'];
 	$scholarship_text_in_bila = $row['SCHOLARSHIP_LOAN_OTHER1'];
 	$application_form = $row['type_of_program'];
+	$type_of_form = $row['type_of_form'];
 	$name_officer_contact_in_bila = $row['name_officer_contact_in_bila'];
 	$designation_in_bila = $row['designation_in_bila'];
 }
@@ -168,7 +169,7 @@ $pdf->Cell(1,5,'','',1);
 
 // Scholarship
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(205,4,'Student Exchange Program','',1,'C');
+$pdf->Cell(205,4,$application_form,'',1,'C');
 $pdf->Cell(205,4,'Application Form for Inbound Program','',1,'C');
 
 
