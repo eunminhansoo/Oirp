@@ -100,11 +100,11 @@
 					<div style="margin-left: 15px; margin-top: 25px;">
 						<?php 
 							if($pagination == 'submited'){
-								if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
+								if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" || $type_of_program == "ServiceLearning")){
 									echo '<span><a href="pdf/outboundBilateral.php" target="_blank">Open PDF form</a></span>';
 								} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
 									echo '<span><a href="pdf/outbound.php" target="_blank">Open PDF form</a> </span>';
-								} elseif($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
+								} elseif($application_prog == 'inbound' && ($type_of_program == 'ShortStudy' || $type_of_program == 'StudyTour' || $type_of_program == 'ServiceLearning')){
 									echo '<span ><a href="pdf/inboundBilateral.php" target="_blank">Open PDF form</a></span>';
 								} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
 									echo '<span><a href="pdf/inbound.php" target="_blank">Open PDF form</a> </span>';

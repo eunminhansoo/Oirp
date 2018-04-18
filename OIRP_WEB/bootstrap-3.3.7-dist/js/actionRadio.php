@@ -1,5 +1,6 @@
 <script>
 	$(document).ready(function(){
+		document.getElementById('scholarshipText').value = " ";
 		$("#bilateralOptions").hide();
 		$('#scholarshipOptions').hide();
 		$("#scholarloanrow").hide();
