@@ -149,7 +149,7 @@
 			</div>
 		<!--APPLICATION BOX END-->
 		
-		<form method="post" enctype="multipart/form-data">
+		<form method="post" id="comment_form" enctype="multipart/form-data">
 		<!--APPLICATION BOX START-->
 			<div id="uploadbox">
 				<div class="boxxes container-fluid">
