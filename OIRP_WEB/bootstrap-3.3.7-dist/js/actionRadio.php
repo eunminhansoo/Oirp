@@ -4,6 +4,7 @@
 		$("#bilateralOptions").hide();
 		$("#scholarloanrow").hide();
 		$("#scholarloanrow1").hide();
+		$("#scholarloanrow2").hide();
 
 		$('#proBilateral').click(function(){
 
@@ -69,6 +70,7 @@
 	        $("#proText").prop('disabled', true);
 			$("#scholarshipAIMS").prop('disabled', false);
 			$("#scholarshipSHARE").prop('disabled', false);
+			$("#scholarshipUMAP").prop('disabled', false);
 			$("#scholarshipOthers").prop('disabled', false);
 			$(':radio[name=scholarloan1]').prop('checked', false);
 			$(':radio[name=bilateral]').prop('checked', false);
@@ -178,6 +180,7 @@
 	        $("#proText").prop('disabled', true);
 			$("#scholarshipAIMS").prop('disabled', false);
 			$("#scholarshipSHARE").prop('disabled', false);
+			$("#scholarshipUMAP").prop('disabled', false);
 			$("#scholarshipOthers").prop('disabled', false);
 			$(':radio[name=scholarloan1]').prop('checked', false);
 			$(':radio[name=bilateral]').prop('checked', false);
