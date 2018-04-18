@@ -53,6 +53,36 @@
 		$col .=  "<option value='".$row['college']."'>".$row['college']."</option>";
 	}
 
+	if(isset($_POST['send'])){
+		$college[] = $_POST['college'];
+		$status = $_POST['status'];
+		echo $college;
+
+		// $setStat_query = "UPDATE student SET STATUS = '$status'";
+		// $setStat_db = mysqli_query($conn, $setStat_query);
+		// $setColl_query = "INSERT INTO admin_college
+		// (
+		// 	STUDENT_COUNT,
+		// 	STUDENT_ID,
+		// 	PROPOSED_PROGRAM,
+		// 	COURSE_1,
+		// 	COURSE_2,
+		// 	COURSE_3,
+		// 	COURSE_4,
+		// 	COURSE_5
+		// ) 
+		// VALUES (
+		// 	' ',
+		// 	'$getStudentID',
+		// 	' ',
+		// 	'',
+		// 	'',
+		// 	'',
+		// 	'',
+		// 	''
+		// )";
+
+	}
 ?>
 <html>
 	<head>
@@ -67,14 +97,15 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		
-		<div class="container-fluid">
-			<div class="col-sm-7">
-				<?php 
-					echo "<embed src='images/".$file."' width='100%' height='100%'>";
-				?>
-			</div>
-			<div class="col-sm-5">
-				<p style="margin-top: 80px;"><h2>Basic Information</h2></p>
+		<form method="post">
+			<div class="container-fluid">
+				<div class="col-sm-7">
+					<?php 
+						echo "<embed src='images/".$file."' width='100%' height='100%'>";
+					?>
+				</div>
+				<div class="col-sm-5">
+					<p style="margin-top: 80px;"><h2>Basic Information</h2></p>
 					<?php
 						while($row = mysqli_fetch_array($queryBD)){
 							$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
@@ -126,29 +157,27 @@
 					<p>
 						<span> <b>Home University: </b></span> <span> <?php echo $university?></span> 
 					</p>
-					<form method="post">
-						<p>
-							<span><b>Status: </b></span>
-							<span>
-								<select name="status" id="status" onChange="func(this);">
-									<option value="Pending">Pending</option>
-									<option value="Approved">Approved</option>
-									<option value="Denied">Denied</option>
-									<option value="On-Going">On-going</option>
-									<option value="Completed">Completed</option>
-								</select>
-							</span>
-						</p>
-						<br>
-						<p>
-							<div id="conf" class="col-xs-4">
-								<button type="submit" name="update_status" class="btn btn-primary" >Confirm</button>
-							</div>
-							<div id="backuu" class="col-xs-4">
-								<input type="submit" class="btn btn-primary" value="Back" />
-							</div>
-						</p>
-					</form>
+					<p>
+						<span><b>Status: </b></span>
+						<span>
+							<select name="status[]" id="status" onChange="func(this);">
+								<option value="Pending">Pending</option>
+								<option value="Approved">Approved</option>
+								<option value="Denied">Denied</option>
+								<option value="On-Going">On-going</option>
+								<option value="Completed">Completed</option>
+							</select>
+						</span>
+					</p>
+					<br>
+					<p>
+						<div id="conf" class="col-xs-4">
+							<button type="submit" name="update_status" class="btn btn-primary" >Confirm</button>
+						</div>
+						<div id="backuu" class="col-xs-4">
+							<input type="submit" class="btn btn-primary" formaction="administrator.php" value="Back" />
+						</div>
+					</p>
 				</div>
 				<?php
 					while($pf_row = mysqli_fetch_array($queryPF)){
@@ -165,56 +194,58 @@
 							<br>
 							<p><span><b>College: </b></span></p>
 							<p><select name="college" id="college" size=15 multiple>
-							</select></p>
+								</select>
+							</p>
 						</div>	
 						<div class="form-group row">
-							<input type="submit" value="Send" class="btn btn-primary">
+							<input type="submit" value="Send" name="send" class="btn btn-primary">
 						</div>
-						<!--<div>
-							<p>
-								<b><span>Course 1: </span></b><span><?php //echo $pf_COURSE_1_INBOUND?></span>
-							</p>
-							<div class="">
-								<select name="course1" id="college">
+							<!--<div>
+								<p>
+									<b><span>Course 1: </span></b><span><?php //echo $pf_COURSE_1_INBOUND?></span>
+								</p>
+								<div class="">
+									<select name="course1" id="college">
+
+									</select>
+								</div>
+							</div>
+							<div>
+								<p>
+									<b><span>Course 2: </span></b><span><?php //echo $pf_COURSE_2_INBOUND?></span>
+								</p>
+								<select name="course2" id="college1">
 
 								</select>
 							</div>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 2: </span></b><span><?php //echo $pf_COURSE_2_INBOUND?></span>
-							</p>
-							<select name="course2" id="college1">
+							<div>
+								<p>
+									<b><span>Course 3: </span></b><span><?php //echo $pf_COURSE_3_INBOUND?></span>
+								</p>
+								<select name="course3" id="college2">
 
-							</select>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 3: </span></b><span><?php //echo $pf_COURSE_3_INBOUND?></span>
-							</p>
-							<select name="course3" id="college2">
+								</select>
+							</div>
+							<div>
+								<p>
+									<b><span>Course 4: </span></b><span><?php //echo $pf_COURSE_4_INBOUND?></span>
+								</p>
+								<select name="course4" id="college3">
 
-							</select>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 4: </span></b><span><?php //echo $pf_COURSE_4_INBOUND?></span>
-							</p>
-							<select name="course4" id="college3">
+								</select>
+							</div>
+							<div>
+								<p>
+									<b><span>Course 5: </span></b><span><?php //echo $pf_COURSE_5_INBOUND?></span>
+								</p>
+								<select name="course5" id="college4">
 
-							</select>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 5: </span></b><span><?php //echo $pf_COURSE_5_INBOUND?></span>
-							</p>
-							<select name="course5" id="college4">
-
-							</select>
-						</div>-->
+								</select>
+							</div>-->
 					</div>
 				</div>
 			</div>
+		</form>
 	</body>
 	<script>
 		$(document).ready(function(){
