@@ -53,36 +53,6 @@
 		$col .=  "<option value='".$row['college']."'>".$row['college']."</option>";
 	}
 
-	if(isset($_POST['send'])){
-		$college[] = $_POST['college'];
-		$status = $_POST['status'];
-		echo $college;
-
-		// $setStat_query = "UPDATE student SET STATUS = '$status'";
-		// $setStat_db = mysqli_query($conn, $setStat_query);
-		// $setColl_query = "INSERT INTO admin_college
-		// (
-		// 	STUDENT_COUNT,
-		// 	STUDENT_ID,
-		// 	PROPOSED_PROGRAM,
-		// 	COURSE_1,
-		// 	COURSE_2,
-		// 	COURSE_3,
-		// 	COURSE_4,
-		// 	COURSE_5
-		// ) 
-		// VALUES (
-		// 	' ',
-		// 	'$getStudentID',
-		// 	' ',
-		// 	'',
-		// 	'',
-		// 	'',
-		// 	'',
-		// 	''
-		// )";
-
-	}
 ?>
 <html>
 	<head>
@@ -96,7 +66,70 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+
+		<div class="header">
+			<img src='img/logo.png' height=auto class="img-responsive">
+		</div>
+		<!--HOVER LIST STARTO-->
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
+			<a href="graph.php">Statistics</a>
+			<a href="approved_students.php">Approved Students</a>
+			<a href="qualified_students.php">Qualified Students</a>
+			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
+		</div>
+		<!--HOVER LIST ENDOO-->
 		
+		<!--NAV BAR START-->
+		<div>
+			<div class="menu_white2">
+				<div class="navsticky">
+					<nav class="navbar navbar-topaz" role="navigation">
+						<div class="topnav">
+							<div class="container">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+									<a class="navbar-brand" href="#"></a>
+								</div>
+								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+									<ul class="nav navbar-nav navbar-left">
+                                        <!-- font style: Bookman Old Style-->
+                                        <li><a><span class="styletext"><h4>STUDENT APPLICATION FORM</h4></span></a></li>
+                                    </ul>
+									<ul class="nav navbar-nav navbar-right" >
+										<li><a href="administrator.php">Home</a></li>
+										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
+										<li>
+										<a href="#notifications-panel" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          									<i data-count="2" class="oi oi-bell notification-icon" aria-label="Nofitication centre"></i>
+        								</a>
+										<!--  	<a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
+												<span class="bordernavbar"></span>
+												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
+												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
+											</a> -->
+										</li>
+										<li>
+											<a href="#" class="btn btn-secondary" id="menu-toggle">
+											<span class="bordernavbar"></span>
+											<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<!--NAV BART END-->
+
 		<form method="post">
 			<div class="container-fluid">
 				<div class="col-sm-7">

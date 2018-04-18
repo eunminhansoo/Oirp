@@ -100,11 +100,11 @@
 					<div style="margin-left: 15px; margin-top: 25px;">
 						<?php 
 							if($pagination == 'submited'){
-								if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
+								if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" || $type_of_program == "ServiceLearning")){
 									echo '<span><a href="pdf/outboundBilateral.php" target="_blank">Open PDF form</a></span>';
 								} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
 									echo '<span><a href="pdf/outbound.php" target="_blank">Open PDF form</a> </span>';
-								} elseif($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
+								} elseif($application_prog == 'inbound' && ($type_of_program == 'ShortStudy' || $type_of_program == 'StudyTour' || $type_of_program == 'ServiceLearning')){
 									echo '<span ><a href="pdf/inboundBilateral.php" target="_blank">Open PDF form</a></span>';
 								} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
 									echo '<span><a href="pdf/inbound.php" target="_blank">Open PDF form</a> </span>';
@@ -160,19 +160,19 @@
 						<br>
 						<div id="fileType">
 							<div class="form-group" style="padding-top: 20px;">
-								<div class="col-xs-4">
-									<span>Upload PDF:</span>
+								<div class="col-xs-4 col-xs-push-1">
+									<span><b>Upload PDF:</b></span>
 								</div>
-								<div class="col-xs-4">
+								<div class="col-xs-4 col-xs-push-1">
 									<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" disabled>
 								</div>
 							</div>
 							<br>
 							<div class="form-group" style="padding-top: 20px;">
-								<div class="col-xs-4">
-									<span>Upload Transcript:</span>
+								<div class="col-xs-6">
+									<span><b>Upload Transcript of Records:</b></span>
 								</div>
-								<div class="col-xs-4">
+								<div class="col-xs-3 col-xs-pull-1">
 									<input type="file" name="TAscan" id="taScan" class="custom-file-input form-control-file" disabled/>
 								</div>
 							</div>

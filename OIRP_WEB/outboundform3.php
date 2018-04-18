@@ -81,7 +81,7 @@
 								<input type="radio" name="bilateral" value="Others" id="othersBi" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="bilateralText" id="biText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" disabled>
+								<input type="text" name="bilateralText" id="biText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
@@ -135,7 +135,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-group row">
+					<!--<div class="form-group row">
 						<div id="scholarloanrow1">
 							<div class="col-sm-4">
 								<label>Are you a recipient of scholarship?: </label>
@@ -178,7 +178,7 @@
 								<input type="radio" name="scholarloan2" value="" checked="checked" hidden> 
 							</div>
 						</div>
-					</div>
+					</div>-->
 					<div class="form-group row" id="countrydiv">
 						<div class="col-sm-5">
 							<label>Chosen Country</label>
