@@ -82,7 +82,7 @@
 						<button type="submit" class="button btn btn-block btn-primary">Register</button>
 					</form>
 					<br>
-					<p style="color: #848484">*Note: for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password.</p>
+					<p>*Note: for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password.</p>
 					<br>
 				</div>
 				<!-- div class="col-sm-3 login" style="background-color: #00a1e4;"-->

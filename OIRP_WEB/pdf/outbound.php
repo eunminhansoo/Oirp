@@ -109,7 +109,8 @@ function Header()
     $this->Cell(175,7,'(Founded in 1611, Manila, Philippines)',0,2,'R');
     $this->SetFont('Arial','',14);
     $this->Cell(175,3,'Office of International Relations and Programs',0,1,'R');
-	$this->Cell(195,7,'',0,1);
+    $this->SetFont('Arial','',10);
+	$this->Cell(175,7,'Student Exchange through '.$application_form,0,1,'R');
     
    	//Student
     $this->SetTextColor(255,255,255);

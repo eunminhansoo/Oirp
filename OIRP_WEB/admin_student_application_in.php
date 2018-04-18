@@ -66,15 +66,79 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+
+		<div class="header">
+			<img src='img/logo.png' height=auto class="img-responsive">
+		</div>
+		<!--HOVER LIST STARTO-->
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
+			<a href="graph.php">Statistics</a>
+			<a href="approved_students.php">Approved Students</a>
+			<a href="qualified_students.php">Qualified Students</a>
+			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
+		</div>
+		<!--HOVER LIST ENDOO-->
 		
-		<div class="container-fluid">
-			<div class="col-sm-7">
-				<?php 
-					echo "<embed src='images/".$file."' width='100%' height='100%'>";
-				?>
+		<!--NAV BAR START-->
+		<div>
+			<div class="menu_white2">
+				<div class="navsticky">
+					<nav class="navbar navbar-topaz" role="navigation">
+						<div class="topnav">
+							<div class="container">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+									<a class="navbar-brand" href="#"></a>
+								</div>
+								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+									<ul class="nav navbar-nav navbar-left">
+                                        <!-- font style: Bookman Old Style-->
+                                        <li><a><span class="styletext"><h4>STUDENT APPLICATION FORM</h4></span></a></li>
+                                    </ul>
+									<ul class="nav navbar-nav navbar-right" >
+										<li><a href="administrator.php">Home</a></li>
+										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
+										<li>
+										<a href="#notifications-panel" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          									<i data-count="2" class="oi oi-bell notification-icon" aria-label="Nofitication centre"></i>
+        								</a>
+										<!--  	<a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
+												<span class="bordernavbar"></span>
+												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
+												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
+											</a> -->
+										</li>
+										<li>
+											<a href="#" class="btn btn-secondary" id="menu-toggle">
+											<span class="bordernavbar"></span>
+											<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</nav>
+				</div>
 			</div>
-			<div class="col-sm-5">
-				<p style="margin-top: 80px;"><h2>Basic Information</h2></p>
+		</div>
+		<!--NAV BART END-->
+
+		<form method="post">
+			<div class="container-fluid">
+				<div class="col-sm-7">
+					<?php 
+						echo "<embed src='images/".$file."' width='100%' height='100%'>";
+					?>
+				</div>
+				<div class="col-sm-5">
+					<p style="margin-top: 80px;"><h2>Basic Information</h2></p>
 					<?php
 						while($row = mysqli_fetch_array($queryBD)){
 							$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
@@ -126,29 +190,27 @@
 					<p>
 						<span> <b>Home University: </b></span> <span> <?php echo $university?></span> 
 					</p>
-					<form method="post">
-						<p>
-							<span><b>Status: </b></span>
-							<span>
-								<select name="status" id="status" onChange="func(this);">
-									<option value="Pending">Pending</option>
-									<option value="Approved">Approved</option>
-									<option value="Denied">Denied</option>
-									<option value="On-Going">On-going</option>
-									<option value="Completed">Completed</option>
-								</select>
-							</span>
-						</p>
-						<br>
-						<p>
-							<div id="conf" class="col-xs-4">
-								<button type="submit" name="update_status" class="btn btn-primary" >Confirm</button>
-							</div>
-							<div id="backuu" class="col-xs-4">
-								<input type="submit" class="btn btn-primary" value="Back" />
-							</div>
-						</p>
-					</form>
+					<p>
+						<span><b>Status: </b></span>
+						<span>
+							<select name="status[]" id="status" onChange="func(this);">
+								<option value="Pending">Pending</option>
+								<option value="Approved">Approved</option>
+								<option value="Denied">Denied</option>
+								<option value="On-Going">On-going</option>
+								<option value="Completed">Completed</option>
+							</select>
+						</span>
+					</p>
+					<br>
+					<p>
+						<div id="conf" class="col-xs-4">
+							<button type="submit" name="update_status" class="btn btn-primary" >Confirm</button>
+						</div>
+						<div id="backuu" class="col-xs-4">
+							<input type="submit" class="btn btn-primary" formaction="administrator.php" value="Back" />
+						</div>
+					</p>
 				</div>
 				<?php
 					while($pf_row = mysqli_fetch_array($queryPF)){
@@ -165,66 +227,63 @@
 							<br>
 							<p><span><b>College: </b></span></p>
 							<p><select name="college" id="college" size=15 multiple>
-							</select></p>
+								</select>
+							</p>
 						</div>	
 						<div class="form-group row">
-							<input type="submit" value="Send" class="btn btn-primary">
+							<input type="submit" value="Send" name="send" class="btn btn-primary">
 						</div>
-						<!--<div>
-							<p>
-								<b><span>Course 1: </span></b><span><?php echo $pf_COURSE_1_INBOUND?></span>
-							</p>
-							<div class="">
-								<select name="course1" id="college">
+							<!--<div>
+								<p>
+									<b><span>Course 1: </span></b><span><?php //echo $pf_COURSE_1_INBOUND?></span>
+								</p>
+								<div class="">
+									<select name="course1" id="college">
+
+									</select>
+								</div>
+							</div>
+							<div>
+								<p>
+									<b><span>Course 2: </span></b><span><?php //echo $pf_COURSE_2_INBOUND?></span>
+								</p>
+								<select name="course2" id="college1">
 
 								</select>
 							</div>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 2: </span></b><span><?php echo $pf_COURSE_2_INBOUND?></span>
-							</p>
-							<select name="course2" id="college1">
+							<div>
+								<p>
+									<b><span>Course 3: </span></b><span><?php //echo $pf_COURSE_3_INBOUND?></span>
+								</p>
+								<select name="course3" id="college2">
 
-							</select>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 3: </span></b><span><?php echo $pf_COURSE_3_INBOUND?></span>
-							</p>
-							<select name="course3" id="college2">
+								</select>
+							</div>
+							<div>
+								<p>
+									<b><span>Course 4: </span></b><span><?php //echo $pf_COURSE_4_INBOUND?></span>
+								</p>
+								<select name="course4" id="college3">
 
-							</select>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 4: </span></b><span><?php echo $pf_COURSE_4_INBOUND?></span>
-							</p>
-							<select name="course4" id="college3">
+								</select>
+							</div>
+							<div>
+								<p>
+									<b><span>Course 5: </span></b><span><?php //echo $pf_COURSE_5_INBOUND?></span>
+								</p>
+								<select name="course5" id="college4">
 
-							</select>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 5: </span></b><span><?php echo $pf_COURSE_5_INBOUND?></span>
-							</p>
-							<select name="course5" id="college4">
-
-							</select>
-						</div>-->
+								</select>
+							</div>-->
 					</div>
 				</div>
 			</div>
+		</form>
 	</body>
 	<script>
 		$(document).ready(function(){
 			var val = "<?php echo $col ?>";
 			$("#college").empty().append(val);
-			$("#college1").empty().append(val);
-			$("#college2").empty().append(val);
-			$("#college3").empty().append(val);
-			$("#college4").empty().append(val);
-
 			$("#send").hide();
 		});
 
