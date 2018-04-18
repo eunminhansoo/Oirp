@@ -57,13 +57,13 @@
 							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through Scholarship
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="ShortStudy" id="proBilateral" required> Short Study Abroad 
+							<input type="radio" name="type_program" value="ShortStudy" id="ShortStudy" required> Short Study Abroad 
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="studyTour" id="proBilateral" required> Study Tour 
+							<input type="radio" name="type_program" value="StudyTour" id="StudyTour" required> Study Tour 
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="ServiceLearning" id="proBilateral" required> Service Learning
+							<input type="radio" name="type_program" value="ServiceLearning" id="ServiceLearning" required> Service Learning
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 
@@ -288,7 +288,7 @@
 
 			$("#sharediv").hide();
 			
-			$("#scholarshipSHARE").click(function(){
+			$("#scholarshipSHARE").click(function(i){
 				$("#sharediv").show();
 				$("#countrydiv").hide();
 			});

@@ -101,16 +101,16 @@
 							<label>Type of program:</label>
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="Bilateral" id="proBilateral" required> Exchange through bilateral agreement
+							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through Scholarship
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through scholarship
+							<input type="radio" name="type_program" value="ShortStudy" id="proBilateral" required> Short Study Abroad 
 						</div>
-						<div class="col-sm-1">
-							<input type="radio" name="type_program" value="Others" id="proOthers"> Others: 
+						<div class="col-sm-2">
+							<input type="radio" name="type_program" value="studyTour" id="proBilateral" required> Study Tour 
 						</div>
-						<div class="col-sm-3">
-							<input type="text" name="programText" id="proText" class="form-control" value="<?php echo $getSel_TYPE_OF_PROG_OTHER?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
+						<div class="col-sm-2">
+							<input type="radio" name="type_program" value="ServiceLearning" id="proBilateral" required> Service Learning
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 

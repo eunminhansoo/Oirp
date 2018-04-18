@@ -6,18 +6,139 @@
 		$("#scholarloanrow1").hide();
 		$("#scholarloanrow2").hide();
 
-		$('#proBilateral').click(function(){
+		$('#ShortStudy').click(function(){
 
 			$("#bilateralOptions").show();
 			$("#scholarshipOptions").hide();
 			$("#scholarloanrow").show();
 			$("#scholarloanrow1").hide();
+			$("#sharediv").hide();
+			$("#countrydiv").show();
 			$('#proText').prop('disabled', true);
 			$("#1sem").prop('disabled', false);
 			$("#othersBi").prop('disabled', false);
 			$("#shortStudy").prop('disabled', false);
 			$("#scholarloanYes").prop('disabled', false);
 			$("#scholarloanNo").prop('disabled', false);
+			
+			$(':radio[name=scholarship]').prop('checked', false);
+			$(':radio[name=scholarloan1]').prop('checked', false);
+
+			$('#othersBi').click(function(){
+				$("#biText").prop('disabled', false);
+			});
+
+			$('#1sem').click(function(){
+				$("#biText").prop('disabled', true);
+				document.getElementById('biText').value = " ";
+			});
+
+			$('#scholarloanYes').click(function(){
+				$("#scholarloanText").prop('disabled', false);
+				document.getElementById('scholarshipText').value = " ";
+			});
+
+			var radioBilaOption = "<?php echo $getSel_TYPE_OF_FORM?>";
+			var radioscholarBilaOption = "<?php echo $getSel_SCHOLARSHIP_LOAN?>";
+			
+			if(radioscholarBilaOption){
+				$(':radio[name=scholarloan][value='+ radioscholarBilaOption +']').prop('checked', true);
+
+				if(document.getElementById('scholarloanYes').checked == true){
+					$("#scholarloanText").prop('disabled', false);
+				}
+			}
+
+			if(radioBilaOption == "1 Year"){
+				radioBilaOption = "1year";
+			}else if(radioBilaOption == "1 Sem"){
+				radioBilaOption = "1sem";
+			}else{
+				if(radioBilaOption == "Short Study Abroad"){
+					radioBilaOption = "shortStudy";
+				}
+			}
+
+			if(radioBilaOption){
+				$(':radio[name=bilateral][id=1year]').prop('checked', true);
+			}
+			
+		});
+
+		$('#StudyTour').click(function(){
+
+			$("#bilateralOptions").show();
+			$("#scholarshipOptions").hide();
+			$("#scholarloanrow").show();
+			$("#scholarloanrow1").hide();
+			$("#sharediv").hide();
+			$("#countrydiv").show();
+			$('#proText').prop('disabled', true);
+			$("#1sem").prop('disabled', false);
+			$("#othersBi").prop('disabled', false);
+			$("#shortStudy").prop('disabled', false);
+			$("#scholarloanYes").prop('disabled', false);
+			$("#scholarloanNo").prop('disabled', false);
+			
+			$(':radio[name=scholarship]').prop('checked', false);
+			$(':radio[name=scholarloan1]').prop('checked', false);
+
+			$('#othersBi').click(function(){
+				$("#biText").prop('disabled', false);
+			});
+
+			$('#1sem').click(function(){
+				$("#biText").prop('disabled', true);
+				document.getElementById('biText').value = " ";
+			});
+
+			$('#scholarloanYes').click(function(){
+				$("#scholarloanText").prop('disabled', false);
+				document.getElementById('scholarshipText').value = " ";
+			});
+
+			var radioBilaOption = "<?php echo $getSel_TYPE_OF_FORM?>";
+			var radioscholarBilaOption = "<?php echo $getSel_SCHOLARSHIP_LOAN?>";
+			
+			if(radioscholarBilaOption){
+				$(':radio[name=scholarloan][value='+ radioscholarBilaOption +']').prop('checked', true);
+
+				if(document.getElementById('scholarloanYes').checked == true){
+					$("#scholarloanText").prop('disabled', false);
+				}
+			}
+
+			if(radioBilaOption == "1 Year"){
+				radioBilaOption = "1year";
+			}else if(radioBilaOption == "1 Sem"){
+				radioBilaOption = "1sem";
+			}else{
+				if(radioBilaOption == "Short Study Abroad"){
+					radioBilaOption = "shortStudy";
+				}
+			}
+
+			if(radioBilaOption){
+				$(':radio[name=bilateral][id=1year]').prop('checked', true);
+			}
+			
+		});
+
+		$('#ServiceLearning').click(function(){
+
+			$("#bilateralOptions").show();
+			$("#scholarshipOptions").hide();
+			$("#scholarloanrow").show();
+			$("#scholarloanrow1").hide();
+			$("#sharediv").hide();
+			$("#countrydiv").show();
+			$('#proText').prop('disabled', true);
+			$("#1sem").prop('disabled', false);
+			$("#othersBi").prop('disabled', false);
+			$("#shortStudy").prop('disabled', false);
+			$("#scholarloanYes").prop('disabled', false);
+			$("#scholarloanNo").prop('disabled', false);
+			
 			$(':radio[name=scholarship]').prop('checked', false);
 			$(':radio[name=scholarloan1]').prop('checked', false);
 
@@ -78,6 +199,24 @@
 
 			$('#scholarshipOthers').click(function(){
         	    $('#scholarshipText').prop('disabled', false);
+        	    $("#sharediv").hide();
+    			$("#countrydiv").show();
+			});
+
+			$('#scholarshipAIMS').click(function(){
+				 $('#scholarshipText').prop('disabled', true);
+        	    $("#sharediv").hide();
+    			$("#countrydiv").show();
+			});
+
+			$('#scholarshipSHARE').click(function(){
+        	    $('#scholarshipText').prop('disabled', true);
+			});
+
+			$('#scholarshipUMAP').click(function(){
+				$('#scholarshipText').prop('disabled', true);
+        	    $("#sharediv").hide();
+    			$("#countrydiv").show();
 			});
 
 			var radioScholar = "<?php echo $getSel_TYPE_OF_FORM?>";
@@ -95,6 +234,8 @@
             $("#scholarshipOptions").hide();
 			$("#scholarloanrow").hide();
             $("#scholarloanrow1").show();
+            $("#sharediv").hide();
+			$("#countrydiv").show();
         	$("#proText").prop('disabled', false);
 			$("#scholarloanYes1").prop('disabled', false);
 			$("#scholarloanNo1").prop('disabled', false);

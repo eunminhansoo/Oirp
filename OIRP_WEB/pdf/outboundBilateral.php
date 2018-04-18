@@ -135,7 +135,7 @@ $pdf->Cell(1,5,'','',1);
 
 // Scholarship
 $pdf->SetFont('Arial','B',9);
-$pdf->Cell(205,4,'Student Exchange Program','',1,'C');
+$pdf->Cell(205,4,$application_form,'',1,'C');
 $pdf->Cell(205,4,'Application Form for Outbound Program','',1,'C');
 
 
