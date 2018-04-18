@@ -45,8 +45,10 @@ include 'database_connection.php';
     {
     	
     	$target = "images/".basename($_FILES['pdfScan']['name']);
+		$target1 = "images/".basename($_FILES['TAscan']['name']);
+
     	$pdfScan = $_FILES['pdfScan']['name'];
-    	
+    	$torscan = $_FILES['TAscan']['name'];
     	
     	
 		$date = date('Ymd');
@@ -56,6 +58,7 @@ include 'database_connection.php';
 		  	APPLICATION_PROG,
 		   	PDF_NAME,
 		    PDF_IMG,
+			TOR_SCAN,
 			DATE_SUBMITTED
 			) VALUES (
 				'', 
@@ -63,6 +66,7 @@ include 'database_connection.php';
 			 	'$application_prog',
 			 	'$familyName',
 				'$pdfScan',
+				'$torscan',
 				'$date'
 			)";
 		//insert to table admin_student_data
@@ -122,7 +126,7 @@ include 'database_connection.php';
 			}
 		
     	
-    	if (move_uploaded_file($_FILES['pdfScan']['tmp_name'], $target)) 
+    		if (move_uploaded_file($_FILES['pdfScan']['tmp_name'], $target)) 
             {
                 $msg = "Upload Successful";
             }
@@ -130,7 +134,14 @@ include 'database_connection.php';
             {
                 $msg = "Upload Failed";
             }
-			
+			if (move_uploaded_file($_FILES['TAscan']['tmp_name'], $target1)) 
+            {
+                $msg = "Upload Successful";
+            }
+            else 
+            {
+                $msg = "Upload Failed";
+            }
     	}
     	
    

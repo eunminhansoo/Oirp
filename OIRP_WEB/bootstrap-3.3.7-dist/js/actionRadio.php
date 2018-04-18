@@ -47,7 +47,7 @@
 			}
 
 			if(radioBilaOption){
-				$(':radio[name=bilateral][id=1year]').prop('checked', true);
+				$(':radio[name=bilateral][id='+radioBilaOption+']').prop('checked', true);
 			}
 			
 		});
@@ -157,7 +157,7 @@
 			}
 
 			if(radioBilaOption){
-				$(':radio[name=bilateral][id=1year]').prop('checked', true);
+				$(':radio[name=bilateral][id='+ radioBilaOption +']').prop('checked', true);
 			}
 		}
 		

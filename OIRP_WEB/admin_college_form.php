@@ -104,65 +104,13 @@
 				<div>
 					<span><b>Home University:</b></span><span><?php echo $university?></span>
 				</div>
-			<!--<div class="table-responsive">
-				<table class="table table-striped table-bordered table-hover" >
-							
-						
-					<tr>
-						<td><h3>FullName:</h3><td>            
-						<td><?php //echo $fullname ?></td><br>
-						<td><h3>Application:</h3><td><br>
-						<td><?php //echo $application_prog ?></td>
-						<td><h3>Country:</h3><td>            
-						<td><?php //echo $country ?></td><br>
-						<td><h3>University:</h3><td><br>
-						<td><?php //echo $university ?></td> 
-					</tr>
-				</table>-->
 				<div>
 					<form method="post">
 						<div>
-							<!--<select name="status">
+							<select name="status">
 								<option value="Qualified">Qualified</option>
 								<option value="Not-Qualified">Not-Qualified</option>
-							</select>-->
-							<div class="col-sm-3">
-								Qualified <input type="radio" name="status" id="qualified" value="Qualified"/>
-							</div>
-							<div class="col-sm-4">
-							Not-Qualified <input type="radio" name="status" id="notQualified" value="Not-Qualified"/>
-							</div>
-						</div>
-						<?php
-							while($row2 = mysqli_fetch_array($queryPF)){
-								$course1 = $row2['COURSE_1_INBOUND'];
-								$course2 = $row2['COURSE_2_INBOUND'];
-								$course3 = $row2['COURSE_3_INBOUND'];
-								$course4 = $row2['COURSE_4_INBOUND'];
-								$course5 = $row2['COURSE_5_INBOUND'];
-							}
-						?>
-						<div id="courses" class="col-xs-11">
-							<div>
-								<span><b>Course 1: </b></span><span><?php echo $course1 ?></span>
-								<input type="text" name="course1" id="course1" placeholder="Enter Designated College" />
-							</div>
-							<div>
-								<span><b>Course 2: </b></span><span><?php echo $course2 ?></span>
-								<input type="text" name="course2" id="course2" placeholder="Enter Designated College" />
-							</div>
-							<div>
-								<span><b>Course 3: </b></span><span><?php echo $course3 ?></span>
-								<input type="text" name="course3" id="course3" placeholder="Enter Designated College" />
-							</div>
-							<div>
-								<span><b>Course 4: </b></span><span><?php echo $course4 ?></span>
-								<input type="text" name="course4" id="course4" placeholder="Enter Designated College" />
-							</div>
-							<div>
-								<span><b>Course 5: </b></span><span><?php echo $course5 ?></span>
-								<input type="text" name="course5" id="course5" placeholder="Enter Designated College" />
-							</div>
+							</select>
 						</div>
 						<div class="col-xs-9">
 							<div class="col-xs-6">

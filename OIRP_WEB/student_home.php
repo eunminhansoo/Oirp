@@ -32,7 +32,7 @@
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
 			<a href="#">Status:<span style="color: red"> <?php if($status == 'Qualified'){echo $status; }?></span></a>
 			<?php 
-				if($pagination == 'submited'){
+				if($pagination == 'submited' || $pagination == 'Submitted PDF'){
 					if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
 						echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
 					} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
