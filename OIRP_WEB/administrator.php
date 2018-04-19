@@ -100,34 +100,44 @@
 										<li><a href="administrator.php">Home</a></li>
 										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
 										<li>
-										 	<!-- <a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
+										 	 <a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
 												<span class="bordernavbar"></span>
 												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
 												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
 											</a> -->
-									<div class="container">
-   									<nav class="navbar navbar-inverse">
-    								<div class="container-fluid">
-     								<div class="navbar-header">
-      								<a class="navbar-brand" href="#">Administrator</a>
-     								</div>
-     								<ul class="nav navbar-nav navbar-right">
-      								<li class="dropdown">
-       								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
-       								<ul class="dropdown-menu"></ul>
-      								</li>
-      								
-										<li>
-											<a href="#" class="btn btn-secondary" id="menu-toggle">
-											<span class="bordernavbar"></span>
-											<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
-											</a>
-										</li> 
-									</ul> 
-								</div>
+		<div>
+			<div class="menu_white2">
+				<div class="navsticky">
+					<nav class="navbar navbar-topaz" role="navigation">
+						<div class="topnav">
+							<div class="container">
+   								<nav class="navbar navbar-inverse">
+									<div class="container-fluid">
+										<div class="navbar-header">
+											<a class="navbar-brand" href="#">Administrator</a>
+										</div>
+										<ul class="nav navbar-nav navbar-right">
+											<li><a href="administrator.php">Home</a></li>
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="bordernavbar"></span><span class="label  label-pill label-danger count" style="border-radius:10px;"></span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+												<ul class="dropdown-menu"></ul>
+											</li>
+										
+											<li>
+												<a href="#" class="btn btn-secondary" id="menu-toggle">
+													<span class="bordernavbar"></span>
+													<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
+												</a>
+											</li> 
+										</ul> 
+									</div>
 								</nav>
 							</div>
 						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
 					
 		<!--NAV BAR END-->
 		

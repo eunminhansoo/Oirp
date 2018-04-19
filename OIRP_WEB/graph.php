@@ -142,7 +142,7 @@
                                     </ul>
 									<ul class="nav navbar-nav navbar-right">
 										<li><a href="administrator.php">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span><button class="dropbtn">Dropdown<i class="fa fa-caret-down"></i></button><?php //echo $familyName.", ".$givenName ?></span></a></li>
+										<li><a><span class="bordernavbar"></span><span></span></a></li>
 										<li>
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 												<span class="bordernavbar"></span>
