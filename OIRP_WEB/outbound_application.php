@@ -10,6 +10,8 @@
 	{
 		$email = $rows['EMAIL'];
 		$application_prog = $rows['APPLICATION_PROG'];
+		$familyName = $rows['FAMILY_NAME'];
+		$givenName = $rows['GIVEN_NAME'];
 	}
 
 	// GET THE DATA FROM DATABSE~~~~

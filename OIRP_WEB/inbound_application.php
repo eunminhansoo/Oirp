@@ -3,6 +3,13 @@
 
 	session_start();
 	$getSes_studentID = $_SESSION['student_id_session'];
+	
+	$query = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$getSes_studentID'");
+	while($rows = mysqli_fetch_array($query))
+	{
+		$familyName = $rows['FAMILY_NAME'];
+		$givenName = $rows['GIVEN_NAME'];
+	}
 
 	// GET THE DATA FROM DATABSE~~~~
 		//start inboundform1
