@@ -107,7 +107,7 @@
 	                            </tr>
 	                        </thead>
 	                        <tbody>
-	                            <?php while($row = mysqli_fetch_array($query)){ 
+	                            	<?php while($row = mysqli_fetch_array($query)){ 
 	                                $studentID = $row['STUDENT_ID'];
 	                                $fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
 	                                $ddate = $row['DATE_ENROLL'];
