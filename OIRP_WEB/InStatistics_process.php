@@ -27,7 +27,7 @@
         $_SESSION['$set_yearly1'] = $get_year;
 
     // //from here we select the table and display records of table using while loop
-    $stmt=$dbcon->prepare("SELECT * FROM total_data WHERE YEAR = '$get_year'");
+    $stmt=$dbcon->prepare("SELECT * FROM instatistics WHERE YEAR = '$get_year'");
     $stmt->execute();
     $json = [];
     while($row=$stmt->fetch(PDO::FETCH_ASSOC)){

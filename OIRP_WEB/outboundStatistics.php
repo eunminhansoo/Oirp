@@ -54,7 +54,7 @@
     <style>
         /*DROPDOWN DESIGN*/
         .dropbtn {
-            background-color: #f1ad1d;
+            background-color: #F7DC6F;
             color: black;
             padding: 16px;
             font-size: 16px;
@@ -63,7 +63,8 @@
         }
 
         .dropbtn:hover, .dropbtn:focus {
-            background-color: transparent;
+            background-color: #F7DC6F;
+            
         }
 
         .dropdown {
@@ -79,6 +80,9 @@
             overflow: auto;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
+            width: auto;
+            right: -5%;
+            
         }
 
         .dropdown-content button {
@@ -86,19 +90,22 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            
         }
 
-        .dropdown button:hover {background-color: #ddd}
+        .dropdown button:hover {
+            background-color: #ddd
+            
+        }
 
-        .show {display:block;}
+        /*.show {
+            display:block;
+        }*/
 
         .bbtn{
             padding: 0;
             border: none;
             background: none;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
         }
     </style>
     <body>
@@ -112,7 +119,8 @@
         <!--HOVER LIST STARTO-->
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="graph.php">Statistics</a>
+			<a href="outboundStatistics.php">Outbound Data Statistics</a>
+			<a href="InboundStatistics.php">Inbound Data Statistics</a>
 			<a href="approved_students.php">Approved Students</a>
 			<a href="qualified_students.php">Qualified Students</a>
 			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
@@ -142,7 +150,14 @@
                                     </ul>
 									<ul class="nav navbar-nav navbar-right">
 										<li><a href="administrator.php">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span></span></a></li>
+										<li>
+                                            <a>
+                                                <span class="bordernavbar"></span>
+                                                <span>
+                                                    
+                                                </span>
+                                            </a>
+                                        </li>
 										<li>
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 												<span class="bordernavbar"></span>
@@ -164,17 +179,14 @@
 				</div>
 			</div>
 		</div>
-        <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-        </div>
 		<!--NAV BART END-->
         <div>
-            <div class="dropdown col-xs-5">
-                <button onclick="myFunction()" class="dropbtn btn btn-secondary">Data Year</button>
+            <div class="col-xs-5">
+                <div class="col-xs-6">
+                    <button onclick="myFunction()" class="dropdown dropbtn btn btn-secondary"><u>Data Year</u></button>
+                </div>
                 <form method="post">
-                    <div id="myDropdown" class="dropdown-content">
+                    <div id="myDropdown" class="dropdown-content col-xs-1 col-xs-push-3">
                         <!--<button type="submit" class="btn btn-secondary bbtn col-xs-12" name="2015-2016" id="2015-2016">2015-2016</button>
                         <button type="submit" class="btn btn-secondary bbtn col-xs-12" name="2016-2017" id="2016-2017">2016-2017</button>-->
                     </div>
@@ -185,8 +197,7 @@
             </div>
         </div>
 
-        <div class="container" id="container" style="width:100%; height:400px;"></div>
-
+        <div class="container col-xs-5" id="container" style="width:100%; height:400px;"></div>
         <script type="text/javascript">
             $(document).ready(function(){
                 
@@ -226,7 +237,7 @@
                 series: [{
                 }]
                 };
-                $.getJSON('graph_process.php', function(data){
+                $.getJSON('OutStatistics_process.php', function(data){
                 options.series[0].data = data;
                 var chart = new Highcharts.Chart(options);
                 });

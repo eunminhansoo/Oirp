@@ -30,7 +30,8 @@
 		<!--HOVER LIST STARTO-->
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="graph.php">Statistics</a>
+			<a href="outboundStatistics.php">Outbound Data Statistics</a>
+			<a href="InboundStatistics.php">Inbound Data Statistics</a>
 			<a href="approved_students.php">Approved Students</a>
 			<a href="qualified_students.php">Qualified Students</a>
 			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
