@@ -151,7 +151,7 @@
 									<ul class="nav navbar-nav navbar-right">
 										<li><a href="administrator.php">Home</a></li>
 										<li>
-                                            <a href="outboundComparison.php">
+                                            <a href="">
                                                 <span class="bordernavbar"></span>
                                                 <span>
                                                     Data Comparison Statistics
@@ -212,7 +212,7 @@
                         plotBorderWidth: null,
                         plotShadow: false,
                         renderTo: 'container',
-                        type: 'pie',
+                        type: 'bar',
 
                 },
                 title: {
