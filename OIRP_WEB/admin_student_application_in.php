@@ -221,7 +221,7 @@
 						$pf_COURSE_5_INBOUND = $pf_row['COURSE_5_INBOUND'];
 					}
 				?>
-				<div id="send" class="col-sm-5">
+				<!-- <div id="send" class="col-sm-5">
 					<div class="container-fluid">
 						<div class="form-group row">
 							<br>
@@ -232,8 +232,8 @@
 						</div>	
 						<div class="form-group row">
 							<input type="submit" value="Send" name="send" class="btn btn-primary">
-						</div>
-							<!--<div>
+						</div> -->
+							<<div>
 								<p>
 									<b><span>Course 1: </span></b><span><?php //echo $pf_COURSE_1_INBOUND?></span>
 								</p>
@@ -274,7 +274,7 @@
 								<select name="course5" id="college4">
 
 								</select>
-							</div>-->
+							</div>
 					</div>
 				</div>
 			</div>
