@@ -1,9 +1,7 @@
 <?php
 	include 'database_connection.php';
-
 	session_start();
 	$college = $_SESSION['coll_sess'];
-	
     //$sql_query = "SELECT * FROM student INNER JOIN educ_background_inbound ON student.STUDENT_ID = educ_background_inbound.STUDENT_ID";
     $sql_query = "SELECT * FROM admin_college a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID";
     $query = mysqli_query($conn, $sql_query);
@@ -23,6 +21,43 @@
 	    		echo "<meta http-equiv=\"refresh\" content=\"0;URL=administrator.php\">";
 	    	}
         }
+    }
+    
+    $collect_query = "SELECT * FROM `admin_college` WHERE COURSE_1 LIKE '%".$college."%' OR COURSE_2 LIKE '%".$college."%' OR COURSE_3 LIKE '%".$college."%' OR COURSE_4 LIKE '%".$college."%' OR COURSE_5 LIKE '%".$college."%'";
+    $collect_db = mysqli_query($conn, $collect_query);
+    
+    
+    while($collect_row = mysqli_fetch_array($collect_db, MYSQL_NUM)){
+    	$kurso1 = $collect_row['COURSE_1'];
+    	$kurso2 = $collect_row['COURSE_2'];
+    	$kurso3 = $collect_row['COURSE_3'];
+    	$kurso4 = $collect_row['COURSE_4'];
+    	$kurso5 = $collect_row['COURSE_5'];
+    }
+    if ($college == $kurso1){
+    echo $kurso1;
+    } else {
+    	echo 'none';
+    }
+    if ($college == $kurso2){
+    echo $kurso2;
+    } else {
+    	echo 'none';
+    }
+    if ($college == $kurso3){
+    echo $kurso3;
+    } else {
+    	echo 'none';
+    }
+    if ($college == $kurso4){
+    echo $kurso4;
+    } else {
+    	echo 'none';
+    }
+    if ($college == $kurso5){
+    echo $kurso5;
+    } else {
+    	echo 'none';
     }
 ?>
 
@@ -106,6 +141,7 @@
 	                                <th>Name</th>
 	                                <th>Application Program</th>
 	                                <th>Application Form</th>
+	                                <th>Course</th>
 	                                <th>DATE SUBMITED</th>
 	                                <th>STATUS</th>
 	                                <th><button type="submit" name="delete_inbound" class="btn btn-primary" ><span class="glyphicon glyphicon-trash"></span></button></th>
@@ -140,6 +176,7 @@
 									?>
 	                                <!--<td><?php //echo $row['TYPE_OF_PROGRAM']; ?></td>
 	                                <td><?php //echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>-->
+									<td></td>
 									<td><?php echo $resultdate ?></td>
 	                                <td><?php echo $status?></td>
 	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentID ?>"></td>
