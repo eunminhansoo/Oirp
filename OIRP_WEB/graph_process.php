@@ -20,7 +20,7 @@
     }
  
     session_start();
-    $get_year = '2015';
+    $get_year = '2015-2016';
     if(!empty($_SESSION['$set_yearly'])){
         $get_year = $_SESSION['$set_yearly'];
     }

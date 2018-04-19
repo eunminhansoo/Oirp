@@ -5,10 +5,10 @@
     $sel_db = mysqli_query($conn, $sel_query);
 
     $res="";
-    $get_year = "2015";
+    $get_year = "2015-2016";
     while($row = mysqli_fetch_array($sel_db)){
-         $setYear = $row["yearly"];
-        $res .="<button type'submit' class='btn btn-secondary bbtn col-xs-12' id='".$setYear."'value='".$setYear."'name='".$setYear."'>".$setYear."</button>";
+        $setYear = $row["yearly"];
+        $res .="<button type='submit' class='btn btn-secondary bbtn col-xs-12' id='".$setYear."'value='".$setYear."' name='".$setYear."'>".$setYear."</button>";
     }
     session_start();
     if(!empty($_SESSION['$set_yearly1'])){
@@ -54,8 +54,8 @@
     <style>
         /*DROPDOWN DESIGN*/
         .dropbtn {
-            background-color: #3498DB;
-            color: white;
+            background-color: #f1ad1d;
+            color: black;
             padding: 16px;
             font-size: 16px;
             border: none;
@@ -63,7 +63,7 @@
         }
 
         .dropbtn:hover, .dropbtn:focus {
-            background-color: #2980B9;
+            background-color: transparent;
         }
 
         .dropdown {
@@ -96,6 +96,9 @@
             padding: 0;
             border: none;
             background: none;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
     </style>
     <body>
@@ -139,7 +142,7 @@
                                     </ul>
 									<ul class="nav navbar-nav navbar-right">
 										<li><a href="administrator.php">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
+										<li><a><span class="bordernavbar"></span><span><button class="dropbtn">Dropdown<i class="fa fa-caret-down"></i></button><?php //echo $familyName.", ".$givenName ?></span></a></li>
 										<li>
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 												<span class="bordernavbar"></span>
@@ -161,18 +164,24 @@
 				</div>
 			</div>
 		</div>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
 		<!--NAV BART END-->
         <div>
             <div class="dropdown col-xs-5">
-                <button onclick="myFunction()" class="dropbtn">Data Year</button>
+                <button onclick="myFunction()" class="dropbtn btn btn-secondary">Data Year</button>
                 <form method="post">
                     <div id="myDropdown" class="dropdown-content">
-
+                        <!--<button type="submit" class="btn btn-secondary bbtn col-xs-12" name="2015-2016" id="2015-2016">2015-2016</button>
+                        <button type="submit" class="btn btn-secondary bbtn col-xs-12" name="2016-2017" id="2016-2017">2016-2017</button>-->
                     </div>
                 </form>
             </div>
-            <div class="col-xs-3">
-                <span><b><h3>Outbound Student <?php echo $get_year?></h3></b></span>
+            <div class="col-xs-6 col-xs-pull-0">
+                <span><b><h3>Outbound Student <?php echo $get_year ?></h3></b></span>
             </div>
         </div>
 
