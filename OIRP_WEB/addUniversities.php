@@ -43,20 +43,25 @@
 				<div class="col-sm-1"></div>
 				<div class="col-sm-11 container-fluid">
 					<div class="form-group row">
-						<div class="col-sm-4">
+						<div class="col-sm-10">
 							<div class="ui-widget">
-								Country: <input type="text" name="country" id="country" class="form-control">
+								<label>Country</label> <input type="text" name="country" id="country" class="form-control">
 							</div>
 						</div>
-						<div class="col-sm-4">
-							University: 
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<label>University</label>
 							<input type="text" name="university" id="university" class="form-control">
 						</div>
+					</div>
+					<div class="form-group row">
 						<div class="col-sm-2" align="right">
 							<br>
 							<input type="submit" value="Submit" class="btn btn-block btn-primary">
 						</div>
-					</div>	
+					</div>
+					
 				</div>
 			</form>
 		</div>

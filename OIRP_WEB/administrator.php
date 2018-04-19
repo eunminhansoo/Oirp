@@ -42,6 +42,7 @@
     
 
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -52,11 +53,14 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
     <body>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		
 
 		<div class="">
@@ -75,6 +79,7 @@
 		<!--HOVER LIST ENDOO-->
 		
 		<!--NAV BAR START-->
+		<!--  
 		<div>
 			<div class="menu_white2">
 				<div class="navsticky">
@@ -95,31 +100,38 @@
 										<li><a href="administrator.php">Home</a></li>
 										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
 										<li>
-										<a href="#notifications-panel" class="nav-link dropdown-toggle" data-toggle="dropdown">
-          									<i data-count="2" class="oi oi-bell notification-icon" aria-label="Nofitication centre"></i>
-        								</a>
-										<!--  	<a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
+										 	<!-- <a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
 												<span class="bordernavbar"></span>
 												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
 												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
 											</a> -->
-										</li>
+									<div class="container">
+   									<nav class="navbar navbar-inverse">
+    								<div class="container-fluid">
+     								<div class="navbar-header">
+      								<a class="navbar-brand" href="#">Administrator</a>
+     								</div>
+     								<ul class="nav navbar-nav navbar-right">
+      								<li class="dropdown">
+       								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+       								<ul class="dropdown-menu"></ul>
+      								</li>
+      								
 										<li>
 											<a href="#" class="btn btn-secondary" id="menu-toggle">
 											<span class="bordernavbar"></span>
 											<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
 											</a>
-										</li>
-									</ul>
+										</li> 
+									</ul> 
 								</div>
+								</nav>
 							</div>
 						</div>
-					</nav>
-				</div>
-			</div>
-		</div>
-		<!--NAV BART END-->
-
+					
+		<!--NAV BAR END-->
+		
+<br><br>
         <form method="post">	  
 	        <div class="container-fluid">
 	            <div class="col-sm-6">
@@ -235,4 +247,37 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
+
 </html>
+
+<script>
+$(document).ready(function(){
+ 
+ function load_unseen_notification(view = '')
+ {
+  $.ajax({
+   url:"fetch_comment.php",
+   method:"POST",
+   data:{view:view},
+   dataType:"json",
+   success:function(data)
+   {
+    $('.dropdown-menu').html(data.notification);
+    if(data.unseen_notification > 0)
+    {
+     $('.count').html(data.unseen_notification);
+    }
+   }
+  });
+ }
+ 
+ load_unseen_notification();
+ 
+ $(document).on('click', '.dropdown-toggle', function(){
+  $('.count').html('');
+  load_unseen_notification('yes');
+ });
+ 
+ 
+});
+</script>

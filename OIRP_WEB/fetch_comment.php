@@ -8,18 +8,18 @@ if(isset($_POST["view"]))
   $update_query = "UPDATE notification SET COMMENT_STATUS=1 WHERE COMMENT_STATUS=0";
   mysqli_query($conn, $update_query);
  }
- $query = "SELECT * FROM notification ORDER BY COMMENT_ID DESC LIMIT 10";
+ $query = "SELECT * FROM notification ORDER BY STUDENT_COUNT DESC LIMIT 10";
  $result = mysqli_query($conn, $query);
  $output = '';
- 
  if(mysqli_num_rows($result) > 0)
  {
   while($row = mysqli_fetch_array($result))
   {
+  	$fullname = $row['LASTNAME'].", ".$row['FIRSTNAME']." ";
    $output .= '
    <li>
     <a href="#">
-     <strong>'.$row["LASTNAME"].'</strong><br />
+     <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf</strong><br />
     </a>
    </li>
    <li class="divider"></li>
