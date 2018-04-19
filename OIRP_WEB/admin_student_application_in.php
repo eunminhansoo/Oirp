@@ -53,6 +53,61 @@
 		$col .=  "<option value='".$row['college']."'>".$row['college']."</option>";
 	}
 
+	if(isset($_POST['send'])){
+		$course_1 = $_POST['course1'];
+		$course_2 = $_POST['course2'];
+		$course_3 = $_POST['course3'];
+		$course_4 = $_POST['course4'];
+		$course_5 = $_POST['course5'];
+		$status = $_POST['status']; 
+		
+		$course_query = "INSERT INTO admin_college(
+			STUDENT_COUNT,
+			STUDENT_ID,
+			PROPOSED_PROGRAM,
+			COURSE_1,
+			COURSE_2,
+			COURSE_3,
+			COURSE_4,
+			COURSE_5
+		) VALUES (
+			' ',
+			'$getStudentID',
+			' ',
+			'$course_1',
+			'$course_2',
+			'$course_3',
+			'$course_4',
+			'$course_5'
+		)";
+		mysqli_query($conn, $course_query);
+		
+		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+		
+		$query_db = mysqli_query($conn, $query2);
+
+		if($query_db){
+			header("Location:admin_student_application_in.php?studentName=$getStudentID");
+			$sel_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+			$queryy_db = mysqli_query($conn, $sel_query);
+			while($rrow = mysqli_fetch_array($queryy_db)){
+				$sel_query = $rrow['STATUS'];
+			}
+			if($sel_query == 'Approved'){
+
+				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
+				$sel_check_db = mysqli_query($conn, $sel_check_query);
+				if(mysqli_num_rows($sel_check_db) <= 0){
+					$ins_query = "INSERT INTO admin_college (STUDENT_COUNT, STUDENT_ID, PROPOSED_PROGRAM, COURSE_1, COURSE_2, COURSE_3, COURSE_4, COURSE_5) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
+					mysqli_query($conn, $ins_query);
+				}
+			}else{
+				$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
+				mysqli_query($conn, $del_query);
+			}   
+		}
+	}
+
 ?>
 <html>
 	<head>
@@ -223,7 +278,7 @@
 				?>
 				<div id="send" class="col-sm-5">
 					<div class="container-fluid">
-						<div class="form-group row">
+						<!--<div class="form-group row">
 							<br>
 							<p><span><b>College: </b></span></p>
 							<p><select name="college" id="college" size=15 multiple>
@@ -232,10 +287,10 @@
 						</div>	
 						<div class="form-group row">
 							<input type="submit" value="Send" name="send" class="btn btn-primary">
-						</div>
-							<!--<div>
+						</div>-->
+							<div>
 								<p>
-									<b><span>Course 1: </span></b><span><?php //echo $pf_COURSE_1_INBOUND?></span>
+									<b><span>Course 1: </span></b><span><?php echo $pf_COURSE_1_INBOUND?></span>
 								</p>
 								<div class="">
 									<select name="course1" id="college">
@@ -245,7 +300,7 @@
 							</div>
 							<div>
 								<p>
-									<b><span>Course 2: </span></b><span><?php //echo $pf_COURSE_2_INBOUND?></span>
+									<b><span>Course 2: </span></b><span><?php echo $pf_COURSE_2_INBOUND?></span>
 								</p>
 								<select name="course2" id="college1">
 
@@ -253,7 +308,7 @@
 							</div>
 							<div>
 								<p>
-									<b><span>Course 3: </span></b><span><?php //echo $pf_COURSE_3_INBOUND?></span>
+									<b><span>Course 3: </span></b><span><?php echo $pf_COURSE_3_INBOUND?></span>
 								</p>
 								<select name="course3" id="college2">
 
@@ -261,7 +316,7 @@
 							</div>
 							<div>
 								<p>
-									<b><span>Course 4: </span></b><span><?php //echo $pf_COURSE_4_INBOUND?></span>
+									<b><span>Course 4: </span></b><span><?php echo $pf_COURSE_4_INBOUND?></span>
 								</p>
 								<select name="course4" id="college3">
 
@@ -269,12 +324,15 @@
 							</div>
 							<div>
 								<p>
-									<b><span>Course 5: </span></b><span><?php //echo $pf_COURSE_5_INBOUND?></span>
+									<b><span>Course 5: </span></b><span><?php echo $pf_COURSE_5_INBOUND?></span>
 								</p>
 								<select name="course5" id="college4">
 
 								</select>
-							</div>-->
+							</div>
+							<div class="form-group row">
+								<input type="submit" value="Send" name="send" class="btn btn-primary">
+							</div>
 					</div>
 				</div>
 			</div>
@@ -284,6 +342,10 @@
 		$(document).ready(function(){
 			var val = "<?php echo $col ?>";
 			$("#college").empty().append(val);
+			$("#college1").empty().append(val);
+			$("#college2").empty().append(val);
+			$("#college3").empty().append(val);
+			$("#college4").empty().append(val);
 			$("#send").hide();
 		});
 

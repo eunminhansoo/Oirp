@@ -253,7 +253,7 @@
                 series: [{
                 }]
                 };
-                $.getJSON('outComparison_process.php', function(data){
+                $.getJSON('inComparison_process.php', function(data){
                 options.series[0].data = data;
                 var chart = new Highcharts.Chart(options);
                 });

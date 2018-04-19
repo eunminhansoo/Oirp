@@ -151,10 +151,10 @@
 									<ul class="nav navbar-nav navbar-right">
 										<li><a href="administrator.php">Home</a></li>
 										<li>
-                                            <a>
+                                            <a href="inboundComparison.php">
                                                 <span class="bordernavbar"></span>
                                                 <span>
-                                                    
+                                                    Data Comparison Statistics
                                                 </span>
                                             </a>
                                         </li>
