@@ -104,7 +104,7 @@ include 'database_connection.php';
 			'$familyName',
 			'$givenName',
 			'',
-			'$type_of_program'
+			'$application_prog'
 		)";
 		
     	$comment = mysqli_query($conn, $query_notification);
