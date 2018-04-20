@@ -33,11 +33,11 @@
 			<a href="#">Status:<span style="color: red"> <?php if($status == 'Qualified'){echo $status; }?></span></a>
 			<?php 
 				if($pagination == 'submited' || $pagination == 'Submitted PDF'){
-					if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
+					if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
 						echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
 					} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
 						echo '<a href="pdf/outbound.php" target="_blank">My Application</a>';
-					} else if($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
+					} else if($application_prog == 'inbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
 						echo '<a href="pdf/inboundBilateral.php" target="_blank">My Application</a>';
 					} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
 						echo '<a href="pdf/inbound.php" target="_blank">My Application</a>';
