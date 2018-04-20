@@ -30,30 +30,30 @@
 		</div>
 		
 		<!--HOVER LIST STARTO-->
-		<!--div id="mySidenav" class="sidenav">
+		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="#">Status:<span style="color: red"> <?php //if($status == 'Qualified'){echo $status; }?></span></a>
+			<a href="#">Status:<span style="color: red"> <?php if($status == 'Qualified'){echo $status; }?></span></a>
 			<?php 
-				/*if($pagination == 'submited' || $pagination == 'Submitted PDF'){
-					if($application_prog == 'outbound' && ($type_of_program == "Others" || $type_of_program == "Bilateral")){
+				if($pagination == 'submited' || $pagination == 'Submitted PDF'){
+					if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
 						echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
 					} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
 						echo '<a href="pdf/outbound.php" target="_blank">My Application</a>';
-					} else if($application_prog == 'inbound' && $type_of_program == "Others" || $type_of_program == "Bilateral"){
+					} else if($application_prog == 'inbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
 						echo '<a href="pdf/inboundBilateral.php" target="_blank">My Application</a>';
 					} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
 						echo '<a href="pdf/inbound.php" target="_blank">My Application</a>';
 					}else{
 						echo '<a href="#">My Application</a>';
 					}
-				}*/
+				}
 			?>
 			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
-		</div-->
+		</div>
 		<!--HOVER LIST ENDOO-->
 		
 		<!--NAV BAR START-->
-		<!-- div>
+		<div>
 			<div class="menu_white2">
 				<div class="navsticky">
 					<nav class="navbar navbar-topaz" role="navigation">
@@ -71,7 +71,7 @@
 								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 									<ul class="nav navbar-nav navbar-right" >
 										<li><a href="#upload">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
+										<li><a><span class="bordernavbar"></span><span><?php echo $familyName.", ".$givenName ?></span></a></li>
 										<li>
 											<a href="#" class="btn btn-secondary" id="menu-toggle">
 											<span class="bordernavbar"></span>
@@ -85,47 +85,7 @@
 					</nav>
 				</div>
 			</div>
-		</div-->
-		
-		<nav class="navbar" id="bar">
-						<div class="container-fluid">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
-							        <span class="sr-only">Toggle navigation</span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							     </button>
-							</div>
-							<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
-										<ul class="nav navbar-nav navbar-right">
-											<li><a href="student_home.php">Home</a></li>
-											<li style="padding-right: 30px;"><?php 
-													if($pagination != 'Submitted PDF'){
-														if($application_prog == 'outbound'){
-															echo '<a href="outboundform1.php" target="_blank">My Application</a>';
-														} else if($application_prog == 'inbound'){
-															echo '<a href="inboundform1.php" target="_blank">My Application</a>';
-														}else{
-															echo '<a href="#">My Application</a>';
-														}
-													}
-												?></li>
-											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
-									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
-									          <ul class="dropdown-menu">
-									          	<li><a href="#">Status:<span style="color: red"> <?php if($status == 'Qualified' || $status == "Pending"){echo $status; }?></span></a></li>
-												<li role="separator" class="divider"></li>
-									            <li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
-									          </ul>
-									        </li>
-											
-											
-										</ul> 
-									</div>
-							</div>
-						</nav>
-						
+		</div>
 		<!--NAV BART END-->
 	<div class="main container-fluid">
 		<!--APPLICATION BOX START-->
@@ -203,7 +163,7 @@
 						<div id="fileType">
 							<div class="form-group" style="padding-top: 20px;">
 								<div class="col-xs-4 col-xs-push-1">
-									<span><b>Upload Application Form:</b></span>
+									<span><b>Upload PDF:</b></span>
 								</div>
 								<div class="col-xs-4 col-xs-push-1">
 									<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" disabled>

@@ -2,9 +2,7 @@
 	include 'database_connection.php';
 	session_start();
 	$college = $_SESSION['coll_sess'];
-    //$sql_query = "SELECT * FROM student INNER JOIN educ_background_inbound ON student.STUDENT_ID = educ_background_inbound.STUDENT_ID";
-    $sql_query = "SELECT * FROM admin_college a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID";
-    $query = mysqli_query($conn, $sql_query);
+    // $sql_query = "SELECT * FROM admin_college a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID";
 	
 
 	if(isset($_POST['delete_inbound'])){
@@ -22,43 +20,21 @@
 	    	}
         }
     }
-    
-    $collect_query = "SELECT * FROM `admin_college` WHERE COURSE_1 LIKE '%".$college."%' OR COURSE_2 LIKE '%".$college."%' OR COURSE_3 LIKE '%".$college."%' OR COURSE_4 LIKE '%".$college."%' OR COURSE_5 LIKE '%".$college."%'";
-    $collect_db = mysqli_query($conn, $collect_query);
-    
-    
-    while($collect_row = mysqli_fetch_array($collect_db, MYSQL_NUM)){
-    	$kurso1 = $collect_row['COURSE_1'];
-    	$kurso2 = $collect_row['COURSE_2'];
-    	$kurso3 = $collect_row['COURSE_3'];
-    	$kurso4 = $collect_row['COURSE_4'];
-    	$kurso5 = $collect_row['COURSE_5'];
-    }
-    if ($college == $kurso1){
-    echo $kurso1;
-    } else {
-    	echo 'none';
-    }
-    if ($college == $kurso2){
-    echo $kurso2;
-    } else {
-    	echo 'none';
-    }
-    if ($college == $kurso3){
-    echo $kurso3;
-    } else {
-    	echo 'none';
-    }
-    if ($college == $kurso4){
-    echo $kurso4;
-    } else {
-    	echo 'none';
-    }
-    if ($college == $kurso5){
-    echo $kurso5;
-    } else {
-    	echo 'none';
-    }
+    $col_query = "SELECT * FROM admin_college WHERE COLLEGE = '$college' ";
+	$col_db = mysqli_query($conn, $col_query);
+	while($col_row = mysqli_fetch_array($col_db)){
+		$studentid = $col_row['STUDENT_ID'];
+		$getCollege = $col_row['COLLEGE'];
+	}
+    $sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$studentid'";
+    $query = mysqli_query($conn, $sql_query);
+	$sql_query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID = '$studentid'";
+    $query1 = mysqli_query($conn, $sql_query1);
+	$sql_query2 = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$studentid'";
+    $query2 = mysqli_query($conn, $sql_query2);
+	$sql_query3 = "SELECT * FROM student WHERE STUDENT_ID = '$studentid'";
+    $query3 = mysqli_query($conn, $sql_query3);
+
 ?>
 
 <html>
@@ -176,39 +152,60 @@
 	                        </thead>
 	                        <tbody>
 	                            	<?php while($row = mysqli_fetch_array($query)){ 
-	                                $studentID = $row['STUDENT_ID'];
+
 	                                $fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-	                                $ddate = $row['DATE_ENROLL'];
-	                                $date = new DateTime($ddate);
-									$status = $row['STATUS'];
-									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-			                        $resultdate = $date->format('F j, Y');
+	                                // $ddate = $row['DATE_ENROLL'];
+	                                // $date = new DateTime($ddate);
+									// $get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
+									// $get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
+			                        // $resultdate = $date->format('F j, Y');
 	                            ?>
 	                            <tfoot>
 	                            <tr>
-	                                <td><?php echo "<a href=admin_college_form.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
-									<?php
-										if($get_TYPE_OF_PROGRAM == 'Others'){
-											echo "<td>Bilateral</td>";
-											echo "<td>".$row['TYPE_OF_PROG_OTHER']."</td>";
-										}else{
+	                                <td><?php echo "<a href=admin_college_form.php?studentName=".urlencode($studentid).">".$fullname."</a>" ?></td>
+									<?php 
+										} 
+										while($row1 = mysqli_fetch_array($query1)){ 
+											$get_TYPE_OF_PROGRAM = $row1['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $row1['TYPE_OF_FORM'];
 											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-											if($get_TYPE_OF_FORM == 'OTHERS'){
-												echo "<td>".$row['TYPE_OF_FORM_OTHER']."</td>";
+
+											if($get_TYPE_OF_PROGRAM == "Scholarship"){
+												if($get_TYPE_OF_FORM  == "OTHERS"){
+													echo "<td>".$row1['TYPE_OF_FORM_OTHER']."</td>";
+												}else{
+													echo "<td>".$get_TYPE_OF_FORM."</td>";
+												}
 											}else{
-												echo "<td>".$get_TYPE_OF_FORM."</td>";
+												if($get_TYPE_OF_FORM == "Others"){
+													echo "<td>".$row1['TYPE_OF_FORM_OTHER']."</td>";
+												}else{
+													echo "<td>".$get_TYPE_OF_FORM."</td>";
+												}
 											}
 										}
+										
 									?>
 	                                <!--<td><?php //echo $row['TYPE_OF_PROGRAM']; ?></td>
 	                                <td><?php //echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>-->
-									<td></td>
+									<td><?php echo $getCollege?></td>
+									<?php
+									while($row2 = mysqli_fetch_array($query2)){ 
+										$resultdate = $row2['DATE_SUBMITTED'];
+									?>
 									<td><?php echo $resultdate ?></td>
+									<?php
+										}
+										while($row3 = mysqli_fetch_array($query3)){
+										$status = $row3['STATUS'];
+									?>
 	                                <td><?php echo $status?></td>
-	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentID ?>"></td>
+									<?php
+										}
+									?>
+	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentid?>"></td>
 	                            </tr>
-	                        <?php } ?>
+	                        
 	                        </tfoot> 
 	                        </tbody>
 	                    </table>

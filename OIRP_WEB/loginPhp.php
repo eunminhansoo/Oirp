@@ -48,7 +48,7 @@
 					$_SESSION['coll_sess'] = $college;
 				}
 			}else{
-				$error_message = "<script language='javascript'>(function(){alert('ADMIN');})();</script>";
+				$error_message = "<script language='javascript'>(function(){alert('Invalid Username and Password');})();</script>";
 			}
 		}
 
