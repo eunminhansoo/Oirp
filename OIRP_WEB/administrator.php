@@ -48,10 +48,8 @@
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
@@ -69,14 +67,14 @@
 		</div>
 		
 		<!--HOVER LIST STARTO-->
-		<div id="mySidenav" class="sidenav">
+		<!-- div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
 			<a href="outboundStatistics.php">Outbound Data Statistics</a>
 			<a href="InboundStatistics.php">Inbound Data Statistics</a>
 			<a href="approved_students.php">Approved Students</a>
 			<a href="qualified_students.php">Qualified Students</a>
 			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
-		</div>
+		</div-->
 		<!--HOVER LIST ENDOO-->
 		
 		<!--NAV BAR START-->
@@ -106,39 +104,52 @@
 												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
 												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
 											</a> -->
-		<div>
-			<div class="menu_white2">
-				<div class="navsticky">
-					<nav class="navbar navbar-topaz" role="navigation">
-						<div class="topnav">
-							<div class="container">
-   								<nav class="">
-									<div class="container-fluid">
-										<div class="navbar-header">
-											<a class="navbar-brand" href="#">Administrator</a>
-										</div>
+				
+					<nav class="navbar" id="bar">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+							        <span class="sr-only">Toggle navigation</span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							     </button>
+							</div>
+							<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
 										<ul class="nav navbar-nav navbar-right">
 											<li><a href="administrator.php">Home</a></li>
 											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="bordernavbar"></span><span class="label  label-pill label-danger count" style="border-radius:10px;"></span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
-												<ul class="dropdown-menu"></ul>
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications<span class="caret"></span></a>
+												<ul class="dropdown-menu">
+													<li><a href="approved_students.php">Approved Students</a></li>
+													<li><a href="qualified_students.php">Qualified Students</a></li>
+												</ul>
 											</li>
-										
-											<li>
-												<a href="#" class="btn btn-secondary" id="menu-toggle">
-													<span class="bordernavbar"></span>
-													<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
-												</a>
-											</li> 
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
+												<ul class="dropdown-menu">
+													<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
+													<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
+												</ul>
+											</li>
+											<li class="dropdown" style="padding-right: 30px;">
+												<a href="#" class="dropdown-toggle" id="notif" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span><span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+												<ul class="dropdown-menu" id="notif-down"></ul>
+											</li>
+											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
+									          <ul class="dropdown-menu">
+									            <li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+									          </ul>
+									        </li>
+											
+											
 										</ul> 
 									</div>
-								</nav>
 							</div>
-						</div>
-					</nav>
-				</div>
-			</div>
-		</div>
+						</nav>
+						
+		
 					
 		<!--NAV BAR END-->
 		
@@ -273,7 +284,7 @@ $(document).ready(function(){
    dataType:"json",
    success:function(data)
    {
-    $('.dropdown-menu').html(data.notification);
+    $('#notif-down').html(data.notification);
     if(data.unseen_notification > 0)
     {
      $('.count').html(data.unseen_notification);
@@ -284,7 +295,7 @@ $(document).ready(function(){
  
  load_unseen_notification();
  
- $(document).on('click', '.dropdown-toggle', function(){
+ $(document).on('click', '#notif', function(){
   $('.count').html('');
   load_unseen_notification('yes');
  });

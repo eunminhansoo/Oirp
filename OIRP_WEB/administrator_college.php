@@ -51,6 +51,8 @@
     <body>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<div class="">
 		<div class="header">
@@ -65,7 +67,7 @@
 		<!--HOVER LIST ENDOO-->
 		
 		<!--NAV BAR START-->
-		<div>
+		<!--div>
 			<div class="menu_white2">
 				<div class="navsticky">
 					<nav class="navbar navbar-topaz" role="navigation">
@@ -104,7 +106,32 @@
 					</nav>
 				</div>
 			</div>
-		</div>
+		</div-->
+		
+		<nav class="navbar" id="bar">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+							        <span class="sr-only">Toggle navigation</span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							     </button>
+							</div>
+							<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
+										<ul class="nav navbar-nav navbar-right">
+											<li><a href="administrator_college.php" style="padding-right: 30px;">Home</a></li>
+											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">College<span class="caret"></span></a>
+									          <ul class="dropdown-menu">
+									            <li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+									          </ul>
+									        </li>
+										</ul> 
+									</div>
+							</div>
+						</nav>
+		
 		<!--NAV BART END-->
 		<form>
 			<div class="container">
