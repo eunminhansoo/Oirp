@@ -44,6 +44,13 @@
 			}   
 		}
 	}
+	while($pf_row = mysqli_fetch_array($queryPF)){
+		$pf_COURSE_1_INBOUND = $pf_row['COURSE_1_INBOUND'];
+		$pf_COURSE_2_INBOUND = $pf_row['COURSE_2_INBOUND'];
+		$pf_COURSE_3_INBOUND = $pf_row['COURSE_3_INBOUND'];
+		$pf_COURSE_4_INBOUND = $pf_row['COURSE_4_INBOUND'];
+		$pf_COURSE_5_INBOUND = $pf_row['COURSE_5_INBOUND'];
+	}
 
 	$sql = "select college from colleges where id > 1 order by college asc";
 	$result = mysqli_query($conn, $sql);
@@ -52,6 +59,120 @@
 	while($row = mysqli_fetch_array($result)) {
 		$col .=  "<option value='".$row['college']."'>".$row['college']."</option>";
 	}
+	if(isset($_POST['send'])){
+		$course_1 = $_POST['course1'];
+		$course_2 = $_POST['course2'];
+		$course_3 = $_POST['course3'];
+		$course_4 = $_POST['course4'];
+		$course_5 = $_POST['course5'];
+		$status = $_POST['status']; 
+
+		// course 1
+		$course_query = "INSERT INTO admin_college(
+			STUDENT_COUNT,
+			STUDENT_ID,
+			PROPOSED_PROGRAM,
+			COURSE,
+			COLLEGE
+		) VALUES (
+			' ',
+			'$getStudentID',
+			' ',
+			'$pf_COURSE_1_INBOUND',
+			'$course_1'
+		)";
+		mysqli_query($conn, $course_query);
+
+		// course 2
+		$course_query1 = "INSERT INTO admin_college(
+			STUDENT_COUNT,
+			STUDENT_ID,
+			PROPOSED_PROGRAM,
+			COURSE,
+			COLLEGE
+		) VALUES (
+			' ',
+			'$getStudentID',
+			' ',
+			'$pf_COURSE_2_INBOUND',
+			'$course_2'
+		)";
+		mysqli_query($conn, $course_query1);
+
+		// course 3
+		$course_query2 = "INSERT INTO admin_college(
+			STUDENT_COUNT,
+			STUDENT_ID,
+			PROPOSED_PROGRAM,
+			COURSE,
+			COLLEGE
+		) VALUES (
+			' ',
+			'$getStudentID',
+			' ',
+			'$pf_COURSE_3_INBOUND',
+			'$course_3'
+		)";
+		mysqli_query($conn, $course_query2);
+
+		// course 4
+		$course_query3 = "INSERT INTO admin_college(
+			STUDENT_COUNT,
+			STUDENT_ID,
+			PROPOSED_PROGRAM,
+			COURSE,
+			COLLEGE
+		) VALUES (
+			' ',
+			'$getStudentID',
+			' ',
+			'$pf_COURSE_4_INBOUND',
+			'$course_4'
+		)";
+		mysqli_query($conn, $course_query3);
+
+		// course 5
+		$course_query4 = "INSERT INTO admin_college(
+			STUDENT_COUNT,
+			STUDENT_ID,
+			PROPOSED_PROGRAM,
+			COURSE,
+			COLLEGE
+		) VALUES (
+			' ',
+			'$getStudentID',
+			' ',
+			'$pf_COURSE_5_INBOUND',
+			'$course_5'
+		)";
+		mysqli_query($conn, $course_query4);
+		
+		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+		
+		$query_db = mysqli_query($conn, $query2);
+
+		if($query_db){
+			header("Location:admin_student_application_in.php?studentName=$getStudentID");
+			$sel_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+			$queryy_db = mysqli_query($conn, $sel_query);
+			while($rrow = mysqli_fetch_array($queryy_db)){
+				$sel_query = $rrow['STATUS'];
+			}
+			if($sel_query == 'Approved'){
+
+				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
+				$sel_check_db = mysqli_query($conn, $sel_check_query);
+				if(mysqli_num_rows($sel_check_db) <= 0){
+					$ins_query = "INSERT INTO `admin_college` (`STUDENT_COUNT`, `STUDENT_ID`, `PROPOSED_PROGRAM`, `COURSE_1`, `COURSE_2`, `COURSE_3`, `COURSE_4`, `COURSE_5`) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
+					mysqli_query($conn, $ins_query);
+				}
+			}else{
+				$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
+				mysqli_query($conn, $del_query);
+			}   
+		}
+	}
+
 	if(isset($_POST['send'])){
 		$course_1 = $_POST['course1'];
 		$course_2 = $_POST['course2'];
@@ -97,7 +218,7 @@
 				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
 				$sel_check_db = mysqli_query($conn, $sel_check_query);
 				if(mysqli_num_rows($sel_check_db) <= 0){
-					$ins_query = "INSERT INTO `admin_college` (`STUDENT_COUNT`, `STUDENT_ID`, `PROPOSED_PROGRAM`, `COURSE_1`, `COURSE_2`, `COURSE_3`, `COURSE_4`, `COURSE_5`) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
+					$ins_query = "INSERT INTO admin_college (STUDENT_COUNT, STUDENT_ID, PROPOSED_PROGRAM, COURSE_1, COURSE_2, COURSE_3, COURSE_4, COURSE_5) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
 					mysqli_query($conn, $ins_query);
 				}
 			}else{
@@ -266,15 +387,6 @@
 						</div>
 					</p>
 				</div>
-				<?php
-					while($pf_row = mysqli_fetch_array($queryPF)){
-						$pf_COURSE_1_INBOUND = $pf_row['COURSE_1_INBOUND'];
-						$pf_COURSE_2_INBOUND = $pf_row['COURSE_2_INBOUND'];
-						$pf_COURSE_3_INBOUND = $pf_row['COURSE_3_INBOUND'];
-						$pf_COURSE_4_INBOUND = $pf_row['COURSE_4_INBOUND'];
-						$pf_COURSE_5_INBOUND = $pf_row['COURSE_5_INBOUND'];
-					}
-				?>
 				 <div id="send" class="col-sm-5">
 					<div class="container-fluid">
 						<!--<div class="form-group row">

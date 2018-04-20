@@ -35,10 +35,13 @@
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>-->
-        <script src="https://code.highcharts.com/highcharts.js"></script>
         <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
+        <!--<script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>-->
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
+        <script src="https://code.highcharts.com/modules/drilldown.js"></script>
         <script src="bootstrap-3.3.7-dist/js/exporting.js"></script>
         <script src="bootstrap-3.3.7-dist/js/export-data.js"></script>
         <script src="bootstrap-3.3.7-dist/js/highcharts.js"></script>
@@ -197,7 +200,7 @@
             </div>
         </div>
 
-        <div class="container col-xs-5" id="container" style="width:100%; height:400px;"></div>
+        <div class="container" id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         <script type="text/javascript">
             $(document).ready(function(){
                 
@@ -212,32 +215,45 @@
                         plotBorderWidth: null,
                         plotShadow: false,
                         renderTo: 'container',
-                        type: 'bar',
+                        type: 'column',
 
                 },
                 title: {
                     text: ' '
                 },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                subtitle: {
+                    text: 'Click the columns to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
+                },
+                xAxis: {
+                    type: 'category'
+                },
+                yAxis: {
+                    title: {
+                        text: ' '
+                    }
+
+                },
+                legend: {
+                    enabled: false
                 },
                 plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
+                    series: {
+                        borderWidth: 0,
                         dataLabels: {
                             enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
+                            format: '{point.y:.1f}%'
                         }
                     }
+                },
+
+                tooltip: {
+                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
                 },
                 series: [{
                 }]
                 };
-                $.getJSON('OutStatistics_process.php', function(data){
+                $.getJSON('outComparison_process.php', function(data){
                 options.series[0].data = data;
                 var chart = new Highcharts.Chart(options);
                 });
