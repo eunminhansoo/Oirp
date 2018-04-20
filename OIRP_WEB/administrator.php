@@ -50,8 +50,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  		
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
     <body>
@@ -154,18 +155,22 @@
 		<!--NAV BAR END-->
 		
 		<br><br>
-        <form method="post">	  
+        <form method="post">	
+          
 	        <div class="container-fluid">
+	        	<div class="col-sm-7">
+	        		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
+	            </div>
 	            <div class="col-sm-6">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
 	                        <thead>
 	                            <tr>
-	                                <th>Name</th>
-	                                <th>Application Program</th>
-	                                <th>Application Form</th>
-	                                <th>DATE SUBMITED</th>
+	                                <th>NAME</th>
+	                                <th>TYPE OF PROGRAM</th>
+	                                <th>DURATION / SCHOLARSHIP</th>
+	                                <th>DATE SUBMITTED</th>
 	                                <th>STATUS</th>
 	                                <th><button type="submit" name="delete_inbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
@@ -179,7 +184,7 @@
 									$status = $row['STATUS'];
 									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
 									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-			                        $resultdate = $date->format('F j, Y,');
+			                        $resultdate = $date->format('F j, Y');
 	                            ?>
 	                            <tfoot>
 	                            <tr>
@@ -212,13 +217,13 @@
 	            <div class="col-sm-6">
 	                <h2>OUTBOUND</h2>
 	                <div class="table-responsive">
-	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
+	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_out" >
 	                        <thead>
 	                            <tr>
-	                                <th>Name</th>
-	                                <th>Application Program</th>
-	                                <th>Application Form</th>
-	                                <th>DATE SUBMITED</th>
+	                                <th>NAME</th>
+	                                <th>TYPE OF PROGRAM</th>
+	                                <th>DURATION / SCHOLARSHIP</th>
+	                                <th>DATE SUBMITTED</th>
 	                                <th>STATUS</th>
 	                                <th><button type="submit" name="delete_outbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
@@ -232,7 +237,7 @@
 									$get_TYPE_OF_FORM1 = $row1['TYPE_OF_FORM'];
 									$status1 = $row1['STATUS'];
 	                                $date1 = new DateTime($ddate1);
-			                        $resultdate1 = $date1->format('F j, Y,');
+			                        $resultdate1 = $date1->format('F j, Y');
 	                            ?>
 	                            <tr>
 	                                <td><?php echo "<a href=admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a>" ?></td>
@@ -302,4 +307,54 @@ $(document).ready(function(){
  
  
 });
+
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table_in = document.getElementById("tbl_student_in");
+  table_out = document.getElementById("tbl_student_out");
+  tr_in = table_in.getElementsByTagName("tr");
+  tr_out = table_out.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr_in.length; i++) {
+    td = tr_in[i].getElementsByTagName("td")[0];
+	td1 = tr_in[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr_in[i].style.display = "";
+      } else {
+    	    if (td1) {
+    	      if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+    	        tr_in[i].style.display = "";
+    	      } else {
+    	       	tr_in[i].style.display = "none";
+    	      }
+    	    }
+      }
+    } 
+  }
+
+  for (i = 0; i < tr_out.length; i++) {
+	    td = tr_out[i].getElementsByTagName("td")[0];
+	    td1 = tr_out[i].getElementsByTagName("td")[1];
+	    if (td) {
+	      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	        tr_out[i].style.display = "";
+	      } else {
+	    	  if (td1) {
+	    	    if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	    	      tr_out[i].style.display = "";
+	    	    } else {
+	    	      tr_out[i].style.display = "none";
+	    	    }
+	    	  }
+	      }
+	    }
+
+	   
+	}
+}
 </script>

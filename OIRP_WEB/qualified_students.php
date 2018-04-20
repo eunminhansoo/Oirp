@@ -12,9 +12,9 @@
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
 
@@ -89,6 +89,9 @@
 		<form>
 			<div class="container">
 				<h1>Qualified Students</h1>
+				<div class="">
+	        		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
+	            </div>
 				<div class="">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
@@ -182,4 +185,32 @@ $(document).ready(function(){
  
  
 });
+
+function myFunction() {
+	  // Declare variables 
+	  var input, filter, table, tr, td, i;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table_in = document.getElementById("tbl_student_in");
+	  tr_in = table_in.getElementsByTagName("tr");
+
+	  // Loop through all table rows, and hide those who don't match the search query
+	  for (i = 0; i < tr_in.length; i++) {
+	    td = tr_in[i].getElementsByTagName("td")[0];
+		td1 = tr_in[i].getElementsByTagName("td")[1];
+	    if (td) {
+	      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	        tr_in[i].style.display = "";
+	      } else {
+	    	    if (td1) {
+	    	      if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	    	        tr_in[i].style.display = "";
+	    	      } else {
+	    	       	tr_in[i].style.display = "none";
+	    	      }
+	    	    }
+	      }
+	    } 
+	  }
+	}
 </script>

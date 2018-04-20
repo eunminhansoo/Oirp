@@ -19,7 +19,7 @@ if(isset($_POST["view"]))
    $output .= '
    <li>
     <a href="#">
-     <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf</strong><br />
+     '.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has submitted an application<br />
     </a>
    </li>
    <li class="divider"></li>

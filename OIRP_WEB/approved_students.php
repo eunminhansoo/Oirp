@@ -80,69 +80,20 @@
 		<form>
 			<div class="container-fluid">
 				<h2>Approved Students</h2>
-				<div class="col-sm-6">
-	                <h2>OUTBOUND</h2>
-	                <div class="table-responsive">
-	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
-	                        <thead>
-	                            <tr>
-	                                <th>Name</th>
-	                                <th>Application Program</th>
-	                                <th>Application Form</th>
-	                                <th>DATE SUBMITED</th>
-	                                <th>STATUS</th>
-	                                <th><button type="submit" name="delete_inbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
-	                            </tr>
-	                        </thead>
-	                        <tbody>
-	                            <?php while($row = mysqli_fetch_array($query)){ 
-	                                $studentID = $row['STUDENT_ID'];
-	                                $fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-	                                $ddate = $row['DATE_ENROLL'];
-	                                $date = new DateTime($ddate);
-									$status = $row['STATUS'];
-									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-			                        $resultdate = $date->format('F j, Y');
-	                            ?>
-	                            <tfoot>
-	                            <tr>
-	                                <td><?php echo "$fullname" ?></td>
-									<?php
-										if($get_TYPE_OF_PROGRAM == 'Others'){
-											echo "<td>Bilateral</td>";
-											echo "<td>".$row['TYPE_OF_PROG_OTHER']."</td>";
-										}else{
-											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-											if($get_TYPE_OF_FORM == 'OTHERS'){
-												echo "<td>".$row['TYPE_OF_FORM_OTHER']."</td>";
-											}else{
-												echo "<td>".$get_TYPE_OF_FORM."</td>";
-											}
-										}
-									?>
-	                                <!--<td><?php //echo $row['TYPE_OF_PROGRAM']; ?></td>
-	                                <td><?php //echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>-->
-									<td><?php echo $resultdate ?></td>
-	                                <td><?php echo $status?></td>
-	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentID ?>"></td>
-	                            </tr>
-	                        <?php } ?>
-	                        </tfoot> 
-	                        </tbody>
-	                    </table>
-	                </div>
+				<div class="col-sm-7">
+	        		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
 	            </div>
+				
 				 <div class="col-sm-6">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
 	                        <thead>
 	                            <tr>
-	                                <th>Name</th>
-	                                <th>Application Program</th>
-	                                <th>Application Form</th>
-	                                <th>DATE SUBMITED</th>
+	                                <th>NAME</th>
+	                                <th>TYPE OF PROGRAM</th>
+	                                <th>DURATION / SCHOLARSHIP</th>
+	                                <th>DATE SUBMITTED</th>
 	                                <th>STATUS</th>
 	                                <th><button type="submit" name="delete_inbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
@@ -185,6 +136,59 @@
 	                        </tbody>
 	                    </table>
 	                </div>
+	               </div>
+	                <div class="col-sm-6">
+	                <h2>OUTBOUND</h2>
+	                <div class="table-responsive">
+	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_out" >
+	                        <thead>
+	                            <tr>
+	                                <th>NAME</th>
+	                                <th>TYPE OF PROGRAM</th>
+	                                <th>DURATION / SCHOLARSHIP</th>
+	                                <th>DATE SUBMITTED</th>
+	                                <th>STATUS</th>
+	                                <th><button type="submit" name="delete_inbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <?php while($row = mysqli_fetch_array($query)){ 
+	                                $studentID = $row['STUDENT_ID'];
+	                                $fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
+	                                $ddate = $row['DATE_ENROLL'];
+	                                $date = new DateTime($ddate);
+									$status = $row['STATUS'];
+									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
+									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
+			                        $resultdate = $date->format('F j, Y');
+	                            ?>
+	                            <tfoot>
+	                            <tr>
+	                                <td><?php echo "$fullname" ?></td>
+									<?php
+										if($get_TYPE_OF_PROGRAM == 'Others'){
+											echo "<td>Bilateral</td>";
+											echo "<td>".$row['TYPE_OF_PROG_OTHER']."</td>";
+										}else{
+											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+											if($get_TYPE_OF_FORM == 'OTHERS'){
+												echo "<td>".$row['TYPE_OF_FORM_OTHER']."</td>";
+											}else{
+												echo "<td>".$get_TYPE_OF_FORM."</td>";
+											}
+										}
+									?>
+	                                <!--<td><?php //echo $row['TYPE_OF_PROGRAM']; ?></td>
+	                                <td><?php //echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>-->
+									<td><?php echo $resultdate ?></td>
+	                                <td><?php echo $status?></td>
+	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentID ?>"></td>
+	                            </tr>
+	                        <?php } ?>
+	                        </tfoot> 
+	                        </tbody>
+	                    </table>
+	            </div>
 	            </div>
 			</div>
 		</form>
@@ -225,4 +229,54 @@ $(document).ready(function(){
  
  
 });
+
+function myFunction() {
+	  // Declare variables 
+	  var input, filter, table, tr, td, i;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table_in = document.getElementById("tbl_student_in");
+	  table_out = document.getElementById("tbl_student_out");
+	  tr_in = table_in.getElementsByTagName("tr");
+	  tr_out = table_out.getElementsByTagName("tr");
+
+	  // Loop through all table rows, and hide those who don't match the search query
+	  for (i = 0; i < tr_in.length; i++) {
+	    td = tr_in[i].getElementsByTagName("td")[0];
+		td1 = tr_in[i].getElementsByTagName("td")[1];
+	    if (td) {
+	      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	        tr_in[i].style.display = "";
+	      } else {
+	    	    if (td1) {
+	    	      if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	    	        tr_in[i].style.display = "";
+	    	      } else {
+	    	       	tr_in[i].style.display = "none";
+	    	      }
+	    	    }
+	      }
+	    } 
+	  }
+
+	  for (i = 0; i < tr_out.length; i++) {
+		    td = tr_out[i].getElementsByTagName("td")[0];
+		    td1 = tr_out[i].getElementsByTagName("td")[1];
+		    if (td) {
+		      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		        tr_out[i].style.display = "";
+		      } else {
+		    	  if (td1) {
+		    	    if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		    	      tr_out[i].style.display = "";
+		    	    } else {
+		    	      tr_out[i].style.display = "none";
+		    	    }
+		    	  }
+		      }
+		    }
+
+		   
+		}
+	}
 </script>
