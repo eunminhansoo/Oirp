@@ -96,11 +96,16 @@ include 'database_connection.php';
 		STUDENT_ID,
 		LASTNAME,
 		FIRSTNAME,
-		COMMENT_STATUS) VALUES ('',
-		'$get_studentID',
-		'$familyName',
-		'$givenName',
-		'')";
+		COMMENT_STATUS,
+		APPLICATION_FORM
+		) VALUES (
+			'',
+			'$get_studentID',
+			'$familyName',
+			'$givenName',
+			'',
+			'$application_prog'
+		)";
 		
     	$comment = mysqli_query($conn, $query_notification);
     	//end of insert comment 
