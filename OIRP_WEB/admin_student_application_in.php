@@ -5,16 +5,25 @@
 
     $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
     $result = mysqli_query($conn, $sql);
-    while($row = mysqli_fetch_array($result)){
-        $file = $row['PDF_IMG'];
+    while($rowfile = mysqli_fetch_array($result)){
+        $file = $rowfile['PDF_IMG'];
+		//  $torscan = $row['TOR_SCAN'];
     }
-    
     $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
     $queryBD = mysqli_query($conn, $query);
     $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
     $queryCU = mysqli_query($conn, $query1);   
 	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
     $queryPF = mysqli_query($conn, $query2);
+
+	while($row1 = mysqli_fetch_array($queryCU)){
+		$application_prog = $row1['TYPE_OF_PROGRAM'];
+		$application_prog_other = $row1['TYPE_OF_PROG_OTHER'];
+		$application_form = $row1['TYPE_OF_FORM'];
+		$application_form_other = $row1['TYPE_OF_FORM_OTHER'];
+		$country = $row1['COUNTRY_ORIGIN'];
+		$university = $row1['HOME_UNIV_IN_BILA'];
+	}
 
 	if(isset($_POST['update_status'])){
 		$status = $_POST['status']; 
@@ -159,67 +168,61 @@
 				$sel_query = $rrow['STATUS'];
 			}
 			if($sel_query == 'Approved'){
-
+				
+				$today = date("m/d/Y");
+				$new = "08/01/".date('Y');;
+				$prevyears = date('Y');
+				$nextyears = date('Y', strtotime('+1 year'));
+				$cret_year = $prevyears."-".$nextyears;
+				$sel_query = "SELECT * FROM yearly";
+				$sel_db = mysqli_query($conn, $sel_query);
+				while($selRow = mysqli_fetch_array($sel_db)){
+					$yyear = $selRow['YEARLY'];
+				}
+				if($cret_year != $yyear){
+					if($today == $new){	
+						// echo "success";
+						$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
+						$query = mysqli_query($conn, $sql);
+						if($query){
+							echo "success";
+						}
+					} 	                   
+				}
 				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
 				$sel_check_db = mysqli_query($conn, $sel_check_query);
 				if(mysqli_num_rows($sel_check_db) <= 0){
 					$ins_query = "INSERT INTO `admin_college` (`STUDENT_COUNT`, `STUDENT_ID`, `PROPOSED_PROGRAM`, `COURSE_1`, `COURSE_2`, `COURSE_3`, `COURSE_4`, `COURSE_5`) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
 					mysqli_query($conn, $ins_query);
 				}
-			}else{
-				$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
-				mysqli_query($conn, $del_query);
-			}   
-		}
-	}
-
-	if(isset($_POST['send'])){
-		$course_1 = $_POST['course1'];
-		$course_2 = $_POST['course2'];
-		$course_3 = $_POST['course3'];
-		$course_4 = $_POST['course4'];
-		$course_5 = $_POST['course5'];
-		$status = $_POST['status']; 
-		
-		$course_query = "INSERT INTO admin_college(
-			STUDENT_COUNT,
-			STUDENT_ID,
-			PROPOSED_PROGRAM,
-			COURSE_1,
-			COURSE_2,
-			COURSE_3,
-			COURSE_4,
-			COURSE_5
-		) VALUES (
-			' ',
-			'$getStudentID',
-			' ',
-			'$course_1',
-			'$course_2',
-			'$course_3',
-			'$course_4',
-			'$course_5'
-		)";
-		mysqli_query($conn, $course_query);
-		
-		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-		
-		$query_db = mysqli_query($conn, $query2);
-
-		if($query_db){
-			header("Location:admin_student_application_in.php?studentName=$getStudentID");
-			$sel_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
-			$queryy_db = mysqli_query($conn, $sel_query);
-			while($rrow = mysqli_fetch_array($queryy_db)){
-				$sel_query = $rrow['STATUS'];
-			}
-			if($sel_query == 'Approved'){
-
-				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
-				$sel_check_db = mysqli_query($conn, $sel_check_query);
-				if(mysqli_num_rows($sel_check_db) <= 0){
-					$ins_query = "INSERT INTO admin_college (STUDENT_COUNT, STUDENT_ID, PROPOSED_PROGRAM, COURSE_1, COURSE_2, COURSE_3, COURSE_4, COURSE_5) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
-					mysqli_query($conn, $ins_query);
+			}else if($sel_query == 'Completed'){
+				$yearlySel_query = "SELECT * FROM yearly";
+				$yearlySel_db = mysqli_query($conn, $yearlySel_query);
+				while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
+					$yearr = $yearSel_row['YEARLY'];
+				}
+				$sel_query = "SELECT * FROM instatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+				$sel_db = mysqli_query($conn, $sel_query);
+				$countNum = mysqli_num_rows($sel_db);
+				if($countNum == 1){
+					while($seRow = mysqli_fetch_array($sel_db)){
+						$num_student = $seRow['NUMBER_STUDENT'];
+					}
+					$num_student += 1;
+					$statUp = "UPDATE instatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+					mysqli_fetch_array($conn, $statUp);
+				}
+				if($countNum == 0){
+					$numStu = 1;
+					$appform = "inbound";
+					$statInt = "INSERT INTO instatistics(ID, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
+						'',
+						'$numStu',
+						'$yearr',
+						'$country',
+						'$appform'
+					)";
+					mysqli_query($conn, $statInt);
 				}
 			}else{
 				$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
@@ -241,6 +244,8 @@
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<div class="header">
 			<img src='img/logo.png' height=auto class="img-responsive">
@@ -256,55 +261,50 @@
 		<!--HOVER LIST ENDOO-->
 		
 		<!--NAV BAR START-->
-		<div>
-			<div class="menu_white2">
-				<div class="navsticky">
-					<nav class="navbar navbar-topaz" role="navigation">
-						<div class="topnav">
-							<div class="container">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-									<a class="navbar-brand" href="#"></a>
-								</div>
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-									<ul class="nav navbar-nav navbar-left">
-                                        <!-- font style: Bookman Old Style-->
-                                        <li><a><span class="styletext"><h4>STUDENT APPLICATION FORM</h4></span></a></li>
-                                    </ul>
-									<ul class="nav navbar-nav navbar-right" >
-										<li><a href="administrator.php">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
-										<li>
-										<a href="#notifications-panel" class="nav-link dropdown-toggle" data-toggle="dropdown">
-          									<i data-count="2" class="oi oi-bell notification-icon" aria-label="Nofitication centre"></i>
-        								</a>
-										<!--  	<a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
-												<span class="bordernavbar"></span>
-												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
-												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
-											</a> -->
-										</li>
-										<li>
-											<a href="#" class="btn btn-secondary" id="menu-toggle">
-											<span class="bordernavbar"></span>
-											<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</nav>
+		<nav class="navbar" id="bar">
+		    <div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+					    <span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="administrator.php">Home</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+							   <li><a href="approved_students.php">Approved Students</a></li>
+								<li><a href="qualified_students.php">Qualified Students</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
+								<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
+								<li><a href="outboundComparison.php">Outbound Comparison</a></li>
+								<li><a href="inboundComparison.php">Inbound Comparison</a></li>
+							</ul>
+						</li>
+						<li class="dropdown" style="padding-right: 30px;">
+							<a href="#" class="dropdown-toggle" id="notif" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span><span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+							<ul class="dropdown-menu" id="notif-down"></ul>
+						</li>
+						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+							</ul>
+						</li>					
+					</ul> 
 				</div>
 			</div>
-		</div>
+		</nav>
 		<!--NAV BART END-->
-
 		<form method="post">
 			<div class="container-fluid">
 				<div class="col-sm-7">
@@ -318,14 +318,7 @@
 						while($row = mysqli_fetch_array($queryBD)){
 							$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
 						}
-						while($row1 = mysqli_fetch_array($queryCU)){
-							$application_prog = $row1['TYPE_OF_PROGRAM'];
-							$application_prog_other = $row1['TYPE_OF_PROG_OTHER'];
-							$application_form = $row1['TYPE_OF_FORM'];
-							$application_form_other = $row1['TYPE_OF_FORM_OTHER'];
-							$country = $row1['COUNTRY_ORIGIN'];
-							$university = $row1['HOME_UNIV_IN_BILA'];
-						}
+						
 					?>
 					<br>
 					<p>
@@ -366,9 +359,20 @@
 						<span> <b>Home University: </b></span> <span> <?php echo $university?></span> 
 					</p>
 					<p>
+						<span><b>Transcript of Record: </b></span>
+						<?php 
+							// if($torscan){
+							// 	echo "<a href=showTOR.php?numnum=".urldecode($getStudentID)." target='_blank'>".$torScan."</a>";
+							// }else{
+							// 	$torscan ="";
+							// }
+						?>
+					</p>
+					<p>
 						<span><b>Status: </b></span>
 						<span>
 							<select name="status" id="status" onChange="func(this);">
+								<option value=" ">Choose a Status</option>
 								<option value="Pending">Pending</option>
 								<option value="Approved">Approved</option>
 								<option value="Denied">Denied</option>
@@ -476,3 +480,34 @@
 		}
 	</script>
 </html>
+<script>
+$(document).ready(function(){
+ 
+ function load_unseen_notification(view = '')
+ {
+  $.ajax({
+   url:"fetch_comment.php",
+   method:"POST",
+   data:{view:view},
+   dataType:"json",
+   success:function(data)
+   {
+    $('#notif-down').html(data.notification);
+    if(data.unseen_notification > 0)
+    {
+     $('.count').html(data.unseen_notification);
+    }
+   }
+  });
+ }
+ 
+ load_unseen_notification();
+ 
+ $(document).on('click', '#notif', function(){
+  $('.count').html('');
+  load_unseen_notification('yes');
+ });
+ 
+ 
+});
+</script>

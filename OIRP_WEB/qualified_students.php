@@ -67,6 +67,8 @@
 												<ul class="dropdown-menu">
 													<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
 													<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
+													<li><a href="outboundComparison.php">Outbound Comparison</a></li>
+													<li><a href="inboundComparison.php">Inbound Comparison</a></li>
 												</ul>
 											</li>
 											<li class="dropdown" style="padding-right: 30px;">

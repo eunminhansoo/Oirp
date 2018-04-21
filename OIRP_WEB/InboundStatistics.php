@@ -35,10 +35,15 @@
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>-->
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
+        <!--<script src="https://code.highcharts.com/highcharts.js"></script>
+        <!--<script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>-->
+        <script src="bootstrap-3.3.7-dist/js/highcharts.js"></script>
+        <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
+        <script src="bootstrap-3.3.7-dist/js/exporting.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/export-data.js"></script>
+
         
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -152,6 +157,8 @@
 												<ul class="dropdown-menu">
 													<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
 													<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
+                                                    <li><a href="outboundComparison.php">Outbound Comparison</a></li>
+								                    <li><a href="inboundComparison.php">Inbound Comparison</a></li>
 												</ul>
 											</li>
 											<li class="dropdown" style="padding-right: 30px;">

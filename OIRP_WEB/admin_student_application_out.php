@@ -15,9 +15,66 @@
     $queryCU = mysqli_query($conn, $query1);   
 	$query2 = "SELECT * FROM proposed_field_study WHERE STUDENT_ID = '$getStudentID' "; 
 	$queryPF = mysqli_query($conn, $query2);        
+	while($row1 = mysqli_fetch_array($queryCU)){
+		$country = $row1['COUNTRY_OUT'];
+		$university = $row1['UNIVERSITY_OUT'];
+	}
 
 	if(isset($_POST['update_status'])){
+		
 		$status = $_POST['status'];
+		if($status == "Qualified"){
+			$today = date("m/d/Y");
+			$new = "08/01/".date('Y');;
+			$prevyears = date('Y');
+			$nextyears = date('Y', strtotime('+1 year'));
+			$cret_year = $prevyears."-".$nextyears;
+			$sel_query = "SELECT * FROM yearly";
+			$sel_db = mysqli_query($conn, $sel_query);
+			while($selRow = mysqli_fetch_array($sel_db)){
+				$yyear = $selRow['YEARLY'];
+			}
+			if($cret_year != $yyear){
+				if($today == $new){	
+					// echo "success";
+					$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
+					$query = mysqli_query($conn, $sql);
+					if($query){
+						echo "success";
+					}
+				} 	                   
+			}
+		}
+		if($sel_query == 'Completed'){
+			$yearlySel_query = "SELECT * FROM yearly";
+			$yearlySel_db = mysqli_query($conn, $yearlySel_query);
+			while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
+				$yearr = $yearSel_row['YEARLY'];
+			}
+			$sel_query = "SELECT * FROM outstatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+			$sel_db = mysqli_query($conn, $sel_query);
+			$countNum = mysqli_num_rows($sel_db);
+			if($countNum == 1){
+				while($seRow = mysqli_fetch_array($sel_db)){
+					$num_student = $seRow['NUMBER_STUDENT'];
+				}
+				$num_student += 1;
+				$statUp = "UPDATE outstatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+				mysqli_fetch_array($conn, $statUp);
+			}
+			if($countNum == 0){
+				$numStu = 1;
+				$appform = "outbound";
+				$statInt = "INSERT INTO outstatistics(STUDENT_COUNT, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
+					'',
+					'$numStu',
+					'$yearr',
+					'$country',
+					'$appform'
+				)";
+				mysqli_query($conn, $statInt);
+			}
+		}
 
 		$stat_query = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID' ";
 		$stat_db = mysqli_query($conn, $stat_query);
@@ -117,10 +174,7 @@
 						while($row = mysqli_fetch_array($queryBD)){
 							$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
 						}
-						while($row1 = mysqli_fetch_array($queryCU)){
-							$country = $row1['COUNTRY_OUT'];
-							$university = $row1['UNIVERSITY_OUT'];
-						}
+						
 						while($row2 = mysqli_fetch_array($queryPF)){
 							$application_prog = $row2['TYPE_OF_PROGRAM'];
 							$application_prog_other = $row2['TYPE_OF_PROG_OTHER'];
@@ -173,6 +227,7 @@
 					<p>
 						<span><b>Status: </b></span>
 							<select name="status" id="status" onChange="func(this);">
+								<option value=" ">Choose a Status</option>
 								<option value="Qualified">Qualified</option>
 								<option value="Not-Qualified">Not-Qualified</option>
 								<option value="On-Going">On-going</option>

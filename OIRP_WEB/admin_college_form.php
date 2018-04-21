@@ -18,20 +18,9 @@
     $queryPF = mysqli_query($conn, $query2); 
 
 	if(isset($_POST['update_status'])){
-		$status = $_POST['status']; 
-		$course1 = $_POST['course1'];
-		$course2 = $_POST['course2'];
-		$course3 = $_POST['course3'];
-		$course4 = $_POST['course4'];
-		$course5 = $_POST['course5'];
+		$status = $_POST['status'];
 
-		$query2 = "UPDATE student SET STATUS = '$status',
-		COURSE_1_INBOUND = '$course1',
-		COURSE_2_INBOUND = '$course2',
-		COURSE_3_INBOUND = '$course3',
-		COURSE_4_INBOUND = '$course4',
-		COURSE_5_INBOUND = '$course5'
-		WHERE STUDENT_ID = '$getStudentID'";
+		$query2 = "UPDATE student SET STATUS = '$status'";
 		
 		$query_db = mysqli_query($conn, $query2);
 	}        

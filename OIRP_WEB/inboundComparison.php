@@ -49,10 +49,10 @@
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
     </head>
     <style>
         /*DROPDOWN DESIGN*/
@@ -114,6 +114,8 @@
     <body>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<div class="">
 		<div class="header">
@@ -131,57 +133,49 @@
 		<!--HOVER LIST ENDOO-->
 		
 		<!--NAV BAR START-->
-		<div>
-			<div class="menu_white2">
-				<div class="navsticky">
-					<nav class="navbar navbar-topaz" role="navigation">
-						<div class="topnav">
-							<div class="">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-									<a class="navbar-brand" href="#"></a>
-								</div>
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                    <ul class="nav navbar-nav navbar-left">
-                                        <!-- font style: Bookman Old Style-->
-                                        <li><a><span class="styletext"><h4>Data Statistics</h4></span></a></li>
-                                    </ul>
-									<ul class="nav navbar-nav navbar-right">
-										<li><a href="administrator.php">Home</a></li>
-										<li>
-                                            <a href="">
-                                                <span class="bordernavbar"></span>
-                                                <span>
-                                                    Data Comparison Statistics
-                                                </span>
-                                            </a>
-                                        </li>
-										<li>
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-												<span class="bordernavbar"></span>
-												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
-												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="btn btn-secondary" id="menu-toggle">
-											<span class="bordernavbar"></span>
-											<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</nav>
+		<nav class="navbar" id="bar">
+		    <div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+					    <span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="administrator.php">Home</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+							   <li><a href="approved_students.php">Approved Students</a></li>
+								<li><a href="qualified_students.php">Qualified Students</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
+								<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
+								<li><a href="outboundComparison.php">Outbound Comparison</a></li>
+								<li><a href="inboundComparison.php">Inbound Comparison</a></li>
+							</ul>
+						</li>
+						<li class="dropdown" style="padding-right: 30px;">
+							<a href="#" class="dropdown-toggle" id="notif" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span><span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+							<ul class="dropdown-menu" id="notif-down"></ul>
+						</li>
+						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+							</ul>
+						</li>					
+					</ul> 
 				</div>
 			</div>
-		</div>
+		</nav>
 		<!--NAV BART END-->
         <div>
             <div class="col-xs-5">
@@ -284,4 +278,36 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
+
 </html>
+<script>
+$(document).ready(function(){
+ 
+ function load_unseen_notification(view = '')
+ {
+  $.ajax({
+   url:"fetch_comment.php",
+   method:"POST",
+   data:{view:view},
+   dataType:"json",
+   success:function(data)
+   {
+    $('#notif-down').html(data.notification);
+    if(data.unseen_notification > 0)
+    {
+     $('.count').html(data.unseen_notification);
+    }
+   }
+  });
+ }
+ 
+ load_unseen_notification();
+ 
+ $(document).on('click', '#notif', function(){
+  $('.count').html('');
+  load_unseen_notification('yes');
+ });
+ 
+ 
+});
+</script>

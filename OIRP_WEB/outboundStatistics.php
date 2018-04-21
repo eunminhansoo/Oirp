@@ -111,6 +111,10 @@
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/highcharts.js"></script>
+        <!--<script src="https://code.highcharts.com/highcharts.js"></script>-->
+        <script src="bootstrap-3.3.7-dist/js/exporting.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/export-data.js"></script>
 
 		<div class="">
 		<div class="header">
@@ -153,6 +157,8 @@
 												<ul class="dropdown-menu">
 													<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
 													<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
+                                                    <li><a href="outboundComparison.php">Outbound Comparison</a></li>
+								                    <li><a href="inboundComparison.php">Inbound Comparison</a></li>
 												</ul>
 											</li>
 											<li class="dropdown" style="padding-right: 30px;">
