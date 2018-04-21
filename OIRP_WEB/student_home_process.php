@@ -97,14 +97,16 @@ include 'database_connection.php';
 		LASTNAME,
 		FIRSTNAME,
 		COMMENT_STATUS,
-		APPLICATION_FORM
+		APPLICATION_FORM,
+		COLLEGE
 		) VALUES (
 			'',
 			'$get_studentID',
 			'$familyName',
 			'$givenName',
 			'',
-			'$application_prog'
+			'$application_prog',
+			''
 		)";
 		
     	$comment = mysqli_query($conn, $query_notification);

@@ -18,6 +18,210 @@ if(isset($_POST["view"]))
             $app_form = $row['APPLICATION_FORM'];
             $studentId = $row['STUDENT_ID'];
             $fullname = $row['LASTNAME'].", ".$row['FIRSTNAME']." ";
+        	$college = $row['COLLEGE'];
+            
+            switch ($college){
+            	case "Faculty of Sacred Theology":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Faculty of Philosophy":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Faculty of Canon Law":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Graduate School":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Alfredo M. Velayo College of Accountancy":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "College of Architecture":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Faculty of Arts and Letters":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Faculty of Civil Law":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "College of Commerce and Business Administration":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "College of Education":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Faculty of Engineering":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "College of Fine Arts and Design":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Institute of Information and Computing Sciences":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Faculty of Medicine and Surgery":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Conservatory of Music":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "College of Nursing":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Faculty of Pharmacy":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Institute of Physical Education and Athletics":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "College of Rehabilitation Sciences":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "Institute of Religion":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "College of Science":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+        		case "College of Tourism and Hospitality Management":
+        $output .= '
+                    <li>
+                            <strong>The '.$college.' made an update on student '.$fullname.'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        break;
+            }
+            
+            
             if($app_form == "inbound"){
                 $output .= '
                     <li>
