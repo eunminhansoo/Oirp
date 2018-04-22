@@ -2,6 +2,8 @@
     include 'database_connection.php';
 
     $getStudentID = $_GET['studentName'];
+    session_start();
+	$college = $_SESSION['coll_sess'];
 
     $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
     $result = mysqli_query($conn, $sql);
@@ -16,11 +18,41 @@
 
 	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
     $queryPF = mysqli_query($conn, $query2); 
-
+    
+    while($row = mysqli_fetch_array($queryBD)){
+    	$familyName = $row['FAMILY_NAME'];
+    	$givenName = $row['GIVEN_NAME'];
+    	
+		$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
+	}
+		
 	if(isset($_POST['update_status'])){
-		$status = $_POST['status'];
 
-		$query2 = "UPDATE student SET STATUS = '$status'";
+		$status = $_POST['status']; 
+		$query2 = "UPDATE student SET STATUS = '$status'
+		WHERE STUDENT_ID = '$getStudentID'";
+
+		
+		//insert to comment
+		$query_notification = "INSERT INTO notification(STUDENT_COUNT,
+		STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		COMMENT_STATUS,
+		APPLICATION_FORM,
+		COLLEGE
+		) VALUES (
+			'',
+			'$getStudentID',
+			'$familyName',
+			'$givenName',
+			'',
+			'',
+			'$college'
+		)";
+		
+    	$comment = mysqli_query($conn, $query_notification);
+    	//end of insert comment
 		
 		$query_db = mysqli_query($conn, $query2);
 	}        
@@ -44,9 +76,7 @@
 		<div class="col-xs-push-3 col-xs-5">
 			<h2>Basic Information</h2>
 				<?php
-					while($row = mysqli_fetch_array($queryBD)){
-						$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-					}
+					
 					while($row1 = mysqli_fetch_array($queryCU)){
 						$application_prog = $row1['TYPE_OF_PROGRAM'];
 						$application_prog_other = $row1['TYPE_OF_PROG_OTHER'];
