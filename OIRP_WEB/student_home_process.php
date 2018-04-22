@@ -98,7 +98,8 @@ include 'database_connection.php';
 		FIRSTNAME,
 		COMMENT_STATUS,
 		APPLICATION_FORM,
-		COLLEGE
+		COLLEGE,
+		STATUS
 		) VALUES (
 			'',
 			'$get_studentID',
@@ -106,11 +107,35 @@ include 'database_connection.php';
 			'$givenName',
 			'',
 			'$application_prog',
+			'',
 			''
 		)";
 		
     	$comment = mysqli_query($conn, $query_notification);
     	//end of insert comment 
+    	
+    	//insert to audit_logs
+    	date_default_timezone_set('Asia/Manila');
+		$date1 = date('Y-m-d/H:i:s');
+    	$query_log = "INSERT INTO audit_logs(STUDENT_COUNT,
+    	STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		APPLICATION_FORM,
+		COLLEGE,
+		STATUS,
+		DATE
+		) VALUES (
+			'',
+			'$get_studentID',
+			'$familyName',
+			'$givenName',
+			'$application_prog',
+			'',
+			'',
+			'$date1'
+			)";
+    	$query_audit = mysqli_query($conn, $query_log);
     	$query = mysqli_query($conn, $query_db);
     	$query1 = mysqli_query($conn, $query_db1);
     
