@@ -97,13 +97,13 @@
 	                        <tbody>
 	                            <tfoot>
 								<?php
-									 $col_query = "SELECT * FROM admin_college WHERE COLLEGE = '$college' ";
+									$col_query = "SELECT * FROM admin_college WHERE COLLEGE = '$college' ";
 									$col_db = mysqli_query($conn, $col_query);
 									while($col_row = mysqli_fetch_array($col_db)){
 										$studentid = $col_row['STUDENT_ID'];
 										$getCollege = $col_row['COLLEGE'];
 										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
-										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE a.STUDENT_ID = '20180422001-in'";
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE a.STUDENT_ID = '$studentid'";
 										$sql_db = mysqli_query($conn, $sql_query);
 										while($sqlRow = mysqli_fetch_array($sql_db)){
 											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
