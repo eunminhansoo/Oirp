@@ -1,9 +1,11 @@
 <?php
+	error_reporting(0);
     include 'database_connection.php';
     
     $query = "SELECT * FROM audit_logs ORDER BY STUDENT_COUNT DESC";
     $result = mysqli_query($conn, $query);
-    $output = '';
+    $output = "";
+    
     if(mysqli_num_rows($result) > 0)
     {
         while($row = mysqli_fetch_array($result))
@@ -29,30 +31,14 @@
                 ';
         }    
             
-        if($applicationform == "inbound"){
-                $output .= '
-                    <li>
-                            <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</strong><br />
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                ';
-            }else{
-                if($applicationform == "outbound"){
-                    $output .= '
-                    <li>
-                            <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</strong><br />
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                ';
-                }
-            }
+	        if($applicationform == "inbound"){
+	                $output .= '<tr><td>'.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</td></tr>';
+	            }else{
+	                if($applicationform == "outbound"){
+	                    $output .= '<tr><td>'.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</td></tr>';
+	                }
+	            }
         }
-        $data = array(
-    'notification'   => $output
-    );
-    echo json_encode($data);
     }
     ?>
     <!DOCTYPE html>
@@ -80,34 +66,6 @@
 		</div>
 		<!--HOVER LIST ENDOO-->
 		
-		<!--NAV BAR START-->
-		<!--  
-		<div>
-			<div class="menu_white2">
-				<div class="navsticky">
-					<nav class="navbar navbar-topaz" role="navigation">
-						<div class="topnav">
-							<div class="container">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-									<a class="navbar-brand" href="#"></a>
-								</div>
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-									<ul class="nav navbar-nav navbar-right" >
-										<li><a href="administrator.php">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
-										<li>
-										 	 <a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
-												<span class="bordernavbar"></span>
-												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
-												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
-											</a> -->
-				
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -155,5 +113,18 @@
 		<?php echo $output?>
 		<!--NAV BAR END-->
 		
-
+		<div class="container-fluid">
+			<div class="col-sm-6">
+				<table class="table table-striped table-bordered table-hover display">
+					<thead><tr><th>Notifications</th></tr></thead>
+					<tbody id="notifs">
+						<?php echo $output ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+</div>
+</body>
+</html>
 		
