@@ -1,11 +1,13 @@
 <?php
-
 	error_reporting(0);
 	
 	include 'database_connection.php';
     //$sql_query = "SELECT * FROM student INNER JOIN educ_background_inbound ON student.STUDENT_ID = educ_background_inbound.STUDENT_ID";
     $sql_query = "SELECT * FROM admin_college a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE b.STATUS = 'Qualified' ";
     $query = mysqli_query($conn, $sql_query);
+
+	$sql_query1 = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN proposed_field_study c ON b.STUDENT_ID = c.STUDENT_ID WHERE b.STATUS = 'Qualified'";
+    $query1 = mysqli_query($conn, $sql_query1);
 
 
 ?>
@@ -92,12 +94,13 @@
 						</nav>
 		<!--NAV BART END-->
 		<form>
-			<div class="container">
-				<h1>Qualified Students</h1>
-				<div class="">
+			<div class="container-fluid">
+				<h2>Qualified Students</h2>
+				<div class="col-sm-7">
 	        		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
 	            </div>
-				<div class="">
+				
+				 <div class="col-sm-6">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
@@ -112,7 +115,60 @@
 	                            </tr>
 	                        </thead>
 	                        <tbody>
-	                            <?php while($row = mysqli_fetch_array($query)){ 
+	                            <?php while($row1 = mysqli_fetch_array($query)){ 
+	                                $studentID = $row1['STUDENT_ID'];
+	                                $fullname = $row1['FAMILY_NAME'].", ".$row1['GIVEN_NAME']." ".$row1['MIDDLE_NAME'];
+	                                $ddate = $row1['DATE_ENROLL'];
+	                                $date = new DateTime($ddate);
+									$status = $row1['STATUS'];
+									$get_TYPE_OF_PROGRAM = $row1['TYPE_OF_PROGRAM'];
+									$get_TYPE_OF_FORM = $row1['TYPE_OF_FORM'];
+			                        $resultdate = $date->format('F j, Y,');
+	                            ?>
+	                            <tfoot>
+	                            <tr>
+	                                <td><?php echo "<a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
+									<?php
+										if($get_TYPE_OF_PROGRAM == 'Others'){
+											echo "<td>Bilateral</td>";
+											echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
+										}else{
+											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+											if($get_TYPE_OF_FORM == 'OTHERS'){
+												echo "<td>".$row1['TYPE_OF_FORM_OTHER']."</td>";
+											}else{
+												echo "<td>".$get_TYPE_OF_FORM."</td>";
+											}
+										}
+									?>
+	                                <!--<td><?php //echo $row['TYPE_OF_PROGRAM']; ?></td>
+	                                <td><?php //echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>-->
+									<td><?php echo $resultdate ?></td>
+	                                <td><?php echo $status?></td>
+	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentID ?>"></td>
+	                            </tr>
+	                        <?php } ?>
+	                        </tfoot> 
+	                        </tbody>
+	                    </table>
+	                </div>
+	               </div>
+	                <div class="col-sm-6">
+	                <h2>OUTBOUND</h2>
+	                <div class="table-responsive">
+	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_out" >
+	                        <thead>
+	                            <tr>
+	                                <th>NAME</th>
+	                                <th>TYPE OF PROGRAM</th>
+	                                <th>DURATION / SCHOLARSHIP</th>
+	                                <th>DATE SUBMITTED</th>
+	                                <th>STATUS</th>
+	                                <th><button type="submit" name="delete_inbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <?php while($row = mysqli_fetch_array($query1)){ 
 	                                $studentID = $row['STUDENT_ID'];
 	                                $fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
 	                                $ddate = $row['DATE_ENROLL'];
@@ -148,7 +204,7 @@
 	                        </tfoot> 
 	                        </tbody>
 	                    </table>
-	                </div>
+	            </div>
 	            </div>
 			</div>
 		</form>

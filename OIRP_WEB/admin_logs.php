@@ -2,7 +2,7 @@
 	error_reporting(0);
     include 'database_connection.php';
     
-    $query = "SELECT * FROM audit_logs ORDER BY STUDENT_COUNT";
+    $query = "SELECT * FROM audit_logs ORDER BY STUDENT_COUNT DESC";
     $result = mysqli_query($conn, $query);
     $output = "";
     
@@ -16,6 +16,20 @@
         	$college = $row['COLLEGE'];        	
             $status = $row['STATUS'];
             $date = $row['DATE'];
+            $course = $row['COURSE'];
+            
+        if($course == null){
+        	
+        }else {
+        	$output .= '
+                    <li>
+                            <strong>OIRP has send the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to the '.$row["College"].'
+                            on '.$row["DATE"].'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        }    
             
 	        if($applicationform == "inbound"){
 	                $output .= '<tr><td>'.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</td></tr>';
@@ -95,7 +109,8 @@
 					</ul> 
 				</div>
 			</div>
-		</nav>		
+		</nav>
+		<?php echo $output?>
 		<!--NAV BAR END-->
 		
 		<div class="container-fluid">

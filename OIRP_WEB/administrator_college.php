@@ -90,6 +90,7 @@
 	                                <th>NAME</th>
 	                                <th>TYPE OF PROGRAM</th>
 	                                <th>DURATION / SCHOLARSHIP</th>
+									<th>COURSE</th>
 	                                <th>DATE SUBMITTED</th>
 	                                <th>STATUS</th>
 	                                <th><button type="submit" name="delete_inbound" class="btn btn-primary" ><span class="glyphicon glyphicon-trash"></span></button></th>
@@ -103,16 +104,18 @@
 									while($col_row = mysqli_fetch_array($col_db)){
 										$studentid = $col_row['STUDENT_ID'];
 										$getCollege = $col_row['COLLEGE'];
+									}
 										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
-										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE a.STUDENT_ID = '$studentid'";
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college'";
 										$sql_db = mysqli_query($conn, $sql_query);
 										while($sqlRow = mysqli_fetch_array($sql_db)){
 											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
 											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
 											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
 											$resultdate = $sqlRow['DATE_SUBMITTED'];
 											$status = $sqlRow['STATUS'];
-										}
+											$course = $sqlRow['COURSE'];
 								?>
 	                            <tr>
 	                                <td><?php echo "<a href=admin_college_form.php?studentName=".urlencode($studentid).">".$fullname."</a>";?></td>
@@ -125,18 +128,19 @@
 												}else{
 													echo "<td>".$get_TYPE_OF_FORM."</td>";
 												}
-											}else{
+											}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
 												if($get_TYPE_OF_FORM == "Others"){
-													echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
 												}else{
 													echo "<td>".$get_TYPE_OF_FORM."</td>";
 												}
 											}
 									?>
-									<td><?php echo $getCollege;?></td>
+									<td><?php echo $course;?></td>
 									<td><?php echo $resultdate; ?></td>
 	                                <td><?php echo $status?></td>
 	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentid?>"></td>
+										
 									<?php }?>		
 	                            </tr>
 	                        
