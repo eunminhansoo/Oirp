@@ -51,7 +51,7 @@
 				</div>
 				<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
 					<ul class="nav navbar-nav">
-						<li ><a><b>TRANSCRIPT OF RECORD</b></a></li>
+						<li ><a><b>TRANSCRIPT OF RECORDS</b></a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="administrator.php">Home</a></li>
@@ -84,8 +84,8 @@
 		<!--NAV BART END-->
 
         <div class="container-responsive">
-            <div class="col-xs-offset-1">
-                <?php echo "<embed src='images/".$torscan."' width='auto' height='100%'>"?>
+            <div class="col-sm-12">
+                <?php echo "<embed src='images/".$torscan."' width='100%' height='100%'>"?>
             </div>
         </div>
     </body>
