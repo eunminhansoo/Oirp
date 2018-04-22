@@ -64,9 +64,8 @@
 	
 	$col='';
 	while($row = mysqli_fetch_array($result)) {
-		$col .=  "<option value=''>Choose a College</option><option value='".$row['college']."'>".$row['college']."</option>";
+		$col .=  "<option value='".$row['college']."'>".$row['college']."</option>";
 	}
-
 	if(isset($_POST['update_status'])){
 		$status = $_POST['status'];
 

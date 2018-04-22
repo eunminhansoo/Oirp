@@ -177,7 +177,7 @@
 							</p>
 							<div class="">
 								<select name="course1" id="college">
-
+									<option id='choos'>Choose a College</option>
 								</select>
 							</div>
 						</div>
@@ -256,11 +256,18 @@
 	<script>
 		$(document).ready(function(){
 			var val = "<?php echo $col ?>";
+			var val1 = "<?php echo $col1?>";
 			$("#college").empty().append(val);
 			$("#college1").empty().append(val);
 			$("#college2").empty().append(val);
 			$("#college3").empty().append(val);
 			$("#college4").empty().append(val);
+
+			// $("#college").empty().append(val1);
+			// $("#college1").empty().append(val1);
+			// $("#college2").empty().append(val1);
+			// $("#college3").empty().append(val1);
+			// $("#college4").empty().append(val1);
 			$("#send").hide();
 			$("#cert").hide();
 			$("#subcert").hide();

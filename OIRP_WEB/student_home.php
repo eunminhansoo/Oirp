@@ -207,7 +207,7 @@
 				<p><h2>GUIDE</h2><p>
 		
 				<p>1. Go to My Application and fill out the online form. If you are unable to finish the form, you may save it and work on it on your on time.</p>
-				<p>2. Once submitted, a PDF form will be generated which needs to be signed by the parties mentioned. Upload the form once the signatories are complete.</p>
+				<p>2. Once submitted, a PDF form will be generated which needs to be signed by the parties mentioned. Upload the form, together with your Transcript of Records, once the signatories are complete.</p>
 				<p>3. Your application will be reviewed by the Office of International Relations and Programs and by the colleges or departments involved. You may refer to your Status to see the progress of your application. 
 			</div>
 		</div>
