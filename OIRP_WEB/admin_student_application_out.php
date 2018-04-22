@@ -19,10 +19,17 @@
 		$country = $row1['COUNTRY_OUT'];
 		$university = $row1['UNIVERSITY_OUT'];
 	}
+	if(isset($_POST['update_status'])){
+		$status = $_POST['status'];
 
+		// UPDATE THE STATUS
+		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+		$query_db = mysqli_query($conn, $query2);
+	}
 	if(isset($_POST['subCert'])){
 		$status = $_POST['status'];
 		if($status == "Qualified"){
+			// CHECK IF THE YEAR IS EXISTING IF NOT INSERT IN YEARLY
 			$today = date("m/d/Y");
 			$new = "08/01/".date('Y');;
 			$prevyears = date('Y');
@@ -67,9 +74,12 @@
 			)";
 			mysqli_query($conn, $cert_query);
 
+			// UPDATE THE STATUS
 			$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
 			
 			$query_db = mysqli_query($conn, $query2);
+
+			// CHECK IF THE NOT EXIST IN OUTBOUND GRAPH
 			if($query_db){
 				$yearlySel_query = "SELECT * FROM yearly";
 				$yearlySel_db = mysqli_query($conn, $yearlySel_query);
@@ -201,6 +211,7 @@
 					<p style="margin-top: 80px;"><h2>Basic Information</h2></p>
 					<?php
 						while($row = mysqli_fetch_array($queryBD)){
+							$getStatus = $row['STATUS'];
 							$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
 						}
 						
@@ -341,31 +352,37 @@
 <script>
 $(document).ready(function(){
  
- function load_unseen_notification(view = '')
- {
-  $.ajax({
-   url:"fetch_comment.php",
-   method:"POST",
-   data:{view:view},
-   dataType:"json",
-   success:function(data)
-   {
-    $('#notif-down').html(data.notification);
-    if(data.unseen_notification > 0)
-    {
-     $('.count').html(data.unseen_notification);
-    }
-   }
-  });
- }
+	function load_unseen_notification(view = '')
+	{
+		$.ajax({
+			url:"fetch_comment.php",
+			method:"POST",
+			data:{view:view},
+			dataType:"json",
+			success:function(data)
+			{
+				$('#notif-down').html(data.notification);
+				if(data.unseen_notification > 0)
+				{
+				$('.count').html(data.unseen_notification);
+				}
+			}
+		});
+	}
  
- load_unseen_notification();
+	load_unseen_notification();
+	
+	$(document).on('click', '#notif', function(){
+		$('.count').html('');
+		load_unseen_notification('yes');
+	});
  
- $(document).on('click', '#notif', function(){
-  $('.count').html('');
-  load_unseen_notification('yes');
- });
- 
- 
+ 	var setStatus = "<?php echo $getStatus?>";
+	$('#status option[value='+setStatus+']').prop('selected', true);
+	if(document.getElementById('Completed').selected == true){
+		$("#cert").show();
+		$("#backuu").hide();
+		$("#conf").hide(); 
+	}
 });
 </script>

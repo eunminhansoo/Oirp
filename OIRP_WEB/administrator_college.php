@@ -26,14 +26,16 @@
 		$studentid = $col_row['STUDENT_ID'];
 		$getCollege = $col_row['COLLEGE'];
 	}
-    $sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$studentid'";
-    $query = mysqli_query($conn, $sql_query);
-	$sql_query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID = '$studentid'";
-    $query1 = mysqli_query($conn, $sql_query1);
-	$sql_query2 = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$studentid'";
-    $query2 = mysqli_query($conn, $sql_query2);
-	$sql_query3 = "SELECT * FROM student WHERE STUDENT_ID = '$studentid'";
-    $query3 = mysqli_query($conn, $sql_query3);
+	if($studentid){
+		$sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$studentid'";
+		$query = mysqli_query($conn, $sql_query);
+		$sql_query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID = '$studentid'";
+		$query1 = mysqli_query($conn, $sql_query1);
+		$sql_query2 = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$studentid'";
+		$query2 = mysqli_query($conn, $sql_query2);
+		$sql_query3 = "SELECT * FROM student WHERE STUDENT_ID = '$studentid'";
+		$query3 = mysqli_query($conn, $sql_query3);
+	}
 
 ?>
 
@@ -67,47 +69,6 @@
 		<!--HOVER LIST ENDOO-->
 		
 		<!--NAV BAR START-->
-		<!--div>
-			<div class="menu_white2">
-				<div class="navsticky">
-					<nav class="navbar navbar-topaz" role="navigation">
-						<div class="topnav">
-							<div class="container">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-									<a class="navbar-brand" href="#"></a>
-								</div>
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-									<ul class="nav navbar-nav navbar-right" >
-										<li><a href="administrator_college.php">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
-										<li>
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-												<span class="bordernavbar"></span>
-												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
-												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="btn btn-secondary" id="menu-toggle">
-											<span class="bordernavbar"></span>
-											<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</nav>
-				</div>
-			</div>
-		</div-->
-		
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -192,10 +153,11 @@
 									<?php
 									while($row2 = mysqli_fetch_array($query2)){ 
 										$resultdate = $row2['DATE_SUBMITTED'];
+									
 									?>
 									<td><?php echo $resultdate ?></td>
 									<?php
-										}
+									}
 										while($row3 = mysqli_fetch_array($query3)){
 										$status = $row3['STATUS'];
 									?>

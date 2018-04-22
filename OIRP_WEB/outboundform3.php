@@ -42,10 +42,9 @@
 		<div class="header">
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>	
 		</div>
-		
-			<nav class="navbar" id="bar">
-						<div class="container-fluid">
-							<div class="navbar-header">
+		<nav class="navbar" id="bar">
+			<div class="container-fluid">
+				<div class="navbar-header">
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
 							        <span class="sr-only">Toggle navigation</span>
 							        <span class="icon-bar"></span>
@@ -214,7 +213,7 @@
 					<div class="form-group row" id="countrydiv">
 						<div class="col-sm-5">
 							<label>Chosen Country</label>
-							<select id="country" id="country" class="form-control">
+							<select name="country" id="country" class="form-control">
 							
 							</select>
 						</div>
@@ -228,7 +227,7 @@
 					<div class="form-group row" id="sharediv">
 						<div class="col-sm-5">
 							<label>Chosen Country</label>
-							<select id="shcountry" id="shcountry" class="form-control">
+							<select name="shcountry" id="shcountry" class="form-control">
 							
 							</select>
 						</div>

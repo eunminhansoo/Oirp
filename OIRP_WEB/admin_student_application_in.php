@@ -313,6 +313,11 @@ $(document).ready(function(){
 	
 	var setStatus = "<?php echo $getStatus?>";
 	$('#status option[value='+setStatus+']').prop('selected', true);
+	if(document.getElementById('Completed').selected == true){
+		$("#cert").show(); 
+		$("#backuu").hide();
+		$("#conf").hide();
+	}
  
 });
 </script>

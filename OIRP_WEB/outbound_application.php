@@ -227,6 +227,8 @@
 			{
 				$country = $_POST['country'];
 				$university = $_POST['university'];
+				$shcountry = $_POST['shcountry'];
+				$shuniversity = $_POST['shuniversity'];
 				$proposedProg = $_POST['proposedProg'];
 				$course1 = $_POST['course1'];
 				$course2 = $_POST['course2'];
@@ -238,6 +240,12 @@
 				$query1 = mysqli_query($conn, $sql_syn);
 				while($rows1 = mysqli_fetch_array($query1)){
 					$get_univ = $rows1['UNIVERSITY'];	
+				}
+
+				$sql_syn = "SELECT * FROM share_universities WHERE ID = '$shuniversity' AND COUNTRY = '$shcountry' ";
+				$query1 = mysqli_query($conn, $sql_syn);
+				while($rows1 = mysqli_fetch_array($query1)){
+					$get_univSh = $rows1['UNIVERSITY'];	
 				}
 
 				//Condition
@@ -412,28 +420,25 @@
 					}
 				}	
 				$query_db = mysqli_query($conn, $sql_query);
-						
-				$sql_query1 = "UPDATE country_univ_outbound SET
-					APPLICATION_PROG = '$application_prog',
-					COUNTRY_OUT = '$country',
-					UNIVERSITY_OUT = '$get_univ'
-					WHERE STUDENT_ID = '$getses_StudentID'
-				";
-				// $sql_query1 = "INSERT INTO country_univ_outbound
-				// (
-				// 	STUDENT_COUNT,
-				// 	STUDENT_ID,
-				// 	APPLICATION_PROG,
-				// 	COUNTRY_OUT,
-				// 	UNIVERSITY_OUT
-				// ) VALUES 
-				// (
-				// 	'',
-				// 	'$getses_StudentID',
-				// 	'$application_prog',
-				// 	'$country',
-				// 	'$get_univ'
-				// )";
+
+				if($type_program == "Scholarship"){
+					$scholarship = $_POST['scholarship'];
+					if($scholarship == "AIMS"){
+						$sql_query1 = "UPDATE country_univ_outbound SET
+							APPLICATION_PROG = '$application_prog',
+							COUNTRY_OUT = '$country',
+							UNIVERSITY_OUT = '$get_univ'
+							WHERE STUDENT_ID = '$getses_StudentID'
+						";
+					}else if($scholarship == "SHARE"){
+						$sql_query1 = "UPDATE country_univ_outbound SET
+							APPLICATION_PROG = '$application_prog',
+							COUNTRY_OUT = '$shcountry',
+							UNIVERSITY_OUT = '$get_univSh'
+							WHERE STUDENT_ID = '$getses_StudentID'
+						";
+					}
+				}
 
 				$query_db1 = mysqli_query($conn, $sql_query1);
 
@@ -446,9 +451,9 @@
 				if($query_db && $query_db1 && $checkQuery3)
 				{
 					header("Location: student_home.php");
-					//echo 'success';
+					// echo 'success';
 				}else{
-					//echo 'error';
+					// echo 'error';
 					header("Location: error_page.php");
 				}
 				
@@ -615,6 +620,8 @@
 			{
 				$country = $_POST['country'];
 				$university = $_POST['university'];
+				$shcountry = $_POST['shcountry'];
+				$shuniversity = $_POST['shuniversity'];
 				$proposedProg = $_POST['proposedProg'];
 				$course1 = $_POST['course1'];
 				$course2 = $_POST['course2'];
@@ -626,6 +633,11 @@
 				$query1 = mysqli_query($conn, $sql_syn);
 				while($rows1 = mysqli_fetch_array($query1)){
 					$get_univ = $rows1['UNIVERSITY'];	
+				}
+				$sql_syn = "SELECT * FROM share_universities WHERE ID = '$shuniversity' AND COUNTRY = '$shcountry' ";
+				$query1 = mysqli_query($conn, $sql_syn);
+				while($rows1 = mysqli_fetch_array($query1)){
+					$get_univSh = $rows1['UNIVERSITY'];	
 				}
 
 				//Condition
@@ -801,13 +813,25 @@
 
 				}
 				$query_db = mysqli_query($conn, $sql_query);
-						
-				$sql_query1 = "UPDATE country_univ_outbound SET
-					APPLICATION_PROG = '$application_prog',
-					COUNTRY_OUT = '$country',
-					UNIVERSITY_OUT = '$get_univ'
-					WHERE STUDENT_ID = '$getses_StudentID'
-				";
+
+				if($type_program == "Scholarship"){
+					$scholarship = $_POST['scholarship'];
+					if($scholarship == "AIMS"){
+						$sql_query1 = "UPDATE country_univ_outbound SET
+							APPLICATION_PROG = '$application_prog',
+							COUNTRY_OUT = '$country',
+							UNIVERSITY_OUT = '$get_univ'
+							WHERE STUDENT_ID = '$getses_StudentID'
+						";
+					}else if($scholarship == "SHARE"){
+						$sql_query1 = "UPDATE country_univ_outbound SET
+							APPLICATION_PROG = '$application_prog',
+							COUNTRY_OUT = '$shcountry',
+							UNIVERSITY_OUT = '$get_univSh'
+							WHERE STUDENT_ID = '$getses_StudentID'
+						";
+					}
+				}
 				// $sql_query1 = "INSERT INTO country_univ_outbound
 				// (
 				// 	STUDENT_COUNT,
