@@ -184,6 +184,6 @@
 	var getdata1 = "<?php echo $getSel_ANNUAL_INCOME_MOM_OUT?>";
 	$('#fIncome option[value="'+ getdata +'"]').prop('selected', true);
 	$('#mIncome option[value="'+ getdata1 +'"]').prop('selected', true);
-
+	
 </script>
 

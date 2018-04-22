@@ -47,7 +47,6 @@
 		$query_db = "INSERT INTO personal_info_inbound(
 			STUDENT_COUNT, 
 			STUDENT_ID, 
-			CITIZENSHIP_IN,
 			NATIONALITY_IN, 
 			PASSPORT_NUM_IN, 
 			VALIDITY_DATE_IN, 
@@ -58,7 +57,6 @@
 			) VALUES(
 				'', 
 				'$studentID', 
-				'', 
 				'', 
 				'', 
 				'', 

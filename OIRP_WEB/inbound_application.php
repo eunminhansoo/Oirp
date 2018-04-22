@@ -219,19 +219,24 @@
 				}
 				if ($type_program != NULL)
 				{
-					if($type_program == "Scholarship"){
+						if($type_program == "Scholarship"){
 						$scholarship = $_POST['scholarship'];
+
 						if($scholarship == "OTHERS")
 						{
 							$scholarshipText = $_POST['scholarshipText'];
 
-							$sql_query = "UPDATE proposed_field_study SET
-								PROPOSED_PROG = '$proposedProg',
-								COURSE_1 = '$course1', 
-								COURSE_2 = '$course2', 
-								COURSE_3 = '$course3', 
-								COURSE_4 = '$course4', 
-								COURSE_5 = '$course5',
+							$sql_query = "UPDATE educ_background_inbound SET 
+								COUNTRY_ORIGIN = '$country',
+								HOME_UNIV_IN_BILA = '$get_univ',
+								UNIV_ADD_IN_BILA = '$univAddress',
+								NAME_OFFICER_CONTACT_IN_BILA = '$officer',
+								EMAIL_ADD_IN_BILA = '$emailO',
+								CURRENT_PROG_STUDY_IN_BILA = '$program',
+								DESIGNATION_IN_BILA = '$designationO',
+								TELEPHONE_NUM_BILA = '$numberO',
+								SPECIALIZATION_IN_BILA = '$major',
+								YEAR_LEVEL = '$yearLevel',
 								TYPE_OF_PROGRAM = '$type_program',
 								TYPE_OF_PROG_OTHER = ' ',
 								TYPE_OF_FORM = '$scholarship',
@@ -240,47 +245,56 @@
 								SCHOLARSHIP_LOAN_OTHER = ' ',
 								SCHOLARSHIP_LOAN1 = ' ',
 								SCHOLARSHIP_LOAN_OTHER1 = ' '
-								WHERE STUDENT_ID = '$getses_StudentID'
-							";
-							// $sql_query = "INSERT INTO proposed_field_study
-							// (
+							WHERE STUDENT_ID = '$getSes_studentID'";
+							
+							// $sql_query = "INSERT INTO educ_background_inbound(
 							// 	STUDENT_COUNT,
 							// 	STUDENT_ID,
-							// 	PROPOSED_PROG,
-							// 	COURSE_1, 
-							// 	COURSE_2, 
-							// 	COURSE_3, 
-							// 	COURSE_4, 
-							// 	COURSE_5,
-							// 	SCHOLARSHIP_OUTBOUND,
-							// 	SCHOLARSHIP_TEXT_OUTBOUND,
+							// 	COUNTRY_ORIGIN,
+							// 	HOME_UNIV_IN_BILA,
+							// 	UNIV_ADD_IN_BILA,
+							// 	NAME_OFFICER_CONTACT_IN_BILA,
+							// 	EMAIL_ADD_IN_BILA,
+							// 	CURRENT_PROG_STUDY_IN_BILA,
+							// 	DESIGNATION_IN_BILA,
+							// 	TELEPHONE_NUM_BILA,
+							// 	SPECIALIZATION_IN_BILA,
+							// 	YEAR_LEVEL,
+							// 	SCHOLARSHIP_IN_BILA,
+							// 	SCHOLARSHIP_TEXT_IN_BILA,
 							// 	APPLICATION_FORM,
-							// 	APPLICATION_TYPE_PROG
-							// ) VALUES 
-							// (
-							// 	 '',
-							// 	 '$getses_StudentID',
-							// 	 '$proposedProg',
-							// 	 '$course1',
-							// 	 '$course2',
-							// 	 '$course3',
-							// 	 '$course4',
-							// 	 '$course5',
-							// 	 '',
-							// 	 '',
-							// 	 '$scholarshipText',
-							// 	 '$type_program'
+							// 	APPLICATION_TYPE_PROG	
+							// ) VALUES (
+							// 	'',
+							// 	'$getSes_studentID',
+							// 	'$country',
+							// 	'$get_univ',
+							// 	'$univAddress',
+							// 	'$officer',
+							// 	'$emailO',
+							// 	'$program',
+							// 	'$designationO',
+							// 	'$numberO',
+							// 	'$major',
+							// 	'$yearLevel',
+							// 	'',
+							// 	'',
+							// 	'$scholarshipText',
+							// 	'$type_program'
 							// )";
 						}else{
 							$scholarshipText = '';
-
-							$sql_query = "UPDATE proposed_field_study SET
-								PROPOSED_PROG = '$proposedProg',
-								COURSE_1 = '$course1', 
-								COURSE_2 = '$course2', 
-								COURSE_3 = '$course3', 
-								COURSE_4 = '$course4', 
-								COURSE_5 = '$course5',
+							$sql_query = "UPDATE educ_background_inbound SET 
+								COUNTRY_ORIGIN = '$country',
+								HOME_UNIV_IN_BILA = '$get_univ',
+								UNIV_ADD_IN_BILA = '$univAddress',
+								NAME_OFFICER_CONTACT_IN_BILA = '$officer',
+								EMAIL_ADD_IN_BILA = '$emailO',
+								CURRENT_PROG_STUDY_IN_BILA = '$program',
+								DESIGNATION_IN_BILA = '$designationO',
+								TELEPHONE_NUM_BILA = '$numberO',
+								SPECIALIZATION_IN_BILA = '$major',
+								YEAR_LEVEL = '$yearLevel',
 								TYPE_OF_PROGRAM = '$type_program',
 								TYPE_OF_PROG_OTHER = ' ',
 								TYPE_OF_FORM = '$scholarship',
@@ -289,32 +303,37 @@
 								SCHOLARSHIP_LOAN_OTHER = ' ',
 								SCHOLARSHIP_LOAN1 = ' ',
 								SCHOLARSHIP_LOAN_OTHER1 = ' '
-								WHERE STUDENT_ID = '$getses_StudentID'
-							";
-							// $sql_query = "INSERT INTO proposed_field_study
-							// (
+							WHERE STUDENT_ID = '$getSes_studentID'";
+							// $sql_query = "INSERT INTO educ_background_inbound(
 							// 	STUDENT_COUNT,
 							// 	STUDENT_ID,
-							// 	PROPOSED_PROG,
-							// 	COURSE_1, 
-							// 	COURSE_2, 
-							// 	COURSE_3, 
-							// 	COURSE_4, 
-							// 	COURSE_5,
-							// 	SCHOLARSHIP_OUTBOUND,
-							// 	SCHOLARSHIP_TEXT_OUTBOUND,
+							// 	COUNTRY_ORIGIN,
+							// 	HOME_UNIV_IN_BILA,
+							// 	UNIV_ADD_IN_BILA,
+							// 	NAME_OFFICER_CONTACT_IN_BILA,
+							// 	EMAIL_ADD_IN_BILA,
+							// 	CURRENT_PROG_STUDY_IN_BILA,
+							// 	DESIGNATION_IN_BILA,
+							// 	TELEPHONE_NUM_BILA,
+							// 	SPECIALIZATION_IN_BILA,
+							// 	YEAR_LEVEL,
+							// 	SCHOLARSHIP_IN_BILA,
+							// 	SCHOLARSHIP_TEXT_IN_BILA,
 							// 	APPLICATION_FORM,
-							// 	APPLICATION_TYPE_PROG
-							// ) VALUES 
-							// (
+							// 	APPLICATION_TYPE_PROG	
+							// ) VALUES (
 							// 	'',
-							// 	'$getses_StudentID',
-							// 	'$proposedProg',
-							// 	'$course1',
-							// 	'$course2',
-							// 	'$course3',
-							// 	'$course4',
-							// 	'$course5',
+							// 	'$getSes_studentID',
+							// 	'$country',
+							// 	'$get_univ',
+							// 	'$univAddress',
+							// 	'$officer',
+							// 	'$emailO',
+							// 	'$program',
+							// 	'$designationO',
+							// 	'$numberO',
+							// 	'$major',
+							// 	'$yearLevel',
 							// 	'',
 							// 	'',
 							// 	'$scholarship',
@@ -335,20 +354,23 @@
 								$scholarloanText = $_POST['scholarloanText'];
 								
 							}else{
-								$scholarloanText = ' ';
+								$scholarloanText = '';
 							}
 						}
-
 						if($bilateral == "Others"){
 							$bilateralText = $_POST['bilateralText'];
 
-							$sql_query = "UPDATE proposed_field_study SET
-								PROPOSED_PROG = '$proposedProg',
-								COURSE_1 = '$course1', 
-								COURSE_2 = '$course2', 
-								COURSE_3 = '$course3', 
-								COURSE_4 = '$course4', 
-								COURSE_5 = '$course5',
+							$sql_query = "UPDATE educ_background_inbound SET 
+								COUNTRY_ORIGIN = '$country',
+								HOME_UNIV_IN_BILA = '$get_univ',
+								UNIV_ADD_IN_BILA = '$univAddress',
+								NAME_OFFICER_CONTACT_IN_BILA = '$officer',
+								EMAIL_ADD_IN_BILA = '$emailO',
+								CURRENT_PROG_STUDY_IN_BILA = '$program',
+								DESIGNATION_IN_BILA = '$designationO',
+								TELEPHONE_NUM_BILA = '$numberO',
+								SPECIALIZATION_IN_BILA = '$major',
+								YEAR_LEVEL = '$yearLevel',
 								TYPE_OF_PROGRAM = '$type_program',
 								TYPE_OF_PROG_OTHER = ' ',
 								TYPE_OF_FORM = '$bilateral',
@@ -357,26 +379,101 @@
 								SCHOLARSHIP_LOAN_OTHER = '$scholarloanText',
 								SCHOLARSHIP_LOAN1 = ' ',
 								SCHOLARSHIP_LOAN_OTHER1 = ' '
-								WHERE STUDENT_ID = '$getses_StudentID'
-							";
+							WHERE STUDENT_ID = '$getSes_studentID'";
+						
+						// $sql_query = "INSERT INTO educ_background_inbound(
+						// 	STUDENT_COUNT,
+						// 	STUDENT_ID,
+						// 	COUNTRY_ORIGIN,
+						// 	HOME_UNIV_IN_BILA,
+						// 	UNIV_ADD_IN_BILA,
+						// 	NAME_OFFICER_CONTACT_IN_BILA,
+						// 	EMAIL_ADD_IN_BILA,
+						// 	CURRENT_PROG_STUDY_IN_BILA,
+						// 	DESIGNATION_IN_BILA,
+						// 	TELEPHONE_NUM_BILA,
+						// 	SPECIALIZATION_IN_BILA,
+						// 	YEAR_LEVEL,
+						// 	SCHOLARSHIP_IN_BILA,
+						// 	SCHOLARSHIP_TEXT_IN_BILA,
+						// 	APPLICATION_FORM,
+						// 	APPLICATION_TYPE_PROG	
+						// ) VALUES (
+						// 	'',
+						// 	'$getSes_studentID',
+						// 	'$country',
+						// 	'$get_univ',
+						// 	'$univAddress',
+						// 	'$officer',
+						// 	'$emailO',
+						// 	'$program',
+						// 	'$designationO',
+						// 	'$numberO',
+						// 	'$major',
+						// 	'$yearLevel',
+						// 	'$scholarloan',
+						// 	'$scholarloanText',
+						// 	'$bilateral',
+						// 	'$type_program'
+						// )";
+
 						}else{
-							$sql_query = "UPDATE proposed_field_study SET
-								PROPOSED_PROG = '$proposedProg',
-								COURSE_1 = '$course1', 
-								COURSE_2 = '$course2', 
-								COURSE_3 = '$course3', 
-								COURSE_4 = '$course4', 
-								COURSE_5 = '$course5',
-								TYPE_OF_PROGRAM = '$type_program',
-								TYPE_OF_PROG_OTHER = ' ',
-								TYPE_OF_FORM = '$bilateral',
-								TYPE_OF_FORM_OTHER = ' ',
-								SCHOLARSHIP_LOAN = '$scholarloan',
-								SCHOLARSHIP_LOAN_OTHER = '$scholarloanText',
-								SCHOLARSHIP_LOAN1 = ' ',
-								SCHOLARSHIP_LOAN_OTHER1 = ' '
-								WHERE STUDENT_ID = '$getses_StudentID'
-							";
+							$sql_query = "UPDATE educ_background_inbound SET 
+							COUNTRY_ORIGIN = '$country',
+							HOME_UNIV_IN_BILA = '$get_univ',
+							UNIV_ADD_IN_BILA = '$univAddress',
+							NAME_OFFICER_CONTACT_IN_BILA = '$officer',
+							EMAIL_ADD_IN_BILA = '$emailO',
+							CURRENT_PROG_STUDY_IN_BILA = '$program',
+							DESIGNATION_IN_BILA = '$designationO',
+							TELEPHONE_NUM_BILA = '$numberO',
+							SPECIALIZATION_IN_BILA = '$major',
+							YEAR_LEVEL = '$yearLevel',
+							TYPE_OF_PROGRAM = '$type_program',
+							TYPE_OF_PROG_OTHER = ' ',
+							TYPE_OF_FORM = '$bilateral',
+							TYPE_OF_FORM_OTHER = ' ',
+							SCHOLARSHIP_LOAN = '$scholarloan',
+							SCHOLARSHIP_LOAN_OTHER = '$scholarloanText',
+							SCHOLARSHIP_LOAN1 = ' ',
+							SCHOLARSHIP_LOAN_OTHER1 = ' '
+						WHERE STUDENT_ID = '$getSes_studentID'";
+						
+						// $sql_query = "INSERT INTO educ_background_inbound(
+						// 	STUDENT_COUNT,
+						// 	STUDENT_ID,
+						// 	COUNTRY_ORIGIN,
+						// 	HOME_UNIV_IN_BILA,
+						// 	UNIV_ADD_IN_BILA,
+						// 	NAME_OFFICER_CONTACT_IN_BILA,
+						// 	EMAIL_ADD_IN_BILA,
+						// 	CURRENT_PROG_STUDY_IN_BILA,
+						// 	DESIGNATION_IN_BILA,
+						// 	TELEPHONE_NUM_BILA,
+						// 	SPECIALIZATION_IN_BILA,
+						// 	YEAR_LEVEL,
+						// 	SCHOLARSHIP_IN_BILA,
+						// 	SCHOLARSHIP_TEXT_IN_BILA,
+						// 	APPLICATION_FORM,
+						// 	APPLICATION_TYPE_PROG	
+						// ) VALUES (
+						// 	'',
+						// 	'$getSes_studentID',
+						// 	'$country',
+						// 	'$get_univ',
+						// 	'$univAddress',
+						// 	'$officer',
+						// 	'$emailO',
+						// 	'$program',
+						// 	'$designationO',
+						// 	'$numberO',
+						// 	'$major',
+						// 	'$yearLevel',
+						// 	'$scholarloan',
+						// 	'$scholarloanText',
+						// 	'$bilateral',
+						// 	'$type_program'
+						// )";
 						}
 					}
 					
