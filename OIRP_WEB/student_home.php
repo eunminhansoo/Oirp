@@ -69,7 +69,13 @@
 								?>
 							</li>
 							<li style="padding-right: 30px;">
-								<a ><b>Status:</b> <span style="color: red"><?php echo $status?></span></a>
+								<a ><b>Status:</b> <span style="color: red">
+								<?php 
+									if($status==null){
+										echo "(Please finish application)";
+									} else{
+										echo $status;
+									}?></span></a>
 							</li>
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>

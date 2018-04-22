@@ -78,15 +78,20 @@
 						</div>
 					</div>
 					<div class="form-group row">					
-						<div class="col-sm-12">
+						<div class="col-sm-3">
 							<label>Are you a Student of UST? </label>
-							<input type="radio" name="application_form" value="yes" required> Yes
-							<input type="radio" name="application_form" value="no"> No
 						</div>	
+						<div class="col-sm-1">
+							<input type="radio" name="application_form" value="yes" required> Yes
+						</div>
+						<div class="col-sm-1">
+							<input type="radio" name="application_form" value="no"> No
+						</div>
 					</div>
 				</div>
 				<br>
-				<button type="submit" name="btn_register" class="btn button_style" style="float: right;">Submit</button>
+				<button type="submit" name="btn_register" class="btn button_style" style="float: left;">Submit</button>
+				<button onclick="location.href='index.php'" class="btn btn-danger" style="float: right;">Cancel</button>
 				<?php echo $message?>
 			</div>
 		</form>

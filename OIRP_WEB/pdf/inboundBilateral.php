@@ -122,6 +122,14 @@ while($row = $result->fetch_array()){
 	$expectation_prog = $row['expectation_prog'];
 }
 
+if($application_form=="ShortStudy"){
+	$application_form = "Short Study Abroad";
+} else if($application_form=="StudyTour"){
+	$application_form = "Study Tour";
+} else if($application_form == "ServiceLearning"){
+	$application_form = "Service Learning";
+}
+
 class PDF extends FPDF
 {
 // Page header
