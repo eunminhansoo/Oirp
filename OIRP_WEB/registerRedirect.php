@@ -2,7 +2,6 @@
 	include 'database_connection.php';
 	
 	/* FOR STUDENT NUMBER*/
-	echo 'puta pumupunta ka ba dito???!';
 	session_start();
 	$show_email = $_SESSION['$ses_email'];
 	$getData = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$show_email' ");
@@ -185,9 +184,9 @@
 	}else{
 		if($appPROG == 'out'){
 			$sql_query = "INSERT INTO `personal_info_outbound` (`STUDENT_COUNT`, `STUDENT_ID`, 
-			`NATIONALITY_OUT`, `CITIZENSHIP_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, 
+			`NATIONALITY_OUT`, `PASSPORT_NUM_OUT`, `VALIDITY_DATE_OUT`, `DATE_ISSUANCE_OUT`, 
 			`MAILING_ADD_OUT`, `TELEPHONE_NUM_OUT`, `MOBILE_NUM_OUT`, `COLLEGE_INSTITUTE_FACULTY_OUT`, `DEGREE_PROG_OUT`, `YEAR_LEVEL_OUT`
-			) VALUES ('', '$studentID', '', '', '', '', '', '', '', '', '', '', '')";
+			) VALUES ('', '$studentID', '', '', '', '', '', '', '', '', '', '')";
 			
 			mysqli_query($conn, $sql_query);
 

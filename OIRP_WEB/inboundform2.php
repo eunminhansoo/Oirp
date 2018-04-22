@@ -121,7 +121,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label>Major</label>
-							<input type="text" name="major" id="major" class="form-control" pattern="[^<>].{1,30}" maxlength="30" required value=" <?php echo $getSel_SPECIALIZATION_IN_BILA?>">
+							<input type="text" name="major" id="major" class="form-control" pattern="[^<>].{1,30}" maxlength="30" value=" <?php echo $getSel_SPECIALIZATION_IN_BILA?>">
 						</div>
 						<div class="col-sm-2">
 							<label>Year Level</label>
@@ -231,6 +231,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
+							<p class="text_style">ex: +63 2-406-1611 or +63 974-887-6512</p>
 							<input type="text" name="numberO" id="numberO" class="form-control" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
 						</div>	
 					</div>				
