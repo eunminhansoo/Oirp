@@ -20,8 +20,7 @@
 		$university = $row1['UNIVERSITY_OUT'];
 	}
 
-	if(isset($_POST['update_status'])){
-		
+	if(isset($_POST['subCert'])){
 		$status = $_POST['status'];
 		if($status == "Qualified"){
 			$today = date("m/d/Y");
@@ -45,41 +44,72 @@
 				} 	                   
 			}
 		}
-		if($sel_query == 'Completed'){
-			$yearlySel_query = "SELECT * FROM yearly";
-			$yearlySel_db = mysqli_query($conn, $yearlySel_query);
-			while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
-				$yearr = $yearSel_row['YEARLY'];
-			}
-			$sel_query = "SELECT * FROM outstatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-			$sel_db = mysqli_query($conn, $sel_query);
-			$countNum = mysqli_num_rows($sel_db);
-			if($countNum == 1){
-				while($seRow = mysqli_fetch_array($sel_db)){
-					$num_student = $seRow['NUMBER_STUDENT'];
+		if($status == 'Completed'){
+
+			$expireCert = $_POST['expirationCert'];
+			$status = $_POST['status'];
+			$target = "images/".basename($_FILES['certificate']['name']);
+			
+			$cert = $_FILES['certificate']['name'];
+			$inn = "inbound";
+			$cert_query = "INSERT INTO certificateofcompletion(
+				STUDENT_COUNT,
+				STUDENT_ID,
+				APPLICATION_FORM,
+				CERTIFICATION,
+				EXPIRATION_ACCESS
+			) values (
+				'',
+				'$getStudentID',
+				'$inn',
+				'$cert',
+				'$expireCert'
+			)";
+			mysqli_query($conn, $cert_query);
+
+			$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+			
+			$query_db = mysqli_query($conn, $query2);
+			if($query_db){
+				$yearlySel_query = "SELECT * FROM yearly";
+				$yearlySel_db = mysqli_query($conn, $yearlySel_query);
+				while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
+					$yearr = $yearSel_row['YEARLY'];
 				}
-				$num_student += 1;
-				$statUp = "UPDATE outstatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-				mysqli_fetch_array($conn, $statUp);
+				$sel_query = "SELECT * FROM outstatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+				$sel_db = mysqli_query($conn, $sel_query);
+				$countNum = mysqli_num_rows($sel_db);
+				if($countNum == 1){
+					while($seRow = mysqli_fetch_array($sel_db)){
+						$num_student = $seRow['NUMBER_STUDENT'];
+					}
+					$num_student += 1;
+					$statUp = "UPDATE outstatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+					mysqli_query($conn, $statUp);
+				}
+				if($countNum == 0){
+					$numStu = 1;
+					$appform = "outbound";
+					$statInt = "INSERT INTO outstatistics(STUDENT_COUNT, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
+						'',
+						'$numStu',
+						'$yearr',
+						'$country',
+						'$appform'
+					)";
+					mysqli_query($conn, $statInt);
+				}
 			}
-			if($countNum == 0){
-				$numStu = 1;
-				$appform = "outbound";
-				$statInt = "INSERT INTO outstatistics(STUDENT_COUNT, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
-					'',
-					'$numStu',
-					'$yearr',
-					'$country',
-					'$appform'
-				)";
-				mysqli_query($conn, $statInt);
+			if (move_uploaded_file($_FILES['certificate']['tmp_name'], $target)) 
+			{
+				$msg = "Upload Successful";
+			}
+			else 
+			{
+				$msg = "Upload Failed";
 			}
 		}
-
-		$stat_query = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID' ";
-		$stat_db = mysqli_query($conn, $stat_query);
-		
-	}   
+	}	   
 ?>
 <html>
 	<head>
@@ -137,7 +167,7 @@
 						</li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
-							<ul class="dropdown-menu">
+							<ul  class="dropdown-menu">
 								<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
 								<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
 								<li><a href="outboundComparison.php">Outbound Comparison</a></li>
@@ -160,7 +190,7 @@
 		</nav>
 		<!--NAV BART END-->
 
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 			<div class="container-responsive">
 				<div class="col-sm-7">
 					<?php 
@@ -227,10 +257,10 @@
 						<span><b>Status: </b></span>
 							<select name="status" id="status" onChange="func(this);">
 								<option value=" ">Choose a Status</option>
-								<option value="Qualified">Qualified</option>
-								<option value="Not-Qualified">Not-Qualified</option>
-								<option value="On-Going">On-going</option>
-								<option value="Completed">Completed</option>
+								<option value="Qualified" id="Qualified">Qualified</option>
+								<option value="Not-Qualified" id="Not-Qualified">Not-Qualified</option>
+								<option value="On-Going" id="On-Going">On-going</option>
+								<option value="Completed" id="Completed">Completed</option>
 							</select>
 					</p>
 					<p>
@@ -242,13 +272,36 @@
 						</div>
 					</p>
 					<br>
-					<div id="certUp" class="break">
-						<div class="col-xs-3">
-							<span><b>Upload Certificate of Completion</b></span>
+					<div id="cert">
+						<div class="container-fluid">
+							<p>
+								<div>
+									<div class="col-xs-6">
+										<span><b>Upload a Certificate of Competion</b></span>
+									</div>
+									<div class="col-xs-6">
+										<span><b>Student Access Limitation</b></span>
+									</div>
+								</div>
+							</p>
+							<br>
+							<p>
+								<div>
+									<div class="col-xs-5">
+										<input type="date" clas="form-control" name="expirationCert"/>
+									</div>
+									<div class="col-xs-5">
+										<input type="file" name="certificate"/>
+									</div>
+								</div>
+							</p>
 						</div>
-						<div class="col-xs-3">
-							<input type="file" name="certfile" id="certfile"/>
-						</div>
+						<br>
+						<p id="subcert">
+							<div class="form-group row col-xs-4 col-xs-offset-1">
+								<input type="submit" value="Submit" name="subCert" class="btn btn-primary">
+							</div> 
+						</p>
 					</div>
 				</div>
 				<br>
@@ -258,16 +311,30 @@
 	<script>
 		$(document).ready(function(){
 			$("#certUp").hide();
+			$("#cert").hide();
+			$("#subcert").hide(); 
 		});
 	
 		 function func(sel) {
 		     var stat = (sel.options[sel.selectedIndex]).text;
 
-		   	if(stat === 'Completed'){
-		 		$("#certUp").show();
-		   	} else{
-		 		$("#certUp").hide();
-		   	}
+		   	if(stat == 'Approved'){
+				$("#send").show();
+				$("#backuu").hide();
+				$("#conf").hide();
+				$("#subcert").hide();
+		  	}else if(stat == 'Completed'){
+				$("#send").hide();
+				$("#backuu").hide();
+				$("#cert").show();
+				$("#conf").hide();
+				$("#subcert").show();
+			}else{
+				$("#send").hide();
+				$("#backuu").show();
+				$("#conf").show();
+				$("#cert").hide();
+		  	}
 		}
 	</script>
 </html>
