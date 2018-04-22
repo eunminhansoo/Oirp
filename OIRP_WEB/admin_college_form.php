@@ -31,6 +31,7 @@
 		$status = $_POST['status']; 
 		$query2 = "UPDATE student SET STATUS = '$status'
 		WHERE STUDENT_ID = '$getStudentID'";
+
 		
 		//insert to comment
 		$query_notification = "INSERT INTO notification(STUDENT_COUNT,

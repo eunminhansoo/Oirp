@@ -89,12 +89,6 @@
 							<input type="text" name="address" id="address" class="form-control"  pattern="[^<>].{1,115}" maxlength="115" value="<?php echo $setSel_MAILING_ADD_OUT?>" required>
 						</div>					
 					</div>
-					<!-- div class="form-group row">
-						<div class="col-sm-10">
-							<label>Email Address</label>
-							<input type="text" name="email" id="email" value="<?php echo $email?>"class="form-control" disabled>
-						</div>
-					</div-->
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
