@@ -1,4 +1,6 @@
 <?php
+	error_reporting(0);
+	
 	include 'database_connection.php';
 	session_start();
 	$college = $_SESSION['coll_sess'];
@@ -85,11 +87,10 @@
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
 	                        <thead>
 	                            <tr>
-	                                <th>Name</th>
-	                                <th>Application Program</th>
-	                                <th>Application Form</th>
-	                                <th>Course</th>
-	                                <th>DATE SUBMITED</th>
+	                                <th>NAME</th>
+	                                <th>TYPE OF PROGRAM</th>
+	                                <th>DURATION / SCHOLARSHIP</th>
+	                                <th>DATE SUBMITTED</th>
 	                                <th>STATUS</th>
 	                                <th><button type="submit" name="delete_inbound" class="btn btn-primary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
