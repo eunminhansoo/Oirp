@@ -27,15 +27,11 @@
 	}
 		
 	if(isset($_POST['update_status'])){
-<<<<<<< Updated upstream
-		$status = $_POST['status'];
 
-		$query2 = "UPDATE student SET STATUS = '$status'";
-=======
 		$status = $_POST['status']; 
 		$query2 = "UPDATE student SET STATUS = '$status'
 		WHERE STUDENT_ID = '$getStudentID'";
->>>>>>> Stashed changes
+
 		
 		//insert to comment
 		$query_notification = "INSERT INTO notification(STUDENT_COUNT,
