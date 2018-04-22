@@ -39,14 +39,66 @@
 			}
 			if($sel_query == 'Approved'){
 
+				
 				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
 				$sel_check_db = mysqli_query($conn, $sel_check_query);
 				if(mysqli_num_rows($sel_check_db) <= 0){
 					$ins_query = "INSERT INTO `admin_college` (`STUDENT_COUNT`, `STUDENT_ID`, `PROPOSED_PROGRAM`, `COURSE_1`, `COURSE_2`, `COURSE_3`, `COURSE_4`, `COURSE_5`) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
+					//add in audit
+				//insert to audit log
+		date_default_timezone_set('Asia/Manila');
+		$date_approved = date10('Y-m-d/H:i:s');
+    	$query_approved = "INSERT INTO audit_logs(STUDENT_COUNT,
+    	STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		APPLICATION_FORM,
+		COLLEGE,
+		COURSE,
+		STATUS,
+		DATE
+		) VALUES (
+			'',
+			'$get_StudentID',
+			'',
+			'',
+			'',
+			'',
+			'',
+			'$sel_query',
+			'$date_approved'
+			)";
+    				$query_approved_audit = mysqli_query($conn, $query_approved);
 					mysqli_query($conn, $ins_query);
 				}
 			}else{
 				$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
+				//add in audit
+				//insert to audit log
+		date_default_timezone_set('Asia/Manila');
+		$date_rejected = date('Y-m-d/H:i:s');
+		$rejected = 'Rejected';
+    	$query_rejected = "INSERT INTO audit_logs(STUDENT_COUNT,
+    	STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		APPLICATION_FORM,
+		COLLEGE,
+		COURSE,
+		STATUS,
+		DATE
+		) VALUES (
+			'',
+			'$get_StudentID',
+			'',
+			'',
+			'',
+			'',
+			'',
+			'$rejected',
+			'$date_rejected'
+			)";
+    	        $query_rejected_audit = mysqli_query($conn, $query_rejected);
 				mysqli_query($conn, $del_query);
 			}   
 		}
@@ -97,6 +149,31 @@
 			'$pf_COURSE_1_INBOUND',
 			'$course_1'
 		)";
+		
+		//insert to audit log
+		date_default_timezone_set('Asia/Manila');
+		$date1 = date11('Y-m-d/H:i:s');
+    	$query_log1 = "INSERT INTO audit_logs(STUDENT_COUNT,
+    	STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		APPLICATION_FORM,
+		COLLEGE,
+		COURSE,
+		STATUS,
+		DATE
+		) VALUES (
+			'',
+			'$get_StudentID',
+			'',
+			'',
+			'',
+			'$course_1',
+			'$pf_COURSE_1_INBOUND',
+			'',
+			'$date1'
+			)";
+    	$query__audit1 = mysqli_query($conn, $query_log1);
 		mysqli_query($conn, $course_query);
 
 		// course 2
@@ -113,6 +190,30 @@
 			'$pf_COURSE_2_INBOUND',
 			'$course_2'
 		)";
+		//insert to audit log
+		date_default_timezone_set('Asia/Manila');
+		$date2 = date12('Y-m-d/H:i:s');
+    	$query_log2 = "INSERT INTO audit_logs(STUDENT_COUNT,
+    	STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		APPLICATION_FORM,
+		COLLEGE,
+		COURSE,
+		STATUS,
+		DATE
+		) VALUES (
+			'',
+			'$get_StudentID',
+			'',
+			'',
+			'',
+			'$course_2',
+			'$pf_COURSE_2_INBOUND',
+			'',
+			'$date2'
+			)";
+    	$query__audit2 = mysqli_query($conn, $query_log2);
 		mysqli_query($conn, $course_query1);
 
 		// course 3
@@ -129,6 +230,30 @@
 			'$pf_COURSE_3_INBOUND',
 			'$course_3'
 		)";
+		//insert to audit log
+		date_default_timezone_set('Asia/Manila');
+		$date3 = date13('Y-m-d/H:i:s');
+    	$query_log3 = "INSERT INTO audit_logs(STUDENT_COUNT,
+    	STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		APPLICATION_FORM,
+		COLLEGE,
+		COURSE,
+		STATUS,
+		DATE
+		) VALUES (
+			'',
+			'$get_StudentID',
+			'',
+			'',
+			'',
+			'$course_3',
+			'$pf_COURSE_3_INBOUND',
+			'',
+			'$date3'
+			)";
+    	$query__audit3 = mysqli_query($conn, $query_log3);
 		mysqli_query($conn, $course_query2);
 
 		// course 4
@@ -145,6 +270,30 @@
 			'$pf_COURSE_4_INBOUND',
 			'$course_4'
 		)";
+		//insert to audit log
+		date_default_timezone_set('Asia/Manila');
+		$date4 = date14('Y-m-d/H:i:s');
+    	$query_log4 = "INSERT INTO audit_logs(STUDENT_COUNT,
+    	STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		APPLICATION_FORM,
+		COLLEGE,
+		COURSE,
+		STATUS,
+		DATE
+		) VALUES (
+			'',
+			'$get_StudentID',
+			'',
+			'',
+			'',
+			'$course_4',
+			'$pf_COURSE_4_INBOUND',
+			'',
+			'$date4'
+			)";
+    	$query__audit4 = mysqli_query($conn, $query_log4);
 		mysqli_query($conn, $course_query3);
 
 		// course 5
@@ -161,6 +310,30 @@
 			'$pf_COURSE_5_INBOUND',
 			'$course_5'
 		)";
+		//insert to audit log
+		date_default_timezone_set('Asia/Manila');
+		$date5 = date15('Y-m-d/H:i:s');
+    	$query_log5 = "INSERT INTO audit_logs(STUDENT_COUNT,
+    	STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		APPLICATION_FORM,
+		COLLEGE,
+		COURSE,
+		STATUS,
+		DATE
+		) VALUES (
+			'',
+			'$get_StudentID',
+			'',
+			'',
+			'',
+			'$course_5',
+			'$pf_COURSE_5_INBOUND',
+			'',
+			'$date5'
+			)";
+    	$query__audit5 = mysqli_query($conn, $query_log5);
 		mysqli_query($conn, $course_query4);
 		
 		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";

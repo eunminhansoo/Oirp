@@ -123,6 +123,7 @@ include 'database_connection.php';
 		FIRSTNAME,
 		APPLICATION_FORM,
 		COLLEGE,
+		COURSE,
 		STATUS,
 		DATE
 		) VALUES (
@@ -133,9 +134,11 @@ include 'database_connection.php';
 			'$application_prog',
 			'',
 			'',
+			'',
 			'$date1'
 			)";
     	$query_audit = mysqli_query($conn, $query_log);
+    	
     	$query = mysqli_query($conn, $query_db);
     	$query1 = mysqli_query($conn, $query_db1);
     
