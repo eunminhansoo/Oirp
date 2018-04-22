@@ -163,13 +163,13 @@
 										// }else{
 										// 	echo '<span> </span>';
 										// }
-										$timestamp = $todaydate;
-										$start_date = date($timestamp);
+										// $timestamp = $todaydate;
+										// $start_date = date($timestamp);
 
-										$expires = strtotime($exp, strtotime($timestamp));
-										//$expires = date($expires);
+										// $expires = strtotime($exp, strtotime($timestamp));
+										// //$expires = date($expires);
 
-										$date_diff=($expires-strtotime($timestamp)) / 86400;
+										// $date_diff=($expires-strtotime($timestamp)) / 86400;
 
 										// echo "Start: ".$timestamp."<br>";
 										// echo "Expire: ".date('Y-m-d H:i:s', $expires)."<br>";
@@ -181,7 +181,7 @@
 							?>
 							<!--<span>Upload Application form </span>-->
 							<!--<span class="caf"> Continue Application form</span>-->
-							<?php echo '<br><div id="cocDown"><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>'; ?>
+							<?php //echo '<br><div id="cocDown"><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>'; ?>
 						</a>
 						
 					</div>
@@ -244,18 +244,19 @@
 		<script>
 		$(document).ready(function(){
 			var page = "<?php echo $pagination ?>";
-			var prog = "<?php echo $application_prog?>";
-			var cocexp = "<?php echo $dateresult?>";
-			var datetoday = "<?php echo $todaydate?>";
-			var dayleft = "<?php echo round($date_diff, 0)?>";
 			$('#uploadbox').hide();
-			$('#cocDown').show();
+			
+			// var prog = "<?php echo $application_prog?>";
+			// var cocexp = "<?php echo $dateresult?>";
+			// var datetoday = "<?php echo $todaydate?>";
+			// var dayleft = "<?php echo round($date_diff, 0)?>";
+			// $('#cocDown').hide();
 
-			if(dayleft == 0){
-				$('#cocDown').hide();
-			}else{
-				$('#cocDown').show();
-			}
+			// if(dayleft == 0){
+			// 	$('#cocDown').hide();
+			// }else{
+			// 	$('#cocDown').show();
+			// }
 
 			$('#btnClicksu').click(function(){
 				if(page == "page 1" && prog == "inbound"){
