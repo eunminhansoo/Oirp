@@ -53,39 +53,32 @@
 		<!--HOVER LIST ENDOO-->
 		
 		<!--NAV BAR START-->
-		<div>
-			<div class="menu_white2">
-				<div class="navsticky">
-					<nav class="navbar navbar-topaz" role="navigation">
-						<div class="topnav">
-							<div class="container">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-									<a class="navbar-brand" href="#"></a>
-								</div>
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-									<ul class="nav navbar-nav navbar-right" >
-										<li><a href="#upload">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span><?php echo $familyName.", ".$givenName ?></span></a></li>
-										<li>
-											<a href="#" class="btn btn-secondary" id="menu-toggle">
-											<span class="bordernavbar"></span>
-											<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
-											</a>
-										</li>
-									</ul>
-								</div>
+		<nav class="navbar" id="bar">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+							        <span class="sr-only">Toggle navigation</span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							        <span class="icon-bar"></span>
+							     </button>
 							</div>
-						</div>
-					</nav>
-				</div>
-			</div>
-		</div>
+							<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
+										<ul class="nav navbar-nav navbar-right">
+											<li><a href="student_home.php">Home</a></li>
+											<li style="padding-right: 30px;"><a href="#">My Application</a></li>
+											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
+									          <ul class="dropdown-menu">
+									            <li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+									          </ul>
+									        </li>
+											
+											
+										</ul> 
+									</div>
+							</div>
+						</nav>
 		<!--NAV BART END-->
 	<div class="main container-fluid">
 		<!--APPLICATION BOX START-->
