@@ -1,4 +1,7 @@
 <?php
+	
+	error_reporting(0);
+	
     $getStudentID = $_GET['studentName'];
 	include 'admin_student_application_in_processs.php';
 
@@ -8,6 +11,9 @@
 	<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width = device-width, initial-scale = 1">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
@@ -258,6 +264,35 @@
 			$("#send").hide();
 			$("#cert").hide();
 			$("#subcert").hide();
+
+			function load_unseen_notification(view = '')
+			{
+				$.ajax({
+					url:"fetch_comment.php",
+					method:"POST",
+					data:{view:view},
+					dataType:"json",
+					success:function(data)
+					{
+						$('#notif-down').html(data.notification);
+						if(data.unseen_notification > 0)
+						{
+						$('.count').html(data.unseen_notification);
+						}
+					}
+				});
+			}
+			
+			load_unseen_notification();
+			
+			$(document).on('click', '#notif', function(){
+			$('.count').html('');
+			load_unseen_notification('yes');
+			});
+			
+			var setStatus = "<?php echo $getStatus?>";
+			$('#status option[value='+setStatus+']').prop('selected', true);
+		 
 		});
 
 		function func(sel) {
@@ -268,7 +303,7 @@
 				$("#backuu").hide();
 				$("#conf").hide();
 				$("#subcert").hide();
-		  	}else if(stat == 'Completed'){
+		  	}else if(stat === 'Completed'){
 				$("#send").hide();
 				$("#backuu").hide();
 				$("#cert").show();
@@ -281,38 +316,5 @@
 				$("#cert").hide();
 		  	}
 		}
-	</script>
-</html>
-<script>
-$(document).ready(function(){
- 
-	function load_unseen_notification(view = '')
-	{
-		$.ajax({
-			url:"fetch_comment.php",
-			method:"POST",
-			data:{view:view},
-			dataType:"json",
-			success:function(data)
-			{
-				$('#notif-down').html(data.notification);
-				if(data.unseen_notification > 0)
-				{
-				$('.count').html(data.unseen_notification);
-				}
-			}
-		});
-	}
-	
-	load_unseen_notification();
-	
-	$(document).on('click', '#notif', function(){
-	$('.count').html('');
-	load_unseen_notification('yes');
-	});
-	
-	var setStatus = "<?php echo $getStatus?>";
-	$('#status option[value='+setStatus+']').prop('selected', true);
- 
-});
+
 </script>

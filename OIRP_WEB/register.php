@@ -90,7 +90,8 @@
 					</div>
 				</div>
 				<br>
-				<button type="submit" name="btn_register" class="btn button_style" style="float: right;">Submit</button>
+				<button type="submit" name="btn_register" class="btn button_style" style="float: left;">Submit</button>
+				<button onclick="location.href='index.php'" class="btn btn-danger" style="float: right;">Cancel</button>
 				<?php echo $message?>
 			</div>
 		</form>

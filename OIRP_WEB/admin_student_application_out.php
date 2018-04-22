@@ -1,4 +1,7 @@
 <?php
+	
+	error_reporting(0);	
+
     include 'database_connection.php';
 
     $getStudentID = $_GET['studentName'];

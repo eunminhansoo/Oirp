@@ -72,7 +72,7 @@ while ($row = $result->fetch_array()){
 }
 
 //proposed_field_study 
-$sql = "select proposed_prog,course_1,course_2,course_3,course_4,course_5,SCHOLARSHIP_LOAN_OTHER,SCHOLARSHIP_LOAN_OTHER1,type_of_program from proposed_field_study where student_id = '".$studentno."'";
+$sql = "select proposed_prog,course_1,course_2,course_3,course_4,course_5,SCHOLARSHIP_LOAN_OTHER,SCHOLARSHIP_LOAN_OTHER1,type_of_program,type_of_form from proposed_field_study where student_id = '".$studentno."'";
 $result = $conn->query($sql);
 
 while($row = $result->fetch_array()){
@@ -85,8 +85,16 @@ while($row = $result->fetch_array()){
 	$scholarship_outbound = $row['SCHOLARSHIP_LOAN_OTHER'];
 	$scholarship_text_outbound = $row['SCHOLARSHIP_LOAN_OTHER1'];
 	$application_form = $row['type_of_program'];
+	$type_of_form = $row['type_of_form'];
 }
 
+if($application_form=="ShortStudy"){
+	$application_form = "Short Study Abroad";
+} else if($application_form=="StudyTour"){
+	$application_form = "Study Tour";
+} else if($application_form == "ServiceLearning"){
+	$application_form = "Service Learning";
+}
 
 class PDF extends FPDF
 {
@@ -255,6 +263,8 @@ $pdf->Cell(40,7,'COUNTRY','BR',0);
 $pdf->Cell(155,7,$country_out,'B',1);
 $pdf->Cell(40,7,'UNIVERSITY','BR',0);
 $pdf->Cell(155,7,$university_out,'B',1);
+$pdf->Cell(40,7,'PROGRAM DURATION','BR',0);
+$pdf->Cell(155,7,$type_of_form,'B',1);
 $pdf->Cell(195,7,'','B',1);
 
 $pdf->Cell(50,7,'PROPOSED PROGRAM','BR',0);
