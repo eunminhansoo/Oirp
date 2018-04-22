@@ -147,7 +147,9 @@
 										$coc_db = mysqli_query($conn, $cocSel_query);
 										while($coc_row = mysqli_fetch_array($coc_db )){
 											$certCoc = $coc_row['CERTIFICATION'];
+											$exp = $coc_row['EXPIRATION_ACCESS'];
 										}
+										
 										echo '<br><div><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>';			
 									}
 								}
