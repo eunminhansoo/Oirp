@@ -437,6 +437,13 @@
 							UNIVERSITY_OUT = '$get_univSh'
 							WHERE STUDENT_ID = '$getses_StudentID'
 						";
+					}else{
+						 $sql_query1 = "UPDATE country_univ_outbound SET
+							APPLICATION_PROG = '$application_prog',
+							COUNTRY_OUT = '$country',
+							UNIVERSITY_OUT = '$get_univ'
+							WHERE STUDENT_ID = '$getses_StudentID'
+						";
 					}
 				}
 
@@ -828,6 +835,13 @@
 							APPLICATION_PROG = '$application_prog',
 							COUNTRY_OUT = '$shcountry',
 							UNIVERSITY_OUT = '$get_univSh'
+							WHERE STUDENT_ID = '$getses_StudentID'
+						";
+					}else{
+						 $sql_query1 = "UPDATE country_univ_outbound SET
+							APPLICATION_PROG = '$application_prog',
+							COUNTRY_OUT = '$country',
+							UNIVERSITY_OUT = '$get_univ'
 							WHERE STUDENT_ID = '$getses_StudentID'
 						";
 					}
