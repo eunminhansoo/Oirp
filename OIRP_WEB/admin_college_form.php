@@ -40,7 +40,8 @@
 		FIRSTNAME,
 		COMMENT_STATUS,
 		APPLICATION_FORM,
-		COLLEGE
+		COLLEGE,
+		STATUS
 		) VALUES (
 			'',
 			'$getStudentID',
@@ -48,7 +49,8 @@
 			'$givenName',
 			'',
 			'',
-			'$college'
+			'$college',
+			'$status'
 		)";
 		
     	$comment = mysqli_query($conn, $query_notification);

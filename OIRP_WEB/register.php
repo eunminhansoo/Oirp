@@ -15,56 +15,72 @@
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	<body>
+		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 		<div class="">
 		<div class="header">
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
+		
+	<nav class="navbar" id="bar">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								
+									</div>
+							</div>
+						</nav>
 	
 		 <form method="post">
-			<div class="container div_center_signUp">
-				<script src="bootstrap-3.3.7-dist/js/style.js"></script>
-				<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-				<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>	    
-					        
+			<div class="container div_center_signUp"> 
 	        	<div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<input type="text" name="family_name" class="input form-control" placeholder="Enter Surname" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
+						<label>Last Name</label>
+						<input type="text" name="family_name" class="input form-control" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
 					</div>
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<input type="text" name="given_name" class="input form-control" placeholder="Enter Given Name" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
+						<label>Given Name</label>
+						<input type="text" name="given_name" class="input form-control" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
 					</div>
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<input type="text" name="middle_name" class="input form-control" placeholder="Enter Middle Name" pattern="[^0-9<>].{1,50}" maxlength="50"/>
+						<label>Middle Name</label>
+						<input type="text" name="middle_name" class="input form-control" pattern="[^0-9<>].{1,50}" maxlength="50"/>
 					</div>
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<input type="email" name="email" class="input form-control" placeholder="Enter Email" maxlength="60" required/>
+						<label>Email</label>
+						<input type="email" name="email" class="input form-control" maxlength="60" required/>
 					</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-2">
+							<label>Gender</label>
 							<select name="gender" class="form-control">
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
 							</select>
 						</div>
-						<div class="col-sm-2">					
+						<div class="col-sm-2">	
+							<label>Birthdate</label>				
 							<input type="date" name="birthday" id="birthday" class="form-control" required/>
 						</div>
-		        		<div class="col-sm-8">					
-							<input type="text" name="birthplace" class="form-control" placeholder="Enter your Birthplace" pattern="[^<>].{1,20}" maxlength="20" required/>
+		        		<div class="col-sm-8">
+		        			<label>Birthplace</label>					
+							<input type="text" name="birthplace" class="form-control" pattern="[^<>].{1,20}" maxlength="20" required/>
 						</div>
 					</div>
 					<div class="form-group row">					
 						<div class="col-sm-12">
-							Are you a Student of UST? 
-							<input type="radio" name="application_form" value="yes"> Yes
+							<label>Are you a Student of UST? </label>
+							<input type="radio" name="application_form" value="yes" required> Yes
 							<input type="radio" name="application_form" value="no"> No
 						</div>	
 					</div>
