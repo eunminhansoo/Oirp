@@ -21,11 +21,18 @@
 	// 		}
 	// 	} 	                   
 	// }
-	$timezone = date_default_timezone_get();
-	echo "The current server timezone is: " . $timezone."<br>";
-	$today = date("m/d/Y");
-	echo $today."<br>";
-	
+	$timestamp = "2018-04-22 00:37:15";
+	$start_date = date($timestamp);
+
+	$expires = strtotime('2018-04-22 00:37:15', strtotime($timestamp));
+	//$expires = date($expires);
+
+	$date_diff=($expires-strtotime($timestamp)) / 86400;
+
+	echo "Start: ".$timestamp."<br>";
+	echo "Expire: ".date('Y-m-d H:i:s', $expires)."<br>";
+
+	echo round($date_diff, 0)." days left";
 				// $yearlySel_query = "SELECT * FROM yearly";
 				// $yearlySel_db = mysqli_query($conn, $yearlySel_query);
 				// while($yearSel_row = mysqli_fetch_array($yearlySel_db)){

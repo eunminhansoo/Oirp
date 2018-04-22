@@ -1,5 +1,45 @@
 <?php
     include 'database_connection.php';
+    
+    $query = "SELECT * FROM audit_logs ORDER BY STUDENT_COUNT";
+    $result = mysqli_query($conn, $query);
+    $output = '';
+    if(mysqli_num_rows($result) > 0)
+    {
+        while($row = mysqli_fetch_array($result))
+        {
+            $studentId = $row['STUDENT_ID'];
+            $fullname = $row['LASTNAME'].", ".$row['FIRSTNAME']." ";
+        	$applicationform = $row['APPLICATION_FORM'];
+        	$college = $row['COLLEGE'];        	
+            $status = $row['STATUS'];
+            $date = $row['DATE'];
+            
+        if($applicationform == "inbound"){
+                $output .= '
+                    <li>
+                            <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+            }else{
+                if($applicationform == "outbound"){
+                    $output .= '
+                    <li>
+                            <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+                }
+            }
+        }
+        $data = array(
+    'notification'   => $output
+    );
+    echo json_encode($data);
+    }
     ?>
     <!DOCTYPE html>
 <html>
@@ -100,4 +140,33 @@
 		</nav>		
 		<!--NAV BAR END-->
 		
+<script>
+$(document).ready(function(){
+    //$('#tbl_student_in').DataTable(); 
+	function load_unseen_notification()
+	{
+		$.ajax({
+			url:"admin_logs.php",
+			dataType:"json",
+			success:function(data)
+			{
+				$('#notif-down').html(data.notification);
+				if(data.unseen_notification > 0)
+				{
+				$('.count').html(data.unseen_notification);
+				}
+			}
+		});
+	}
+ 
+ 	load_unseen_notification();
+ 
+	$(document).on('click', '#notif', function(){
+	$('.count').html('');
+	load_unseen_notification('yes');
+	});
+ 
+ 
+});
+</script>
 		
