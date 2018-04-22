@@ -64,9 +64,18 @@
 	
 	$col='';
 	while($row = mysqli_fetch_array($result)) {
-		$col .=  "<option value=''>Choose a College</option><option value='".$row['college']."'>".$row['college']."</option>";
+		$col .=  "<option value='".$row['college']."'>".$row['college']."</option>";
 	}
+	if(isset($_POST['update_status'])){
+		$status = $_POST['status'];
+
+		// UPDATE THE STATUS
+		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+		$query_db = mysqli_query($conn, $query2);
+	}
+
 	if(isset($_POST['send'])){
+		// INSERT THE COURSE IN THE RESPECTIVE COLLEGE
 		$course_1 = $_POST['course1'];
 		$course_2 = $_POST['course2'];
 		$course_3 = $_POST['course3'];
@@ -166,7 +175,7 @@
 				$sel_query = $rrow['STATUS'];
 			}
 			if($sel_query == 'Approved'){
-				
+				// CHECK IF THE YEAR IS EXISTING IF NOT INSERT IN YEARLY
 				$today = date("m/d/Y");
 				$new = "08/01/".date('Y');;
 				$prevyears = date('Y');
@@ -194,6 +203,7 @@
 					mysqli_query($conn, $ins_query);
 				}
 			}else if($sel_query == 'Completed'){
+				// CHECK IF THE NOT EXIST IN OUTBOUND GRAPH
 				$yearlySel_query = "SELECT * FROM yearly";
 				$yearlySel_db = mysqli_query($conn, $yearlySel_query);
 				while($yearSel_row = mysqli_fetch_array($yearlySel_db)){

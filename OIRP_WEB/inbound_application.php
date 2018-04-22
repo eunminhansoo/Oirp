@@ -219,7 +219,7 @@
 				}
 				if ($type_program != NULL)
 				{
-						if($type_program == "Scholarship"){
+					if($type_program == "Scholarship"){
 						$scholarship = $_POST['scholarship'];
 
 						if($scholarship == "OTHERS")

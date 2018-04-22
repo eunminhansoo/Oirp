@@ -129,6 +129,7 @@
 					<form method="post">
 						<div>
 							<select name="status">
+								<option value=" ">Choose a Status</option>
 								<option value="Qualified">Qualified</option>
 								<option value="Not-Qualified">Not-Qualified</option>
 							</select>

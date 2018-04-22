@@ -118,7 +118,9 @@
 					</div>
 						<a class="btn btn-secondary" id="btnClicksu">
 							<?php
-								if($pagination == 'inbound page 1'){
+								if($pagination == 'page 1'){
+									echo '<span class="caf"> Continue Application form</span>';
+								}else if($pagination == 'inbound page 1'){
 									echo '<span class="caf"> Continue Application form</span>';
 								}
 								else if($pagination == 'inbound page 2'){
@@ -214,10 +216,15 @@
 		<script>
 		$(document).ready(function(){
 			var page = "<?php echo $pagination ?>";
+			var prog = "<?php echo $application_prog?>";
 			$('#uploadbox').hide();
 
 			$('#btnClicksu').click(function(){
-				if(page == "inbound page 1"){
+				if(page == "page 1" && prog == "inbound"){
+					window.location.href = "inboundform1.php";
+				}else if(page == "page 1" && prog == "outbound"){
+					window.location.href = "outboundform1.php";
+				}else if(page == "inbound page 1"){
 					window.location.href = "inboundform1.php";
 				}else if(page == "inbound page 2"){
 					window.location.href = "inboundform2.php";
