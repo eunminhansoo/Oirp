@@ -19,24 +19,7 @@
 	    		echo "<meta http-equiv=\"refresh\" content=\"0;URL=administrator.php\">";
 	    	}
         }
-    }
-    $col_query = "SELECT * FROM admin_college WHERE COLLEGE = '$college' ";
-	$col_db = mysqli_query($conn, $col_query);
-	while($col_row = mysqli_fetch_array($col_db)){
-		$studentid = $col_row['STUDENT_ID'];
-		$getCollege = $col_row['COLLEGE'];
-	}
-	if($studentid){
-		$sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$studentid'";
-		$query = mysqli_query($conn, $sql_query);
-		$sql_query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID = '$studentid'";
-		$query1 = mysqli_query($conn, $sql_query1);
-		$sql_query2 = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$studentid'";
-		$query2 = mysqli_query($conn, $sql_query2);
-		$sql_query3 = "SELECT * FROM student WHERE STUDENT_ID = '$studentid'";
-		$query3 = mysqli_query($conn, $sql_query3);
-	}
-
+    }	
 ?>
 
 <html>
@@ -112,60 +95,48 @@
 	                            </tr>
 	                        </thead>
 	                        <tbody>
-	                            	<?php while($row = mysqli_fetch_array($query)){ 
-
-	                                $fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-	                                // $ddate = $row['DATE_ENROLL'];
-	                                // $date = new DateTime($ddate);
-									// $get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-									// $get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-			                        // $resultdate = $date->format('F j, Y');
-	                            ?>
 	                            <tfoot>
+								<?php
+									 $col_query = "SELECT * FROM admin_college WHERE COLLEGE = '$college' ";
+									$col_db = mysqli_query($conn, $col_query);
+									while($col_row = mysqli_fetch_array($col_db)){
+										$studentid = $col_row['STUDENT_ID'];
+										$getCollege = $col_row['COLLEGE'];
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE a.STUDENT_ID = '20180422001-in'";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+										}
+								?>
 	                            <tr>
-	                                <td><?php echo "<a href=admin_college_form.php?studentName=".urlencode($studentid).">".$fullname."</a>" ?></td>
+	                                <td><?php echo "<a href=admin_college_form.php?studentName=".urlencode($studentid).">".$fullname."</a>";?></td>
 									<?php 
-										} 
-										while($row1 = mysqli_fetch_array($query1)){ 
-											$get_TYPE_OF_PROGRAM = $row1['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_FORM = $row1['TYPE_OF_FORM'];
 											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
 
 											if($get_TYPE_OF_PROGRAM == "Scholarship"){
 												if($get_TYPE_OF_FORM  == "OTHERS"){
-													echo "<td>".$row1['TYPE_OF_FORM_OTHER']."</td>";
+													echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
 												}else{
 													echo "<td>".$get_TYPE_OF_FORM."</td>";
 												}
 											}else{
 												if($get_TYPE_OF_FORM == "Others"){
-													echo "<td>".$row1['TYPE_OF_FORM_OTHER']."</td>";
+													echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
 												}else{
 													echo "<td>".$get_TYPE_OF_FORM."</td>";
 												}
 											}
-										}
-										
 									?>
-	                                <!--<td><?php //echo $row['TYPE_OF_PROGRAM']; ?></td>
-	                                <td><?php //echo $row['APPLICATION_TYPE_PROG'].": ".$row['APPLICATION_FORM']; ?></td>-->
-									<td><?php echo $getCollege?></td>
-									<?php
-									while($row2 = mysqli_fetch_array($query2)){ 
-										$resultdate = $row2['DATE_SUBMITTED'];
-									
-									?>
-									<td><?php echo $resultdate ?></td>
-									<?php
-									}
-										while($row3 = mysqli_fetch_array($query3)){
-										$status = $row3['STATUS'];
-									?>
+									<td><?php echo $getCollege;?></td>
+									<td><?php echo $resultdate; ?></td>
 	                                <td><?php echo $status?></td>
-									<?php
-										}
-									?>
 	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentid?>"></td>
+									<?php }?>		
 	                            </tr>
 	                        
 	                        </tfoot> 
