@@ -1,235 +1,6 @@
 <?php
-    include 'database_connection.php';
-
     $getStudentID = $_GET['studentName'];
-
-    $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
-    $result = mysqli_query($conn, $sql);
-    while($rowfile = mysqli_fetch_array($result)){
-        $file = $rowfile['PDF_IMG'];
-		//  $torscan = $row['TOR_SCAN'];
-    }
-    $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
-    $queryBD = mysqli_query($conn, $query);
-    $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
-    $queryCU = mysqli_query($conn, $query1);   
-	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
-    $queryPF = mysqli_query($conn, $query2);
-
-	while($row1 = mysqli_fetch_array($queryCU)){
-		$application_prog = $row1['TYPE_OF_PROGRAM'];
-		$application_prog_other = $row1['TYPE_OF_PROG_OTHER'];
-		$application_form = $row1['TYPE_OF_FORM'];
-		$application_form_other = $row1['TYPE_OF_FORM_OTHER'];
-		$country = $row1['COUNTRY_ORIGIN'];
-		$university = $row1['HOME_UNIV_IN_BILA'];
-	}
-
-	if(isset($_POST['update_status'])){
-		$status = $_POST['status']; 
-
-		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-		
-		$query_db = mysqli_query($conn, $query2);
-
-		if($query_db){
-			header("Location:admin_student_application_in.php?studentName=$getStudentID");
-			$sel_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
-			$queryy_db = mysqli_query($conn, $sel_query);
-			while($rrow = mysqli_fetch_array($queryy_db)){
-				$sel_query = $rrow['STATUS'];
-			}
-			if($sel_query == 'Approved'){
-
-				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
-				$sel_check_db = mysqli_query($conn, $sel_check_query);
-				if(mysqli_num_rows($sel_check_db) <= 0){
-					$ins_query = "INSERT INTO `admin_college` (`STUDENT_COUNT`, `STUDENT_ID`, `PROPOSED_PROGRAM`, `COURSE_1`, `COURSE_2`, `COURSE_3`, `COURSE_4`, `COURSE_5`) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
-					mysqli_query($conn, $ins_query);
-				}
-			}else{
-				$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
-				mysqli_query($conn, $del_query);
-			}   
-		}
-	}
-	while($pf_row = mysqli_fetch_array($queryPF)){
-		$pf_COURSE_1_INBOUND = $pf_row['COURSE_1_INBOUND'];
-		$pf_COURSE_2_INBOUND = $pf_row['COURSE_2_INBOUND'];
-		$pf_COURSE_3_INBOUND = $pf_row['COURSE_3_INBOUND'];
-		$pf_COURSE_4_INBOUND = $pf_row['COURSE_4_INBOUND'];
-		$pf_COURSE_5_INBOUND = $pf_row['COURSE_5_INBOUND'];
-	}
-
-	$sql = "select college from colleges where id > 1 order by college asc";
-	$result = mysqli_query($conn, $sql);
-	
-	$col='';
-	while($row = mysqli_fetch_array($result)) {
-		$col .=  "<option value='".$row['college']."'>".$row['college']."</option>";
-	}
-	if(isset($_POST['send'])){
-		$course_1 = $_POST['course1'];
-		$course_2 = $_POST['course2'];
-		$course_3 = $_POST['course3'];
-		$course_4 = $_POST['course4'];
-		$course_5 = $_POST['course5'];
-		$status = $_POST['status']; 
-
-		// course 1
-		$course_query = "INSERT INTO admin_college(
-			STUDENT_COUNT,
-			STUDENT_ID,
-			PROPOSED_PROGRAM,
-			COURSE,
-			COLLEGE
-		) VALUES (
-			' ',
-			'$getStudentID',
-			' ',
-			'$pf_COURSE_1_INBOUND',
-			'$course_1'
-		)";
-		mysqli_query($conn, $course_query);
-
-		// course 2
-		$course_query1 = "INSERT INTO admin_college(
-			STUDENT_COUNT,
-			STUDENT_ID,
-			PROPOSED_PROGRAM,
-			COURSE,
-			COLLEGE
-		) VALUES (
-			' ',
-			'$getStudentID',
-			' ',
-			'$pf_COURSE_2_INBOUND',
-			'$course_2'
-		)";
-		mysqli_query($conn, $course_query1);
-
-		// course 3
-		$course_query2 = "INSERT INTO admin_college(
-			STUDENT_COUNT,
-			STUDENT_ID,
-			PROPOSED_PROGRAM,
-			COURSE,
-			COLLEGE
-		) VALUES (
-			' ',
-			'$getStudentID',
-			' ',
-			'$pf_COURSE_3_INBOUND',
-			'$course_3'
-		)";
-		mysqli_query($conn, $course_query2);
-
-		// course 4
-		$course_query3 = "INSERT INTO admin_college(
-			STUDENT_COUNT,
-			STUDENT_ID,
-			PROPOSED_PROGRAM,
-			COURSE,
-			COLLEGE
-		) VALUES (
-			' ',
-			'$getStudentID',
-			' ',
-			'$pf_COURSE_4_INBOUND',
-			'$course_4'
-		)";
-		mysqli_query($conn, $course_query3);
-
-		// course 5
-		$course_query4 = "INSERT INTO admin_college(
-			STUDENT_COUNT,
-			STUDENT_ID,
-			PROPOSED_PROGRAM,
-			COURSE,
-			COLLEGE
-		) VALUES (
-			' ',
-			'$getStudentID',
-			' ',
-			'$pf_COURSE_5_INBOUND',
-			'$course_5'
-		)";
-		mysqli_query($conn, $course_query4);
-		
-		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-		
-		$query_db = mysqli_query($conn, $query2);
-
-		if($query_db){
-			header("Location:admin_student_application_in.php?studentName=$getStudentID");
-			$sel_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
-			$queryy_db = mysqli_query($conn, $sel_query);
-			while($rrow = mysqli_fetch_array($queryy_db)){
-				$sel_query = $rrow['STATUS'];
-			}
-			if($sel_query == 'Approved'){
-				
-				$today = date("m/d/Y");
-				$new = "08/01/".date('Y');;
-				$prevyears = date('Y');
-				$nextyears = date('Y', strtotime('+1 year'));
-				$cret_year = $prevyears."-".$nextyears;
-				$sel_query = "SELECT * FROM yearly";
-				$sel_db = mysqli_query($conn, $sel_query);
-				while($selRow = mysqli_fetch_array($sel_db)){
-					$yyear = $selRow['YEARLY'];
-				}
-				if($cret_year != $yyear){
-					if($today == $new){	
-						// echo "success";
-						$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
-						$query = mysqli_query($conn, $sql);
-						if($query){
-							echo "success";
-						}
-					} 	                   
-				}
-				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
-				$sel_check_db = mysqli_query($conn, $sel_check_query);
-				if(mysqli_num_rows($sel_check_db) <= 0){
-					$ins_query = "INSERT INTO `admin_college` (`STUDENT_COUNT`, `STUDENT_ID`, `PROPOSED_PROGRAM`, `COURSE_1`, `COURSE_2`, `COURSE_3`, `COURSE_4`, `COURSE_5`) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
-					mysqli_query($conn, $ins_query);
-				}
-			}else if($sel_query == 'Completed'){
-				$yearlySel_query = "SELECT * FROM yearly";
-				$yearlySel_db = mysqli_query($conn, $yearlySel_query);
-				while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
-					$yearr = $yearSel_row['YEARLY'];
-				}
-				$sel_query = "SELECT * FROM instatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-				$sel_db = mysqli_query($conn, $sel_query);
-				$countNum = mysqli_num_rows($sel_db);
-				if($countNum == 1){
-					while($seRow = mysqli_fetch_array($sel_db)){
-						$num_student = $seRow['NUMBER_STUDENT'];
-					}
-					$num_student += 1;
-					$statUp = "UPDATE instatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-					mysqli_fetch_array($conn, $statUp);
-				}
-				if($countNum == 0){
-					$numStu = 1;
-					$appform = "inbound";
-					$statInt = "INSERT INTO instatistics(ID, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
-						'',
-						'$numStu',
-						'$yearr',
-						'$country',
-						'$appform'
-					)";
-					mysqli_query($conn, $statInt);
-				}
-			}else{
-				$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
-				mysqli_query($conn, $del_query);
-			}   
-		}
-	}
+	include 'admin_student_application_in_processs.php';
 
 ?>
 <html>
@@ -305,7 +76,7 @@
 			</div>
 		</nav>
 		<!--NAV BART END-->
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 			<div class="container-fluid">
 				<div class="col-sm-7">
 					<?php 
@@ -316,6 +87,7 @@
 					<p style="margin-top: 80px;"><h2>Basic Information</h2></p>
 					<?php
 						while($row = mysqli_fetch_array($queryBD)){
+							$getStatus = $row['STATUS'];
 							$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
 						}
 						
@@ -361,11 +133,11 @@
 					<p>
 						<span><b>Transcript of Record: </b></span>
 						<?php 
-							// if($torscan){
-							// 	echo "<a href=showTOR.php?numnum=".urldecode($getStudentID)." target='_blank'>".$torScan."</a>";
-							// }else{
-							// 	$torscan ="";
-							// }
+							if($torScan){
+								echo "<a href=showTOR.php?numnum=".urldecode($getStudentID)." target='_blank'>".$torScan."</a>";
+							}else{
+								$torScan ="";
+							}
 						?>
 					</p>
 					<p>
@@ -373,11 +145,11 @@
 						<span>
 							<select name="status" id="status" onChange="func(this);">
 								<option value=" ">Choose a Status</option>
-								<option value="Pending">Pending</option>
-								<option value="Approved">Approved</option>
-								<option value="Denied">Denied</option>
-								<option value="On-Going">On-going</option>
-								<option value="Completed">Completed</option>
+								<option value="Pending" id="Pending">Pending</option>
+								<option value="Approved" id="Approved">Approved</option>
+								<option value="Denied" id="Denied">Denied</option>
+								<option value="On-Going" id="On-going">On-going</option>
+								<option value="Completed" id="Completed">Completed</option>
 							</select>
 						</span>
 					</p>
@@ -393,63 +165,84 @@
 				</div>
 				 <div id="send" class="col-sm-5">
 					<div class="container-fluid">
-						<!--<div class="form-group row">
-							<br>
-							<p><span><b>College: </b></span></p>
-							<p><select name="college" id="college" size=15 multiple>
-								</select>
+						<div>
+							<p>
+								<b><span>Course 1: </span></b><span><?php echo $pf_COURSE_1_INBOUND?></span>
 							</p>
-						</div>	
+							<div class="">
+								<select name="course1" id="college">
+
+								</select>
+							</div>
+						</div>
+						<div>
+							<p>
+								<b><span>Course 2: </span></b><span><?php echo $pf_COURSE_2_INBOUND?></span>
+							</p>
+							<select name="course2" id="college1">
+
+							</select>
+						</div>
+						<div>
+							<p>
+								<b><span>Course 3: </span></b><span><?php echo $pf_COURSE_3_INBOUND?></span>
+							</p>
+							<select name="course3" id="college2">
+
+							</select>
+						</div>
+						<div>
+							<p>
+								<b><span>Course 4: </span></b><span><?php echo $pf_COURSE_4_INBOUND?></span>
+							</p>
+							<select name="course4" id="college3">
+
+							</select>
+						</div>
+						<div>
+							<p>
+								<b><span>Course 5: </span></b><span><?php echo $pf_COURSE_5_INBOUND?></span>
+							</p>
+							<select name="course5" id="college4">
+
+							</select>
+						</div>
 						<div class="form-group row">
 							<input type="submit" value="Send" name="send" class="btn btn-primary">
-						</div> -->
+						</div> 
+					</div>
+				</div>
+				<br>
+				<div id="cert" class="col-sm-5">
+					<div class="container-fluid">
+						<p>
 							<div>
-								<p>
-									<b><span>Course 1: </span></b><span><?php echo $pf_COURSE_1_INBOUND?></span>
-								</p>
-								<div class="">
-									<select name="course1" id="college">
-
-									</select>
+								<div class="col-xs-6">
+									<span><b>Upload a Certificate of Competion</b></span>
+								</div>
+								<div class="col-xs-6">
+									<span><b>Student Access Limitation</b></span>
 								</div>
 							</div>
+						</p>
+						<br>
+						<p>
 							<div>
-								<p>
-									<b><span>Course 2: </span></b><span><?php echo $pf_COURSE_2_INBOUND?></span>
-								</p>
-								<select name="course2" id="college1">
-
-								</select>
+								<div class="col-xs-5">
+									<input type="date" clas="form-control" name="expirationCert"/>
+								</div>
+								<div class="col-xs-5">
+									<input type="file" name="certificate"/>
+								</div>
 							</div>
-							<div>
-								<p>
-									<b><span>Course 3: </span></b><span><?php echo $pf_COURSE_3_INBOUND?></span>
-								</p>
-								<select name="course3" id="college2">
-
-								</select>
-							</div>
-							<div>
-								<p>
-									<b><span>Course 4: </span></b><span><?php echo $pf_COURSE_4_INBOUND?></span>
-								</p>
-								<select name="course4" id="college3">
-
-								</select>
-							</div>
-							<div>
-								<p>
-									<b><span>Course 5: </span></b><span><?php echo $pf_COURSE_5_INBOUND?></span>
-								</p>
-								<select name="course5" id="college4">
-
-								</select>
-							</div>
-							<div class="form-group row">
-								<input type="submit" value="Send" name="send" class="btn btn-primary">
-							</div> 
-						
+						</p>
 					</div>
+					<br>
+					<p id="subcert">
+						<div class="form-group row col-xs-4 col-xs-offset-1">
+							<input type="submit" value="Submit" name="subCert" class="btn btn-primary">
+						</div> 
+					</p>
 				</div>
 			</div>
 		</form>
@@ -463,6 +256,8 @@
 			$("#college3").empty().append(val);
 			$("#college4").empty().append(val);
 			$("#send").hide();
+			$("#cert").hide();
+			$("#subcert").hide();
 		});
 
 		function func(sel) {
@@ -472,10 +267,18 @@
 				$("#send").show();
 				$("#backuu").hide();
 				$("#conf").hide();
-		  	} else{
+				$("#subcert").hide();
+		  	}else if(stat == 'Completed'){
+				$("#send").hide();
+				$("#backuu").hide();
+				$("#cert").show();
+				$("#conf").hide();
+				$("#subcert").show();
+			}else{
 				$("#send").hide();
 				$("#backuu").show();
 				$("#conf").show();
+				$("#cert").hide();
 		  	}
 		}
 	</script>
@@ -483,31 +286,33 @@
 <script>
 $(document).ready(function(){
  
- function load_unseen_notification(view = '')
- {
-  $.ajax({
-   url:"fetch_comment.php",
-   method:"POST",
-   data:{view:view},
-   dataType:"json",
-   success:function(data)
-   {
-    $('#notif-down').html(data.notification);
-    if(data.unseen_notification > 0)
-    {
-     $('.count').html(data.unseen_notification);
-    }
-   }
-  });
- }
- 
- load_unseen_notification();
- 
- $(document).on('click', '#notif', function(){
-  $('.count').html('');
-  load_unseen_notification('yes');
- });
- 
+	function load_unseen_notification(view = '')
+	{
+		$.ajax({
+			url:"fetch_comment.php",
+			method:"POST",
+			data:{view:view},
+			dataType:"json",
+			success:function(data)
+			{
+				$('#notif-down').html(data.notification);
+				if(data.unseen_notification > 0)
+				{
+				$('.count').html(data.unseen_notification);
+				}
+			}
+		});
+	}
+	
+	load_unseen_notification();
+	
+	$(document).on('click', '#notif', function(){
+	$('.count').html('');
+	load_unseen_notification('yes');
+	});
+	
+	var setStatus = "<?php echo $getStatus?>";
+	$('#status option[value='+setStatus+']').prop('selected', true);
  
 });
 </script>

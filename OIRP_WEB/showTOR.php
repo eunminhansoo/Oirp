@@ -39,53 +39,48 @@
 		<!--HOVER LIST ENDOO-->
 		
 		<!--NAV BAR START-->
-		<div>
-			<div class="menu_white2">
-				<div class="navsticky">
-					<nav class="navbar navbar-topaz" role="navigation">
-						<div class="topnav">
-							<div class="container">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-									<a class="navbar-brand" href="#"></a>
-								</div>
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                    <ul class="nav navbar-nav navbar-left">
-                                        <!-- font style: Bookman Old Style-->
-                                        <li><a><span class="styletext"><h4>TRANSCRIPT OF RECORD OF STUDENT</h4></span></a></li>
-                                    </ul>
-									<ul class="nav navbar-nav navbar-right" >
-										<li><a href="administrator.php">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
-										<li>
-										<a href="#notifications-panel" class="nav-link dropdown-toggle" data-toggle="dropdown">
-          									<i data-count="2" class="oi oi-bell notification-icon" aria-label="Nofitication centre"></i>
-        								</a>
-										<!--  	<a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
-												<span class="bordernavbar"></span>
-												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
-												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
-											</a> -->
-										</li>
-										<li>
-											<a href="#" class="btn btn-secondary" id="menu-toggle">
-											<span class="bordernavbar"></span>
-											<span class="glyphicon glyphicon-align-justify" style="font-size:20px;cursor:pointer" onclick="openNav()"></span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</nav>
+		<nav class="navbar" id="bar">
+		    <div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+					    <span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
+					<ul class="nav navbar-nav">
+						<li ><a><b>TRANSCRIPT OF RECORD</b></a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="administrator.php">Home</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+							   <li><a href="approved_students.php">Approved Students</a></li>
+								<li><a href="qualified_students.php">Qualified Students</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
+								<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
+								<li><a href="outboundComparison.php">Outbound Comparison</a></li>
+								<li><a href="inboundComparison.php">Inbound Comparison</a></li>
+							</ul>
+						</li>
+						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+							</ul>
+						</li>					
+					</ul> 
 				</div>
 			</div>
-		</div>
+		</nav>
 		<!--NAV BART END-->
 
         <div class="container-responsive">
