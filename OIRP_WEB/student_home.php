@@ -12,9 +12,9 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
 		<!-- link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/stylus.css">
 		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/color_3.css"-->
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
 		<link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	
@@ -142,6 +142,10 @@
 								}else{
 									if($pagination == 'Submitted PDF' && $status == 'Pending' || $pagination == 'Submitted PDF' && $status == 'Approved'|| $pagination == 'Submitted PDF' && $status == 'Denied'|| $pagination == 'Submitted PDF' && $status == 'On-going'){
 										echo '<span>Wait for Confirmation</span>';
+									}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
+										echo '<span style="color: red"><b>You are '.$status.'!!</b></span>';
+									}else if($pagination == 'Submitted PDF' && $status == 'Not-Qualified'){
+										echo '<span style="color: red"><b>Sorry you are '.$status.'!!</b></span>';
 									}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
 										$cocSel_query = "SELECT * FROM certificateofcompletion WHERE STUDENT_ID = '$get_studentID'";
 										$coc_db = mysqli_query($conn, $cocSel_query);
@@ -149,13 +153,35 @@
 											$certCoc = $coc_row['CERTIFICATION'];
 											$exp = $coc_row['EXPIRATION_ACCESS'];
 										}
+										$todaydate = date("m/d/Y");
+										$datetoday = new DateTime($todaydate);
+										$dateresult = $datetoday->format('m/d/Y');
+										// echo $dateresult;
+										// echo $todaydate;
+										// if($todaydate == $dateresult ){
+										// 	echo '<br><div><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>';			
+										// }else{
+										// 	echo '<span> </span>';
+										// }
+										$timestamp = $todaydate;
+										$start_date = date($timestamp);
+
+										$expires = strtotime($exp, strtotime($timestamp));
+										//$expires = date($expires);
+
+										$date_diff=($expires-strtotime($timestamp)) / 86400;
+
+										// echo "Start: ".$timestamp."<br>";
+										// echo "Expire: ".date('Y-m-d H:i:s', $expires)."<br>";
+
+										// echo round($date_diff, 0)." days left";
 										
-										echo '<br><div><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>';			
 									}
 								}
 							?>
 							<!--<span>Upload Application form </span>-->
 							<!--<span class="caf"> Continue Application form</span>-->
+							<?php echo '<br><div id="cocDown"><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>'; ?>
 						</a>
 						
 					</div>
@@ -219,7 +245,17 @@
 		$(document).ready(function(){
 			var page = "<?php echo $pagination ?>";
 			var prog = "<?php echo $application_prog?>";
+			var cocexp = "<?php echo $dateresult?>";
+			var datetoday = "<?php echo $todaydate?>";
+			var dayleft = "<?php echo round($date_diff, 0)?>";
 			$('#uploadbox').hide();
+			$('#cocDown').show();
+
+			if(dayleft == 0){
+				$('#cocDown').hide();
+			}else{
+				$('#cocDown').show();
+			}
 
 			$('#btnClicksu').click(function(){
 				if(page == "page 1" && prog == "inbound"){
