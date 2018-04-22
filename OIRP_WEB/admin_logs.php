@@ -1,7 +1,7 @@
 <?php
     include 'database_connection.php';
     
-    $query = "SELECT * FROM audit_logs ORDER BY STUDENT_COUNT";
+    $query = "SELECT * FROM audit_logs ORDER BY STUDENT_COUNT DESC";
     $result = mysqli_query($conn, $query);
     $output = '';
     if(mysqli_num_rows($result) > 0)
@@ -14,6 +14,20 @@
         	$college = $row['COLLEGE'];        	
             $status = $row['STATUS'];
             $date = $row['DATE'];
+            $course = $row['COURSE'];
+            
+        if($course == null){
+        	
+        }else {
+        	$output .= '
+                    <li>
+                            <strong>OIRP has send the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to the '.$row["College"].'
+                            on '.$row["DATE"].'</strong><br />
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                ';
+        }    
             
         if($applicationform == "inbound"){
                 $output .= '
@@ -137,36 +151,9 @@
 					</ul> 
 				</div>
 			</div>
-		</nav>		
+		</nav>
+		<?php echo $output?>
 		<!--NAV BAR END-->
 		
-<script>
-$(document).ready(function(){
-    //$('#tbl_student_in').DataTable(); 
-	function load_unseen_notification()
-	{
-		$.ajax({
-			url:"admin_logs.php",
-			dataType:"json",
-			success:function(data)
-			{
-				$('#notif-down').html(data.notification);
-				if(data.unseen_notification > 0)
-				{
-				$('.count').html(data.unseen_notification);
-				}
-			}
-		});
-	}
- 
- 	load_unseen_notification();
- 
-	$(document).on('click', '#notif', function(){
-	$('.count').html('');
-	load_unseen_notification('yes');
-	});
- 
- 
-});
-</script>
+
 		
