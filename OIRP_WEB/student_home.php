@@ -71,11 +71,18 @@
 							<li style="padding-right: 30px;">
 								<a ><b>Status:</b> <span style="color: red">
 								<?php 
-									if($status==null){
+									if($pagination == null || $pagination == 'inbound page 1' || $pagination == 'inbound page 2'
+									|| $pagination == 'inbound page 3' || $pagination == 'inbound page 4' || $pagination == 'inbound page 5'
+									|| $pagination == 'outbound page 1' || $pagination == 'outbound page 2'
+									|| $pagination == 'outbound page 3' || $pagination == 'outbound page 4' || $pagination == 'outbound page 5'
+									){
 										echo "(Please finish application)";
-									} else{
+									}else if($pagination == "submited"){
 										echo $status;
-									}?></span></a>
+									}else{
+										echo $status;
+									}
+								?></span></a>
 							</li>
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
@@ -118,8 +125,10 @@
 					</div>
 						<a class="btn btn-secondary" id="btnClicksu">
 							<?php
-								if($pagination == 'page 1'){
-									echo '<span class="caf"> Continue Application form</span>';
+								if($pagination == NULL && $application_prog == 'outbound'){
+									echo '<a href=outboundform1.php><span class="caf"> Continue Application form</span></a>';
+								}else if($pagination == NULL && $application_prog == 'inbound'){
+									echo '<a href=inboundform1.php><span class="caf"> Continue Application form</span></a>';
 								}else if($pagination == 'inbound page 1'){
 									echo '<span class="caf"> Continue Application form</span>';
 								}
@@ -163,13 +172,19 @@
 										// }else{
 										// 	echo '<span> </span>';
 										// }
-										// $timestamp = $todaydate;
-										// $start_date = date($timestamp);
+										$timestamp = $todaydate;
+										$start_date = date($timestamp);
 
-										// $expires = strtotime($exp, strtotime($timestamp));
-										// //$expires = date($expires);
+										$expires = strtotime($exp, strtotime($timestamp));
+										//$expires = date($expires);
 
-										// $date_diff=($expires-strtotime($timestamp)) / 86400;
+										$date_diff=($expires-strtotime($timestamp)) / 86400;
+										$dayleft = round($date_diff, 0);
+										if($dayleft == 0){
+											echo '<span></span>';
+										}else{
+											echo '<br><div id="cocDown"><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>';
+										}
 
 										// echo "Start: ".$timestamp."<br>";
 										// echo "Expire: ".date('Y-m-d H:i:s', $expires)."<br>";
@@ -181,9 +196,7 @@
 							?>
 							<!--<span>Upload Application form </span>-->
 							<!--<span class="caf"> Continue Application form</span>-->
-							<?php //echo '<br><div id="cocDown"><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>'; ?>
 						</a>
-						
 					</div>
 				</div>
 			</div>
@@ -245,25 +258,9 @@
 		$(document).ready(function(){
 			var page = "<?php echo $pagination ?>";
 			$('#uploadbox').hide();
-			
-			// var prog = "<?php echo $application_prog?>";
-			// var cocexp = "<?php echo $dateresult?>";
-			// var datetoday = "<?php echo $todaydate?>";
-			// var dayleft = "<?php echo round($date_diff, 0)?>";
-			// $('#cocDown').hide();
-
-			// if(dayleft == 0){
-			// 	$('#cocDown').hide();
-			// }else{
-			// 	$('#cocDown').show();
-			// }
 
 			$('#btnClicksu').click(function(){
-				if(page == "page 1" && prog == "inbound"){
-					window.location.href = "inboundform1.php";
-				}else if(page == "page 1" && prog == "outbound"){
-					window.location.href = "outboundform1.php";
-				}else if(page == "inbound page 1"){
+				if(page == "inbound page 1"){
 					window.location.href = "inboundform1.php";
 				}else if(page == "inbound page 2"){
 					window.location.href = "inboundform2.php";
