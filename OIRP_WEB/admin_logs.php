@@ -15,7 +15,7 @@
         	$applicationform = $row['APPLICATION_FORM'];
         	$college = $row['COLLEGE'];        	
             $status = $row['STATUS'];
-            $date = $row['DATETU'];
+            $date = $row['DATE'];
             $course = $row['COURSE'];
             
         if($course == null){
@@ -25,7 +25,7 @@
                 <li>
 					<a>
 						<strong>OIRP has send the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to the '.$row["COLLEGE"].'
-						on '.$row["DATETU"].'</strong><br />
+						on '.$row["DATE"].'</strong><br />
                     </a>
                 </li>
                 <li class="divider"></li>
@@ -33,10 +33,10 @@
         }    
             
 	        if($applicationform == "inbound"){
-	                $output .= '<tr><td>'.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATETU"].'</td></tr>';
+	                $output .= '<tr><td>'.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</td></tr>';
 	            }else{
 	                if($applicationform == "outbound"){
-	                    $output .= '<tr><td>'.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATETU"].'</td></tr>';
+	                    $output .= '<tr><td>'.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</td></tr>';
 	                }
 	            }
         }
@@ -111,7 +111,6 @@
 				</div>
 			</div>
 		</nav>
-		<?php echo $output?>
 		<!--NAV BAR END-->
 		
 		<div class="container-fluid">

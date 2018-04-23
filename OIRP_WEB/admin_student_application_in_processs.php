@@ -161,7 +161,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$get_StudentID',
@@ -201,7 +201,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$get_StudentID',
@@ -242,7 +242,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$get_StudentID',
@@ -282,7 +282,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$get_StudentID',
@@ -322,7 +322,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$get_StudentID',

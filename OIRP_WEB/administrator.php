@@ -181,7 +181,7 @@
 									$status = $row['STATUS'];
 									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
 									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-			                        $resultdate = $date->format('F j, Y');
+			                        $resultdate = $date->format('F j, Y,');
 	                            ?>
 	                            <tfoot>
 	                            <tr>
