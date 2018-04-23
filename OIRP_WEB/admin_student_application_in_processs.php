@@ -350,6 +350,9 @@
 		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
 		
 		$query_db = mysqli_query($conn, $query2);
+		if($query_db){
+
+		}
 
 		if($query_db){
 			header("Location:admin_student_application_in.php?studentName=$getStudentID");
