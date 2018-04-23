@@ -48,6 +48,7 @@
 		COMMENT_STATUS,
 		APPLICATION_FORM,
 		COLLEGE,
+		COURSE,
 		STATUS
 		) VALUES (
 			'',
@@ -57,12 +58,38 @@
 			'',
 			'',
 			'$college',
+			'$course',
 			'$status'
 		)";
 		
     	$comment = mysqli_query($conn, $query_notification);
     	//end of insert comment
-		
+    	
+    	//start of audit_log
+		date_default_timezone_set('Asia/Manila');
+		$date_college = date('Y-m-d/H:i:s');
+    	$query_log1 = "INSERT INTO audit_logs(STUDENT_COUNT,
+    	STUDENT_ID,
+		LASTNAME,
+		FIRSTNAME,
+		APPLICATION_FORM,
+		COLLEGE,
+		COURSE,
+		STATUS,
+		DATE
+		) VALUES (
+			'',
+			'$getStudentID',
+			'$familyName',
+			'$givenName',
+			'',
+			'$college',
+			'$course',
+			'$status',
+			'$date_college'
+			)";
+    	mysqli_query($conn, $query_log1);
+    	
 		$query_db = mysqli_query($conn, $query2);
 	}        
 

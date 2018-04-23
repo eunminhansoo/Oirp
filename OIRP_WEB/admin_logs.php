@@ -17,11 +17,16 @@
             $status = $row['STATUS'];
             $date = $row['DATE'];
             $course = $row['COURSE'];
+            $status = $row['STATUS'];
             
             
-        if($course == null){
+        if (empty($course) && empty($status))
+        {
         	
-        }else {
+        }   else if (!empty($course) && !empty($status)){
+        	$output .= '<tr><td>The '.$row["COLLEGE"].' updated the course:'.$row["COURSE"].' of the (student) '.$row["LASTNAME"].','.$row["FIRSTNAME"].' to 
+        	'.$row["STATUS"].' on '.$row["DATE"].'</td></tr>';
+        } else if(empty($course) && !empty($status)) {
         	$output .= '<tr><td>The OIRP sent the course:'.$row["COURSE"].' of the student '.$row["LASTNAME"].','.$row["FIRSTNAME"].' to the '.$row["COLLEGE"].'
                             on '.$row["DATE"].'<tr><td>';
         }    

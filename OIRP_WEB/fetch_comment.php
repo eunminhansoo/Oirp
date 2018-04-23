@@ -19,13 +19,15 @@ if(isset($_POST["view"]))
             $studentId = $row['STUDENT_ID'];
             $fullname = $row['LASTNAME'].", ".$row['FIRSTNAME']." ";
         	$college = $row['COLLEGE'];
+        	$course = $row['COURSE'];
             $status = $row['STATUS'];
+
             
             switch ($college){
             	case "Faculty of Sacred Theology":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -34,7 +36,7 @@ if(isset($_POST["view"]))
         		case "Faculty of Philosophy":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -43,7 +45,7 @@ if(isset($_POST["view"]))
         		case "Faculty of Canon Law":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -52,7 +54,7 @@ if(isset($_POST["view"]))
         		case "Graduate School":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -61,7 +63,7 @@ if(isset($_POST["view"]))
         		case "Alfredo M. Velayo College of Accountancy":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -70,7 +72,7 @@ if(isset($_POST["view"]))
         		case "College of Architecture":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -79,7 +81,7 @@ if(isset($_POST["view"]))
         		case "Faculty of Arts and Letters":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -88,7 +90,7 @@ if(isset($_POST["view"]))
         		case "Faculty of Civil Law":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -97,7 +99,7 @@ if(isset($_POST["view"]))
         		case "College of Commerce and Business Administration":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -106,7 +108,7 @@ if(isset($_POST["view"]))
         		case "College of Education":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -115,7 +117,7 @@ if(isset($_POST["view"]))
         		case "Faculty of Engineering":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -124,7 +126,7 @@ if(isset($_POST["view"]))
         		case "College of Fine Arts and Design":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -133,7 +135,7 @@ if(isset($_POST["view"]))
         		case "Institute of Information and Computing Sciences":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -142,7 +144,7 @@ if(isset($_POST["view"]))
         		case "Faculty of Medicine and Surgery":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -151,7 +153,7 @@ if(isset($_POST["view"]))
         		case "Conservatory of Music":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -160,7 +162,7 @@ if(isset($_POST["view"]))
         		case "College of Nursing":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -169,7 +171,7 @@ if(isset($_POST["view"]))
         		case "Faculty of Pharmacy":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -178,7 +180,7 @@ if(isset($_POST["view"]))
         		case "Institute of Physical Education and Athletics":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -187,7 +189,7 @@ if(isset($_POST["view"]))
         		case "College of Rehabilitation Sciences":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -196,7 +198,7 @@ if(isset($_POST["view"]))
         		case "Institute of Religion":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -205,7 +207,7 @@ if(isset($_POST["view"]))
         		case "College of Science":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -214,7 +216,7 @@ if(isset($_POST["view"]))
         		case "College of Tourism and Hospitality Management":
         $output .= '
                     <li>
-                            <strong>The '.$college.' updated the status of the student, '.$fullname.' to '.$status.'</strong><br />
+                            <strong>The '.$college.' updated the course:'.$course.' of the (student) '.$fullname.' to '.$status.'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
