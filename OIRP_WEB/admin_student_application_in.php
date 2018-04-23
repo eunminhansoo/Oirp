@@ -81,6 +81,7 @@
 				</div>
 			</div>
 		</nav>
+		<?php echo $mssg?>
 		<!--NAV BART END-->
 		<form method="post" enctype="multipart/form-data">
 			<div class="container-fluid">

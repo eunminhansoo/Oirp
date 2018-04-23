@@ -450,7 +450,7 @@
 				$query_db1 = mysqli_query($conn, $sql_query1);
 
 				$query_db3 = "UPDATE student SET
-					PAGINATION = 'submited' 
+					PAGINATION = 'submitted' 
 					WHERE STUDENT_ID ='$getses_StudentID'
 				";
 				$checkQuery3 = mysqli_query($conn, $query_db3);

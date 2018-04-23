@@ -255,7 +255,7 @@
 	                                <td><?php //echo $row1['APPLICATION_TYPE_PROG'].": ".$row1['APPLICATION_FORM']; ?></td>-->
 	                                <td><?php echo $resultdate1 ?></td>
 	                                <td><?php echo $status1?></td>
-	                                <td><form method="post" ><input type="checkbox" name="cb_num_out[]" value="<?php echo $studentID1 ?>" ></form></td>
+	                                <td><input type="checkbox" name="cb_num_out[]" value="<?php echo $studentID1 ?>" ></td>
 	                            </tr>
 	                        <?php } ?>
 	                        </tbody>

@@ -2,6 +2,7 @@
 
     include 'database_connection.php';
     $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
+    $mssg = ' ';
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
         $file = $row['PDF_IMG'];
@@ -13,7 +14,6 @@
     $queryCU = mysqli_query($conn, $query1);   
 	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
     $queryPF = mysqli_query($conn, $query2);
-    
     
 	while($row1 = mysqli_fetch_array($queryCU)){
 		$application_prog = $row1['TYPE_OF_PROGRAM'];
@@ -183,8 +183,8 @@
 			'',
 			'$date1'
 			)";
-    	mysqli_query($conn, $query_log1);
-		mysqli_query($conn, $course_query);
+    	$log_db = mysqli_query($conn, $query_log1);
+		$ddbb = mysqli_query($conn, $course_query);
 
 		// course 2
 		$course_query1 = "INSERT INTO admin_college(
@@ -223,8 +223,8 @@
 			'',
 			'$date2'
 			)";
-    	mysqli_query($conn, $query_log2);
-		mysqli_query($conn, $course_query1);
+    	$log_db1 = mysqli_query($conn, $query_log2);
+		$ddbb1 = mysqli_query($conn, $course_query1);
 
 		// course 3
 		$course_query2 = "INSERT INTO admin_college(
@@ -264,8 +264,8 @@
 			'',
 			'$date3'
 			)";
-    	mysqli_query($conn, $query_log3);
-		mysqli_query($conn, $course_query2);
+    	$log_db2 = mysqli_query($conn, $query_log3);
+		$ddbb2 = mysqli_query($conn, $course_query2);
 
 		// course 4
 		$course_query3 = "INSERT INTO admin_college(
@@ -304,8 +304,8 @@
 			'',
 			'$date4'
 			)";
-    	mysqli_query($conn, $query_log4);
-		mysqli_query($conn, $course_query3);
+    	$log_db3 = mysqli_query($conn, $query_log4);
+		$ddbb3 = mysqli_query($conn, $course_query3);
 
 		// course 5
 		$course_query4 = "INSERT INTO admin_college(
@@ -344,14 +344,15 @@
 			'',
 			'$date5'
 			)";
-    	mysqli_query($conn, $query_log5);
-		mysqli_query($conn, $course_query4);
+    	$log_db4 = mysqli_query($conn, $query_log5);
+		$ddbb4 = mysqli_query($conn, $course_query4);
 		
 		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
 		
 		$query_db = mysqli_query($conn, $query2);
-		if($query_db){
 
+		if($query_db && $ddbb4 && $ddbb3 && $ddbb2 && $ddbb1 && $ddbb && $log_db4 && $log_db3 && $log_db2 && $log_db1 && $log_db){
+			$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
 		}
 
 		if($query_db){

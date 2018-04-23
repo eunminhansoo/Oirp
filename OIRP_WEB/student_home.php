@@ -28,8 +28,6 @@
 		<div class="header">
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
-		
-		
 		<!-- START NAVIGATOR BAR -->
 			<nav class="navbar" id="bar">
 				<div class="container-fluid">
@@ -70,8 +68,12 @@
 									|| $pagination == 'outbound page 3' || $pagination == 'outbound page 4' || $pagination == 'outbound page 5'
 									){
 										echo "(Please finish application)";
-									}else if($pagination == "submited"){
-										if($status == 'Qualified'){
+									}
+									if($pagination == "submitted"){
+										if($status == 'Approved'){
+											$status = " " ;
+											echo $status; 
+										}else{
 											echo $status; 
 										}
 									}
