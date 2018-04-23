@@ -1,0 +1,5 @@
+<?php
+	include 'database_connection.php';
+	
+	$StudentID_get = $_SESSION['$studentID_session']
+?>
