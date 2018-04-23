@@ -93,7 +93,6 @@
 									<th>COURSE</th>
 	                                <th>DATE SUBMITTED</th>
 	                                <th>STATUS</th>
-	                                <th><button type="submit" name="delete_inbound" class="btn btn-primary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
 	                        </thead>
 	                        <tbody>
@@ -139,7 +138,6 @@
 									<td><?php echo $course;?></td>
 									<td><?php echo $resultdate; ?></td>
 	                                <td><?php echo $status?></td>
-	                                <td><input type="checkbox" name="cb_num_in[]" value="<?php echo $studentid?>"></td>
 										
 									<?php }?>		
 	                            </tr>
