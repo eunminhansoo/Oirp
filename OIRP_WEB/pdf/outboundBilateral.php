@@ -292,16 +292,6 @@ $pdf->Cell(35,7,'Assessed by: ','',0);
 $pdf->Cell(165,7,'','',1);
 
 $pdf->Cell(35,7,'','',0);
-$pdf->Cell(80,7,"International Relations Coordinator",'T',0,'C');
-$pdf->Cell(20,7,'','',0);
-$pdf->Cell(50,7,'Signature and Date','T',1,'C');
-
-$pdf->Cell(165,7,'','',1);
-$pdf->Cell(165,7,'','',1);
-$pdf->Cell(35,7,'Approved by: ','',0);
-$pdf->Cell(165,7,'','',1);
-
-$pdf->Cell(35,7,'','',0);
 $pdf->Cell(80,7,"Program Chair",'T',0,'C');
 $pdf->Cell(20,7,'','',0);
 $pdf->Cell(50,7,'Signature and Date','T',1,'C');
@@ -309,6 +299,16 @@ $pdf->Cell(50,7,'Signature and Date','T',1,'C');
 $pdf->Cell(165,7,'','',1);
 $pdf->Cell(165,7,'','',1);
 $pdf->Cell(35,7,'Certified by: ','',0);
+$pdf->Cell(165,7,'','',1);
+
+$pdf->Cell(35,7,'','',0);
+$pdf->Cell(80,7,"International Relations Coordinator",'T',0,'C');
+$pdf->Cell(20,7,'','',0);
+$pdf->Cell(50,7,'Signature and Date','T',1,'C');
+
+$pdf->Cell(165,7,'','',1);
+$pdf->Cell(165,7,'','',1);
+$pdf->Cell(35,7,'Endorsed by: ','',0);
 $pdf->Cell(165,7,'','',1);
 
 $pdf->Cell(35,7,'','',0);
