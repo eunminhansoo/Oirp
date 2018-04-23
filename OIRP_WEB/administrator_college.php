@@ -80,7 +80,9 @@
 		
 		<!--NAV BART END-->
 		<form>
-			<h2><?php echo $college?></h2>
+			<div class="container">
+				<h2><?php echo $college?></h2>
+			</div>
 			<div class="container">
 				<div class="">
 	                <h2>INBOUND</h2>

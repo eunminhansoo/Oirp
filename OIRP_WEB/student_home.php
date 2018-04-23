@@ -28,8 +28,6 @@
 		<div class="header">
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
-		
-		
 		<!-- START NAVIGATOR BAR -->
 			<nav class="navbar" id="bar">
 				<div class="container-fluid">
