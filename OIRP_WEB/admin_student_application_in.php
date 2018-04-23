@@ -5,6 +5,12 @@
     $getStudentID = $_GET['studentName'];
 	include 'admin_student_application_in_processs.php';
 
+	$getStat_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+	$setStat_db = mysqli_query($conn, $getStat_query);
+	while($statRow = mysqli_fetch_array($setStat_db)){
+		$sstat = $statRow['STATUS'];
+	}
+
 ?>
 <html>
 	<head>
@@ -147,7 +153,7 @@
 							}
 						?>
 					</p>
-					<p>
+					<p id="statss">
 						<span><b>Status: </b></span>
 						<span>
 							<select name="status" id="status" onChange="func(this);">
@@ -251,11 +257,43 @@
 						</div> 
 					</p>
 				</div>
+				<div id="comp" class="col-sm-5">
+					<div class="container-fluid">
+						<div class="table-responsive">
+							<table class="table table-striped table-bordered table-hover display">
+								<tr>
+									<th>COURSE</th>
+									<th>COLLEGE</th>
+									<th>STATUS</th>
+								</tr>
+								<?php
+									$colle = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
+									$setColle = mysqli_query($conn, $colle);
+									while($colleRow = mysqli_fetch_array($setColle)){
+
+									
+								?>
+								<tr>
+									<td><?php echo $colleRow['COURSE']?>:</td>
+									<td><?php echo $colleRow['COLLEGE']?></td>
+									<td><?php echo $colleRow['STATUS'];?></td>
+								</tr>
+								<?php
+									}
+								?>
+							</table>
+						</div>
+						<div id="backk" class="col-xs-4">
+							<input type="submit" class="btn btn-primary" formaction="administrator.php" value="Back" />
+						</div>
+					</div>
+				</div>
 			</div>
 		</form>
 	</body>
 	<script>
 		$(document).ready(function(){
+			var scrStat = "<?php echo $sstat?>";
 			var val = "<?php echo $col ?>";
 			var val1 = "<?php echo $col1?>";
 			$("#college").empty().append(val);
@@ -272,6 +310,15 @@
 			$("#send").hide();
 			$("#cert").hide();
 			$("#subcert").hide();
+			$('#comp').hide();
+			
+
+			if(scrStat == "Qualified"){
+				$("#conf").hide();
+				$("#backuu").hide();
+				$("#statss").hide();
+				$('#comp').show();
+			}
 
 			function load_unseen_notification(view = '')
 			{

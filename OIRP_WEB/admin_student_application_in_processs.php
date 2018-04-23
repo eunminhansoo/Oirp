@@ -77,29 +77,29 @@
 				$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
 				//add in audit
 				//insert to audit log
-		date_default_timezone_set('Asia/Manila');
-		$date_rejected = date('Y-m-d/H:i:s');
-		$rejected = 'Rejected';
-    	$query_rejected = "INSERT INTO audit_logs(STUDENT_COUNT,
-    	STUDENT_ID,
-		LASTNAME,
-		FIRSTNAME,
-		APPLICATION_FORM,
-		COLLEGE,
-		COURSE,
-		STATUS,
-		DATE
-		) VALUES (
-			'',
-			'$getStudentID',
-			'',
-			'',
-			'',
-			'',
-			'',
-			'$rejected',
-			'$date_rejected'
-			)";
+				date_default_timezone_set('Asia/Manila');
+				$date_rejected = date('Y-m-d/H:i:s');
+				$rejected = 'Rejected';
+				$query_rejected = "INSERT INTO audit_logs(STUDENT_COUNT,
+				STUDENT_ID,
+				LASTNAME,
+				FIRSTNAME,
+				APPLICATION_FORM,
+				COLLEGE,
+				COURSE,
+				STATUS,
+				DATE
+				) VALUES (
+					'',
+					'$getStudentID',
+					'',
+					'',
+					'',
+					'',
+					'',
+					'$rejected',
+					'$date_rejected'
+				)";
     	        mysqli_query($conn, $query_rejected);
 				mysqli_query($conn, $del_query);
 			}   
