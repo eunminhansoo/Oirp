@@ -350,10 +350,18 @@
 				$("#cert").hide();
 		  	}
 		}
+		var setStatus = "<?php echo $getStatus?>";
+		$('#status option[value='+setStatus+']').prop('selected', true);
+		if(document.getElementById('Completed').selected == true){
+			$("#cert").show();
+			$("#backuu").hide();
+			$("#conf").hide(); 
+		}
 	</script>
 </html>
 <script>
 $(document).ready(function(){
+	
  
 	function load_unseen_notification(view = '')
 	{
@@ -380,12 +388,5 @@ $(document).ready(function(){
 		load_unseen_notification('yes');
 	});
  
- 	var setStatus = "<?php echo $getStatus?>";
-	$('#status option[value='+setStatus+']').prop('selected', true);
-	if(document.getElementById('Completed').selected == true){
-		$("#cert").show();
-		$("#backuu").hide();
-		$("#conf").hide(); 
-	}
 });
 </script>

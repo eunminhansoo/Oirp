@@ -152,7 +152,7 @@
 		
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date1 = date11('Y-m-d/H:i:s');
+		$date1 = date('Y-m-d/H:i:s');
     	$query_log1 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -161,7 +161,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$get_StudentID',
@@ -192,7 +192,7 @@
 		)";
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date2 = date12('Y-m-d/H:i:s');
+		$date2 = date('Y-m-d/H:i:s');
     	$query_log2 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -201,7 +201,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$get_StudentID',
@@ -230,9 +230,10 @@
 			'$pf_COURSE_3_INBOUND',
 			'$course_3'
 		)";
+
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date3 = date13('Y-m-d/H:i:s');
+		$date3 = date('Y-m-d/H:i:s');
     	$query_log3 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -241,7 +242,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$get_StudentID',
@@ -272,7 +273,7 @@
 		)";
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date4 = date14('Y-m-d/H:i:s');
+		$date4 = date('Y-m-d/H:i:s');
     	$query_log4 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -281,7 +282,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$get_StudentID',
@@ -312,7 +313,7 @@
 		)";
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date5 = date15('Y-m-d/H:i:s');
+		$date5 = date('Y-m-d/H:i:s');
     	$query_log5 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -321,7 +322,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$get_StudentID',

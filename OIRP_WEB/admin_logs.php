@@ -13,26 +13,28 @@
         	$applicationform = $row['APPLICATION_FORM'];
         	$college = $row['COLLEGE'];        	
             $status = $row['STATUS'];
-            $date = $row['DATE'];
+            $date = $row['DATETU'];
             $course = $row['COURSE'];
             
         if($course == null){
-        	
+        	$output .=' ';
         }else {
         	$output .= '
-                    <li>
-                            <strong>OIRP has send the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to the '.$row["College"].'
-                            on '.$row["DATE"].'</strong><br />
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                ';
+                <li>
+					<a>
+						<strong>OIRP has send the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to the '.$row["COLLEGE"].'
+						on '.$row["DATETU"].'</strong><br />
+                    </a>
+                </li>
+                <li class="divider"></li>
+            ';
         }    
             
         if($applicationform == "inbound"){
                 $output .= '
                     <li>
-                            <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</strong><br />
+						<a>
+                            <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATETU"].'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -41,7 +43,8 @@
                 if($applicationform == "outbound"){
                     $output .= '
                     <li>
-                            <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</strong><br />
+						<a>
+                            <strong>'.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATETU"].'</strong><br />
                         </a>
                     </li>
                     <li class="divider"></li>
