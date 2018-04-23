@@ -125,7 +125,7 @@
 										$getCollege = $col_row['COLLEGE'];
 									}
 										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
-										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = 'Qualified'";
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE a.STATUS = 'Qualified'";
 										$sql_db = mysqli_query($conn, $sql_query);
 										while($sqlRow = mysqli_fetch_array($sql_db)){
 

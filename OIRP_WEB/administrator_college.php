@@ -117,7 +117,7 @@
 											$course = $sqlRow['COURSE'];
 								?>
 	                            <tr>
-	                                <td><?php echo "<a href=admin_college_form.php?studentName=".urlencode($studentid).">".$fullname."</a>";?></td>
+	                                <td><?php echo "<a href=admin_college_form.php?course=".urlencode($course).">".$fullname."</a>";?></td>
 									<?php 
 											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
 
