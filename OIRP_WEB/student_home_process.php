@@ -99,6 +99,7 @@ include 'database_connection.php';
 		COMMENT_STATUS,
 		APPLICATION_FORM,
 		COLLEGE,
+		COURSE,
 		STATUS
 		) VALUES (
 			'',
@@ -107,6 +108,7 @@ include 'database_connection.php';
 			'$givenName',
 			'',
 			'$application_prog',
+			'',
 			'',
 			''
 		)";
