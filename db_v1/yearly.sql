@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2018 at 07:34 AM
+-- Generation Time: Apr 23, 2018 at 10:12 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -36,10 +36,9 @@ CREATE TABLE `yearly` (
 --
 
 INSERT INTO `yearly` (`COUNT`, `YEARLY`) VALUES
-(1, '2015'),
-(2, '2016'),
-(3, '2017'),
-(4, '2018');
+(1, '2015-2016'),
+(2, '2016-2017'),
+(3, '2017-2018');
 
 --
 -- Indexes for dumped tables
@@ -59,7 +58,7 @@ ALTER TABLE `yearly`
 -- AUTO_INCREMENT for table `yearly`
 --
 ALTER TABLE `yearly`
-  MODIFY `COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `COUNT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
