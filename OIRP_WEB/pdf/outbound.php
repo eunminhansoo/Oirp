@@ -110,7 +110,7 @@ function Header()
     $this->SetFont('Arial','',14);
     $this->Cell(175,3,'Office of International Relations and Programs',0,1,'R');
     $this->SetFont('Arial','',10);
-	$this->Cell(175,7,'Student Exchange through '.$application_form,0,1,'R');
+	$this->Cell(175,7,'Student Exchange through Scholarship',0,1,'R');
     
    	//Student
     $this->SetTextColor(255,255,255);
