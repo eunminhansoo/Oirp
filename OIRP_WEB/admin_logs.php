@@ -26,7 +26,7 @@
         }   else if (!empty($course) && !empty($status)){
         	$output .= '<tr><td>The '.$row["COLLEGE"].' updated the course:'.$row["COURSE"].' of the (student) '.$row["LASTNAME"].','.$row["FIRSTNAME"].' to 
         	'.$row["STATUS"].' on '.$row["DATE"].'</td></tr>';
-        } else if(empty($course) && !empty($status)) {
+        } else if(!empty($course) && empty($status)) {
         	$output .= '<tr><td>The OIRP sent the course:'.$row["COURSE"].' of the student '.$row["LASTNAME"].','.$row["FIRSTNAME"].' to the '.$row["COLLEGE"].'
                             on '.$row["DATE"].'<tr><td>';
         }    
