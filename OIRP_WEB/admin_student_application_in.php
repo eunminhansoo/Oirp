@@ -1,6 +1,6 @@
 <?php
-	
-	//Serror_reporting(0);
+
+	error_reporting(0);
 	
     $getStudentID = $_GET['studentName'];
 	include 'admin_student_application_in_processs.php';

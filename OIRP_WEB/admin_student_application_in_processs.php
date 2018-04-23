@@ -43,11 +43,12 @@
 				$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
 				$sel_check_db = mysqli_query($conn, $sel_check_query);
 				if(mysqli_num_rows($sel_check_db) <= 0){
-					$ins_query = "INSERT INTO `admin_college` (`STUDENT_COUNT`, `STUDENT_ID`, `PROPOSED_PROGRAM`, `COURSE_1`, `COURSE_2`, `COURSE_3`, `COURSE_4`, `COURSE_5`) VALUES (' ', '$getStudentID', ' ', ' ', ' ', ' ', ' ', ' ')";
+					$ins_query = "INSERT INTO admin_college ('STUDENT_COUNT', 'STUDENT_ID, 'PROPOSED_PROGRAM', 'COURSE_1', 'COURSE_2', 'COURSE_3', 'COURSE_4', 'COURSE_5') VALUES ('', '$getStudentID', '', '', '', '', '', '')";
 					//add in audit
 				//insert to audit log
+		$approved = 'Approved';
 		date_default_timezone_set('Asia/Manila');
-		$date_approved = date10('Y-m-d/H:i:s');
+		$date_approved = date('Y-m-d/H:i:s');
     	$query_approved = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -59,16 +60,16 @@
 		DATE
 		) VALUES (
 			'',
-			'$get_StudentID',
+			'$getStudentID',
 			'',
 			'',
 			'',
 			'',
 			'',
-			'$sel_query',
+			'$approved',
 			'$date_approved'
 			)";
-    				$query_approved_audit = mysqli_query($conn, $query_approved);
+    				mysqli_query($conn, $query_approved);
 					mysqli_query($conn, $ins_query);
 				}
 			}else{
@@ -89,7 +90,7 @@
 		DATE
 		) VALUES (
 			'',
-			'$get_StudentID',
+			'$getStudentID',
 			'',
 			'',
 			'',
@@ -98,7 +99,7 @@
 			'$rejected',
 			'$date_rejected'
 			)";
-    	        $query_rejected_audit = mysqli_query($conn, $query_rejected);
+    	        mysqli_query($conn, $query_rejected);
 				mysqli_query($conn, $del_query);
 			}   
 		}
@@ -152,7 +153,7 @@
 		
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date1 = date11('Y-m-d/H:i:s');
+		$date1 = date('Y-m-d/H:i:s');
     	$query_log1 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -164,7 +165,7 @@
 		DATE
 		) VALUES (
 			'',
-			'$get_StudentID',
+			'$getStudentID',
 			'',
 			'',
 			'',
@@ -173,7 +174,7 @@
 			'',
 			'$date1'
 			)";
-    	$query__audit1 = mysqli_query($conn, $query_log1);
+    	mysqli_query($conn, $query_log1);
 		mysqli_query($conn, $course_query);
 
 		// course 2
@@ -192,7 +193,7 @@
 		)";
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date2 = date12('Y-m-d/H:i:s');
+		$date2 = date('Y-m-d/H:i:s');
     	$query_log2 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -204,7 +205,7 @@
 		DATE
 		) VALUES (
 			'',
-			'$get_StudentID',
+			'$getStudentID',
 			'',
 			'',
 			'',
@@ -213,7 +214,7 @@
 			'',
 			'$date2'
 			)";
-    	$query__audit2 = mysqli_query($conn, $query_log2);
+    	mysqli_query($conn, $query_log2);
 		mysqli_query($conn, $course_query1);
 
 		// course 3
@@ -232,7 +233,7 @@
 		)";
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date3 = date13('Y-m-d/H:i:s');
+		$date3 = date('Y-m-d/H:i:s');
     	$query_log3 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -244,7 +245,7 @@
 		DATE
 		) VALUES (
 			'',
-			'$get_StudentID',
+			'$getStudentID',
 			'',
 			'',
 			'',
@@ -253,7 +254,7 @@
 			'',
 			'$date3'
 			)";
-    	$query__audit3 = mysqli_query($conn, $query_log3);
+    	mysqli_query($conn, $query_log3);
 		mysqli_query($conn, $course_query2);
 
 		// course 4
@@ -272,7 +273,7 @@
 		)";
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date4 = date14('Y-m-d/H:i:s');
+		$date4 = date('Y-m-d/H:i:s');
     	$query_log4 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -284,7 +285,7 @@
 		DATE
 		) VALUES (
 			'',
-			'$get_StudentID',
+			'$getStudentID',
 			'',
 			'',
 			'',
@@ -293,7 +294,7 @@
 			'',
 			'$date4'
 			)";
-    	$query__audit4 = mysqli_query($conn, $query_log4);
+    	mysqli_query($conn, $query_log4);
 		mysqli_query($conn, $course_query3);
 
 		// course 5
@@ -312,7 +313,7 @@
 		)";
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
-		$date5 = date15('Y-m-d/H:i:s');
+		$date5 = date('Y-m-d/H:i:s');
     	$query_log5 = "INSERT INTO audit_logs(STUDENT_COUNT,
     	STUDENT_ID,
 		LASTNAME,
@@ -324,7 +325,7 @@
 		DATE
 		) VALUES (
 			'',
-			'$get_StudentID',
+			'$getStudentID',
 			'',
 			'',
 			'',
@@ -333,7 +334,7 @@
 			'',
 			'$date5'
 			)";
-    	$query__audit5 = mysqli_query($conn, $query_log5);
+    	mysqli_query($conn, $query_log5);
 		mysqli_query($conn, $course_query4);
 		
 		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";

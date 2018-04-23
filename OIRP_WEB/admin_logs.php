@@ -18,12 +18,13 @@
             $date = $row['DATE'];
             $course = $row['COURSE'];
             
+            
         if($course == null){
         	
         }else {
         	$output .= '
                     <li>
-                            <strong>OIRP has send the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to the '.$row["College"].'
+                            <strong>OIRP has send the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to the '.$row["COLLEGE"].'
                             on '.$row["DATE"].'</strong><br />
                         </a>
                     </li>
@@ -110,7 +111,7 @@
 				</div>
 			</div>
 		</nav>
-		<?php echo $output?>
+		
 		<!--NAV BAR END-->
 		
 		<div class="container-fluid">
