@@ -71,8 +71,18 @@
 									){
 										echo "(Please finish application)";
 									}else if($pagination == "submited"){
-										if($status == 'Qualified'){
+										if($status == 'Approved'){
+											$status = " ";
 											echo $status; 
+										}else{
+											echo $status;
+										}
+									}else if($pagination == "Submitted PDF"){
+										if($status == 'Approved'){
+											$status = " ";
+											echo $status; 
+										}else{
+											echo $status;
 										}
 									}
 								?></span></a>

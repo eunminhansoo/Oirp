@@ -93,7 +93,7 @@
 										<span class="icon-bar"></span>
 									</button>
 									<a class="navbar-brand" href="#"></a>
-								</div>
+								</div> 
 								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 									<ul class="nav navbar-nav navbar-right" >
 										<li><a href="administrator.php">Home</a></li>
@@ -181,7 +181,7 @@
 									$status = $row['STATUS'];
 									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
 									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-			                        $resultdate = $date->format('F j, Y,');
+			                        $resultdate = $date->format('F j, Y');
 	                            ?>
 	                            <tfoot>
 	                            <tr>
