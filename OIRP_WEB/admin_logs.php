@@ -22,14 +22,8 @@
         if($course == null){
         	
         }else {
-        	$output .= '
-                    <li>
-                            <strong>OIRP has send the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to the '.$row["COLLEGE"].'
-                            on '.$row["DATE"].'</strong><br />
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                ';
+        	$output .= '<tr><td>OIRP sent the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to '.$row["College"].'
+                            on '.$row["DATE"].'</td></tr>';
         }    
             
 	        if($applicationform == "inbound"){
