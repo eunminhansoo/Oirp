@@ -80,6 +80,7 @@
 		
 		<!--NAV BART END-->
 		<form>
+			<h2><?php echo $college?></h2>
 			<div class="container">
 				<div class="">
 	                <h2>INBOUND</h2>
@@ -117,7 +118,7 @@
 											$course = $sqlRow['COURSE'];
 								?>
 	                            <tr>
-	                                <td><?php echo "<a href=admin_college_form.php?course=".urlencode($course).">".$fullname."</a>";?></td>
+	                                <td><?php echo "<a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a>";?></td>
 									<?php 
 											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
 

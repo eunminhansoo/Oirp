@@ -99,7 +99,7 @@
 				<div class="col-sm-7">
 	        		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
 	            </div>
-				 <div class="col-sm-12">
+				<div class="col-sm-12">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
@@ -112,7 +112,7 @@
 									<th>COLLEGE</th>
 	                                <th>DATE SUBMITTED</th>
 	                                <th>STATUS</th>
-	                                <th><button type="submit" name="delete_inbound" class="btn btn-primary" ><span class="glyphicon glyphicon-trash"></span></button></th>
+	                                <th><button type="submit" name="delete_inbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
 	                        </thead>
 	                        <tbody>
@@ -125,7 +125,7 @@
 										$getCollege = $col_row['COLLEGE'];
 									}
 										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
-										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE a.STATUS = 'Qualified'";
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.STATUS = 'Qualified'";
 										$sql_db = mysqli_query($conn, $sql_query);
 										while($sqlRow = mysqli_fetch_array($sql_db)){
 

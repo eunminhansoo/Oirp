@@ -1,9 +1,16 @@
 <?php
     include 'database_connection.php';
 
-    $getcourse = $_GET['course'];
+    $getStudentID = $_GET['studentName'];
+	$course = $_GET['course'];
     session_start();
 	$college = $_SESSION['coll_sess'];
+
+	$get_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID' AND COURSE = '$course'";
+	$set_query = mysqli_query($conn, $get_query);
+	while($rroww = mysqli_fetch_array($set_query)){
+		$setCourse = $rroww['COURSE'];
+	}
 
     $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
     $result = mysqli_query($conn, $sql);
@@ -30,7 +37,7 @@
 
 		$status = $_POST['status']; 
 		$query2 = "UPDATE admin_college SET STATUS = '$status'
-		WHERE STUDENT_ID = '$getStudentID' AND COLLEGE = '$college' AND COURSE = '$getcourse'";
+		WHERE STUDENT_ID = '$getStudentID' AND COURSE = '$course'";
 
 		
 		//insert to comment
@@ -125,6 +132,8 @@
 				<div>
 					<span><b>Home University:</b></span><span><?php echo $university?></span>
 				</div>
+				<div>
+					<span><b>Course: </b></span><span><?php echo $setCourse?></span>
 				<div>
 					<form method="post">
 						<div>
