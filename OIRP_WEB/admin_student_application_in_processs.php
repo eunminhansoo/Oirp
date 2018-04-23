@@ -13,7 +13,8 @@
     $queryCU = mysqli_query($conn, $query1);   
 	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
     $queryPF = mysqli_query($conn, $query2);
-
+    
+    
 	while($row1 = mysqli_fetch_array($queryCU)){
 		$application_prog = $row1['TYPE_OF_PROGRAM'];
 		$application_prog_other = $row1['TYPE_OF_PROG_OTHER'];
@@ -135,6 +136,14 @@
 		$course_4 = $_POST['course4'];
 		$course_5 = $_POST['course5'];
 		$status = $_POST['status']; 
+		
+	$queryName = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
+    $queryName2 = mysqli_query($conn, $queryName);
+	
+    while($row_name = mysqli_fetch_array($queryName2)){
+    	$LastName = $row_name['FAMILY_NAME'];
+    	$FirstName =$row_name['GIVEN_NAME'];
+    }
 
 		// course 1
 		$course_query = "INSERT INTO admin_college(
@@ -162,12 +171,12 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$getStudentID',
-			'',
-			'',
+			'$LastName',
+			'$FirstName',
 			'',
 			'$course_1',
 			'$pf_COURSE_1_INBOUND',
@@ -202,12 +211,12 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$getStudentID',
-			'',
-			'',
+			'$LastName',
+			'$FirstName,
 			'',
 			'$course_2',
 			'$pf_COURSE_2_INBOUND',
@@ -243,12 +252,12 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$getStudentID',
-			'',
-			'',
+			'$LastName',
+			'$FirstName',
 			'',
 			'$course_3',
 			'$pf_COURSE_3_INBOUND',
@@ -283,12 +292,12 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$getStudentID',
-			'',
-			'',
+			'$LastName',
+			'$FirstName',
 			'',
 			'$course_4',
 			'$pf_COURSE_4_INBOUND',
@@ -323,12 +332,12 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATETU
+		DATE
 		) VALUES (
 			'',
 			'$getStudentID',
-			'',
-			'',
+			'$LastName',
+			'$FirstName',
 			'',
 			'$course_5',
 			'$pf_COURSE_5_INBOUND',

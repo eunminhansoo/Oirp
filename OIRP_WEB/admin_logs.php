@@ -22,14 +22,8 @@
         if($course == null){
         	
         }else {
-        	$output .= '
-                    <li>
-                            <strong>OIRP has send the course: '.$row["COURSE"].' of the student with the student ID of '.$row["STUDENT_ID"].' to the '.$row["COLLEGE"].'
-                            on '.$row["DATE"].'</strong><br />
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                ';
+        	$output .= '<tr><td>The OIRP sent the course:'.$row["COURSE"].' of the student '.$row["LASTNAME"].','.$row["FIRSTNAME"].' to the '.$row["COLLEGE"].'
+                            on '.$row["DATE"].'<tr><td>';
         }    
             
 	        if($applicationform == "inbound"){
@@ -117,7 +111,7 @@
 		<div class="container-fluid">
 			<div class="col-sm-6">
 				<table class="table table-striped table-bordered table-hover display">
-					<thead><tr><th>Notifications</th></tr></thead>
+					<thead><tr><th>Logs</th></tr></thead>
 					<tbody id="notifs">
 						<?php echo $output ?>
 					</tbody>
