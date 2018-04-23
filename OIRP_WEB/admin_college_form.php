@@ -1,7 +1,7 @@
 <?php
     include 'database_connection.php';
 
-    $getStudentID = $_GET['studentName'];
+    $getcourse = $_GET['course'];
     session_start();
 	$college = $_SESSION['coll_sess'];
 
@@ -29,8 +29,8 @@
 	if(isset($_POST['update_status'])){
 
 		$status = $_POST['status']; 
-		$query2 = "UPDATE student SET STATUS = '$status'
-		WHERE STUDENT_ID = '$getStudentID'";
+		$query2 = "UPDATE admin_college SET STATUS = '$status'
+		WHERE STUDENT_ID = '$getStudentID' AND COLLEGE = '$college' AND COURSE = '$getcourse'";
 
 		
 		//insert to comment

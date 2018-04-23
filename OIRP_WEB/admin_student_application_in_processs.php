@@ -162,7 +162,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$getStudentID',
@@ -202,7 +202,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$getStudentID',
@@ -231,6 +231,7 @@
 			'$pf_COURSE_3_INBOUND',
 			'$course_3'
 		)";
+
 		//insert to audit log
 		date_default_timezone_set('Asia/Manila');
 		$date3 = date('Y-m-d/H:i:s');
@@ -242,7 +243,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$getStudentID',
@@ -282,7 +283,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$getStudentID',
@@ -322,7 +323,7 @@
 		COLLEGE,
 		COURSE,
 		STATUS,
-		DATE
+		DATETU
 		) VALUES (
 			'',
 			'$getStudentID',

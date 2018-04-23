@@ -82,7 +82,7 @@
 		<!--NAV BART END-->
 		<form>
 			<div class="container">
-				<h1>Qualified Students</h1>
+				<h1>Approved Students</h1>
 				<div class="">
 	        		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
 	            </div>

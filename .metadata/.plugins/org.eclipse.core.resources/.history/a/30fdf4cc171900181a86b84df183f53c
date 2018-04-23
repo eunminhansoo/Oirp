@@ -1,0 +1,7 @@
+<?php
+	include 'database_connection.php';
+	
+	$studentID_get = $_SESSION['$studentID_session'];
+	
+	$getdata = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$studentID_get' ");
+?>

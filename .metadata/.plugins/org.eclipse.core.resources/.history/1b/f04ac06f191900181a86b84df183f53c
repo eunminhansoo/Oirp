@@ -1,0 +1,12 @@
+<?php
+	include 'database_connection.php';
+	session_start();
+	$studentID_get = $_SESSION['$studentID_session'];
+	
+	$getdata = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$studentID_get' ");
+	while ($row = mysqli_fetch_array($getdata)){
+		
+		
+	}
+	
+?>
