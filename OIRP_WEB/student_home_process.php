@@ -144,41 +144,41 @@ include 'database_connection.php';
     
     	
     	if($query && $query1)
-			{
-				$sql_query1 = "UPDATE student SET
-					PAGINATION = 'Submitted PDF'
-					WHERE STUDENT_ID = '$get_studentID'
-					";
-					mysqli_query($conn, $sql_query1);
-					echo "<meta http-equiv='refresh' content='0'>";
+		{
+			$sql_query1 = "UPDATE student SET
+				PAGINATION = 'Submitted PDF'
+				WHERE STUDENT_ID = '$get_studentID'
+			";
+			mysqli_query($conn, $sql_query1);
+			echo "<meta http-equiv='refresh' content='0'>";
 					
 
-				$sql_query2 = "UPDATE student set STATUS = 'Pending' where STUDENT_ID = '$get_studentID'";
-				mysqli_query($conn, $sql_query2);
+			$sql_query2 = "UPDATE student set STATUS = 'Pending' where STUDENT_ID = '$get_studentID'";
+			mysqli_query($conn, $sql_query2);
 				
-				//header("Location: student_home.php");
-			} else{
-				header("Location: error_page.php");
-			}
+			//header("Location: student_home.php");
+		} else{
+			header("Location: error_page.php");
+		}
 		
     	
-    		if (move_uploaded_file($_FILES['pdfScan']['tmp_name'], $target)) 
-            {
-                $msg = "Upload Successful";
-            }
-            else 
-            {
-                $msg = "Upload Failed";
-            }
-			if (move_uploaded_file($_FILES['TAscan']['tmp_name'], $target1)) 
-            {
-                $msg = "Upload Successful";
-            }
-            else 
-            {
-                $msg = "Upload Failed";
-            }
-    	}
+    	if (move_uploaded_file($_FILES['pdfScan']['tmp_name'], $target)) 
+        {
+            $msg = "Upload Successful";
+        }
+        else 
+        {
+            $msg = "Upload Failed";
+        }
+		if(move_uploaded_file($_FILES['TAscan']['tmp_name'], $target1)) 
+        {
+            $msg = "Upload Successful";
+        }
+        else 
+        {
+            $msg = "Upload Failed";
+        }
+    }
     	
    
 ?>

@@ -29,13 +29,6 @@
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
 		
-		<!--HOVER LIST STARTO-->
-		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="#">Status:<span style="color: red"> <?php if($status == 'Qualified'){echo $status; }?></span></a>
-			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
-		</div>
-		<!--HOVER LIST ENDOO-->
 		
 		<!-- START NAVIGATOR BAR -->
 			<nav class="navbar" id="bar">
@@ -78,9 +71,9 @@
 									){
 										echo "(Please finish application)";
 									}else if($pagination == "submited"){
-										echo $status;
-									}else{
-										echo $status;
+										if($status == 'Qualified'){
+											echo $status; 
+										}
 									}
 								?></span></a>
 							</li>
