@@ -91,6 +91,12 @@
     	mysqli_query($conn, $query_log1);
     	
 		$query_db = mysqli_query($conn, $query2);
+
+		// UPDATE THE STUDENT TABLE
+		if($status = 'Qualified'){
+			$std_query = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+			mysqli_query($conn, $std_query);
+		}
 	}        
 
 ?>
