@@ -36,6 +36,7 @@
 		 <form method="post">
 			<div class="container div_center_signUp"> 
 	        	<div>
+				
 					<div class="form-group row">
 					<div class="col-sm-12">
 						<label>Last Name</label>
@@ -78,20 +79,17 @@
 						</div>
 					</div>
 					<div class="form-group row">					
-						<div class="col-sm-3">
+						<div class="col-sm-4">
 							<label>Are you a Student of UST? </label>
-						</div>	
-						<div class="col-sm-1">
+						&nbsp;
 							<input type="radio" name="application_form" value="yes" required> Yes
-						</div>
-						<div class="col-sm-1">
+						&nbsp;
 							<input type="radio" name="application_form" value="no"> No
 						</div>
 					</div>
 				</div>
-				<br>
 				<button type="submit" name="btn_register" class="btn button_style" style="float: left;">Submit</button>
-				<button onclick="location.href='index.php'" class="btn btn-danger" style="float: right;">Cancel</button>
+				&nbsp;&nbsp;&nbsp;<button onclick="location.href='index.php'" class="btn btn-danger">Cancel</button>
 				<?php echo $message?>
 			</div>
 		</form>
