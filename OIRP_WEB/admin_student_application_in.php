@@ -33,24 +33,14 @@
 		<div class="header">
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
-		<!--HOVER LIST STARTO-->
-		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="graph.php">Statistics</a>
-			<a href="approved_students.php">Approved Students</a>
-			<a href="qualified_students.php">Qualified Students</a>
-			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
-		</div>
-		<!--HOVER LIST ENDOO-->
-		
-		<!--NAV BAR START-->
+		<!--START OF NAV BAR-->
 		<nav class="navbar" id="bar">
-		    <div class="container-fluid">
+			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
-					    <span class="icon-bar"></span>
+						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
 				</div>
@@ -60,7 +50,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-							   <li><a href="approved_students.php">Approved Students</a></li>
+								<li><a href="approved_students.php">Approved Students</a></li>
 								<li><a href="qualified_students.php">Qualified Students</a></li>
 							</ul>
 						</li>
@@ -80,13 +70,15 @@
 						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
 							<ul class="dropdown-menu">
+								<li><a href="addUniversities.php">Add Universities  <span class="glyphicon glyphicon-plus-sign"></span></a></li>
+								<li><a href="admin_logs.php">Audit Logs <span class="glyphicon glyphicon-list-alt"></span></a></li>
 								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
 							</ul>
-						</li>					
+						</li>
 					</ul> 
 				</div>
 			</div>
-		</nav>
+		</nav>		
 		<?php echo $mssg?>
 		<!--NAV BART END-->
 		<form method="post" enctype="multipart/form-data">
@@ -113,10 +105,12 @@
 						<span><b>Type of Program:</b></span> 
 						<span>
 							<?php
-								if($application_prog == 'Others'){
-									echo 'Bilateral';
-								}else{
-									echo $application_prog;
+								if($application_prog == 'Scholarship'){
+									if($application_form == 'OTHERS'){
+										echo $application_form_other;
+									}else{
+										echo $application_form;
+									}
 								}
 							?>
 						</span>
@@ -125,7 +119,7 @@
 						<span><b>Type of Form:</b></span>
 						<span>
 							<?php  
-								if($application_prog == 'Others'){
+								elseif($application_prog == 'Others'){
 									echo $application_prog_other;
 								}else{
 									if($application_form == 'OTHERS'){
@@ -178,47 +172,201 @@
 				</div>
 				 <div id="send" class="col-sm-5">
 					<div class="container-fluid">
+						<?php
+							$selCollege = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$getStudentID'";
+							$setCollege = mysqli_query($conn, $selCollege);
+							while($colRow = mysqli_fetch_array($setCollege)){
+								$set_COURSE_1_INBOUND = $colRow['COURSE_1_INBOUND'];
+								$set_COURSE_2_INBOUND = $colRow['COURSE_2_INBOUND'];
+								$set_COURSE_3_INBOUND = $colRow['COURSE_3_INBOUND'];
+								$set_COURSE_4_INBOUND = $colRow['COURSE_4_INBOUND'];
+								$set_COURSE_5_INBOUND = $colRow['COURSE_5_INBOUND'];
+							}
+						?>
 						<div>
-							<p>
-								<b><span>Course 1: </span></b><span><?php echo $pf_COURSE_1_INBOUND?></span>
-							</p>
-							<div class="">
-								<select name="course1" id="college">
-									<option id='choos'>Choose a College</option>
-								</select>
-							</div>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 2: </span></b><span><?php echo $pf_COURSE_2_INBOUND?></span>
-							</p>
-							<select name="course2" id="college1">
-
-							</select>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 3: </span></b><span><?php echo $pf_COURSE_3_INBOUND?></span>
-							</p>
-							<select name="course3" id="college2">
-
-							</select>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 4: </span></b><span><?php echo $pf_COURSE_4_INBOUND?></span>
-							</p>
-							<select name="course4" id="college3">
-
-							</select>
-						</div>
-						<div>
-							<p>
-								<b><span>Course 5: </span></b><span><?php echo $pf_COURSE_5_INBOUND?></span>
-							</p>
-							<select name="course5" id="college4">
-
-							</select>
+							<?php
+								if($set_COURSE_2_INBOUND == NULL){
+									echo "
+										<div>
+											<p>
+												<b><span>Course 1 :</span></b>
+												<span>".$set_COURSE_1_INBOUND."</span>
+												<div>
+													<select name='course1' id='college'>
+														<option id='choos'>Choose a College</option>
+													</select>
+												</div>
+											</p>
+										</div>
+									";
+								}else if($set_COURSE_3_INBOUND == NULL){
+									echo "
+										<div>
+											<p>
+												<b><span>Course 1 :</span></b>
+												<span>".$set_COURSE_1_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course2' id='college1'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 2 :</span></b>
+												<span>".$set_COURSE_2_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course3' id='college2'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+									";
+								}else if($set_COURSE_4_INBOUND == NULL){
+									echo "
+										<div>
+											<p>
+												<b><span>Course 1 :</span></b>
+												<span>".$set_COURSE_1_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course1' id='college'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 2 :</span></b>
+												<span>".$set_COURSE_2_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course2' id='college1'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 3 :</span></b>
+												<span>".$set_COURSE_3_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course3' id='college2'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+									";
+								}else if($set_COURSE_5_INBOUND == NULL){
+									echo "
+										<div>
+											<p>
+												<b><span>Course 1 :</span></b>
+												<span>".$set_COURSE_1_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course1' id='college'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 2 :</span></b>
+												<span>".$set_COURSE_2_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course2' id='college1'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 3 :</span></b>
+												<span>".$set_COURSE_3_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course3' id='college2'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 4 :</span></b>
+												<span>".$set_COURSE_4_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course4' id='college3'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+									";
+								}else{
+									echo "
+										<div>
+											<p>
+												<b><span>Course 1 :</span></b>
+												<span>".$set_COURSE_1_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course1' id='college'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 2 :</span></b>
+												<span>".$set_COURSE_2_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course2' id='college1'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 3 :</span></b>
+												<span>".$set_COURSE_3_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course3' id='college2'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 4 :</span></b>
+												<span>".$set_COURSE_4_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course4' id='college3'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<p>
+												<b><span>Course 5 :</span></b>
+												<span>".$set_COURSE_5_INBOUND."</span>
+											</p>
+											<div>
+												<select name='course5' id='college4'>
+													<option id='choos'>Choose a College</option>
+												</select>
+											</div>
+										</div>
+									";
+								}
+							?>
 						</div>
 						<div class="form-group row">
 							<input type="submit" value="Send" name="send" class="btn btn-primary">
@@ -371,6 +519,7 @@
 				$("#cert").hide();
 		  	}
 		}
+
 		var setStatus = "<?php echo $getStatus?>";
 		$('#status option[value='+setStatus+']').prop('selected', true);
 		if(document.getElementById('Completed').selected == true){
@@ -378,5 +527,4 @@
 			$("#backuu").hide();
 			$("#conf").hide();
 		}
-
 </script>

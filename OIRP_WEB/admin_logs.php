@@ -123,8 +123,86 @@
 				</table>
 			</div>
 		</div>
+		</div>
+	</body>
+	<script>
+		$(document).ready(function(){
+			//$('#tbl_student_in').DataTable(); 
+			function load_unseen_notification(view = '')
+			{
+				$.ajax({
+					url:"fetch_comment.php",
+					method:"POST",
+					data:{view:view},
+					dataType:"json",
+					success:function(data)
+					{
+						$('#notif-down').html(data.notification);
+						if(data.unseen_notification > 0)
+						{
+						$('.count').html(data.unseen_notification);
+						}
+					}
+				});
+			}
 		
-</div>
-</body>
+			load_unseen_notification();
+		
+			$(document).on('click', '#notif', function(){
+			$('.count').html('');
+			load_unseen_notification('yes');
+			});
+		
+		
+		});
+
+		function myFunction() {
+			// Declare variables 
+			var input, filter, table, tr, td, i;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table_in = document.getElementById("tbl_student_in");
+			table_out = document.getElementById("tbl_student_out");
+			tr_in = table_in.getElementsByTagName("tr");
+			tr_out = table_out.getElementsByTagName("tr");
+
+			// Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr_in.length; i++) {
+				td = tr_in[i].getElementsByTagName("td")[0];
+				td1 = tr_in[i].getElementsByTagName("td")[1];
+				if (td) {
+				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					tr_in[i].style.display = "";
+				} else {
+						if (td1) {
+						if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+							tr_in[i].style.display = "";
+						} else {
+							tr_in[i].style.display = "none";
+						}
+						}
+				}
+				} 
+			}
+
+			for (i = 0; i < tr_out.length; i++) {
+				td = tr_out[i].getElementsByTagName("td")[0];
+				td1 = tr_out[i].getElementsByTagName("td")[1];
+				if (td) {
+					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+						tr_out[i].style.display = "";
+					}else {
+						if (td1) {
+							if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+								tr_out[i].style.display = "";
+							}else {
+								tr_out[i].style.display = "none";
+							}
+						}
+					}
+				}
+			}
+		}
+	</script>
 </html>
 		

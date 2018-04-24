@@ -10,6 +10,7 @@
 	$set_query = mysqli_query($conn, $get_query);
 	while($rroww = mysqli_fetch_array($set_query)){
 		$setCourse = $rroww['COURSE'];
+		$sstatuss = $rroww['STATUS'];
 	}
 
     $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
@@ -170,7 +171,7 @@
 				<div>
 					<form method="post">
 						<div>
-							<select name="status">
+							<select name="status" id="status">
 								<option value=" ">Choose a Status</option>
 								<option value="Qualified">Qualified</option>
 								<option value="Not-Qualified">Not-Qualified</option>
@@ -189,7 +190,8 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		var setStatus = "<?php echo $sstatuss?>";
+		$('#status option[value='+setStatus+']').prop('selected', true);
+	</script>
 </html>
-<?php
-	
-?>

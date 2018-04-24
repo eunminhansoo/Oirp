@@ -647,7 +647,7 @@
 
 				$query_db = mysqli_query($conn, $sql_query);
 					$query_db3 = "UPDATE student SET
-					PAGINATION = 'submited' 
+					PAGINATION = 'submitted' 
 					WHERE STUDENT_ID ='$getSes_studentID'
 					";
 

@@ -16,6 +16,8 @@
 	    	for($i = 0 ; $i < count($checkbox);$i++){
 	    		$del_check = $checkbox[$i];
 	    		$query_del = mysqli_query($conn, "DELETE FROM admin_student_data WHERE STUDENT_ID = '$del_check'");
+				$collDel_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$del_check'";
+				mysqli_query($conn, $collDel_query);
 	    	}
 	    	if($query_del){
 	    		echo "success";
@@ -66,45 +68,7 @@
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
 		
-		<!--HOVER LIST STARTO-->
-		<!-- div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="outboundStatistics.php">Outbound Data Statistics</a>
-			<a href="InboundStatistics.php">Inbound Data Statistics</a>
-			<a href="approved_students.php">Approved Students</a>
-			<a href="qualified_students.php">Qualified Students</a>
-			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
-		</div-->
-		<!--HOVER LIST ENDOO-->
-		
 		<!--NAV BAR START-->
-		<!--  
-		<div>
-			<div class="menu_white2">
-				<div class="navsticky">
-					<nav class="navbar navbar-topaz" role="navigation">
-						<div class="topnav">
-							<div class="container">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-									<a class="navbar-brand" href="#"></a>
-								</div> 
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-									<ul class="nav navbar-nav navbar-right" >
-										<li><a href="administrator.php">Home</a></li>
-										<li><a><span class="bordernavbar"></span><span><?php //echo $familyName.", ".$givenName ?></span></a></li>
-										<li>
-										 	 <a href="administrator_notification.php" class="dropdown-toggle" data-toggle="dropdown">
-												<span class="bordernavbar"></span>
-												<span class="label label-pill label-danger count" style="border-radius:10px;"></span> 
-												<span class="glyphicon glyphicon-bell" style="font-size:18px;"></span>
-											</a> -->
-				
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -118,7 +82,6 @@
 				<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="administrator.php">Home</a></li>
-						<li><a href="admin_logs.php">Audit Logs</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications<span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -142,6 +105,8 @@
 						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
 							<ul class="dropdown-menu">
+								<li><a href="addUniversities.php">Add Universities  <span class="glyphicon glyphicon-plus-sign"></span></a></li>
+								<li><a href="admin_logs.php">Audit Logs <span class="glyphicon glyphicon-list-alt"></span></a></li>
 								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
 							</ul>
 						</li>
@@ -180,20 +145,27 @@
 	                                $date = new DateTime($ddate);
 									$status = $row['STATUS'];
 									$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
+									$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
 									$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
+									$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 			                        $resultdate = $date->format('F j, Y');
 	                            ?>
 	                            <tfoot>
 	                            <tr>
 	                                <td><?php echo "<a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
 									<?php
-										if($get_TYPE_OF_PROGRAM == 'Others'){
-											echo "<td>Bilateral</td>";
-											echo "<td>".$row['TYPE_OF_PROG_OTHER']."</td>";
+										if($get_TYPE_OF_PROGRAM == 'Scholarship'){
+											echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
+											if($get_TYPE_OF_FORM == 'OTHERS'){
+
+												echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+											}else{
+												echo "<td>".$get_TYPE_OF_FORM."</td>";
+											}
 										}else{
 											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-											if($get_TYPE_OF_FORM == 'OTHERS'){
-												echo "<td>".$row['TYPE_OF_FORM_OTHER']."</td>";
+											if($get_TYPE_OF_FORM == 'Others'){
+												echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
 											}else{
 												echo "<td>".$get_TYPE_OF_FORM."</td>";
 											}

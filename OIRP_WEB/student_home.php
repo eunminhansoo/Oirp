@@ -110,15 +110,15 @@
 					<div class="appietxt1">
 					<div style="margin-left: 15px; margin-top: 25px;">
 						<?php 
-							if($pagination == 'submited'){
+							if($pagination == 'submitted'){
 								if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" || $type_of_program == "ServiceLearning")){
-									echo '<span><a href="pdf/outboundBilateral.php" target="_blank">Open PDF form</a></span>';
+									echo '<a href="pdf/outboundBilateral.php" target="_blank"><span class="caf">Open PDF form</span></a>';
 								} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
-									echo '<span><a href="pdf/outbound.php" target="_blank">Open PDF form</a> </span>';
+									echo '<a href="pdf/outbound.php" target="_blank"><span class="caf">Open PDF form</span></a>';
 								} elseif($application_prog == 'inbound' && ($type_of_program == 'ShortStudy' || $type_of_program == 'StudyTour' || $type_of_program == 'ServiceLearning')){
-									echo '<span ><a href="pdf/inboundBilateral.php" target="_blank">Open PDF form</a></span>';
+									echo '<a href="pdf/inboundBilateral.php" target="_blank"><span class="caf">Open PDF form</span></a>';
 								} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
-									echo '<span><a href="pdf/inbound.php" target="_blank">Open PDF form</a> </span>';
+									echo '<a href="pdf/inbound.php" target="_blank"><span class="caf">Open PDF form</span></a>';
 								}
 							}
 						?>
@@ -147,8 +147,8 @@
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'outbound page 3'){
 									echo '<span class="caf"> Continue Application form</spapan>';
-								}else if($pagination == 'submited'){
-									echo '<br><span>Upload Application form </span>';
+								}else if($pagination == 'submitted'){
+									echo '<br><span class="caf" id>Upload Application form </span>';
 								}else{
 									if($pagination == 'Submitted PDF' && $status == 'Pending' || $pagination == 'Submitted PDF' && $status == 'Approved'|| $pagination == 'Submitted PDF' && $status == 'Denied'|| $pagination == 'Submitted PDF' && $status == 'On-going'){
 										echo '<span>Wait for Confirmation</span>';
@@ -280,7 +280,7 @@
 				}else if(page == "outbound page 3"){
 					window.location.href = "outboundform3.php";
 				}else{
-					if(page == "submited"){
+					if(page == "submitted"){
 						$('#uploadbox').show();
 						$('#pdfscan').prop('disabled', false);
 						$('#taScan').prop('disabled', false);
