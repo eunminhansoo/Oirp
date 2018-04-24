@@ -221,7 +221,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label>Designation</label>
-							<input type="text" name="designationO" id="designationO" class="form-control"  pattern="[^<>].{1,20}" maxlength="20" required value="<?php echo $getSel_DESIGNATION_IN_BILA?>">
+							<input type="text" name="designationO" id="designationO" class="form-control"  pattern="[^<>].{1,25}" maxlength="25" required value="<?php echo $getSel_DESIGNATION_IN_BILA?>">
 						</div>
 					</div>
 					<div class="form-group row">
