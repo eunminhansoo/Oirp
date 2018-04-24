@@ -75,7 +75,7 @@
 						</div>
 		        		<div class="col-sm-8">
 		        			<label>Birthplace</label>					
-							<input type="text" name="birthplace" class="form-control" pattern="[^<>].{1,20}" maxlength="20" required/>
+							<input type="text" name="birthplace" class="form-control" pattern="[^<>].{1,25}" maxlength="25" required/>
 						</div>
 					</div>
 					<div class="form-group row">					
