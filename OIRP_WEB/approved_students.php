@@ -17,6 +17,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
@@ -35,51 +36,51 @@
 		
 		<!--NAV BAR START-->
 		<nav class="navbar" id="bar">
-						<div class="container-fluid">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
-							        <span class="sr-only">Toggle navigation</span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							     </button>
-							</div>
-							<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
-										<ul class="nav navbar-nav navbar-right">
-											<li><a href="administrator.php">Home</a></li>
-											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications<span class="caret"></span></a>
-												<ul class="dropdown-menu">
-													<li><a href="approved_students.php">Approved Students</a></li>
-													<li><a href="qualified_students.php">Qualified Students</a></li>
-												</ul>
-											</li>
-											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
-												<ul class="dropdown-menu">
-													<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
-													<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
-													<li><a href="outboundComparison.php">Outbound Comparison</a></li>
-													<li><a href="inboundComparison.php">Inbound Comparison</a></li>
-												</ul>
-											</li>
-											<li class="dropdown" style="padding-right: 30px;">
-												<a href="#" class="dropdown-toggle" id="notif" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span><span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
-												<ul class="dropdown-menu" id="notif-down"></ul>
-											</li>
-											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
-									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
-									          <ul class="dropdown-menu">
-									            <li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
-									          </ul>
-									        </li>
-											
-											
-										</ul> 
-									</div>
-							</div>
-						</nav>
-		<!--NAV BART END-->
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="administrator.php">Home</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="approved_students.php">Approved Students</a></li>
+								<li><a href="qualified_students.php">Qualified Students</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="outboundStatistics.php">Outbound Data Statistics <span class="fa fa-pie-chart"></span></a></li>
+								<li><a href="InboundStatistics.php">Inbound Data Statistics <span class="fa fa-pie-chart"></a></li>
+								<li><a href="outboundComparison.php">Outbound Comparison <span class="fa fa-bar-chart"></span></a></li>
+								<li><a href="inboundComparison.php">Inbound Comparison <span class="fa fa-bar-chart"></span></a></li>
+							</ul>
+						</li>
+						<li class="dropdown" style="padding-right: 30px;">
+							<a href="#" class="dropdown-toggle" id="notif" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span><span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+							<ul class="dropdown-menu" id="notif-down"></ul>
+						</li>
+						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="addUniversities.php">Add Universities  <span class="glyphicon glyphicon-plus-sign"></span></a></li>
+								<li><a href="admin_logs.php">Audit Logs <span class="glyphicon glyphicon-list-alt"></span></a></li>
+								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+							</ul>
+						</li>
+					</ul> 
+				</div>
+			</div>
+		</nav>		
+		<!--NAV BAR END-->
 		<form>
 			<div class="container">
 				<h1>Approved Students</h1>
@@ -111,7 +112,7 @@
 										$getCollege = $col_row['COLLEGE'];
 									}
 										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
-										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.STATUS = 'Approved'";
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE a.STATUS = 'Approved'";
 										$sql_db = mysqli_query($conn, $sql_query);
 										while($sqlRow = mysqli_fetch_array($sql_db)){
 											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
