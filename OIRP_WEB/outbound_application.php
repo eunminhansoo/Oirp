@@ -445,9 +445,9 @@
 							WHERE STUDENT_ID = '$getses_StudentID'
 						";
 					}
+					$query_db1 = mysqli_query($conn, $sql_query1);
 				}
 
-				$query_db1 = mysqli_query($conn, $sql_query1);
 
 				$query_db3 = "UPDATE student SET
 					PAGINATION = 'submitted' 
@@ -455,7 +455,7 @@
 				";
 				$checkQuery3 = mysqli_query($conn, $query_db3);
 
-				if($query_db && $query_db1 && $checkQuery3)
+				if($query_db && $checkQuery3)
 				{
 					header("Location: student_home.php");
 					// echo 'success';

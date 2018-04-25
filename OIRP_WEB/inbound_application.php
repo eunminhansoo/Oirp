@@ -517,8 +517,8 @@
 					COURSE_5_INBOUND = '$course5',
 					RESEARCH_TOPIC_INBOUND = '$research',
 					INTENDED_SEM_STUDY_INBOUND = '$sem',
-					DESCRIPTION_ACTION_STATUS_INBOUND = '$reason',
-					REASON_STUDYING_INBOUND = '$disciplinary',
+					DESCRIPTION_ACTION_STATUS_INBOUND = '$disciplinary',
+					REASON_STUDYING_INBOUND = '$reason',
 					ACCOMODATION_INBOUND ='$accomodation'
 					WHERE STUDENT_ID = '$getSes_studentID' ";
 

@@ -104,25 +104,21 @@
 					<p>
 						<span><b>Type of Program:</b></span> 
 						<span>
-							<?php
-								if($application_prog == 'Scholarship'){
-									if($application_form == 'OTHERS'){
-										echo $application_form_other;
-									}else{
-										echo $application_form;
-									}
-								}
-							?>
+							<?php echo $application_prog?>
 						</span>
 					</p>
 					<p>
 						<span><b>Type of Form:</b></span>
 						<span>
 							<?php  
-								elseif($application_prog == 'Others'){
-									echo $application_prog_other;
+								if($application_prog == 'Scholarship'){
+									if($application_form == "OTHERS"){
+										echo $application_form_other;
+									}else{
+										echo $application_form;
+									}
 								}else{
-									if($application_form == 'OTHERS'){
+									if($application_form == 'Others'){
 										echo $application_form_other;
 									}else{
 										echo $application_form;

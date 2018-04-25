@@ -10,6 +10,9 @@
     }
     $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
     $queryBD = mysqli_query($conn, $query);
+	// while($queryDBrow = mysqli_fetch_array($queryDB)){
+	// 	$studentAppPrgo = $queryDBrow['APPLICATION_PROG'];
+	// }
     $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
     $queryCU = mysqli_query($conn, $query1);   
 	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
