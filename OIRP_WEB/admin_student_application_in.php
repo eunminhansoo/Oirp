@@ -366,7 +366,7 @@
 						</div>
 						<div class="form-group row">
 							<input type="submit" value="Send" name="send" class="btn btn-primary">
-						</div> 
+						</div>
 					</div>
 				</div>
 				<br>
@@ -458,10 +458,13 @@
 			
 
 			if(scrStat == "Qualified"){
-				$("#conf").hide();
-				$("#backuu").hide();
-				$("#statss").hide();
+				$("#conf").show();
+				$("#backuu").show();
+				$("#statss").show();
 				$('#comp').show();
+				$('#backk').hide();
+				var setStatus = "<?php echo $getStatus?>";
+				$('#status option[value='+setStatus+']').prop('selected', true);
 			}
 
 			function load_unseen_notification(view = '')
