@@ -36,17 +36,6 @@
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
 		
-		<!--HOVER LIST STARTO-->
-		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
-			<a href="outboundStatistics.php">Outbound Data Statistics</a>
-			<a href="InboundStatistics.php">Inbound Data Statistics</a>
-			<a href="approved_students.php">Approved Students</a>
-			<a href="qualified_students.php">Qualified Students</a>
-			<a href="index.php" class="logoutbtn" ><span class="glyphicon glyphicon-log-out">  Logout</span></a>
-		</div>
-		<!--HOVER LIST ENDOO-->
-		
 		<!--NAV BAR START-->
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">
@@ -82,11 +71,12 @@
 							<ul class="dropdown-menu" id="notif-down"></ul>
 						</li>
 						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span id="down" class="caret"></a>
 							<ul class="dropdown-menu">
 								<li><a href="addUniversities.php">Add Universities  <span class="glyphicon glyphicon-plus-sign"></span></a></li>
 								<li><a href="admin_logs.php">Audit Logs <span class="glyphicon glyphicon-list-alt"></span></a></li>
-								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+								<li class="divider"></li>
+								<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
 							</ul>
 						</li>
 					</ul> 
@@ -94,6 +84,7 @@
 			</div>
 		</nav>		
 		<!--NAV BAR END-->
+		
 		<form>
 			<div class="container-fluid">
 				<h2>Qualified Students</h2>
