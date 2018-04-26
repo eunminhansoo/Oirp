@@ -36,7 +36,10 @@
 		 <form method="post">
 			<div class="container div_center_signUp"> 
 	        	<div>
-				
+				<div class="form-group row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
 					<div class="form-group row">
 					<div class="col-sm-12">
 						<label>Last Name</label>
@@ -62,18 +65,18 @@
 					</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-2">
+						<div class="col-sm-3">
 							<label>Gender</label>
 							<select name="gender" class="form-control">
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
 							</select>
 						</div>
-						<div class="col-sm-2">	
+						<div class="col-sm-4">	
 							<label>Birthdate</label>				
 							<input type="date" name="birthday" id="birthday" class="form-control" required/>
 						</div>
-		        		<div class="col-sm-8">
+		        		<div class="col-sm-5">
 		        			<label>Birthplace</label>					
 							<input type="text" name="birthplace" class="form-control" pattern="[^<>].{1,25}" maxlength="25" required/>
 						</div>
@@ -87,9 +90,14 @@
 							<input type="radio" name="application_form" value="no"> No
 						</div>
 					</div>
+				
+				<button type="submit" name="btn_register" class="btn btn-success shadowbtn" style="float: left;"><span class="glyphicon glyphicon-ok-sign"></span>  Submit</button>
+				&nbsp;&nbsp;&nbsp;<button onclick="location.href='index.php'" class="btn btn-danger shadowbtn">Cancel</button>
 				</div>
-				<button type="submit" name="btn_register" class="btn button_style" style="float: left;">Submit</button>
-				&nbsp;&nbsp;&nbsp;<button onclick="location.href='index.php'" class="btn btn-danger">Cancel</button>
+				</div>
+				<div class="col-sm-3">
+				</div>
+				</div>
 				<?php echo $message?>
 			</div>
 		</form>
