@@ -282,6 +282,17 @@ div.exus a span{
 	font-size: 20px;
 }
 
+.shadow {
+	margin-right: 2px;
+    padding: 10px;
+	padding-right: 15px;
+    box-shadow: 2px 2px 4px #888888;
+}
+.shadowbtn {
+	box-shadow: 2px 2px 4px #888888;
+
+}
+
 /*NAVIGATOR BAR*/
 /* White Menu 2 */
 .menu_white2 .navbar-topaz{
