@@ -1,5 +1,6 @@
 <?php
 	include 'student_home_process.php';
+	include 'logout.php';
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -88,7 +89,9 @@
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+									<form method="post">
+										<li><button type="submit" name="logoutbtn" role="button" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></button></li>
+									</form>
 								</ul>
 							</li>
 						</ul> 
