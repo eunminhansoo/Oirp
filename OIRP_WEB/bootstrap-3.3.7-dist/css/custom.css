@@ -220,7 +220,7 @@ span.bordernavbar{
     transition: 0.3s;
 }
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #black;
 }
 
 .sidenav .closebtn {

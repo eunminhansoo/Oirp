@@ -79,7 +79,7 @@
 						</div>
 					</div>
 					<div class="form-group row">					
-						<div class="col-sm-4">
+						<div class="col-sm-10">
 							<label>Are you a Student of UST? </label>
 						&nbsp;
 							<input type="radio" name="application_form" value="yes" required> Yes
