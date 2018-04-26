@@ -1,5 +1,6 @@
 <?php
 	include 'loginPhp.php';
+	error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,14 +34,14 @@
 								<button type="submit" name="btn_login" class="btn btn-info btn-block shadowbtn">Login</button>
 							</div>
 						</form>
-						<h5><p><small><b>Note:</b> for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password</small></p></h5>
+						<small><b>Note:</b> for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password</small>
 					</div>
 				</div>
 			</nav>
 			
 			<div class="main">
 			<img src='img/arch.jpg' width=100% height=auto>
-			<div class="container-fluid three">
+			<!-- div class="container-fluid three">
 				<div class="col-sm-4 threepanel">
 					<div class="">
 						<h2 class="txtStyle"><b>UST Identity</b></h2>
@@ -101,7 +102,7 @@
 					<p>*Note: for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password.</p>
 					<br>
 				</div>
-				<!-- div class="col-sm-3 login" style="background-color: #00a1e4;"-->
+				<!-- div class="col-sm-3 login" style="background-color: #00a1e4;>
 				<div class="col-sm-3 login info">
 					<br>
 					<h3 style="text-align: center">CONTACT US</h3><br>
@@ -111,7 +112,7 @@
 					international@ust.edu.ph</p>
 					<br>
 				</div>
-			</div>
+			</div-->
 			<div class="footer">
 					&copy; University of Santo Tomas 2018
 			</div>

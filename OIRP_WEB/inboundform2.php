@@ -231,8 +231,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
-							<p class="text_style">ex: +63 2-406-1611 or +63 974-887-6512</p>
-							<input type="text" name="numberO" id="numberO" class="form-control" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
+							<input type="text" name="numberO" id="numberO" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
 						</div>	
 					</div>				
 					

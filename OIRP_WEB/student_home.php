@@ -1,5 +1,6 @@
 <?php
 	include 'student_home_process.php';
+	include 'logout.php';
 ?>
 <!DOCTYPE HTML>
 <html lang="en">

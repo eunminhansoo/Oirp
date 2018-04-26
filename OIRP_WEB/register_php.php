@@ -37,12 +37,20 @@
 		if(mysqli_num_rows($check_email) >= 1){
 			$message = "<script language='javascript'>(function(){alert('Email already exists! Try again?');})();</script>";
 		}else{
-			mysqli_query($conn, "INSERT INTO student(STUDENT_COUNT, DATE_ENROLL, APPLICATION_PROG, STUDENT_ID, EMAIL, PASSWORD, FAMILY_NAME,".
-						" GIVEN_NAME, MIDDLE_NAME, GENDER, BIRTHDAY, AGE, BIRTHPLACE, STATUS, PAGINATION) VALUES ('', '$date', '$appForm', '', '$email', '$birth_enc', '$familyName', '$givenName', '$middleName', '$gender', '$birth_enc', '$age', '$birthplace', '', '')");
-			
-			session_start();
-			$_SESSION['$ses_email'] = $email;
-			header("Location: registerRedirect.php");
+			$insert_query = "INSERT INTO student(STUDENT_COUNT, DATE_ENROLL, APPLICATION_PROG, STUDENT_ID, EMAIL, PASSWORD, FAMILY_NAME,".
+						" GIVEN_NAME, MIDDLE_NAME, GENDER, BIRTHDAY, AGE, BIRTHPLACE, STATUS, PAGINATION) VALUES ('', '$date', '$appForm', '', '$email', '$birth_enc', '$familyName', '$givenName', '$middleName', '$gender', '$birth_enc', '$age', '$birthplace', '', '')";
+			$insert_db = mysqli_query($conn, $insert_query);
+			if($insert_db){
+				session_start();
+				$_SESSION['$ses_email'] = $email;
+				$_SESSION['stuValid'] = 'yes';
+				header("Location: registerRedirect.php");
+				
+				
+			}else{
+				header("Location: register.php");
+				$message = "<script language='javascript'>(function(){alert('Error 404');})();</script>";
+			}
 		}
 	}
 
