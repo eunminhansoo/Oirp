@@ -8,7 +8,7 @@ if(isset($_POST["view"]))
     $update_query = "UPDATE notification SET COMMENT_STATUS=1 WHERE COMMENT_STATUS=0";
     mysqli_query($conn, $update_query);
     }
-    $query = "SELECT * FROM notification ORDER BY STUDENT_COUNT DESC LIMIT 10";
+    $query = "SELECT * FROM notification ORDER BY STUDENT_COUNT DESC LIMIT 7";
     $result = mysqli_query($conn, $query);
     $output = '';
     if(mysqli_num_rows($result) > 0)

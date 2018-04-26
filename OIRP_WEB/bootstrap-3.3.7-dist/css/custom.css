@@ -1,8 +1,13 @@
 body{
 	/*background-color: #f5ffeb;*/
-	background-color: #fafafa;
+	/*background-color: #fafafa;*/
+	background-color: #e8e8e8;	
 	min-height: 100%;
 	font-family: 'Century Gothic';
+}
+
+table{
+	background-color: #fafafa;
 }
 
 .white-center {
@@ -314,6 +319,10 @@ nav{
 }
 
 .navbar-nav > li > a:hover{
+	background-color: #00a1e4;
+}
+
+.navbar-nav > li > a:active{
 	background-color: #00a1e4;
 }
 
