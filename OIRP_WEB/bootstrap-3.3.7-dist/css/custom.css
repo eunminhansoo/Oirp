@@ -313,6 +313,10 @@ nav{
 	font-weight: bold;
 }
 
+.navbar-nav > li > a:hover{
+	background-color: #00a1e4;
+}
+
 .icon-bar{
 	color: black;
 	background-color: black;
