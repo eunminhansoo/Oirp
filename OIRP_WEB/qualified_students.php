@@ -39,6 +39,9 @@
 		<!--NAV BAR START-->
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">
+				<div class="col-sm-5" style="margin-top: 0.5%; margin-bottom: 0.5%;">
+					<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
+				</div>
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
@@ -88,9 +91,6 @@
 		<form>
 			<div class="container-fluid">
 				<h2>Qualified Students</h2>
-				<div class="col-sm-7">
-	        		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
-	            </div>
 				<div class="col-xs-6">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">

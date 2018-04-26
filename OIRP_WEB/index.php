@@ -15,14 +15,14 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
-	<body>
+	<body style="background-color: white;">
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		
 			<nav class="header navbar">
 				<div class="navbar-header">
-					<div class="col-sm-8"><a class="" href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a></div>
-					<div class="col-sm-4" style="margin-top: 50px;">
+					<div class="col-sm-7"><a class="" href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a></div>
+					<div class="col-sm-5" style="margin-top: 50px;">
 						<form method="post" class="navbar-form" >
 							<div class="form-group">
 								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="[^<>].{1,30}" required/>
@@ -33,6 +33,9 @@
 							<div class="form-group">
 								<button type="submit" name="btn_login" class="btn btn-info btn-block shadowbtn">Login</button>
 							</div>
+							<div class="form-group">
+								or <a href="register.php"><u>Register</u></a>
+							</div>
 						</form>
 						<small><b>Note:</b> for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password</small>
 					</div>
@@ -40,7 +43,9 @@
 			</nav>
 			
 			<div class="main">
-			<img src='img/arch.jpg' width=100% height=auto>
+				<div class="">
+					<img src='img/arch.jpg' width=100% height=auto class="image-home">
+				</div>
 			<!-- div class="container-fluid three">
 				<div class="col-sm-4 threepanel">
 					<div class="">

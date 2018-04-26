@@ -29,7 +29,10 @@
         } else if(!empty($course) && empty($status)) {
         	$output .= '<tr><td>The OIRP sent the course:'.$row["COURSE"].' of the student '.$row["LASTNAME"].','.$row["FIRSTNAME"].' to the '.$row["COLLEGE"].'
                             on '.$row["DATE"].'<tr><td>';
-        }    
+        }
+        	if ($status == "Completed"){
+        		$output .= '<tr><td> The OIRP has uploaded a certificate of completion to '.$row["LASTNAME"].', '.$row["FIRSTNAME"].' on '.$row["DATE"].'</td></tr>';
+        	}    
             
 	        if($applicationform == "inbound"){
 	                $output .= '<tr><td>'.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf on '.$row["DATE"].'</td></tr>';
