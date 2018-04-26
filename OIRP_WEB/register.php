@@ -25,13 +25,12 @@
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
 		
-	<nav class="navbar" id="bar">
-						<div class="container-fluid">
-							<div class="navbar-header">
-								
-									</div>
-							</div>
-						</nav>
+	<div style="height: 10px; background-color: #FDC601;">
+		<div class="container-fluid">
+			<div class="navbar-header">				
+			</div>
+		</div>
+	</div>
 	
 		 <form method="post">
 			<div class="container div_center_signUp"> 
