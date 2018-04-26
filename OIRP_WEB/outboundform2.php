@@ -160,17 +160,17 @@
 					
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<button type="submit" class="btn btn-primary" formaction="outboundform1.php">Previous</button>
+							<button type="submit" class="btn btn-block btn-primary shadowbtn" formaction="outboundform1.php">Previous</button>
 						</div>
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btnSaveoutform2" class="btn btn-primary" value="Save">
+							<input type="submit" name="btnSaveoutform2" class="btn btn-block btn-success shadowbtn" value="Save">
 						</div>
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btn_form2" class="btn btn-primary" value="Next">
+							<input type="submit" name="btn_form2" class="btn btn-block btn-primary shadowbtn" value="Next">
 						</div>
 					</div>
 				</form>
