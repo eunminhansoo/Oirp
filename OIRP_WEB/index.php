@@ -19,9 +19,25 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		
-			<div class="header">
-				<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
-			</div>
+			<nav class="header navbar">
+				<div class="navbar-header">
+					<div class="col-sm-8"><a class="" href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a></div>
+					<div class="col-sm-4" style="margin-top: 50px;">
+						<form method="post" class="navbar-form" >
+							<div class="form-group">
+								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="[^<>].{1,30}" required/>
+							</div>
+							<div class="form-group">
+								<input type="password" name="password" class="input form-control shadow" placeholder="Password" required/>
+							</div>
+							<div class="form-group">
+								<button type="submit" name="btn_login" class="btn btn-info btn-block shadowbtn">Login</button>
+							</div>
+						</form>
+						<h5><p><small><b>Note:</b> for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password</small></p></h5>
+					</div>
+				</div>
+			</nav>
 			
 			<div class="main">
 			<img src='img/arch.jpg' width=100% height=auto>
