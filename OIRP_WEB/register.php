@@ -25,7 +25,8 @@
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
 		
-	<div style="height: 10px; background-color: #FDC601;">
+	<div style="height: 10px; background-color: #FDC601;     box-shadow: 2px 2px 4px #888888;
+">
 		<div class="container-fluid">
 			<div class="navbar-header">				
 			</div>
