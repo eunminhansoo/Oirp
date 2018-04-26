@@ -481,8 +481,39 @@
 		mysqli_query($conn, $cert_query);
 
 		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-		
+		$query_completed = "";
 		$query_db = mysqli_query($conn, $query2);
+		$query_name = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+		$name_db = mysqli_query($conn, $query_name);
+		while($row_complete = mysqli_fetch_array($name_db)){
+			$surname = $row_complete['FAMILY_NAME'];
+			$givenname = $row_complete['GIVEN_NAME'];
+		}
+		
+		//insert to audit log
+			date_default_timezone_set('Asia/Manila');
+			$datecomplete = date('Y-m-d/H:i:s');
+			$query_logcomplete = "INSERT INTO audit_logs(STUDENT_COUNT,
+			STUDENT_ID,
+			LASTNAME,
+			FIRSTNAME,
+			APPLICATION_FORM,
+			COLLEGE,
+			COURSE,
+			STATUS,
+			DATE
+			) VALUES (
+				'',
+				'$getStudentID',
+				'$surname',
+				'$givenname',
+				'',
+				'',
+				'',
+				'$status',
+				'$datecomplete'
+				)";
+			$log_complete = mysqli_query($conn, $query_logcomplete);
 
 		if($query_db){
 			$yearlySel_query = "SELECT * FROM yearly";
