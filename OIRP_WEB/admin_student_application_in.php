@@ -21,6 +21,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
@@ -57,10 +58,10 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
-								<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
-								<li><a href="outboundComparison.php">Outbound Comparison</a></li>
-								<li><a href="inboundComparison.php">Inbound Comparison</a></li>
+								<li><a href="outboundStatistics.php">Outbound Data Statistics <span class="fa fa-pie-chart"></span></a></li>
+								<li><a href="InboundStatistics.php">Inbound Data Statistics <span class="fa fa-pie-chart"></a></li>
+								<li><a href="outboundComparison.php">Outbound Comparison <span class="fa fa-bar-chart"></span></a></li>
+								<li><a href="inboundComparison.php">Inbound Comparison <span class="fa fa-bar-chart"></span></a></li>
 							</ul>
 						</li>
 						<li class="dropdown" style="padding-right: 30px;">
@@ -169,15 +170,7 @@
 				 <div id="send" class="col-sm-5">
 					<div class="container-fluid">
 						<?php
-							$selCollege = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$getStudentID'";
-							$setCollege = mysqli_query($conn, $selCollege);
-							while($colRow = mysqli_fetch_array($setCollege)){
-								$set_COURSE_1_INBOUND = $colRow['COURSE_1_INBOUND'];
-								$set_COURSE_2_INBOUND = $colRow['COURSE_2_INBOUND'];
-								$set_COURSE_3_INBOUND = $colRow['COURSE_3_INBOUND'];
-								$set_COURSE_4_INBOUND = $colRow['COURSE_4_INBOUND'];
-								$set_COURSE_5_INBOUND = $colRow['COURSE_5_INBOUND'];
-							}
+							
 						?>
 						<div>
 							<?php
@@ -203,7 +196,7 @@
 												<span>".$set_COURSE_1_INBOUND."</span>
 											</p>
 											<div>
-												<select name='course2' id='college1'>
+												<select name='course1' id='college1'>
 													<option id='choos'>Choose a College</option>
 												</select>
 											</div>
@@ -214,7 +207,7 @@
 												<span>".$set_COURSE_2_INBOUND."</span>
 											</p>
 											<div>
-												<select name='course3' id='college2'>
+												<select name='course2' id='college2'>
 													<option id='choos'>Choose a College</option>
 												</select>
 											</div>

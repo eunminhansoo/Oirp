@@ -15,9 +15,17 @@
 	// }
     $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
     $queryCU = mysqli_query($conn, $query1);   
-	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
-    $queryPF = mysqli_query($conn, $query2);
-    
+	// $query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$getStudentID'";
+    // $queryPF = mysqli_query($conn, $query2);
+	$selCollege = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$getStudentID'";
+	$setCollege = mysqli_query($conn, $selCollege);
+	while($colRow = mysqli_fetch_array($setCollege)){
+		$set_COURSE_1_INBOUND = $colRow['COURSE_1_INBOUND'];
+		$set_COURSE_2_INBOUND = $colRow['COURSE_2_INBOUND'];
+		$set_COURSE_3_INBOUND = $colRow['COURSE_3_INBOUND'];
+		$set_COURSE_4_INBOUND = $colRow['COURSE_4_INBOUND'];
+		$set_COURSE_5_INBOUND = $colRow['COURSE_5_INBOUND'];
+	}
 	while($row1 = mysqli_fetch_array($queryCU)){
 		$application_prog = $row1['TYPE_OF_PROGRAM'];
 		$application_prog_other = $row1['TYPE_OF_PROG_OTHER'];
@@ -108,14 +116,13 @@
 			}   
 		}
 	}
-	while($pf_row = mysqli_fetch_array($queryPF)){
-		$pf_COURSE_1_INBOUND = $pf_row['COURSE_1_INBOUND'];
-		$pf_COURSE_2_INBOUND = $pf_row['COURSE_2_INBOUND'];
-		$pf_COURSE_3_INBOUND = $pf_row['COURSE_3_INBOUND'];
-		$pf_COURSE_4_INBOUND = $pf_row['COURSE_4_INBOUND'];
-		$pf_COURSE_5_INBOUND = $pf_row['COURSE_5_INBOUND'];
-	}
-
+	// while($pf_row = mysqli_fetch_array($queryPF)){
+	// 	$pf_COURSE_1_INBOUND = $pf_row['COURSE_1_INBOUN'];
+	// 	$pf_COURSE_2_INBOUND = $pf_row['COURSE_2_INBOUND'];
+	// 	$pf_COURSE_3_INBOUND = $pf_row['COURSE_3_INBOUND'];
+	// 	$pf_COURSE_4_INBOUND = $pf_row['COURSE_4_INBOUND'];
+	// 	$pf_COURSE_5_INBOUND = $pf_row['COURSE_5_INBOUND'];
+	// }
 	$sql = "select college from colleges where id > 1 order by college asc";
 	$result = mysqli_query($conn, $sql);
 	
@@ -155,13 +162,15 @@
 				STUDENT_ID,
 				PROPOSED_PROGRAM,
 				COURSE,
-				COLLEGE
+				COLLEGE,
+				STATUS
 			) VALUES (
 				' ',
 				'$getStudentID',
 				' ',
-				'$pf_COURSE_1_INBOUND',
-				'$course_1'
+				'$set_COURSE_1_INBOUND',
+				'$course_1',
+				''
 			)";
 			//insert to audit log
 			date_default_timezone_set('Asia/Manila');
@@ -182,7 +191,7 @@
 				'$FirstName',
 				'',
 				'$course_1',
-				'$pf_COURSE_1_INBOUND',
+				'$set_COURSE_1_INBOUND',
 				'',
 				'$date1'
 				)";
@@ -197,13 +206,15 @@
 				STUDENT_ID,
 				PROPOSED_PROGRAM,
 				COURSE,
-				COLLEGE
+				COLLEGE,
+				STATUS
 			) VALUES (
 				' ',
 				'$getStudentID',
 				' ',
-				'$pf_COURSE_2_INBOUND',
-				'$course_2'
+				'$set_COURSE_2_INBOUND',
+				'$course_2',
+				''
 			)";
 			//insert to audit log
 			date_default_timezone_set('Asia/Manila');
@@ -224,7 +235,7 @@
 				'$FirstName',
 				'',
 				'$course_2',
-				'$pf_COURSE_2_INBOUND',
+				'$set_COURSE_2_INBOUND',
 				'',
 				'$date2'
 				)";
@@ -240,13 +251,15 @@
 				STUDENT_ID,
 				PROPOSED_PROGRAM,
 				COURSE,
-				COLLEGE
+				COLLEGE,
+				STATUS
 			) VALUES (
 				' ',
 				'$getStudentID',
 				' ',
-				'$pf_COURSE_3_INBOUND',
-				'$course_3'
+				'$set_COURSE_3_INBOUND',
+				'$course_3',
+				''
 			)";
 
 			//insert to audit log
@@ -268,7 +281,7 @@
 				'$FirstName',
 				'',
 				'$course_3',
-				'$pf_COURSE_3_INBOUND',
+				'$set_COURSE_3_INBOUND',
 				'',
 				'$date3'
 				)";
@@ -284,13 +297,15 @@
 				STUDENT_ID,
 				PROPOSED_PROGRAM,
 				COURSE,
-				COLLEGE
+				COLLEGE,
+				STATUS
 			) VALUES (
 				' ',
 				'$getStudentID',
 				' ',
-				'$pf_COURSE_4_INBOUND',
-				'$course_4'
+				'$set_COURSE_4_INBOUND',
+				'$course_4',
+				''
 			)";
 			//insert to audit log
 			date_default_timezone_set('Asia/Manila');
@@ -311,7 +326,7 @@
 				'$FirstName',
 				'',
 				'$course_4',
-				'$pf_COURSE_4_INBOUND',
+				'$set_COURSE_4_INBOUND',
 				'',
 				'$date4'
 				)";
@@ -326,13 +341,15 @@
 				STUDENT_ID,
 				PROPOSED_PROGRAM,
 				COURSE,
-				COLLEGE
+				COLLEGE,
+				STATUS
 			) VALUES (
 				' ',
 				'$getStudentID',
 				' ',
-				'$pf_COURSE_5_INBOUND',
-				'$course_5'
+				'$set_COURSE_5_INBOUND',
+				'$course_5',
+				''
 			)";
 			//insert to audit log
 			date_default_timezone_set('Asia/Manila');
@@ -353,7 +370,7 @@
 				'$FirstName',
 				'',
 				'$course_5',
-				'$pf_COURSE_5_INBOUND',
+				'$set_COURSE_5_INBOUND',
 				'',
 				'$date5'
 				)";

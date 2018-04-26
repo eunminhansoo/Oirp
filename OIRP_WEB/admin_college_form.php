@@ -6,17 +6,18 @@
     session_start();
 	$college = $_SESSION['coll_sess'];
 
-	$stu_query = "SELECT * FROM student WHER STUDENT_ID = '$getStudentID'";
+	$stu_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
 	$stu_db = mysqli_query($conn, $stu_query);
 	while($stuRow = mysqli_fetch_array($stu_db)){
 		$stu_status = $stuRow['STATUS'];
 	}
+	ECHO $stu_status;
 	$get_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID' AND COURSE = '$course'";
 	$set_query = mysqli_query($conn, $get_query);
 	while($rroww = mysqli_fetch_array($set_query)){
 		$setCourse = $rroww['COURSE'];
 	}
-
+	echo $setCourse;
     $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){

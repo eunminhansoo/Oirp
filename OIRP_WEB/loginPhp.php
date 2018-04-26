@@ -3,8 +3,8 @@
 	$error_message = '';
 	
 	if (isset($_POST['btn_login'])){
-		$email = $_POST['email'];
-		$pass_word = $_POST['password'];
+		$email = htmlspecialchars($_POST['email']);
+		$pass_word = htmlspecialchars($_POST['password']);
 		str_replace("<", "&lt;", $pass_word);
 		str_replace(">", "&gt;", $pass_word);
 		$date = $pass_word;
