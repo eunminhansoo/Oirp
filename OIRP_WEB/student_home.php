@@ -9,11 +9,11 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
 		<!-- link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/stylus.css">
 		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/color_3.css"-->
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
 		<link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	
@@ -87,7 +87,7 @@
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="index.php" class="logoutbtn">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+									<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
 								</ul>
 							</li>
 						</ul> 
@@ -243,9 +243,9 @@
 	</div>
 
 	<div class="col-sm-6">
-		<div class="container-fluid boxxes">
-			<div class="col-sm-12" style="padding-top: 5px; padding-bottom: 5px;">
-				<p><h2>GUIDE</h2><p>
+		<div class="container-fluid boxxes" style="padding-top: 5%; padding-bottom: 5%; text-align: justify;">
+			<div class="col-sm-12">
+				<h2>GUIDE</h2>
 		
 				<p>1. Go to My Application and fill out the online form. If you are unable to finish the form, you may save it and work on it on your on time.</p>
 				<p>2. Once submitted, a PDF form will be generated which needs to be signed by the parties mentioned. Upload the form, together with your Transcript of Records, once the signatories are complete.</p>
