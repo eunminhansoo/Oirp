@@ -14,7 +14,7 @@
 		$result = $date->format('m/d/Y');
 	    $birth_enc = base64_encode($result);
 		$appForm = htmlspecialchars($_POST['application_form']);
-		$birthplace = htmlspecialchars($_POST['birthplace'];)
+		$birthplace = htmlspecialchars($_POST['birthplace']);
 		$date = date('Ymd');
 		$timestamp = strtotime($birth);
 		$birth_date = date('mdY', $timestamp);
