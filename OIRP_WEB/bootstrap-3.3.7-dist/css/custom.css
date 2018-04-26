@@ -121,19 +121,23 @@ h6{
 }
 
 .main{
-	padding-bottom: 50px;
 	overflow: auto;
 }
 
 .footer{
 	text-align: center;
-	background-color: #00a1e4;
+	background-color: #f1ad1d;
   	bottom: 0;
    	height:50px; 
-   	margin-top: -50px;
    	padding-top: 20px;   	
    	position: relative;
    	clear: both;
+}
+
+.image-home{
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
 .sidebar{
