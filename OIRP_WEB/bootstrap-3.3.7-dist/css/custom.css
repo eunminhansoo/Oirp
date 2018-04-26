@@ -319,6 +319,7 @@ nav{
 }
 
 .navbar-nav > li > a:hover{
+	background-color: #FDC601;
 	border-bottom: 2px solid #F117B4;
 	text-decoration: none; 
 }
