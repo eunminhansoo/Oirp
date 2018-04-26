@@ -4,17 +4,17 @@
 	$message = '';
 	
 	if(isset($_POST['btn_register'])){
-		$email = $_POST['email'];
-		$familyName = $_POST['family_name'];
-		$givenName = $_POST['given_name'];
-		$middleName = $_POST['middle_name'];
-		$gender = $_POST['gender'];
+		$email = htmlspecialchars($_POST['email']);
+		$familyName = htmlspecialchars( $_POST['family_name']);
+		$givenName = htmlspecialchars($_POST['given_name']);
+		$middleName = htmlspecialchars($_POST['middle_name']);
+		$gender = htmlspecialchars($_POST['gender']);
 		$birth = $_POST['birthday'];
 		$date = new DateTime($birth);
 		$result = $date->format('m/d/Y');
 	    $birth_enc = base64_encode($result);
-		$appForm = $_POST['application_form'];
-		$birthplace = $_POST['birthplace'];
+		$appForm = htmlspecialchars($_POST['application_form']);
+		$birthplace = htmlspecialchars($_POST['birthplace'];)
 		$date = date('Ymd');
 		$timestamp = strtotime($birth);
 		$birth_date = date('mdY', $timestamp);
