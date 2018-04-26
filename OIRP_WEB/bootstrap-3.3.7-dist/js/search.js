@@ -14,7 +14,7 @@ function search() {
 		td1 = tr_in[i].getElementsByTagName("td")[1];
 		td2 = tr_in[i].getElementsByTagName("td")[2];
 		td3 = tr_in[i].getElementsByTagName("td")[3];
-		td4 = tr_in[i].getElementsByTagName("td")[3];
+		td4 = tr_in[i].getElementsByTagName("td")[4];
 		if (td) {
 			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
 				tr_in[i].style.display = "";
@@ -56,6 +56,7 @@ function search() {
 	    td1 = tr_out[i].getElementsByTagName("td")[1];
 	    td2 = tr_out[i].getElementsByTagName("td")[2];
 	    td3 = tr_out[i].getElementsByTagName("td")[3];
+	    td4 = tr_out[i].getElementsByTagName("td")[4];
 
 	    if (td) {
 			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
@@ -73,7 +74,13 @@ function search() {
 									if(td3.innerHTML.toUpperCase().indexOf(filter) > -1){
 										tr_out[i].style.display = "";
 									} else{
-										tr_out[i].style.display = "none";
+										if(td4){
+											if(td4.innerHTML.toUpperCase().indexOf(filter) > -1){
+												tr_out[i].style.display = "";
+											} else{
+												tr_out[i].style.display = "none";
+											}
+										}
 									}
 								}
 							}
