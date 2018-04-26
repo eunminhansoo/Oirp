@@ -251,6 +251,8 @@ span.bordernavbar{
 	border: solid 2px black;
 	border-radius: 20px;
 	background-color: #fafafa;
+	box-shadow: 2px 2px 4px #888888;
+
 	
 }
 .appText{
@@ -319,6 +321,8 @@ div.exus a span{
 	background-color: #FDC601;
 	padding-right: 5%;
 	margin-bottom: 3%;
+	    box-shadow: 2px 2px 4px #888888;
+
 }
 
 .btn-logout{
@@ -342,13 +346,13 @@ nav{
 
 .navbar-nav > li > a:hover{
 	background-color: #FDC601;
-	border-bottom: 2px solid #F117B4;
+	border-bottom: 2px solid #00a1e4;
 	text-decoration: none; 
 }
 
 .navbar-nav > li > a:active{
 	background-color: #FDC601;
-	border-bottom: 2px solid #F117B4;
+	border-bottom: 2px solid #00a1e4;
 	text-decoration: none; 
 }
 
@@ -358,5 +362,6 @@ nav{
 }
 
 .dropdown-menu{
+	padding: 5px;
 	z-index: 100;
 }
