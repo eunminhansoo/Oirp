@@ -1,7 +1,13 @@
 body{
 	/*background-color: #f5ffeb;*/
-	background-color: #fafafa;
+	/*background-color: #fafafa;*/
+	background-color: #e8e8e8;	
 	min-height: 100%;
+	font-family: 'Century Gothic';
+}
+
+table{
+	background-color: #fafafa;
 }
 
 .white-center {
@@ -214,7 +220,7 @@ span.bordernavbar{
     transition: 0.3s;
 }
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #black;
 }
 
 .sidenav .closebtn {
@@ -298,7 +304,7 @@ div.exus a span{
 }
 
 #bar{
-	background-color: #00a1e4;
+	background-color: #FDC601;
 	padding-right: 5%;
 }
 
@@ -308,6 +314,19 @@ nav{
 
 .navbar-nav > li > a{
 	color: #333333;
+	font-family: 'Century Gothic';
+	font-weight: bold;
+}
+
+.navbar-nav > li > a:hover{
+	background-color: #FDC601;
+	border-bottom: 2px solid #F117B4;
+	text-decoration: none; 
+}
+
+.navbar-nav > li > a:active{
+	border-bottom: 2px solid #F117B4;
+	text-decoration: none; 
 }
 
 .icon-bar{
