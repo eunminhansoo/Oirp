@@ -59,8 +59,8 @@
 											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 									          <ul class="dropdown-menu">
-									            <li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
-									          </ul>
+												<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>									         
+											  </ul>
 									        </li>
 											
 											
@@ -112,7 +112,7 @@
 								<input type="radio" name="bilateral" value="Others" id="othersBi" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="bilateralText" id="biText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" disabled>
+								<input type="text" name="bilateralText" id="biText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value=" " disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
@@ -137,7 +137,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" value=" " pattern="[^<>].{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
@@ -166,50 +166,6 @@
 							</div>
 						</div>
 					</div>
-					<!--<div class="form-group row">
-						<div id="scholarloanrow1">
-							<div class="col-sm-4">
-								<label>Are you a recipient of scholarship?: </label>
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarloan1" id="scholarloanYes1" value="Yes" disabled> Yes
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarloan1" id="scholarloanNo1" value="No" disabled> No
-							</div>
-							<div class="col-sm-1">
-								Please specify: 
-							</div>
-							<div class="col-sm-2">
-								<input type="text" name="scholarloanText1" id="scholarloanText1" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_LOAN_OTHER1?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarloan1" value="" checked="checked" hidden> 
-							</div>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div id="scholarloanrow2">
-							<div class="col-sm-4">
-								<label>Are you a recepient of scholarship?: </label>
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarloan2" id="scholarloanYes2" value="Yes" disabled> Yes
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarloan2" id="scholarloanNo2" value="No" disabled> No
-							</div>
-							<div class="col-sm-1">
-								Please specify: 
-							</div>
-							<div class="col-sm-2">
-								<input type="text" name="scholarloanText2" id="scholarloanText2" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_LOAN_OTHER1?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
-							</div>
-							<div class="col-sm-1">
-								<input type="radio" name="scholarloan2" value="" checked="checked" hidden> 
-							</div>
-						</div>
-					</div>-->
 					<div class="form-group row" id="countrydiv">
 						<div class="col-sm-5">
 							<label>Chosen Country</label>

@@ -250,6 +250,7 @@ span.bordernavbar{
 	padding-bottom: 50px;
 	border: solid 2px black;
 	border-radius: 20px;
+	background-color: #fafafa;
 	
 }
 .appText{
@@ -282,6 +283,17 @@ div.exus a span{
 	font-size: 20px;
 }
 
+.shadow {
+	margin-right: 2px;
+    padding: 10px;
+	padding-right: 15px;
+    box-shadow: 2px 2px 4px #888888;
+}
+.shadowbtn {
+	box-shadow: 2px 2px 4px #888888;
+
+}
+
 /*NAVIGATOR BAR*/
 /* White Menu 2 */
 .menu_white2 .navbar-topaz{
@@ -306,6 +318,16 @@ div.exus a span{
 #bar{
 	background-color: #FDC601;
 	padding-right: 5%;
+	margin-bottom: 3%;
+}
+
+.btn-logout{
+     background:none!important;
+     color:inherit;
+     border:none; 
+     padding:0px!important;
+     font: inherit;
+     text-align: right;
 }
 
 nav{
@@ -325,6 +347,7 @@ nav{
 }
 
 .navbar-nav > li > a:active{
+	background-color: #FDC601;
 	border-bottom: 2px solid #F117B4;
 	text-decoration: none; 
 }

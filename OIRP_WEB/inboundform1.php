@@ -41,7 +41,7 @@
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+									<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
 								</ul>
 							</li>
 						</ul> 
@@ -88,13 +88,11 @@
 						<div class="form-group row">
 							<div class="col-sm-5">
 								<label>Telephone Number</label>
-								<p>ex: +63 2-406-1611</p>
-								<input type="text" name="telephone" id="telephone" class="form-control"  placeholder="country code - area code - telephone number" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 required value="<?php echo $geSel_TELEPHONE_NUM_IN?>">
+								<input type="text" name="telephone" id="telephone" class="form-control"  placeholder="ex: +63 2-406-1611" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 required value="<?php echo $geSel_TELEPHONE_NUM_IN?>">
 							</div>
 							<div class="col-sm-5">
 								<label>Mobile Number</label>
-								<p>ex: +63 974-887-6512</p>
-								<input type="text" name="mobile" id="mobile" class="form-control" placeholder="country code - telephone number" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 required value="<?php echo $geSel_MOBILE_NUM_IN?>">
+								<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 required value="<?php echo $geSel_MOBILE_NUM_IN?>">
 							</div>
 						</div>
 						
@@ -121,8 +119,7 @@
 							</div>
 							<div class="col-sm-4">
 								<label>Phone Number</label>
-								<p class="text_style">ex: +63 2-406-1611 or +63 974-887-6512</p>
-								<input type="text" name="numberCP" id="numberCP" class="form-control" placeholder="Phone number or Mobile number" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 required value="<?php echo $getSel_TELEPHONE_NUM_IN_BILA?>">
+								<input type="text" name="numberCP" id="numberCP" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 required value="<?php echo $getSel_TELEPHONE_NUM_IN_BILA?>">
 							</div>
 						</div>
 							

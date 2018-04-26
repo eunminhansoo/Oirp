@@ -42,8 +42,8 @@
 											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 									          <ul class="dropdown-menu">
-									            <li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
-									          </ul>
+												<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
+											  </ul>
 									        </li>
 											
 											
@@ -88,8 +88,7 @@
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
-							<p class="text_style" >ex: +63 2-406-1611 or +63 974-887-6512</p>
-							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="Phone number or Mobile number" pattern="([+]\d{1,4})([\d\s-+]{7,15})"  maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>">
+							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})"  maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>
@@ -135,8 +134,7 @@
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label>Contact Number</label>
-							<p class="text_style" >ex: +63 2-406-1611 or +63 974-887-6512</p>
-							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="Phone number or Mobile number" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>">
+							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>">
 						</div>
 						<div class="col-sm-6">
 							<label>Email Address</label>

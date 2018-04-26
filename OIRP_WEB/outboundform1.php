@@ -1,9 +1,9 @@
 <?php
 	include 'outbound_application.php';
 	
-	$familyName;
-	$givenName;
-	$email;
+	// $familyName;
+	// $givenName;
+	// $email;
 
 ?>
 <!DOCTYPE html>
@@ -25,35 +25,32 @@
 		<div class="header">
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>	
 		</div>
-		
+		<!--START OF NAVBAR-->
 		<nav class="navbar" id="bar">
-						<div class="container-fluid">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
-							        <span class="sr-only">Toggle navigation</span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							     </button>
-							</div>
-							<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
-										<ul class="nav navbar-nav navbar-right">
-											<li><a href="student_home.php">Home</a></li>
-											<li style="padding-right: 30px;"><a href="#">My Application</a></li>
-											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
-									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
-									          <ul class="dropdown-menu">
-									            <li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
-									          </ul>
-									        </li>
-											
-											
-										</ul> 
-									</div>
-							</div>
-						</nav>
-						
-		
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="student_home.php">Home</a></li>
+						<li style="padding-right: 30px;"><a href="#">My Application</a></li>
+						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+							</ul>
+						</li>
+					</ul> 
+				</div>
+			</div>
+		</nav>			
+		<!--END OF NAVBAR-->
 		<div class="container-fluid">
 			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
@@ -92,13 +89,11 @@
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Telephone Number</label>
-							<p>ex: +63 2-406-1611</p>
-							<input type="text" name="telephone" id="telephone" class="form-control" placeholder="country code - area code - telephone number" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 value="<?php echo $setSel_TELEPHONE_NUM_OUT?>" required>
+							<input type="text" name="telephone" id="telephone" class="form-control" placeholder="ex: +63 2-406-1611" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 value="<?php echo $setSel_TELEPHONE_NUM_OUT?>" required>
 						</div>
 						<div class="col-sm-5">
 							<label>Mobile Number</label>
-							<p>ex: +63 974-887-6512</p>
-							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="country code - telephone number" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 value="<?php echo $setSel_MOBILE_NUM_OUT?>" required>
+							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 value="<?php echo $setSel_MOBILE_NUM_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row break">

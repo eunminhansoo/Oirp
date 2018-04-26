@@ -42,7 +42,8 @@
         }
     }
     
-
+    include 'search.php';
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,6 +73,9 @@
 		<!--NAV BAR START-->
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">
+				<div class="col-sm-5" style="margin-top: 0.5%; margin-bottom: 0.5%;">
+					<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
+				</div>
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
@@ -108,7 +112,8 @@
 							<ul class="dropdown-menu">
 								<li><a href="addUniversities.php">Add Universities  <span class="glyphicon glyphicon-plus-sign"></span></a></li>
 								<li><a href="admin_logs.php">Audit Logs <span class="glyphicon glyphicon-list-alt"></span></a></li>
-								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+								<li class="divider"></li>
+								<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
 							</ul>
 						</li>
 					</ul> 
@@ -121,9 +126,6 @@
         <form method="post">	
           
 	        <div class="container-fluid">
-	        	<div class="col-sm-7">
-	        		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
-	            </div>
 	            <div class="col-sm-6">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
@@ -246,9 +248,9 @@
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
 
 </html>
-
 <script>
 $(document).ready(function(){
+	myFunction();
     //$('#tbl_student_in').DataTable(); 
 	function load_unseen_notification(view = '')
 	{
@@ -274,55 +276,8 @@ $(document).ready(function(){
 	$('.count').html('');
 	load_unseen_notification('yes');
 	});
- 
+
+	
  
 });
-
-function myFunction() {
-	// Declare variables 
-	var input, filter, table, tr, td, i;
-	input = document.getElementById("myInput");
-	filter = input.value.toUpperCase();
-	table_in = document.getElementById("tbl_student_in");
-	table_out = document.getElementById("tbl_student_out");
-	tr_in = table_in.getElementsByTagName("tr");
-	tr_out = table_out.getElementsByTagName("tr");
-
-	// Loop through all table rows, and hide those who don't match the search query
-	for (i = 0; i < tr_in.length; i++) {
-		td = tr_in[i].getElementsByTagName("td")[0];
-		td1 = tr_in[i].getElementsByTagName("td")[1];
-		if (td) {
-		if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-			tr_in[i].style.display = "";
-		} else {
-				if (td1) {
-				if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
-					tr_in[i].style.display = "";
-				} else {
-					tr_in[i].style.display = "none";
-				}
-				}
-		}
-		} 
-	}
-
- 	for (i = 0; i < tr_out.length; i++) {
-	    td = tr_out[i].getElementsByTagName("td")[0];
-	    td1 = tr_out[i].getElementsByTagName("td")[1];
-	    if (td) {
-	      	if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-	       		tr_out[i].style.display = "";
-	      	}else {
-	    	  	if (td1) {
-	    	    	if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
-	    	      		tr_out[i].style.display = "";
-	    	    	}else {
-	    	      		tr_out[i].style.display = "none";
-	    	    	}
-	    	  	}
-	      	}
-	    }
-	}
-}
 </script>

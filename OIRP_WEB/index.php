@@ -1,5 +1,6 @@
 <?php
 	include 'loginPhp.php';
+	error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,13 +19,29 @@
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		
-			<div class="header">
-				<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
-			</div>
+			<nav class="header navbar">
+				<div class="navbar-header">
+					<div class="col-sm-8"><a class="" href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a></div>
+					<div class="col-sm-4" style="margin-top: 50px;">
+						<form method="post" class="navbar-form" >
+							<div class="form-group">
+								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="[^<>].{1,30}" required/>
+							</div>
+							<div class="form-group">
+								<input type="password" name="password" class="input form-control shadow" placeholder="Password" required/>
+							</div>
+							<div class="form-group">
+								<button type="submit" name="btn_login" class="btn btn-info btn-block shadowbtn">Login</button>
+							</div>
+						</form>
+						<small><b>Note:</b> for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password</small>
+					</div>
+				</div>
+			</nav>
 			
 			<div class="main">
 			<img src='img/arch.jpg' width=100% height=auto>
-			<div class="container-fluid three">
+			<!-- div class="container-fluid three">
 				<div class="col-sm-4 threepanel">
 					<div class="">
 						<h2 class="txtStyle"><b>UST Identity</b></h2>
@@ -85,7 +102,7 @@
 					<p>*Note: for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password.</p>
 					<br>
 				</div>
-				<!-- div class="col-sm-3 login" style="background-color: #00a1e4;"-->
+				<!-- div class="col-sm-3 login" style="background-color: #00a1e4;>
 				<div class="col-sm-3 login info">
 					<br>
 					<h3 style="text-align: center">CONTACT US</h3><br>
@@ -95,7 +112,7 @@
 					international@ust.edu.ph</p>
 					<br>
 				</div>
-			</div>
+			</div-->
 			<div class="footer">
 					&copy; University of Santo Tomas 2018
 			</div>

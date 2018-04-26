@@ -52,8 +52,8 @@
 											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 									          <ul class="dropdown-menu">
-									            <li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
-									          </ul>
+												<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>									         
+											  </ul>
 									        </li>
 											
 											
@@ -231,8 +231,7 @@
 						</div>
 						<div class="col-sm-4">
 							<label>Phone Number</label>
-							<p class="text_style">ex: +63 2-406-1611 or +63 974-887-6512</p>
-							<input type="text" name="numberO" id="numberO" class="form-control" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
+							<input type="text" name="numberO" id="numberO" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
 						</div>	
 					</div>				
 					

@@ -48,6 +48,7 @@
 			if(radioScholar == 'OTHERS'){
 				$(':radio[name=scholarship][value='+ radioScholar +']').prop('checked', true);
 				$('#scholarshipText').prop('disabled', false);
+
 			}else{
 				$(':radio[name=scholarship][value='+ radioScholar +']').prop('checked', true);
 			}
@@ -271,6 +272,7 @@
 			if(radioScholar == 'OTHERS'){
 				$(':radio[name=scholarship][value='+ radioScholar +']').prop('checked', true);
 				$('#scholarshipText').prop('disabled', false);
+				document.getElementById('scholarshipText').value = radioScholarOther ;
 			}else{
 				$(':radio[name=scholarship][value='+ radioScholar +']').prop('checked', true);
 				$('#scholarshipText').prop('disabled', true);
@@ -328,6 +330,7 @@
 			}else if(radioBilaOption == "Others"){
 				if(radioBilaOption){
 					$(':radio[name=bilateral][value='+radioBilaOption+']').prop('checked', true);
+					document.getElementById('biText').value = radioBilaOther;
 				}
 				$("#biText").prop('disabled', false);
 			}
