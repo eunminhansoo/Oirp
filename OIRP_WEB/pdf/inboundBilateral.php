@@ -338,44 +338,44 @@ $pdf->Cell(25,6,'EXCELLENT','',1,'C');
 
 $pdf->Cell(50,7,'Reading','',0,'R');
 $pdf->Cell(29,7,'','',0,'C');
-$pdf->Rect(80,66,3,3);
+$pdf->Rect(80,64,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,66,3,3);
+$pdf->Rect(105,64,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,66,3,3);
+$pdf->Rect(130,64,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,66,3,3);
+$pdf->Rect(155,64,3,3);
 
 
 $pdf->Cell(50,7,'Writing','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,73,3,3);
+$pdf->Rect(80,71,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,73,3,3);
+$pdf->Rect(105,71,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,73,3,3);
+$pdf->Rect(130,71,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,73,3,3);
+$pdf->Rect(155,71,3,3);
 
 $pdf->Cell(50,7,'Speaking','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,80,3,3);
+$pdf->Rect(80,78,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,80,3,3);
+$pdf->Rect(105,78,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,80,3,3);
+$pdf->Rect(130,78,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,80,3,3);
+$pdf->Rect(155,78,3,3);
 
 $pdf->Cell(50,7,'Listening','',0,'R');
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(80,87,3,3);
+$pdf->Rect(80,85,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(105,87,3,3);
+$pdf->Rect(105,85,3,3);
 $pdf->Cell(25,7,'','',0,'C');
-$pdf->Rect(130,87,3,3);
+$pdf->Rect(130,85,3,3);
 $pdf->Cell(25,7,'','',1,'C');
-$pdf->Rect(155,87,3,3);
+$pdf->Rect(155,85,3,3);
 
 $pdf->Cell(165,10,'','',1);
 
