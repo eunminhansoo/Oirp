@@ -21,19 +21,19 @@
 			<nav class="header navbar">
 				<div class="navbar-header">
 					<div class="col-sm-8"><a class="" href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a></div>
-					<div class="col-sm-4">
-						<form method="post" class="navbar-form">
-							<div class="form-group"><br><br>
-								<input type="text" name="email" class="input form-control" placeholder="Email or Username" pattern="[^<>].{1,30}" required/>
+					<div class="col-sm-4" style="margin-top: 50px;">
+						<form method="post" class="navbar-form" >
+							<div class="form-group">
+								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="[^<>].{1,30}" required/>
 							</div>
-							<div class="form-group"><br><br>
-								<input type="password" name="password" class="input form-control" placeholder="Password" required/>
+							<div class="form-group">
+								<input type="password" name="password" class="input form-control shadow" placeholder="Password" required/>
 							</div>
-							<div class="form-group"><br><br>
-								<button type="submit" name="btn_login" class="btn btn-info btn-block">Login</button>
+							<div class="form-group">
+								<button type="submit" name="btn_login" class="btn btn-info btn-block shadowbtn">Login</button>
 							</div>
 						</form>
-						<p><b>Note:</b> for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password.</p>
+						<h5><p><small><b>Note:</b> for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password</small></p></h5>
 					</div>
 				</div>
 			</nav>
