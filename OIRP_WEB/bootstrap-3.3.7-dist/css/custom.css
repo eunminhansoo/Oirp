@@ -2,6 +2,7 @@ body{
 	/*background-color: #f5ffeb;*/
 	background-color: #fafafa;
 	min-height: 100%;
+	font-family: 'Century Gothic';
 }
 
 .white-center {
@@ -308,6 +309,8 @@ nav{
 
 .navbar-nav > li > a{
 	color: #333333;
+	font-family: 'Century Gothic';
+	font-weight: bold;
 }
 
 .icon-bar{

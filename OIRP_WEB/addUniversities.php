@@ -24,6 +24,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/jquery-ui.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
     <body>
@@ -31,6 +32,8 @@
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
+  		<script src="bootstrap-3.3.7-dist/js/jquery-ui.js"></script>
 		
 
 		<div class="">
@@ -85,6 +88,7 @@
 			</div>
 		</nav>		
 		<!--NAV BAR END-->
+		
 		<div class="container-fluid">
 			<form method="post" action="add_universities.php">
 				<div class="col-sm-1"></div>
@@ -141,67 +145,16 @@
 			$('.count').html('');
 			load_unseen_notification('yes');
 			});
+
+			var val = <?php echo $res ?>;
+			
+			$("#country").autocomplete({
+				source: val
+			});
 		
 		
 		});
-
-		function myFunction() {
-			// Declare variables 
-			var input, filter, table, tr, td, i;
-			input = document.getElementById("myInput");
-			filter = input.value.toUpperCase();
-			table_in = document.getElementById("tbl_student_in");
-			table_out = document.getElementById("tbl_student_out");
-			tr_in = table_in.getElementsByTagName("tr");
-			tr_out = table_out.getElementsByTagName("tr");
-
-			// Loop through all table rows, and hide those who don't match the search query
-			for (i = 0; i < tr_in.length; i++) {
-				td = tr_in[i].getElementsByTagName("td")[0];
-				td1 = tr_in[i].getElementsByTagName("td")[1];
-				if (td) {
-				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-					tr_in[i].style.display = "";
-				} else {
-						if (td1) {
-						if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
-							tr_in[i].style.display = "";
-						} else {
-							tr_in[i].style.display = "none";
-						}
-						}
-				}
-				} 
-			}
-
-			for (i = 0; i < tr_out.length; i++) {
-				td = tr_out[i].getElementsByTagName("td")[0];
-				td1 = tr_out[i].getElementsByTagName("td")[1];
-				if (td) {
-					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-						tr_out[i].style.display = "";
-					}else {
-						if (td1) {
-							if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
-								tr_out[i].style.display = "";
-							}else {
-								tr_out[i].style.display = "none";
-							}
-						}
-					}
-				}
-			}
-		}
-	</script>
-	<script>
-	$(document).ready(function(){
-		var val = <?php echo $res ?>;
-		
-		$("#country").autocomplete({
-			source: val;
-		});
-		
-	});		
+	
 	</script>
 	
 </html>
