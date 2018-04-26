@@ -77,7 +77,6 @@
 				</div>
 			</div>
 		</nav>
-		
 		<!--NAV BART END-->
 		<form>
 			<div class="container">

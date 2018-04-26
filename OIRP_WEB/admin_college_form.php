@@ -6,11 +6,15 @@
     session_start();
 	$college = $_SESSION['coll_sess'];
 
+	$stu_query = "SELECT * FROM student WHER STUDENT_ID = '$getStudentID'";
+	$stu_db = mysqli_query($conn, $stu_query);
+	while($stuRow = mysqli_fetch_array($stu_db)){
+		$stu_status = $stuRow['STATUS'];
+	}
 	$get_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID' AND COURSE = '$course'";
 	$set_query = mysqli_query($conn, $get_query);
 	while($rroww = mysqli_fetch_array($set_query)){
 		$setCourse = $rroww['COURSE'];
-		$sstatuss = $rroww['STATUS'];
 	}
 
     $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
@@ -191,7 +195,11 @@
 		</div>
 	</body>
 	<script>
-		var setStatus = "<?php echo $sstatuss?>";
-		$('#status option[value='+setStatus+']').prop('selected', true);
+		var setStatus = "<?php echo $stu_status?>";
+		if(setStatus == 'Approved'){
+			$('#status option[value=' ']').prop('selected', true);
+		}else{
+			$('#status option[value='+setStatus+']').prop('selected', true);
+		}
 	</script>
 </html>

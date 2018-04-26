@@ -50,6 +50,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
@@ -134,12 +135,12 @@
 		
 		<!--NAV BAR START-->
 		<nav class="navbar" id="bar">
-		    <div class="container-fluid">
+			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
-					    <span class="icon-bar"></span>
+						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
 				</div>
@@ -149,17 +150,17 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Applications<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-							   <li><a href="approved_students.php">Approved Students</a></li>
+								<li><a href="approved_students.php">Approved Students</a></li>
 								<li><a href="qualified_students.php">Qualified Students</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="outboundStatistics.php">Outbound Data Statistics</a></li>
-								<li><a href="InboundStatistics.php">Inbound Data Statistics</a></li>
-								<li><a href="outboundComparison.php">Outbound Comparison</a></li>
-								<li><a href="inboundComparison.php">Inbound Comparison</a></li>
+								<li><a href="outboundStatistics.php">Outbound Data Statistics <span class="fa fa-pie-chart"></span></a></li>
+								<li><a href="InboundStatistics.php">Inbound Data Statistics <span class="fa fa-pie-chart"></a></li>
+								<li><a href="outboundComparison.php">Outbound Comparison <span class="fa fa-bar-chart"></span></a></li>
+								<li><a href="inboundComparison.php">Inbound Comparison <span class="fa fa-bar-chart"></span></a></li>
 							</ul>
 						</li>
 						<li class="dropdown" style="padding-right: 30px;">
@@ -169,14 +170,16 @@
 						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OIRP<span class="caret"></span></a>
 							<ul class="dropdown-menu">
+								<li><a href="addUniversities.php">Add Universities  <span class="glyphicon glyphicon-plus-sign"></span></a></li>
+								<li><a href="admin_logs.php">Audit Logs <span class="glyphicon glyphicon-list-alt"></span></a></li>
 								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
 							</ul>
-						</li>					
+						</li>
 					</ul> 
 				</div>
 			</div>
-		</nav>
-		<!--NAV BART END-->
+		</nav>		
+		<!--NAV BAR END-->
         <div>
             <div class="col-xs-5">
                 <div class="col-xs-6">
@@ -189,16 +192,14 @@
                     </div>
                 </form>
             </div>
-            <div class="col-xs-6 col-xs-pull-0">
-                <span><b><h3>Outbound Student <?php echo $get_year ?></h3></b></span>
-            </div>
         </div>
-
-        <div class="container" id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        
+        <div class="container col-xs-5" id="container" style="width:100%; height:400px;"></div>
         <script type="text/javascript">
             $(document).ready(function(){
                 
 				var year = "<?php echo $res?>";
+                var title = "Inbound Student <?php echo $get_year?>";
 				$("#myDropdown").empty().append(year);
 
                 var data;
@@ -213,10 +214,10 @@
 
                 },
                 title: {
-                    text: ' '
+                    text: title
                 },
                 subtitle: {
-                    text: 'Click the columns to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
+                    text: 'Student inbound Comparison per Semester'
                 },
                 xAxis: {
                     type: 'category'
@@ -235,7 +236,7 @@
                         borderWidth: 0,
                         dataLabels: {
                             enabled: true,
-                            format: '{point.y:.1f}%'
+                            format: '{point.y:.1f}'
                         }
                     }
                 },
