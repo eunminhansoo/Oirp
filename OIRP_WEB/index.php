@@ -23,13 +23,13 @@
 					<div class="col-sm-8"><a class="" href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a></div>
 					<div class="col-sm-4">
 						<form method="post" class="navbar-form">
-							<div class="form-group">
+							<div class="form-group"><br><br>
 								<input type="text" name="email" class="input form-control" placeholder="Email or Username" pattern="[^<>].{1,30}" required/>
 							</div>
-							<div class="form-group">
+							<div class="form-group"><br><br>
 								<input type="password" name="password" class="input form-control" placeholder="Password" required/>
 							</div>
-							<div class="form-group">
+							<div class="form-group"><br><br>
 								<button type="submit" name="btn_login" class="btn btn-info btn-block">Login</button>
 							</div>
 						</form>
