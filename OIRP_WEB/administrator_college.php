@@ -2,6 +2,7 @@
 	error_reporting(0);
 	
 	include 'database_connection.php';
+	include = 'logoutbtn';
 	session_start();
 	$college = $_SESSION['collegeName'];
     // $sql_query = "SELECT * FROM admin_college a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID";
@@ -56,6 +57,9 @@
 		<!--NAV BAR START-->
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">
+				<div class="col-sm-5" style="margin-top: 0.5%; margin-bottom: 0.5%;">
+					<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
+				</div>
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
@@ -67,6 +71,10 @@
 				<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="administrator_college.php" style="padding-right: 30px;">Home</a></li>
+						<li class="dropdown" style="padding-right: 30px;">
+							<a href="#" class="dropdown-toggle" id="notif" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span><span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+							<ul class="dropdown-menu" id="notif-down"></ul>
+						</li>
 						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">College<span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -157,4 +165,35 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
+	<script>
+		$(document).ready(function(){
+			//$('#tbl_student_in').DataTable(); 
+			function load_unseen_notification(view = '')
+			{
+				$.ajax({
+					url:"fetch_notif.php",
+					method:"POST",
+					data:{view:view},
+					dataType:"json",
+					success:function(data)
+					{
+						$('#notif-down').html(data.notification);
+						if(data.unseen_notification > 0)
+						{
+						$('.count').html(data.unseen_notification);
+						}
+					}
+				});
+			}
+		
+			load_unseen_notification();
+		
+			$(document).on('click', '#notif', function(){
+			$('.count').html('');
+			load_unseen_notification('yes');
+			});
+		
+		
+		});
+	</script>
 </html>

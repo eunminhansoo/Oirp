@@ -195,7 +195,27 @@
 				'',
 				'$date1'
 				)";
+			// INSERT COLLEGE NOTIFICATION
+				$query_log2 = "INSERT INTO collegenotification(STUDENT_COUNT,
+				STUDENT_ID,
+				LASTNAME,
+				FIRSTNAME,
+				APPLICATION_FORM,
+				COLLEGE,
+				COURSE,
+				STATUS
+				) VALUES (
+					'',
+					'$getStudentID',
+					'$LastName',
+					'$FirstName',
+					'',
+					'$course_1',
+					'$set_COURSE_1_INBOUND',
+					''
+					)";
 			$log_db = mysqli_query($conn, $query_log1);
+			$log_db1 = mysqli_query($conn, $query_log2);
 			$ddbb = mysqli_query($conn, $course_query);
 		}
 		
@@ -239,7 +259,28 @@
 				'',
 				'$date2'
 				)";
+
+			// INSERT COLLEGE NOTIFICATION
+				$query_log3 = "INSERT INTO collegenotification(STUDENT_COUNT,
+				STUDENT_ID,
+				LASTNAME,
+				FIRSTNAME,
+				APPLICATION_FORM,
+				COLLEGE,
+				COURSE,
+				STATUS
+				) VALUES (
+					'',
+					'$getStudentID',
+					'$LastName',
+					'$FirstName',
+					'',
+					'$course_2',
+					'$set_COURSE_2_INBOUND',
+					''
+					)";
 			$log_db1 = mysqli_query($conn, $query_log2);
+			$log_db2 = mysqli_query($conn, $query_log3);
 			$ddbb1 = mysqli_query($conn, $course_query1);
 		}
 
@@ -285,7 +326,29 @@
 				'',
 				'$date3'
 				)";
+			
+			// INSERT COLLEGE NOTIFICATION
+				$query_log4 = "INSERT INTO collegenotification(STUDENT_COUNT,
+				STUDENT_ID,
+				LASTNAME,
+				FIRSTNAME,
+				APPLICATION_FORM,
+				COLLEGE,
+				COURSE,
+				STATUS
+				) VALUES (
+					'',
+					'$getStudentID',
+					'$LastName',
+					'$FirstName',
+					'',
+					'$course_3',
+					'$set_COURSE_3_INBOUND',
+					''
+					)";
+
 			$log_db2 = mysqli_query($conn, $query_log3);
+			$log_db3 = mysqli_query($conn, $query_log4);
 			$ddbb2 = mysqli_query($conn, $course_query2);
 		}
 
@@ -330,7 +393,27 @@
 				'',
 				'$date4'
 				)";
+			// INSERT COLLEGE NOTIFICATION
+				$query_log5 = "INSERT INTO collegenotification(STUDENT_COUNT,
+				STUDENT_ID,
+				LASTNAME,
+				FIRSTNAME,
+				APPLICATION_FORM,
+				COLLEGE,
+				COURSE,
+				STATUS
+				) VALUES (
+					'',
+					'$getStudentID',
+					'$LastName',
+					'$FirstName',
+					'',
+					'$course_4',
+					'$set_COURSE_4_INBOUND',
+					''
+					)";
 			$log_db3 = mysqli_query($conn, $query_log4);
+			$log_db4 = mysqli_query($conn, $query_log5);
 			$ddbb3 = mysqli_query($conn, $course_query3);
 		}
 
@@ -374,7 +457,27 @@
 				'',
 				'$date5'
 				)";
+			// INSERT COLLEGE NOTIFICATION
+				$query_log6 = "INSERT INTO collegenotification(STUDENT_COUNT,
+				STUDENT_ID,
+				LASTNAME,
+				FIRSTNAME,
+				APPLICATION_FORM,
+				COLLEGE,
+				COURSE,
+				STATUS
+				) VALUES (
+					'',
+					'$getStudentID',
+					'$LastName',
+					'$FirstName',
+					'',
+					'$course_5',
+					'$set_COURSE_5_INBOUND',
+					''
+					)";
 			$log_db4 = mysqli_query($conn, $query_log5);
+			$log_db5 = mysqli_query($conn, $query_log6);
 			$ddbb4 = mysqli_query($conn, $course_query4);
 		}
 		
@@ -481,8 +584,39 @@
 		mysqli_query($conn, $cert_query);
 
 		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-		
+		$query_completed = "";
 		$query_db = mysqli_query($conn, $query2);
+		$query_name = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+		$name_db = mysqli_query($conn, $query_name);
+		while($row_complete = mysqli_fetch_array($name_db)){
+			$surname = $row_complete['FAMILY_NAME'];
+			$givenname = $row_complete['GIVEN_NAME'];
+		}
+		
+		//insert to audit log
+			date_default_timezone_set('Asia/Manila');
+			$datecomplete = date('Y-m-d/H:i:s');
+			$query_logcomplete = "INSERT INTO audit_logs(STUDENT_COUNT,
+			STUDENT_ID,
+			LASTNAME,
+			FIRSTNAME,
+			APPLICATION_FORM,
+			COLLEGE,
+			COURSE,
+			STATUS,
+			DATE
+			) VALUES (
+				'',
+				'$getStudentID',
+				'$surname',
+				'$givenname',
+				'',
+				'',
+				'',
+				'$status',
+				'$datecomplete'
+				)";
+			$log_complete = mysqli_query($conn, $query_logcomplete);
 
 		if($query_db){
 			$yearlySel_query = "SELECT * FROM yearly";
