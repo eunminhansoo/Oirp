@@ -319,13 +319,11 @@ nav{
 }
 
 .navbar-nav > li > a:hover{
-	border-bottom: 2px solid #F117B4;
-	text-decoration: none; 
+	border-bottom: 2px solid #FDC601;
 }
 
 .navbar-nav > li > a:active{
-	border-bottom: 2px solid #F117B4;
-	text-decoration: none; 
+	border-bottom: 2px solid #FDC601;
 }
 
 .icon-bar{
