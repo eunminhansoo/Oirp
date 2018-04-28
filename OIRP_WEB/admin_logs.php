@@ -1,6 +1,11 @@
 <?php
 	error_reporting(0);
     include 'database_connection.php';
+	include 'logout.php';
+	session_start();
+	if($_SESSION['superadmin'] != 'oirp'){
+		header("Location: index.php");
+	}
     
     $query = "SELECT * FROM audit_logs ORDER BY STUDENT_COUNT DESC";
     $result = mysqli_query($conn, $query);

@@ -1,5 +1,5 @@
 <?php
-
+	include 'logout.php';
 	error_reporting(0);
 	
     $getStudentID = $_GET['studentName'];

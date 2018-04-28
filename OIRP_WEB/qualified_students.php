@@ -2,6 +2,11 @@
 	error_reporting(0);
 	
 	include 'database_connection.php';
+	include 'logout.php';
+	session_start();
+	if($_SESSION['superadmin'] != 'oirp'){
+		header("Location: index.php");
+	}
     $sql_query = "SELECT * FROM student a INNER JOIN educ_background_inbound b ON a.STUDENT_ID = b.STUDENT_ID WHERE a.STATUS = 'Qualified'";
     // $sql_query = "SELECT * FROM admin_college a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE b.STATUS = 'Qualified' ";
     $query = mysqli_query($conn, $sql_query);

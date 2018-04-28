@@ -1,9 +1,12 @@
 <?php
     include 'database_connection.php';
-
+	include 'logout.php';
+    session_start();
+	if($_SESSION['collegeName'] != 'college'){
+		header("Location: index.php");
+	}
     $getStudentID = $_GET['studentName'];
 	$course = $_GET['course'];
-    session_start();
 	$college = $_SESSION['coll_sess'];
 
 	$stu_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";

@@ -50,7 +50,7 @@
 							if($_SESSION['superadmin'] == 'oirp'){
 								header("Location: administrator.php");
 							}else{
-								$_SESSION['collegeName'] = $rrow['college'];
+								$_SESSION['collegeName'] = 'college';
 								header("Location: administrator_college.php");
 							}
 						}

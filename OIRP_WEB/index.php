@@ -88,7 +88,7 @@
 			<div class="col-sm-3 pull-sm-right login">
 					<br>
 					<h3 style="text-align: center">LOGIN</h3>
-					<?php echo $error_message?>
+					
 					<br>
 					<form method="post">
 						<div class="form-group">
@@ -118,6 +118,7 @@
 					<br>
 				</div>
 			</div-->
+			<?php echo $error_message?>
 			<div class="footer">
 					&copy; University of Santo Tomas 2018
 			</div>

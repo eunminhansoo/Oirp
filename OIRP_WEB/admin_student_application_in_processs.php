@@ -1,6 +1,9 @@
 <?php
-
     include 'database_connection.php';
+	session_start();
+	if($_SESSION['superadmin'] != 'oirp'){
+		header("Location: index.php");
+	}
     $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
     $mssg = ' ';
     $result = mysqli_query($conn, $sql);

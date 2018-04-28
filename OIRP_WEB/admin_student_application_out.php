@@ -1,9 +1,12 @@
 <?php
-	
 	error_reporting(0);	
 
     include 'database_connection.php';
-
+	include 'logout.php';
+	session_start();
+	if($_SESSION['superadmin'] != 'oirp'){
+		header("Location: index.php");
+	}
     $getStudentID = $_GET['studentName'];
     
     $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";

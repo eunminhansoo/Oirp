@@ -1,5 +1,10 @@
 <?php
 	require 'universities.php';
+	include 'logout.php';
+	session_start();
+	if($_SESSION['superadmin'] != 'oirp'){
+		header("Location: index.php");
+	}
 	
 	$sql = "select distinct country from partner_universities order by country asc";
 	$result = mysqli_query($conn, $sql);
