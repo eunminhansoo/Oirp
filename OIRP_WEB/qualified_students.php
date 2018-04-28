@@ -29,6 +29,7 @@
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <script src="bootstrap-3.3.7-dist/js/search.js"></script>
 	    
 
 		<div class="">
@@ -39,8 +40,8 @@
 		<!--NAV BAR START-->
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">
-				<div class="col-sm-5" style="margin-top: 0.5%; margin-bottom: 0.5%;">
-					<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" class="form-control">
+				<div class="col-sm-5" style="padding-top: 0.5%; padding-bottom: 0.5%;">
+					<input type="text" id="myInput" onkeyup="search()" placeholder="Search" class="form-control">
 				</div>
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
@@ -178,7 +179,7 @@
 	                            ?>
 	                            <tfoot>
 	                            <tr>
-	                                <td><?php echo "$fullname" ?></td>
+	                                 <td><?php echo "<a href=admin_student_application_out.php?studentName=".urlencode($studentID).">".$fullname."</a>" ?></td>
 									<?php
 										if($get_TYPE_OF_PROGRAM == 'Others'){
 											echo "<td>Bilateral</td>";

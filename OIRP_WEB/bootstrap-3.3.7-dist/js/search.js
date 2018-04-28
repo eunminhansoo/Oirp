@@ -1,5 +1,4 @@
-<script>
-function myFunction() {
+function search() {
 	// Declare variables 
 	var input, filter, table, tr, td, i;
 	input = document.getElementById("myInput");
@@ -15,49 +14,8 @@ function myFunction() {
 		td1 = tr_in[i].getElementsByTagName("td")[1];
 		td2 = tr_in[i].getElementsByTagName("td")[2];
 		td3 = tr_in[i].getElementsByTagName("td")[3];
-
+		td4 = tr_in[i].getElementsByTagName("td")[4];
 		if (td) {
-			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-				tr_in[i].style.display = "";
-			} else {
-				tr_in[i].style.display = "none";
-			}
-		}
-
-		if (td1) {
-			if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
-				tr_in[i].style.display = "";
-			} else {
-				tr_in[i].style.display = "none";
-			}
-		}
-
-		if (td2) {
-			if (td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
-				tr_in[i].style.display = "";
-			} else {
-				tr_in[i].style.display = "none";
-			}
-		}
-
-		if (td3) {
-			if (td3.innerHTML.toUpperCase().indexOf(filter) > -1) {
-				tr_in[i].style.display = "";
-			} else {
-				tr_in[i].style.display = "none";
-			}
-		}
-
-
-			
-
- 	for (i = 0; i < tr_out.length; i++) {
-	    td = tr_out[i].getElementsByTagName("td")[0];
-	    td1 = tr_out[i].getElementsByTagName("td")[1];
-	    td2 = tr_out[i].getElementsByTagName("td")[2];
-	    td3 = tr_out[i].getElementsByTagName("td")[3];
-
-	    if (td) {
 			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
 				tr_in[i].style.display = "";
 			} else {
@@ -73,7 +31,13 @@ function myFunction() {
 									if(td3.innerHTML.toUpperCase().indexOf(filter) > -1){
 										tr_in[i].style.display = "";
 									} else{
-										tr_in[i].style.display = "none";
+										if(td4){
+											if(td4.innerHTML.toUpperCase().indexOf(filter) > -1){
+												tr_in[i].style.display = "";
+											} else{
+												tr_in[i].style.display = "none";
+											}
+										}
 									}
 								}
 							}
@@ -82,6 +46,48 @@ function myFunction() {
 				}
 			}
 		} 
-}
+	}
 
-</script>
+
+			
+
+ 	for (i = 0; i < tr_out.length; i++) {
+	    td = tr_out[i].getElementsByTagName("td")[0];
+	    td1 = tr_out[i].getElementsByTagName("td")[1];
+	    td2 = tr_out[i].getElementsByTagName("td")[2];
+	    td3 = tr_out[i].getElementsByTagName("td")[3];
+	    td4 = tr_out[i].getElementsByTagName("td")[4];
+
+	    if (td) {
+			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				tr_out[i].style.display = "";
+			} else {
+				if (td1) {
+					if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+						tr_out[i].style.display = "";
+					} else {
+						if(td2){
+							if (td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+								tr_out[i].style.display = "";
+							} else{
+								if(td3){
+									if(td3.innerHTML.toUpperCase().indexOf(filter) > -1){
+										tr_out[i].style.display = "";
+									} else{
+										if(td4){
+											if(td4.innerHTML.toUpperCase().indexOf(filter) > -1){
+												tr_out[i].style.display = "";
+											} else{
+												tr_out[i].style.display = "none";
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		} 
+ 	}
+}
