@@ -1,9 +1,11 @@
 <?php
 	include 'database_connection.php';
 	session_start();
-	if($_SESSION['outValidaition'] != 'outvalid'){
+	if($_SESSION['outValidaition'] != 'outvalid' && $_SESSION['stuValid'] != 'yes'){
 		header("Location: index.php");
 		// echo "pumasok ka!!!!";
+	}else if($_SESSION['outValidaition'] != 'outvalid' && $_SESSION['stuValid'] == 'yes'){
+		header("Location: student_home.php");
 	}else{
 
 		$getses_StudentID = $_SESSION['student_id_session'];

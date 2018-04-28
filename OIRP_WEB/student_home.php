@@ -218,7 +218,7 @@
 									<span><b>Upload PDF:</b></span>
 								</div>
 								<div class="col-xs-4 col-xs-push-1">
-									<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" disabled>
+									<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" accept="application/pdf" disabled>
 								</div>
 							</div>
 							<br>
