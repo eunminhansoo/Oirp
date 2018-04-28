@@ -37,7 +37,6 @@
 					<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="student_home.php">Home</a></li>
-							<li style="padding-right: 30px;"><a href="#">My Application</a></li>
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 								<ul class="dropdown-menu">

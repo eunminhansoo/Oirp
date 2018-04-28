@@ -45,8 +45,6 @@
 				$_SESSION['$ses_email'] = $email;
 				$_SESSION['stuValid'] = 'yes';
 				header("Location: registerRedirect.php");
-				
-				
 			}else{
 				header("Location: register.php");
 				$message = "<script language='javascript'>(function(){alert('Error 404');})();</script>";

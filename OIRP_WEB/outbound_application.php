@@ -1,7 +1,7 @@
 <?php
 	include 'database_connection.php';
 	session_start();
-	if($_SESSION['inValidation'] != 'invalid'){
+	if($_SESSION['outValidaition'] != 'outvalid'){
 		header("Location: index.php");
 		// echo "pumasok ka!!!!";
 	}else{
