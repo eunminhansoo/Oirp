@@ -2,6 +2,7 @@
 include 'database_connection.php';
 
 	session_start();
+	
 	if($_SESSION['stuValid'] != 'yes'){
 		header("Location: index.php");
 	}else{
@@ -28,7 +29,11 @@ include 'database_connection.php';
 				}
 			}
 		}
-		
+		// // oppen the session
+		// if($pagination != 'submitted' || $pagination != 'Submitted PDF'){
+		// 	$_SESSION['inValidation'] = 'invalid';
+		// }
+
 		$type_of_program = "";
 		if ($application_prog == 'outbound'){
 			$sql_query = "select type_of_program from proposed_field_study where student_id = '$get_studentID'";
@@ -185,6 +190,7 @@ include 'database_connection.php';
 				$msg = "Upload Failed";
 			}
 		}
+		
 	}
     	
    

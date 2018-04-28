@@ -1,6 +1,7 @@
 <?php
 	include 'student_home_process.php';
 	include 'logout.php';
+	
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -131,23 +132,33 @@
 								}else if($pagination == NULL && $application_prog == 'inbound'){
 									echo '<a href=inboundform1.php><span class="caf"> Continue Application form</span></a>';
 								}else if($pagination == 'inbound page 1'){
+									$_SESSION['inValidation'] = 'invalid';
 									echo '<span class="caf"> Continue Application form</span>';
 								}
 								else if($pagination == 'inbound page 2'){
+									$_SESSION['inValidation'] = 'invalid';
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'inbound page 3'){
+									$_SESSION['inValidation'] = 'invalid';
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'inbound page 4'){
+									$_SESSION['inValidation'] = 'invalid';
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'inbound page 5'){
+									$_SESSION['inValidation'] = 'invalid';
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'outbound page 1'){
+									$_SESSION['outValidaition'] = 'outvalid';
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'outbound page 2'){
+									$_SESSION['outValidaition'] = 'outvalid';
 									echo '<span class="caf"> Continue Application form</span>';
 								}else if($pagination == 'outbound page 3'){
+									$_SESSION['outValidaition'] = 'outvalid';
 									echo '<span class="caf"> Continue Application form</spapan>';
 								}else if($pagination == 'submitted'){
+									unset($_SESSION['outValidation']);
+									unset($_SESSION['inValidation']);
 									echo '<br><span class="caf" id>Upload Application form </span>';
 								}else{
 									if($pagination == 'Submitted PDF' && $status == 'Pending' || $pagination == 'Submitted PDF' && $status == 'Approved'|| $pagination == 'Submitted PDF' && $status == 'Denied'|| $pagination == 'Submitted PDF' && $status == 'On-going'){
