@@ -18,14 +18,36 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
 		<link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
+	<style>
+		.alert {
+			padding: 20px;
+			background-color: #f44336;
+			color: white;
+		}
+
+		.closebtn {
+			margin-left: 15px;
+			color: white;
+			font-weight: bold;
+			float: right;
+			font-size: 22px;
+			line-height: 20px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.closebtn:hover {
+			color: black;
+		}
+	</style>
 	
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 		<div class="">
+		<?php echo $errorTORmsg;?>
 		<div class="header">
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
@@ -193,7 +215,7 @@
 											echo '<a href="#">My Application</a>';
 										}
 									} 
-								}else if($pagination == 'submitted'){
+								}else if($pagination == 'submitted' || $pagination == 'Submitted PDF'){
 									unset($_SESSION['outValidation']);
 									unset($_SESSION['inValidation']);
 									if($pagination == 'submitted' || $pagination == 'Submitted PDF'){
@@ -395,6 +417,7 @@
 								<div class="col-xs-3 col-xs-pull-1">
 									<input type="file" name="TAscan" id="taScan" class="custom-file-input form-control-file" disabled/>
 								</div>
+								
 							</div>
 						</div>
 						<br>
