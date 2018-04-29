@@ -51,6 +51,7 @@
 								header("Location: administrator.php");
 							}else{
 								$_SESSION['collegeName'] = 'college';
+								$_SESSION['collegeNames'] = $college;
 								header("Location: administrator_college.php");
 							}
 						}

@@ -4,6 +4,7 @@
 	if($_SESSION['superadmin'] != 'oirp'){
 		header("Location: index.php");
 	}
+	$errorCoCmsg = "";
     $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
     $mssg = ' ';
     $result = mysqli_query($conn, $sql);
@@ -60,31 +61,31 @@
 				if(mysqli_num_rows($sel_check_db) <= 0){
 					$ins_query = "INSERT INTO admin_college ('STUDENT_COUNT', 'STUDENT_ID, 'PROPOSED_PROGRAM', 'COURSE_1', 'COURSE_2', 'COURSE_3', 'COURSE_4', 'COURSE_5') VALUES ('', '$getStudentID', '', '', '', '', '', '')";
 					//add in audit
-				//insert to audit log
-		$approved = 'Approved';
-		date_default_timezone_set('Asia/Manila');
-		$date_approved = date('Y-m-d/H:i:s');
-    	$query_approved = "INSERT INTO audit_logs(STUDENT_COUNT,
-    	STUDENT_ID,
-		LASTNAME,
-		FIRSTNAME,
-		APPLICATION_FORM,
-		COLLEGE,
-		COURSE,
-		STATUS,
-		DATE
-		) VALUES (
-			'',
-			'$getStudentID',
-			'',
-			'',
-			'',
-			'',
-			'',
-			'$approved',
-			'$date_approved'
-			)";
-    				mysqli_query($conn, $query_approved);
+					//insert to audit log
+					$approved = 'Approved';
+					date_default_timezone_set('Asia/Manila');
+					$date_approved = date('Y-m-d/H:i:s');
+					$query_approved = "INSERT INTO audit_logs(STUDENT_COUNT,
+					STUDENT_ID,
+					LASTNAME,
+					FIRSTNAME,
+					APPLICATION_FORM,
+					COLLEGE,
+					COURSE,
+					STATUS,
+					DATE
+					) VALUES (
+						'',
+						'$getStudentID',
+						'',
+						'',
+						'',
+						'',
+						'',
+						'$approved',
+						'$date_approved'
+					)";
+					mysqli_query($conn, $query_approved);
 					mysqli_query($conn, $ins_query);
 				}
 			}else{
@@ -173,7 +174,7 @@
 				' ',
 				'$set_COURSE_1_INBOUND',
 				'$course_1',
-				''
+				'Approved'
 			)";
 			//insert to audit log
 			date_default_timezone_set('Asia/Manila');
@@ -237,7 +238,7 @@
 				' ',
 				'$set_COURSE_2_INBOUND',
 				'$course_2',
-				''
+				'Approved'
 			)";
 			//insert to audit log
 			date_default_timezone_set('Asia/Manila');
@@ -303,7 +304,7 @@
 				' ',
 				'$set_COURSE_3_INBOUND',
 				'$course_3',
-				''
+				'Approved'
 			)";
 
 			//insert to audit log
@@ -371,7 +372,7 @@
 				' ',
 				'$set_COURSE_4_INBOUND',
 				'$course_4',
-				''
+				'Approved'
 			)";
 			//insert to audit log
 			date_default_timezone_set('Asia/Manila');
@@ -435,7 +436,7 @@
 				' ',
 				'$set_COURSE_5_INBOUND',
 				'$course_5',
-				''
+				'Approved'
 			)";
 			//insert to audit log
 			date_default_timezone_set('Asia/Manila');
@@ -570,95 +571,106 @@
         $target = "images/".basename($_FILES['certificate']['name']);
         
         $cert = $_FILES['certificate']['name'];
-        $inn = "inbound";
-        $cert_query = "INSERT INTO certificateofcompletion(
-            STUDENT_COUNT,
-            STUDENT_ID,
-            APPLICATION_FORM,
-            CERTIFICATION,
-            EXPIRATION_ACCESS
-        ) values (
-            '',
-            '$getStudentID',
-            '$inn',
-            '$cert',
-            '$expireCert'
-        )";
-		mysqli_query($conn, $cert_query);
+		$ext = pathinfo($torscan, PATHINFO_EXTENSION);
+		if($ext == 'gif' || $ext == 'png' || $ext == 'jpg' || $_FILES["certificate"]["type"] == "application/pdf"){
 
-		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-		$query_completed = "";
-		$query_db = mysqli_query($conn, $query2);
-		$query_name = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
-		$name_db = mysqli_query($conn, $query_name);
-		while($row_complete = mysqli_fetch_array($name_db)){
-			$surname = $row_complete['FAMILY_NAME'];
-			$givenname = $row_complete['GIVEN_NAME'];
-		}
-		
-		//insert to audit log
-			date_default_timezone_set('Asia/Manila');
-			$datecomplete = date('Y-m-d/H:i:s');
-			$query_logcomplete = "INSERT INTO audit_logs(STUDENT_COUNT,
-			STUDENT_ID,
-			LASTNAME,
-			FIRSTNAME,
-			APPLICATION_FORM,
-			COLLEGE,
-			COURSE,
-			STATUS,
-			DATE
-			) VALUES (
+			$inn = "inbound";
+			$cert_query = "INSERT INTO certificateofcompletion(
+				STUDENT_COUNT,
+				STUDENT_ID,
+				APPLICATION_FORM,
+				CERTIFICATION,
+				EXPIRATION_ACCESS
+			) values (
 				'',
 				'$getStudentID',
-				'$surname',
-				'$givenname',
-				'',
-				'',
-				'',
-				'$status',
-				'$datecomplete'
-				)";
-			$log_complete = mysqli_query($conn, $query_logcomplete);
+				'$inn',
+				'$cert',
+				'$expireCert'
+			)";
+			mysqli_query($conn, $cert_query);
 
-		if($query_db){
-			$yearlySel_query = "SELECT * FROM yearly";
-			$yearlySel_db = mysqli_query($conn, $yearlySel_query);
-			while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
-				$yearr = $yearSel_row['YEARLY'];
+			$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+			$query_completed = "";
+			$query_db = mysqli_query($conn, $query2);
+			$query_name = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+			$name_db = mysqli_query($conn, $query_name);
+			while($row_complete = mysqli_fetch_array($name_db)){
+				$surname = $row_complete['FAMILY_NAME'];
+				$givenname = $row_complete['GIVEN_NAME'];
 			}
-			$sel_query = "SELECT * FROM instatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-			$sel_db = mysqli_query($conn, $sel_query);
-			$countNum = mysqli_num_rows($sel_db);
-			if($countNum == 1){
-				while($seRow = mysqli_fetch_array($sel_db)){
-					$num_student = $seRow['NUMBER_STUDENT'];
-				}
-				$num_student += 1;
-				$statUp = "UPDATE instatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-				mysqli_query($conn, $statUp);
-			}
-			if($countNum == 0){
-				$numStu = 1;
-				$appform = "inbound";
-				$statInt = "INSERT INTO instatistics(ID, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
+			
+			//insert to audit log
+				date_default_timezone_set('Asia/Manila');
+				$datecomplete = date('Y-m-d/H:i:s');
+				$query_logcomplete = "INSERT INTO audit_logs(STUDENT_COUNT,
+				STUDENT_ID,
+				LASTNAME,
+				FIRSTNAME,
+				APPLICATION_FORM,
+				COLLEGE,
+				COURSE,
+				STATUS,
+				DATE
+				) VALUES (
 					'',
-					'$numStu',
-					'$yearr',
-					'$country',
-					'$appform'
-				)";
-				mysqli_query($conn, $statInt);
+					'$getStudentID',
+					'$surname',
+					'$givenname',
+					'',
+					'',
+					'',
+					'$status',
+					'$datecomplete'
+					)";
+				$log_complete = mysqli_query($conn, $query_logcomplete);
+
+			if($query_db){
+				$yearlySel_query = "SELECT * FROM yearly";
+				$yearlySel_db = mysqli_query($conn, $yearlySel_query);
+				while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
+					$yearr = $yearSel_row['YEARLY'];
+				}
+				$sel_query = "SELECT * FROM instatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+				$sel_db = mysqli_query($conn, $sel_query);
+				$countNum = mysqli_num_rows($sel_db);
+				if($countNum == 1){
+					while($seRow = mysqli_fetch_array($sel_db)){
+						$num_student = $seRow['NUMBER_STUDENT'];
+					}
+					$num_student += 1;
+					$statUp = "UPDATE instatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+					mysqli_query($conn, $statUp);
+				}
+				if($countNum == 0){
+					$numStu = 1;
+					$appform = "inbound";
+					$statInt = "INSERT INTO instatistics(ID, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
+						'',
+						'$numStu',
+						'$yearr',
+						'$country',
+						'$appform'
+					)";
+					mysqli_query($conn, $statInt);
+				}
 			}
+			if (move_uploaded_file($_FILES['certificate']['tmp_name'], $target)) 
+			{
+				$msg = "Upload Successful";
+			}
+			else 
+			{
+				$msg = "Upload Failed";
+			}
+		}else{
+			$errorCoCmsg = "
+				<div class='container-fluid alert'>
+					<span class='closebtn ' onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+					<p>The File must be .jpg, .png, and PDF file!</p>
+				</div>
+			";
 		}
-        if (move_uploaded_file($_FILES['certificate']['tmp_name'], $target)) 
-        {
-            $msg = "Upload Successful";
-        }
-        else 
-        {
-            $msg = "Upload Failed";
-        }
     }
 
 ?>

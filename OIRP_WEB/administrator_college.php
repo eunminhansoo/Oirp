@@ -4,7 +4,7 @@
 	include 'database_connection.php';
 	include 'logout.php';
 	session_start();
-	$college = $_SESSION['collegeName'];
+	$college = $_SESSION['collegeNames'];
     // $sql_query = "SELECT * FROM admin_college a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID";
 	if($_SESSION['collegeName'] != 'college'){
 		header("Location: index.php");
@@ -75,7 +75,7 @@
 						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">College<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+								<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
 							</ul>
 						</li>
 					</ul> 

@@ -7,6 +7,7 @@
 	if($_SESSION['superadmin'] != 'oirp'){
 		header("Location: index.php");
 	}
+	$errorCoCmsg = "";
     $getStudentID = $_GET['studentName'];
     
     $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
@@ -64,65 +65,76 @@
 			$target = "images/".basename($_FILES['certificate']['name']);
 			
 			$cert = $_FILES['certificate']['name'];
-			$inn = "inbound";
-			$cert_query = "INSERT INTO certificateofcompletion(
-				STUDENT_COUNT,
-				STUDENT_ID,
-				APPLICATION_FORM,
-				CERTIFICATION,
-				EXPIRATION_ACCESS
-			) values (
-				'',
-				'$getStudentID',
-				'$inn',
-				'$cert',
-				'$expireCert'
-			)";
-			mysqli_query($conn, $cert_query);
+			$ext = pathinfo($torscan, PATHINFO_EXTENSION);
+			if($ext == 'gif' || $ext == 'png' || $ext == 'jpg' || $_FILES["TAscan"]["type"] == "application/pdf"){
 
-			// UPDATE THE STATUS
-			$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-			
-			$query_db = mysqli_query($conn, $query2);
+				$inn = "inbound";
+				$cert_query = "INSERT INTO certificateofcompletion(
+					STUDENT_COUNT,
+					STUDENT_ID,
+					APPLICATION_FORM,
+					CERTIFICATION,
+					EXPIRATION_ACCESS
+				) values (
+					'',
+					'$getStudentID',
+					'$inn',
+					'$cert',
+					'$expireCert'
+				)";
+				mysqli_query($conn, $cert_query);
 
-			// CHECK IF THE NOT EXIST IN OUTBOUND GRAPH
-			if($query_db){
-				$yearlySel_query = "SELECT * FROM yearly";
-				$yearlySel_db = mysqli_query($conn, $yearlySel_query);
-				while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
-					$yearr = $yearSel_row['YEARLY'];
-				}
-				$sel_query = "SELECT * FROM outstatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-				$sel_db = mysqli_query($conn, $sel_query);
-				$countNum = mysqli_num_rows($sel_db);
-				if($countNum == 1){
-					while($seRow = mysqli_fetch_array($sel_db)){
-						$num_student = $seRow['NUMBER_STUDENT'];
+				// UPDATE THE STATUS
+				$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+				
+				$query_db = mysqli_query($conn, $query2);
+
+				// CHECK IF THE NOT EXIST IN OUTBOUND GRAPH
+				if($query_db){
+					$yearlySel_query = "SELECT * FROM yearly";
+					$yearlySel_db = mysqli_query($conn, $yearlySel_query);
+					while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
+						$yearr = $yearSel_row['YEARLY'];
 					}
-					$num_student += 1;
-					$statUp = "UPDATE outstatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-					mysqli_query($conn, $statUp);
+					$sel_query = "SELECT * FROM outstatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+					$sel_db = mysqli_query($conn, $sel_query);
+					$countNum = mysqli_num_rows($sel_db);
+					if($countNum == 1){
+						while($seRow = mysqli_fetch_array($sel_db)){
+							$num_student = $seRow['NUMBER_STUDENT'];
+						}
+						$num_student += 1;
+						$statUp = "UPDATE outstatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+						mysqli_query($conn, $statUp);
+					}
+					if($countNum == 0){
+						$numStu = 1;
+						$appform = "outbound";
+						$statInt = "INSERT INTO outstatistics(STUDENT_COUNT, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
+							'',
+							'$numStu',
+							'$yearr',
+							'$country',
+							'$appform'
+						)";
+						mysqli_query($conn, $statInt);
+					}
 				}
-				if($countNum == 0){
-					$numStu = 1;
-					$appform = "outbound";
-					$statInt = "INSERT INTO outstatistics(STUDENT_COUNT, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
-						'',
-						'$numStu',
-						'$yearr',
-						'$country',
-						'$appform'
-					)";
-					mysqli_query($conn, $statInt);
+				if (move_uploaded_file($_FILES['certificate']['tmp_name'], $target)) 
+				{
+					$msg = "Upload Successful";
 				}
-			}
-			if (move_uploaded_file($_FILES['certificate']['tmp_name'], $target)) 
-			{
-				$msg = "Upload Successful";
-			}
-			else 
-			{
-				$msg = "Upload Failed";
+				else 
+				{
+					$msg = "Upload Failed";
+				}
+			}else{
+				$errorCoCmsg = "
+					<div class='container-fluid alert'>
+						<span class='closebtn ' onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<p>The File must be .jpg, .png, and PDF file!</p>
+					</div>
+				";
 			}
 		}
 	}	   
@@ -150,6 +162,7 @@
 		<div class="header">
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
+		<?php echo $errorCoCmsg?>
 		<!--START OF NAV BAR-->
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">

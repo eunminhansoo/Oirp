@@ -1,242 +1,242 @@
 <?php
-    include 'database_connection.php';
-    session_start();
-	$collegee = $_SESSION['collegeName'];
-    if(isset($_POST["view"]))
-    {
-        // IF THE USER CLICK THE ICON BELL
-        if($_POST["view"] != '')
+        include 'database_connection.php';
+        session_start();
+         $collegee = $_SESSION['collegeNames'];
+        if(isset($_POST["view"]))
         {
-            $update_query = "UPDATE collegeNotification SET COMMENT_STATUS=1 WHERE COMMENT_STATUS=0";
-            mysqli_query($conn, $update_query);
-        }
-        // QUERY TO SHOW THE LIST ON THE NOTIF
-        $query = "SELECT * FROM collegeNotification WHERE COLLEGE = '$collegee' ORDER BY STUDENT_COUNT DESC LIMIT 7";
-        $result = mysqli_query($conn, $query);
-        $output = '';
-        if(mysqli_num_rows($result) > 0)
-        {
-            while($row = mysqli_fetch_array($result))
-            {
-                $app_form = $row['APPLICATION_FORM'];
-                $studentId = $row['STUDENT_ID'];
-                $fullname = $row['LASTNAME'].", ".$row['FIRSTNAME']." ";
-                $college = $row['COLLEGE'];
-                $course = $row['COURSE'];
-                $status = $row['STATUS'];
-
-                    
-                switch ($college){
-                        case "Faculty of Sacred Theology":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Faculty of Philosophy":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Faculty of Canon Law":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Graduate School":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Alfredo M. Velayo College of Accountancy":
-                    $output .= '
-                                <li>
-                                    The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "College of Architecture":
-                    $output .= '
-                                <li>
-                                    The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Faculty of Arts and Letters":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Faculty of Civil Law":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "College of Commerce and Business Administration":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "College of Education":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Faculty of Engineering":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "College of Fine Arts and Design":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Institute of Information and Computing Sciences":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Faculty of Medicine and Surgery":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Conservatory of Music":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "College of Nursing":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Faculty of Pharmacy":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Institute of Physical Education and Athletics":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "College of Rehabilitation Sciences":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "Institute of Religion":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "College of Science":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
-                            case "College of Tourism and Hospitality Management":
-                    $output .= '
-                                <li>
-                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                            ';
-                    break;
+                // IF THE USER CLICK THE ICON BELL
+                if($_POST["view"] != '')
+                {
+                $update_query = "UPDATE collegenotification SET COMMENT_STATUS=1 WHERE COMMENT_STATUS=0";
+                mysqli_query($conn, $update_query);
                 }
-            }
-        }else{
-            $output .= '<li><a href="#" class="text-bold text-italic">No Notification Found</a></li>';
+                // QUERY TO SHOW THE LIST ON THE NOTIF
+                $query = "SELECT * FROM collegenotification WHERE COLLEGE = '$collegee' ORDER BY STUDENT_COUNT DESC LIMIT 7";
+                $result = mysqli_query($conn, $query);
+                $output = '';
+                if(mysqli_num_rows($result) > 0)
+                {
+                while($row = mysqli_fetch_array($result))
+                {
+                        $app_form = $row['APPLICATION_FORM'];
+                        $studentId = $row['STUDENT_ID'];
+                        $fullname = $row['LASTNAME'].", ".$row['FIRSTNAME']." ";
+                        $college = $row['COLLEGE'];
+                        $course = $row['COURSE'];
+                        $status = $row['STATUS'];
+
+                        
+                        switch ($college){
+                                case "Faculty of Sacred Theology":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Faculty of Philosophy":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Faculty of Canon Law":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Graduate School":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Alfredo M. Velayo College of Accountancy":
+                        $output .= '
+                                        <li>
+                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "College of Architecture":
+                        $output .= '
+                                        <li>
+                                        The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Faculty of Arts and Letters":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Faculty of Civil Law":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "College of Commerce and Business Administration":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "College of Education":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Faculty of Engineering":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "College of Fine Arts and Design":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Institute of Information and Computing Sciences":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Faculty of Medicine and Surgery":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Conservatory of Music":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "College of Nursing":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Faculty of Pharmacy":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Institute of Physical Education and Athletics":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "College of Rehabilitation Sciences":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "Institute of Religion":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "College of Science":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                                case "College of Tourism and Hospitality Management":
+                        $output .= '
+                                        <li>
+                                                The OIRP Approved the course: '.$course.' of '.$fullname.'<br />
+                                        </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                ';
+                        break;
+                        }
+                }
+                }else{
+                $output .= '<li><a href="#" class="text-bold text-italic">No Notification Found</a></li>';
+                }
+                $query_1 = "SELECT * FROM collegenotification WHERE comment_status=0 && COLLEGE = '$collegee'";
+                $result_1 = mysqli_query($conn, $query_1);
+                $count = mysqli_num_rows($result_1);
+                $data = array(
+                'notification'   => $output,
+                'unseen_notification' => $count
+                );
+                echo json_encode($data);
         }
-        $query_1 = "SELECT * FROM collegeNotification WHERE comment_status=0 && COLLEGE = '$collegee'";
-        $result_1 = mysqli_query($conn, $query_1);
-        $count = mysqli_num_rows($result_1);
-        $data = array(
-        'notification'   => $output,
-        'unseen_notification' => $count
-        );
-        echo json_encode($data);
-    }
 ?>

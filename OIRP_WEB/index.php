@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
+		<title>OIRP</title>
 	</head>
 	<body style="background-color: white;">
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
