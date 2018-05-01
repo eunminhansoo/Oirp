@@ -148,16 +148,49 @@
 							$yyear = $selRow['YEARLY'];
 						}
 						if($cret_year != $yyear){
-							// echo "success"."<br>";
-							// echo "you enrolled in first semester";
+							echo "success"."<br>";
+							echo "you enrolled in first semester";
 							$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
 							$query = mysqli_query($conn, $sql);
 							// if($query){
 							// 	echo "success";
 							// }
 						}
+						$selectYearly_query = "SELECT * FROM yearly";
+							$selectYearly_db = mysqli_query($conn, $selectYearly_query);
+							while($selectYearly_row = mysqli_fetch_array($selectYearly_db)){
+								$yyearly = $selectYearly_row['YEARLY'];
+							}
+							$selectoutcompa_query = "SELECT * FROM outcomparison WHERE YEAR = '$yyearly' AND SEMESTER = '1st Semester'";
+							$selectoutcompa_db = mysqli_query($conn, $selectoutcompa_query);
+							$selectoutcompa_count = mysqli_num_rows($selectoutcompa_db);
+							$num_student = 1;
+							if($selectoutcompa_count == 0){
+
+								$insertDataCompa_query = "INSERT INTO outcomparison(
+									STUDENT_COUNT,
+									NUMBER_STUDENT,
+									YEAR,
+									SEMESTER
+									) VALUES (
+										'',
+										'$num_student',
+										'$yyearly',
+										'1st Semester'
+									)";
+								$insertDataCompa_db = mysqli_query($conn, $insertDataCompa_query);
+							}else if($selectoutcompa_count == 1){
+								while($selectoutcompa_row = mysqli_fetch_array($selectoutcompa_db)){
+									$outcompa_numStudent = $selectoutcompa_row['NUMBER_STUDENT'];
+								}
+								$outcompa_numStudent =+ 1;
+								$updateoutcompa_query = "UPDATE outcomparison SET NUMBER_STUDENT = '$outcompa_numStudent' WHERE YEAR = '$yyearly' AND SEMESTER = '1st Semester'";
+								$updateoutcompa_db = mysqli_query($conn, $updateoutcompa_query);
+							}
+
 					}
-					if($setsecondSem != " " || $setthirdSem != " "){
+					
+					if($setsecondSem != " "){
 						
 						$firstsemdate = new DateTime($getDateStarted);
 						$firstsemresult = $firstsemdate->format('Y');
@@ -170,14 +203,98 @@
 							$yyear = $selRow['YEARLY'];
 						}
 						if($cret_year != $yyear){
-							// echo "success"."<br>";
-							// echo "you enrolled in first semester";
+							echo "success"."<br>";
+							echo "you enrolled in first semester";
 							$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
 							$query = mysqli_query($conn, $sql);
 							// if($query){
 							// 	echo "success";
 							// }
 						}
+						$selectYearly_query = "SELECT * FROM yearly";
+							$selectYearly_db = mysqli_query($conn, $selectYearly_query);
+							while($selectYearly_row = mysqli_fetch_array($selectYearly_db)){
+								$yyearly = $selectYearly_row['YEARLY'];
+							}
+							$selectoutcompa_query = "SELECT * FROM outcomparison WHERE YEAR = '$yyearly' AND SEMESTER = '2nd Semester'";
+							$selectoutcompa_db = mysqli_query($conn, $selectoutcompa_query);
+							$selectoutcompa_count = mysqli_num_rows($selectoutcompa_db);
+							$num_student = 1;
+							if($selectoutcompa_count == 0){
+
+								$insertDataCompa_query = "INSERT INTO outcomparison(
+									STUDENT_COUNT,
+									NUMBER_STUDENT,
+									YEAR,
+									SEMESTER
+									) VALUES (
+										'',
+										'$num_student',
+										'$yyearly',
+										'2nd Semester'
+									)";
+								$insertDataCompa_db = mysqli_query($conn, $insertDataCompa_query);
+							}else if($selectoutcompa_count == 1){
+								while($selectoutcompa_row = mysqli_fetch_array($selectoutcompa_db)){
+									$outcompa_numStudent = $selectoutcompa_row['NUMBER_STUDENT'];
+								}
+								$outcompa_numStudent =+ 1;
+								$updateoutcompa_query = "UPDATE outcomparison SET NUMBER_STUDENT = '$outcompa_numStudent' WHERE YEAR = '$yyearly' AND SEMESTER = '2nd Semester'";
+								$updateoutcompa_db = mysqli_query($conn, $updateoutcompa_query);
+							}
+					}
+
+					if($setthirdSem != " "){
+						$firstsemdate = new DateTime($getDateStarted);
+						$firstsemresult = $firstsemdate->format('Y');
+						$prevyears = date('Y', strtotime('-1 year'));
+								
+						$cret_year = $prevyears."-".$firstsemresult;
+						$sel_query = "SELECT * FROM yearly";
+						$sel_db = mysqli_query($conn, $sel_query);
+						while($selRow = mysqli_fetch_array($sel_db)){
+							$yyear = $selRow['YEARLY'];
+						}
+						if($cret_year != $yyear){
+							echo "success"."<br>";
+							echo "you enrolled in first semester";
+							$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
+							$query = mysqli_query($conn, $sql);
+							// if($query){
+							// 	echo "success";
+							// }
+						}
+						$selectYearly_query = "SELECT * FROM yearly";	
+							$selectYearly_db = mysqli_query($conn, $selectYearly_query);
+							while($selectYearly_row = mysqli_fetch_array($selectYearly_db)){
+								$yyearly = $selectYearly_row['YEARLY'];
+							}
+							$selectoutcompa_query = "SELECT * FROM outcomparison WHERE YEAR = '$yyearly' AND SEMESTER = 'Special Term'";
+							$selectoutcompa_db = mysqli_query($conn, $selectoutcompa_query);
+							$selectoutcompa_count = mysqli_num_rows($selectoutcompa_db);
+							$num_student = 1;
+							if($selectoutcompa_count == 0){
+
+								$insertDataCompa_query = "INSERT INTO outcomparison(
+									STUDENT_COUNT,
+									NUMBER_STUDENT,
+									YEAR,
+									SEMESTER
+									) VALUES (
+										'',
+										'$num_student',
+										'$yyearly',
+										'Special Term'
+									)";
+								$insertDataCompa_db = mysqli_query($conn, $insertDataCompa_query);
+							}else if($selectoutcompa_count == 1){
+								while($selectoutcompa_row = mysqli_fetch_array($selectoutcompa_db)){
+									$outcompa_numStudent = $selectoutcompa_row['NUMBER_STUDENT'];
+								}
+								$outcompa_numStudent =+ 1;
+								$updateoutcompa_query = "UPDATE outcomparison SET NUMBER_STUDENT = '$outcompa_numStudent' WHERE YEAR = '$yyearly' AND SEMESTER = 'Special Term'";
+								$updateoutcompa_db = mysqli_query($conn, $updateoutcompa_query);
+							}
 					}
 
 					$yearlySel_query = "SELECT * FROM yearly";
