@@ -276,33 +276,31 @@
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
 </html>
 <script>
-$(document).ready(function(){
- 
- function load_unseen_notification(view = '')
- {
-  $.ajax({
-   url:"fetch_comment.php",
-   method:"POST",
-   data:{view:view},
-   dataType:"json",
-   success:function(data)
-   {
-    $('#notif-down').html(data.notification);
-    if(data.unseen_notification > 0)
-    {
-     $('.count').html(data.unseen_notification);
-    }
-   }
-  });
- }
- 
- load_unseen_notification();
- 
- $(document).on('click', '#notif', function(){
-  $('.count').html('');
-  load_unseen_notification('yes');
- });
- 
- 
-});
+    $(document).ready(function(){
+    
+        function load_unseen_notification(view = '')
+        {
+            $.ajax({
+            url:"fetch_comment.php",
+            method:"POST",
+            data:{view:view},
+            dataType:"json",
+            success:function(data)
+                {
+                    $('#notif-down').html(data.notification);
+                    if(data.unseen_notification > 0)
+                    {
+                        $('.count').html(data.unseen_notification);
+                    }
+                }
+            });
+        }
+        
+        load_unseen_notification();
+        
+        $(document).on('click', '#notif', function(){
+        $('.count').html('');
+        load_unseen_notification('yes');
+        });
+    });
 </script>

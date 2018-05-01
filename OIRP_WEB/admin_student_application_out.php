@@ -8,6 +8,7 @@
 		header("Location: index.php");
 	}
 	$errorCoCmsg = "";
+	$mssg = " "; 
     $getStudentID = $_GET['studentName'];
     
     $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
@@ -32,40 +33,35 @@
 		// UPDATE THE STATUS
 		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
 		$query_db = mysqli_query($conn, $query2);
+		if($query_db){
+			$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
+		}
 	}
+
+	// if THE SATUS IN ON-GOING
+	if(isset($_POST['goinbtn'])){
+		$dateStrat = $_POST['dateStrat'];
+		$goinstatus = $_POST['status'];
+
+		$datstart_query = "UPDATE admin_student_data SET DATE_STARTED = '$dateStrat' WHERE STUDENT_ID = '$getStudentID'";
+		$datstart_db = mysqli_query($conn, $datstart_query);
+
+		$update_start_query = "UPDATE student SET STATUS = '$goinstatus' WHERE STUDENT_ID = '$getStudentID'";
+		$update_db = mysqli_query($conn, $update_start_query);
+		if($datstart_db && $update_db){
+			$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
+		}
+	}
+
 	if(isset($_POST['subCert'])){
 		$status = $_POST['status'];
-		if($status == "Qualified"){
-			// CHECK IF THE YEAR IS EXISTING IF NOT INSERT IN YEARLY
-			$today = date("m/d/Y");
-			$new = "08/01/".date('Y');;
-			$prevyears = date('Y');
-			$nextyears = date('Y', strtotime('+1 year'));
-			$cret_year = $prevyears."-".$nextyears;
-			$sel_query = "SELECT * FROM yearly";
-			$sel_db = mysqli_query($conn, $sel_query);
-			while($selRow = mysqli_fetch_array($sel_db)){
-				$yyear = $selRow['YEARLY'];
-			}
-			if($cret_year != $yyear){
-				if($today == $new){	
-					// echo "success";
-					$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
-					$query = mysqli_query($conn, $sql);
-					if($query){
-						echo "success";
-					}
-				} 	                   
-			}
-		}
 		if($status == 'Completed'){
-
 			$expireCert = $_POST['expirationCert'];
 			$status = $_POST['status'];
 			$target = "images/".basename($_FILES['certificate']['name']);
 			
 			$cert = $_FILES['certificate']['name'];
-			$ext = pathinfo($torscan, PATHINFO_EXTENSION);
+			$ext = pathinfo($cert, PATHINFO_EXTENSION);
 			if($ext == 'gif' || $ext == 'png' || $ext == 'jpg' || $_FILES["TAscan"]["type"] == "application/pdf"){
 
 				$inn = "inbound";
@@ -91,6 +87,99 @@
 
 				// CHECK IF THE NOT EXIST IN OUTBOUND GRAPH
 				if($query_db){
+					// CHECK IF THE YEAR IS EXISTING THEN INSERT SA YEALY IF NONE
+					$dateStarted_select = "SELECT * FROM admin_student_data WHERE STUDENT_ID = '$getStudentID'";
+					$dateStarted_db = mysqli_query($conn, $dateStarted_select);
+					while($row_datestarted = mysqli_fetch_array($dateStarted_db)){
+						$getDateStarted = $row_datestarted['DATE_STARTED'];
+					}
+					$date = new DateTime($getDateStarted);
+					$getStartresult = $date->format('m/Y');
+
+					$firstTerm = array("08/".date('Y'), "09/".date('Y'), "10/".date('Y'), "11/".date('Y'), "12/".date('Y'));
+					$countfirstray = count($firstTerm);
+					$secondTerm = array("01/".date('Y'), "02/".date('Y'), "03/".date('Y'), "04/".date('Y'), "05/".date('Y'));
+					$countsecondray = count($secondTerm);
+					$thirdTerm = array("06/".date('Y'), "07/".date('Y'));
+					$countthird = count($thirdTerm);
+					
+					$setfirstSem = " ";
+					$setsecondSem = " ";
+					$setthirdSem = " ";
+					// LOOP FOR FIRST TERM
+					for($i = 0 ; $i < $countfirstray ; $i++){
+						// echo $firstTerm[$i]."<br>";
+						if($firstTerm[$i] == $getStartresult){
+							// echo $firstTerm[$i]."<br>";
+							$setfirstSem = $firstTerm[$i];
+							break;
+						}
+					}
+					// LOOP FOR SECOND TERM
+					for($n = 0 ; $n < $countsecondray ; $n++){
+						if($secondTerm[$n] == $getStartresult){
+							// echo $secondTerm[$n]."<br>";
+							$setsecondSem = $secondTerm[$n];
+							// echo "success";
+							break;
+						}
+					}
+					// LOOP FOR SPECIAL TERM
+					for($y = 0 ; $y < $countthird ; $y++){
+						if($thirdTerm[$y] == $getStartresult){
+							// echo $secondTerm[$n]."<br>";
+							$setthirdSem = $thirdTerm[$y];
+							// echo "success";
+							break;
+						}
+					}
+
+					// IDENTIFY WHAT YEAR IT BELONG
+					if($setfirstSem != " "){
+
+						$firstsemdate = new DateTime($getDateStarted);
+						$firstsemresult = $firstsemdate->format('Y');
+						$nextyears = date('Y', strtotime('+1 year'));
+								
+						$cret_year = $firstsemresult."-".$nextyears;
+						$sel_query = "SELECT * FROM yearly";
+						$sel_db = mysqli_query($conn, $sel_query);
+						while($selRow = mysqli_fetch_array($sel_db)){
+							$yyear = $selRow['YEARLY'];
+						}
+						if($cret_year != $yyear){
+							// echo "success"."<br>";
+							// echo "you enrolled in first semester";
+							$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
+							$query = mysqli_query($conn, $sql);
+							// if($query){
+							// 	echo "success";
+							// }
+						}
+					}
+					if($setsecondSem != " " || $setthirdSem != " "){
+						
+						$firstsemdate = new DateTime($getDateStarted);
+						$firstsemresult = $firstsemdate->format('Y');
+						$prevyears = date('Y', strtotime('-1 year'));
+								
+						$cret_year = $prevyears."-".$firstsemresult;
+						$sel_query = "SELECT * FROM yearly";
+						$sel_db = mysqli_query($conn, $sel_query);
+						while($selRow = mysqli_fetch_array($sel_db)){
+							$yyear = $selRow['YEARLY'];
+						}
+						if($cret_year != $yyear){
+							// echo "success"."<br>";
+							// echo "you enrolled in first semester";
+							$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
+							$query = mysqli_query($conn, $sql);
+							// if($query){
+							// 	echo "success";
+							// }
+						}
+					}
+
 					$yearlySel_query = "SELECT * FROM yearly";
 					$yearlySel_db = mysqli_query($conn, $yearlySel_query);
 					while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
@@ -120,6 +209,7 @@
 						mysqli_query($conn, $statInt);
 					}
 				}
+
 				if (move_uploaded_file($_FILES['certificate']['tmp_name'], $target)) 
 				{
 					$msg = "Upload Successful";
@@ -162,6 +252,7 @@
 		<div class="header">
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
+		<?php echo $mssg?>
 		<?php echo $errorCoCmsg?>
 		<!--START OF NAV BAR-->
 		<nav class="navbar" id="bar">
@@ -325,6 +416,19 @@
 							</div> 
 						</p>
 					</div>
+					<div id="dateStarted">
+						<div class="container-fluid">
+							<p>
+								<span><b>What Date He/She started: </b><input type="date" name="dateStrat"/></span>
+							</p>
+						</div>
+						<br>
+						<p id="ongoindbtn">
+							<div class="form-group row col-xs-4 col-xs-offset-1">
+								<input type="submit" value="Submit" name="goinbtn" class="btn btn-primary">
+							</div> 
+						</p>
+					</div>
 				</div>
 				<br>
 			</div> 
@@ -335,6 +439,7 @@
 			$("#certUp").hide();
 			$("#cert").hide();
 			$("#subcert").hide(); 
+			$("#dateStarted").hide();
 		});
 	
 		 function func(sel) {
@@ -351,6 +456,14 @@
 				$("#cert").show();
 				$("#conf").hide();
 				$("#subcert").show();
+			}else if(stat === 'On-going'){
+				$("#send").hide();
+				$("#backuu").hide();
+				$("#cert").hide();
+				$("#conf").hide();
+				$("#subcert").hide();
+				$("#dateStarted").show();
+			
 			}else{
 				$("#send").hide();
 				$("#backuu").show();
@@ -358,13 +471,13 @@
 				$("#cert").hide();
 		  	}
 		}
-		var setStatus = "<?php echo $getStatus?>";
-		$('#status option[value='+setStatus+']').prop('selected', true);
-		if(document.getElementById('Completed').selected == true){
-			$("#cert").show();
-			$("#backuu").hide();
-			$("#conf").hide(); 
-		}
+		// var setStatus = "<?php echo $getStatus?>";
+		// $('#status option[value='+setStatus+']').prop('selected', true);
+		// if(document.getElementById('Completed').selected == true){
+		// 	$("#cert").show();
+		// 	$("#backuu").hide();
+		// 	$("#conf").hide(); 
+		// }
 	</script>
 </html>
 <script>

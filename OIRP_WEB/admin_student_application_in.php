@@ -195,7 +195,7 @@
 								<option value="Pending" id="Pending">Pending</option>
 								<option value="Approved" id="Approved">Approved</option>
 								<option value="Denied" id="Denied">Denied</option>
-								<option value="On-Going" id="On-going">On-going</option>
+								<option value="On-going" id="On-going">On-going</option>
 								<option value="Completed" id="Completed">Completed</option>
 							</select>
 						</span>
@@ -437,6 +437,20 @@
 						</div> 
 					</p>
 				</div>
+				<div id="dateStarted" class="col-sm-5">
+					<div class="container-fluid">
+						<p>
+							<span>What Date He/She started: </span>
+							<input type="date" name="dateStrat"/>
+						</p>
+					</div>
+					<br>
+					<p id="ongoindbtn">
+						<div class="form-group row col-xs-4 col-xs-offset-1">
+							<input type="submit" value="Submit" name="goinbtn" class="btn btn-primary">
+						</div> 
+					</p>
+				</div>
 				<div id="comp" class="col-sm-5">
 					<div class="container-fluid">
 						<div class="table-responsive">
@@ -472,7 +486,9 @@
 		</form>
 	</body>
 	<script>
+		
 		$(document).ready(function(){
+			
 			var scrStat = "<?php echo $sstat?>";
 			var val = "<?php echo $col ?>";
 			var val1 = "<?php echo $col1?>";
@@ -491,6 +507,7 @@
 			$("#cert").hide();
 			$("#subcert").hide();
 			$('#comp').hide();
+			$('#dateStarted').hide();
 			
 
 			if(scrStat == "Qualified"){
@@ -532,7 +549,6 @@
 			$('#status option[value='+setStatus+']').prop('selected', true);
 		 
 		});
-
 		function func(sel) {
 		    var stat = (sel.options[sel.selectedIndex]).text;
 
@@ -547,6 +563,13 @@
 				$("#cert").show();
 				$("#conf").hide();
 				$("#subcert").show();
+			}else if(stat === 'On-going'){
+				$("#send").hide();
+				$("#backuu").hide();
+				$("#cert").hide();
+				$("#conf").hide();
+				$("#subcert").hide();
+				$("#dateStarted").show();
 			}else{
 				$("#send").hide();
 				$("#backuu").show();
@@ -554,12 +577,12 @@
 				$("#cert").hide();
 		  	}
 		}
-
 		var setStatus = "<?php echo $getStatus?>";
 		$('#status option[value='+setStatus+']').prop('selected', true);
-		if(document.getElementById('Completed').selected == true){
+		if(document.getElementById('On-Going').selected == true){
 			$("#cert").show(); 
 			$("#backuu").hide();
 			$("#conf").hide();
 		}
+		
 </script>
