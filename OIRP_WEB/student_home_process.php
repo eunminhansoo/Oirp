@@ -194,7 +194,7 @@ include 'database_connection.php';
 				$errorTORmsg = "
 					<div class='container-fluid alert'>
 						<span class='closebtn ' onclick=\"this.parentElement.style.display='none';\">&times;</span> 
-						<p>The File must be .jpg, .png, and PDF file!</p>
+						<p>The File must be .jpg, .png, or pdf format</p>
 					</div>
 				";
 			}

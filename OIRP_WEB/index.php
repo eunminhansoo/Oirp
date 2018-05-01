@@ -1,6 +1,7 @@
 <?php
 	include 'loginPhp.php';
 	error_reporting(0);
+ini_set('display_errors', 0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@
 					<div class="col-sm-5" style="margin-top: 50px;">
 						<form method="post" class="navbar-form" >
 							<div class="form-group">
-								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="[^<>].{1,30}" required/>
+								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="['/[\'^£$%&*()}{@#~?><>,|=_+¬-]/'].{1,30}" required/>
 							</div>
 							<div class="form-group">
 								<input type="password" name="password" class="input form-control shadow" placeholder="Password" required/>
