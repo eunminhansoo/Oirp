@@ -153,9 +153,9 @@
 									if($pagination == 'Submitted PDF' && $status == 'Pending' || $pagination == 'Submitted PDF' && $status == 'Approved'|| $pagination == 'Submitted PDF' && $status == 'Denied'|| $pagination == 'Submitted PDF' && $status == 'On-going'){
 										echo '<span>Wait for Confirmation</span>';
 									}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
-										echo '<span style="color: red"><b>You are '.$status.'!!</b></span>';
+										echo '<span style="color: red"><b>You are '.$status.'!</b></span>';
 									}else if($pagination == 'Submitted PDF' && $status == 'Not-Qualified'){
-										echo '<span style="color: red"><b>Sorry you are '.$status.'!!</b></span>';
+										echo '<span style="color: red"><b>Sorry you are '.$status.'</b></span>';
 									}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
 										$cocSel_query = "SELECT * FROM certificateofcompletion WHERE STUDENT_ID = '$get_studentID'";
 										$coc_db = mysqli_query($conn, $cocSel_query);
