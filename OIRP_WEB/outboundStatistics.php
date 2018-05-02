@@ -1,5 +1,10 @@
 <?php
     include 'database_connection.php';
+    include 'logout.php';
+	session_start();
+	if($_SESSION['superadmin'] != 'oirp'){
+		header("Location: index.php");
+	}
     // include 'graph_button.php';
     $sel_query = "SELECT yearly FROM yearly ORDER BY COUNT ASC";
     $sel_db = mysqli_query($conn, $sel_query);
@@ -10,7 +15,6 @@
         $setYear = $row["yearly"];
         $res .="<button type='submit' class='btn btn-secondary bbtn col-xs-12' id='".$setYear."'value='".$setYear."' name='".$setYear."'>".$setYear."</button>";
     }
-    session_start();
     if(!empty($_SESSION['$set_yearly1'])){
         $get_year = $_SESSION['$set_yearly1'];
     }

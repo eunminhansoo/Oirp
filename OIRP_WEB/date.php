@@ -1,6 +1,8 @@
 <?php
 	include 'database_connection.php';
 
+	
+
 	// $today = date("m/d/Y");
 	// $new = "08/01/".date('Y');;
 	// $prevyears = date('Y');
@@ -21,8 +23,13 @@
 	// 		}
 	// 	} 	                   
 	// }
-	$today = date("m/d/Y");
-	echo $today;
+			// CHECK IF THE YEAR IS EXISTING IF NOT INSERT IN YEARLY
+			// check wthat date to today
+				// $today = date("Y");
+				// $new = date('Y');
+				// echo $today."<br>";
+				// echo $new."<br>";
+ 
 	// $timestamp = "2018-04-22 00:37:15";
 	// $start_date = date($timestamp);
 
@@ -64,4 +71,6 @@
 				// 	)";
 				// 	mysqli_query($conn, $statInt);
 				// }
+	
 ?>
+

@@ -2,11 +2,13 @@
 	error_reporting(0);
 	
 	include 'database_connection.php';
-	include 'logoutbtn';
+	include 'logout.php';
 	session_start();
-	$college = $_SESSION['collegeName'];
+	$college = $_SESSION['collegeNames'];
     // $sql_query = "SELECT * FROM admin_college a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID";
-	
+	if($_SESSION['collegeName'] != 'college'){
+		header("Location: index.php");
+	}
 
 	if(isset($_POST['delete_inbound'])){
     	if(empty($_POST['cb_num_in'])){

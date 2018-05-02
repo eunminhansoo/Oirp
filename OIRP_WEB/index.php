@@ -1,6 +1,7 @@
 <?php
 	include 'loginPhp.php';
 	error_reporting(0);
+ini_set('display_errors', 0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
+		<title>OIRP</title>
 	</head>
 	<body style="background-color: white;">
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -25,7 +27,7 @@
 					<div class="col-sm-5" style="margin-top: 50px;">
 						<form method="post" class="navbar-form" >
 							<div class="form-group">
-								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="[^<>].{1,30}" required/>
+								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="['/[\'^£$%&*()}{@#~?><>,|=_+¬-]/'].{1,30}" required/>
 							</div>
 							<div class="form-group">
 								<input type="password" name="password" class="input form-control shadow" placeholder="Password" required/>
@@ -88,7 +90,7 @@
 			<div class="col-sm-3 pull-sm-right login">
 					<br>
 					<h3 style="text-align: center">LOGIN</h3>
-					<?php echo $error_message?>
+					
 					<br>
 					<form method="post">
 						<div class="form-group">
@@ -118,6 +120,7 @@
 					<br>
 				</div>
 			</div-->
+			<?php echo $error_message?>
 			<div class="footer">
 					&copy; University of Santo Tomas 2018
 			</div>

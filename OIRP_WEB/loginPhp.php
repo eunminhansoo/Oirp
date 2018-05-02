@@ -16,12 +16,16 @@
 
 			
 			// STUDENT
-			$query = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' AND PASSWORD = '$pass_word_enc' ");
-			$row = mysqli_num_rows($query);
+			//$query = mysqli_query($conn, "SELECT * FROM student WHERE EMAIL = '$email' AND PASSWORD = '$pass_word_enc' ");
+			//$row = mysqli_num_rows($query);
+			$stmt = $conn->prepare('SELECT * FROM student WHERE EMAIL = ? and PASSWORD = ?');
+			$stmt->bind_param('ss', $email, $pass_word_enc); // 's' specifies the variable type => 'string'
+			$stmt->execute();
+			$result = $stmt->get_result();
 
-			if($row == 1){
-				while ($row1 = mysqli_fetch_array($query)){
-					$_SESSION['student_id_session'] = $row1['STUDENT_ID'];
+			if($result == 1){
+				while ($row = $result->fetch_assoc()){
+					$_SESSION['student_id_session'] = $row['STUDENT_ID'];
 					$_SESSION['stuValid'] = 'yes';
 					if($_SESSION['stuValid'] == 'yes'){
 						header("Location: student_home.php");
@@ -32,12 +36,16 @@
 			}
 		}else{
 			// ADMINISTRATOR
-			$admin_query = "SELECT * FROM colleges WHERE username = '$email' AND password = '$pass_word'";
-			$admin_db = mysqli_query($conn, $admin_query);
-			$admin_row = mysqli_num_rows($admin_db);
+			//$admin_query = "SELECT * FROM colleges WHERE username = '$email' AND password = '$pass_word'";
+			//$admin_db = mysqli_query($conn, $admin_query);
+			//$admin_row = mysqli_num_rows($admin_db);
+			$admin_query = $conn->prepare('SELECT * FROM colleges WHERE username = ? and password = ?');
+			$admin_query->bind_param('ss', $email, $pass_word);
+			$admin_query->execute();
+			$admin_row = $admin_query->get_result();
 
 			if($admin_row == 1){
-				while($rrow = mysqli_fetch_array($admin_db)){
+				while($rrow = $admin_row->fetch_assoc()){
 					$id = $rrow['id'];
 					$college = $rrow['college'];
 					$_SESSION['superadmin'] =  $rrow['username'];
@@ -49,7 +57,8 @@
 							if($_SESSION['superadmin'] == 'oirp'){
 								header("Location: administrator.php");
 							}else{
-								$_SESSION['collegeName'] = $rrow['college'];
+								$_SESSION['collegeName'] = 'college';
+								$_SESSION['collegeNames'] = $college;
 								header("Location: administrator_college.php");
 							}
 						}

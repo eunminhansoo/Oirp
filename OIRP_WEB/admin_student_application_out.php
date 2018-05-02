@@ -1,9 +1,14 @@
 <?php
-	
 	error_reporting(0);	
 
     include 'database_connection.php';
-
+	include 'logout.php';
+	session_start();
+	if($_SESSION['superadmin'] != 'oirp'){
+		header("Location: index.php");
+	}
+	$errorCoCmsg = "";
+	$mssg = " "; 
     $getStudentID = $_GET['studentName'];
     
     $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
@@ -28,98 +33,315 @@
 		// UPDATE THE STATUS
 		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
 		$query_db = mysqli_query($conn, $query2);
+		if($query_db){
+			$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
+		}
 	}
+
+	// if THE SATUS IN ON-GOING
+	if(isset($_POST['goinbtn'])){
+		$dateStrat = $_POST['dateStrat'];
+		$goinstatus = $_POST['status'];
+
+		$datstart_query = "UPDATE admin_student_data SET DATE_STARTED = '$dateStrat' WHERE STUDENT_ID = '$getStudentID'";
+		$datstart_db = mysqli_query($conn, $datstart_query);
+
+		$update_start_query = "UPDATE student SET STATUS = '$goinstatus' WHERE STUDENT_ID = '$getStudentID'";
+		$update_db = mysqli_query($conn, $update_start_query);
+		if($datstart_db && $update_db){
+			$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
+		}
+	}
+
 	if(isset($_POST['subCert'])){
 		$status = $_POST['status'];
-		if($status == "Qualified"){
-			// CHECK IF THE YEAR IS EXISTING IF NOT INSERT IN YEARLY
-			$today = date("m/d/Y");
-			$new = "08/01/".date('Y');;
-			$prevyears = date('Y');
-			$nextyears = date('Y', strtotime('+1 year'));
-			$cret_year = $prevyears."-".$nextyears;
-			$sel_query = "SELECT * FROM yearly";
-			$sel_db = mysqli_query($conn, $sel_query);
-			while($selRow = mysqli_fetch_array($sel_db)){
-				$yyear = $selRow['YEARLY'];
-			}
-			if($cret_year != $yyear){
-				if($today == $new){	
-					// echo "success";
-					$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
-					$query = mysqli_query($conn, $sql);
-					if($query){
-						echo "success";
-					}
-				} 	                   
-			}
-		}
 		if($status == 'Completed'){
-
 			$expireCert = $_POST['expirationCert'];
 			$status = $_POST['status'];
 			$target = "images/".basename($_FILES['certificate']['name']);
 			
 			$cert = $_FILES['certificate']['name'];
-			$inn = "inbound";
-			$cert_query = "INSERT INTO certificateofcompletion(
-				STUDENT_COUNT,
-				STUDENT_ID,
-				APPLICATION_FORM,
-				CERTIFICATION,
-				EXPIRATION_ACCESS
-			) values (
-				'',
-				'$getStudentID',
-				'$inn',
-				'$cert',
-				'$expireCert'
-			)";
-			mysqli_query($conn, $cert_query);
+			$ext = pathinfo($cert, PATHINFO_EXTENSION);
+			if($ext == 'gif' || $ext == 'png' || $ext == 'jpg' || $_FILES["TAscan"]["type"] == "application/pdf"){
 
-			// UPDATE THE STATUS
-			$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-			
-			$query_db = mysqli_query($conn, $query2);
+				$inn = "inbound";
+				$cert_query = "INSERT INTO certificateofcompletion(
+					STUDENT_COUNT,
+					STUDENT_ID,
+					APPLICATION_FORM,
+					CERTIFICATION,
+					EXPIRATION_ACCESS
+				) values (
+					'',
+					'$getStudentID',
+					'$inn',
+					'$cert',
+					'$expireCert'
+				)";
+				mysqli_query($conn, $cert_query);
 
-			// CHECK IF THE NOT EXIST IN OUTBOUND GRAPH
-			if($query_db){
-				$yearlySel_query = "SELECT * FROM yearly";
-				$yearlySel_db = mysqli_query($conn, $yearlySel_query);
-				while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
-					$yearr = $yearSel_row['YEARLY'];
-				}
-				$sel_query = "SELECT * FROM outstatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-				$sel_db = mysqli_query($conn, $sel_query);
-				$countNum = mysqli_num_rows($sel_db);
-				if($countNum == 1){
-					while($seRow = mysqli_fetch_array($sel_db)){
-						$num_student = $seRow['NUMBER_STUDENT'];
+				// UPDATE THE STATUS
+				$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+				
+				$query_db = mysqli_query($conn, $query2);
+
+				// CHECK IF THE NOT EXIST IN OUTBOUND GRAPH
+				if($query_db){
+					// CHECK IF THE YEAR IS EXISTING THEN INSERT SA YEALY IF NONE
+					$dateStarted_select = "SELECT * FROM admin_student_data WHERE STUDENT_ID = '$getStudentID'";
+					$dateStarted_db = mysqli_query($conn, $dateStarted_select);
+					while($row_datestarted = mysqli_fetch_array($dateStarted_db)){
+						$getDateStarted = $row_datestarted['DATE_STARTED'];
 					}
-					$num_student += 1;
-					$statUp = "UPDATE outstatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-					mysqli_query($conn, $statUp);
+					$date = new DateTime($getDateStarted);
+					$getStartresult = $date->format('m/Y');
+
+					$firstTerm = array("08/".date('Y'), "09/".date('Y'), "10/".date('Y'), "11/".date('Y'), "12/".date('Y'));
+					$countfirstray = count($firstTerm);
+					$secondTerm = array("01/".date('Y'), "02/".date('Y'), "03/".date('Y'), "04/".date('Y'), "05/".date('Y'));
+					$countsecondray = count($secondTerm);
+					$thirdTerm = array("06/".date('Y'), "07/".date('Y'));
+					$countthird = count($thirdTerm);
+					
+					$setfirstSem = " ";
+					$setsecondSem = " ";
+					$setthirdSem = " ";
+					// LOOP FOR FIRST TERM
+					for($i = 0 ; $i < $countfirstray ; $i++){
+						// echo $firstTerm[$i]."<br>";
+						if($firstTerm[$i] == $getStartresult){
+							// echo $firstTerm[$i]."<br>";
+							$setfirstSem = $firstTerm[$i];
+							break;
+						}
+					}
+					// LOOP FOR SECOND TERM
+					for($n = 0 ; $n < $countsecondray ; $n++){
+						if($secondTerm[$n] == $getStartresult){
+							// echo $secondTerm[$n]."<br>";
+							$setsecondSem = $secondTerm[$n];
+							// echo "success";
+							break;
+						}
+					}
+					// LOOP FOR SPECIAL TERM
+					for($y = 0 ; $y < $countthird ; $y++){
+						if($thirdTerm[$y] == $getStartresult){
+							// echo $secondTerm[$n]."<br>";
+							$setthirdSem = $thirdTerm[$y];
+							// echo "success";
+							break;
+						}
+					}
+
+					// IDENTIFY WHAT YEAR IT BELONG
+					if($setfirstSem != " "){
+
+						$firstsemdate = new DateTime($getDateStarted);
+						$firstsemresult = $firstsemdate->format('Y');
+						$nextyears = date('Y', strtotime('+1 year'));
+								
+						$cret_year = $firstsemresult."-".$nextyears;
+						$sel_query = "SELECT * FROM yearly";
+						$sel_db = mysqli_query($conn, $sel_query);
+						while($selRow = mysqli_fetch_array($sel_db)){
+							$yyear = $selRow['YEARLY'];
+						}
+						if($cret_year != $yyear){
+							echo "success"."<br>";
+							echo "you enrolled in first semester";
+							$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
+							$query = mysqli_query($conn, $sql);
+							// if($query){
+							// 	echo "success";
+							// }
+						}
+						$selectYearly_query = "SELECT * FROM yearly";
+							$selectYearly_db = mysqli_query($conn, $selectYearly_query);
+							while($selectYearly_row = mysqli_fetch_array($selectYearly_db)){
+								$yyearly = $selectYearly_row['YEARLY'];
+							}
+							$selectoutcompa_query = "SELECT * FROM outcomparison WHERE YEAR = '$yyearly' AND SEMESTER = '1st Semester'";
+							$selectoutcompa_db = mysqli_query($conn, $selectoutcompa_query);
+							$selectoutcompa_count = mysqli_num_rows($selectoutcompa_db);
+							$num_student = 1;
+							if($selectoutcompa_count == 0){
+
+								$insertDataCompa_query = "INSERT INTO outcomparison(
+									STUDENT_COUNT,
+									NUMBER_STUDENT,
+									YEAR,
+									SEMESTER
+									) VALUES (
+										'',
+										'$num_student',
+										'$yyearly',
+										'1st Semester'
+									)";
+								$insertDataCompa_db = mysqli_query($conn, $insertDataCompa_query);
+							}else if($selectoutcompa_count == 1){
+								while($selectoutcompa_row = mysqli_fetch_array($selectoutcompa_db)){
+									$outcompa_numStudent = $selectoutcompa_row['NUMBER_STUDENT'];
+								}
+								$outcompa_numStudent =+ 1;
+								$updateoutcompa_query = "UPDATE outcomparison SET NUMBER_STUDENT = '$outcompa_numStudent' WHERE YEAR = '$yyearly' AND SEMESTER = '1st Semester'";
+								$updateoutcompa_db = mysqli_query($conn, $updateoutcompa_query);
+							}
+
+					}
+					
+					if($setsecondSem != " "){
+						
+						$firstsemdate = new DateTime($getDateStarted);
+						$firstsemresult = $firstsemdate->format('Y');
+						$prevyears = date('Y', strtotime('-1 year'));
+								
+						$cret_year = $prevyears."-".$firstsemresult;
+						$sel_query = "SELECT * FROM yearly";
+						$sel_db = mysqli_query($conn, $sel_query);
+						while($selRow = mysqli_fetch_array($sel_db)){
+							$yyear = $selRow['YEARLY'];
+						}
+						if($cret_year != $yyear){
+							echo "success"."<br>";
+							echo "you enrolled in first semester";
+							$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
+							$query = mysqli_query($conn, $sql);
+							// if($query){
+							// 	echo "success";
+							// }
+						}
+						$selectYearly_query = "SELECT * FROM yearly";
+							$selectYearly_db = mysqli_query($conn, $selectYearly_query);
+							while($selectYearly_row = mysqli_fetch_array($selectYearly_db)){
+								$yyearly = $selectYearly_row['YEARLY'];
+							}
+							$selectoutcompa_query = "SELECT * FROM outcomparison WHERE YEAR = '$yyearly' AND SEMESTER = '2nd Semester'";
+							$selectoutcompa_db = mysqli_query($conn, $selectoutcompa_query);
+							$selectoutcompa_count = mysqli_num_rows($selectoutcompa_db);
+							$num_student = 1;
+							if($selectoutcompa_count == 0){
+
+								$insertDataCompa_query = "INSERT INTO outcomparison(
+									STUDENT_COUNT,
+									NUMBER_STUDENT,
+									YEAR,
+									SEMESTER
+									) VALUES (
+										'',
+										'$num_student',
+										'$yyearly',
+										'2nd Semester'
+									)";
+								$insertDataCompa_db = mysqli_query($conn, $insertDataCompa_query);
+							}else if($selectoutcompa_count == 1){
+								while($selectoutcompa_row = mysqli_fetch_array($selectoutcompa_db)){
+									$outcompa_numStudent = $selectoutcompa_row['NUMBER_STUDENT'];
+								}
+								$outcompa_numStudent =+ 1;
+								$updateoutcompa_query = "UPDATE outcomparison SET NUMBER_STUDENT = '$outcompa_numStudent' WHERE YEAR = '$yyearly' AND SEMESTER = '2nd Semester'";
+								$updateoutcompa_db = mysqli_query($conn, $updateoutcompa_query);
+							}
+					}
+
+					if($setthirdSem != " "){
+						$firstsemdate = new DateTime($getDateStarted);
+						$firstsemresult = $firstsemdate->format('Y');
+						$prevyears = date('Y', strtotime('-1 year'));
+								
+						$cret_year = $prevyears."-".$firstsemresult;
+						$sel_query = "SELECT * FROM yearly";
+						$sel_db = mysqli_query($conn, $sel_query);
+						while($selRow = mysqli_fetch_array($sel_db)){
+							$yyear = $selRow['YEARLY'];
+						}
+						if($cret_year != $yyear){
+							echo "success"."<br>";
+							echo "you enrolled in first semester";
+							$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
+							$query = mysqli_query($conn, $sql);
+							// if($query){
+							// 	echo "success";
+							// }
+						}
+						$selectYearly_query = "SELECT * FROM yearly";	
+							$selectYearly_db = mysqli_query($conn, $selectYearly_query);
+							while($selectYearly_row = mysqli_fetch_array($selectYearly_db)){
+								$yyearly = $selectYearly_row['YEARLY'];
+							}
+							$selectoutcompa_query = "SELECT * FROM outcomparison WHERE YEAR = '$yyearly' AND SEMESTER = 'Special Term'";
+							$selectoutcompa_db = mysqli_query($conn, $selectoutcompa_query);
+							$selectoutcompa_count = mysqli_num_rows($selectoutcompa_db);
+							$num_student = 1;
+							if($selectoutcompa_count == 0){
+
+								$insertDataCompa_query = "INSERT INTO outcomparison(
+									STUDENT_COUNT,
+									NUMBER_STUDENT,
+									YEAR,
+									SEMESTER
+									) VALUES (
+										'',
+										'$num_student',
+										'$yyearly',
+										'Special Term'
+									)";
+								$insertDataCompa_db = mysqli_query($conn, $insertDataCompa_query);
+							}else if($selectoutcompa_count == 1){
+								while($selectoutcompa_row = mysqli_fetch_array($selectoutcompa_db)){
+									$outcompa_numStudent = $selectoutcompa_row['NUMBER_STUDENT'];
+								}
+								$outcompa_numStudent =+ 1;
+								$updateoutcompa_query = "UPDATE outcomparison SET NUMBER_STUDENT = '$outcompa_numStudent' WHERE YEAR = '$yyearly' AND SEMESTER = 'Special Term'";
+								$updateoutcompa_db = mysqli_query($conn, $updateoutcompa_query);
+							}
+					}
+
+					$yearlySel_query = "SELECT * FROM yearly";
+					$yearlySel_db = mysqli_query($conn, $yearlySel_query);
+					while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
+						$yearr = $yearSel_row['YEARLY'];
+					}
+					$sel_query = "SELECT * FROM outstatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+					$sel_db = mysqli_query($conn, $sel_query);
+					$countNum = mysqli_num_rows($sel_db);
+					if($countNum == 1){
+						while($seRow = mysqli_fetch_array($sel_db)){
+							$num_student = $seRow['NUMBER_STUDENT'];
+						}
+						$num_student += 1;
+						$statUp = "UPDATE outstatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
+						mysqli_query($conn, $statUp);
+					}
+					if($countNum == 0){
+						$numStu = 1;
+						$appform = "outbound";
+						$statInt = "INSERT INTO outstatistics(STUDENT_COUNT, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
+							'',
+							'$numStu',
+							'$yearr',
+							'$country',
+							'$appform'
+						)";
+						mysqli_query($conn, $statInt);
+					}
 				}
-				if($countNum == 0){
-					$numStu = 1;
-					$appform = "outbound";
-					$statInt = "INSERT INTO outstatistics(STUDENT_COUNT, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
-						'',
-						'$numStu',
-						'$yearr',
-						'$country',
-						'$appform'
-					)";
-					mysqli_query($conn, $statInt);
+
+				if (move_uploaded_file($_FILES['certificate']['tmp_name'], $target)) 
+				{
+					$msg = "Upload Successful";
 				}
-			}
-			if (move_uploaded_file($_FILES['certificate']['tmp_name'], $target)) 
-			{
-				$msg = "Upload Successful";
-			}
-			else 
-			{
-				$msg = "Upload Failed";
+				else 
+				{
+					$msg = "Upload Failed";
+				}
+			}else{
+				$errorCoCmsg = "
+					<div class='container-fluid alert'>
+						<span class='closebtn ' onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<p>The File must be .jpg, .png, and PDF file!</p>
+					</div>
+				";
 			}
 		}
 	}	   
@@ -147,6 +369,8 @@
 		<div class="header">
 			<img src='img/logo.png' height=auto class="img-responsive">
 		</div>
+		<?php echo $mssg?>
+		<?php echo $errorCoCmsg?>
 		<!--START OF NAV BAR-->
 		<nav class="navbar" id="bar">
 			<div class="container-fluid">
@@ -309,6 +533,19 @@
 							</div> 
 						</p>
 					</div>
+					<div id="dateStarted">
+						<div class="container-fluid">
+							<p>
+								<span><b>What Date He/She started: </b><input type="date" name="dateStrat"/></span>
+							</p>
+						</div>
+						<br>
+						<p id="ongoindbtn">
+							<div class="form-group row col-xs-4 col-xs-offset-1">
+								<input type="submit" value="Submit" name="goinbtn" class="btn btn-primary">
+							</div> 
+						</p>
+					</div>
 				</div>
 				<br>
 			</div> 
@@ -319,6 +556,7 @@
 			$("#certUp").hide();
 			$("#cert").hide();
 			$("#subcert").hide(); 
+			$("#dateStarted").hide();
 		});
 	
 		 function func(sel) {
@@ -335,6 +573,14 @@
 				$("#cert").show();
 				$("#conf").hide();
 				$("#subcert").show();
+			}else if(stat === 'On-going'){
+				$("#send").hide();
+				$("#backuu").hide();
+				$("#cert").hide();
+				$("#conf").hide();
+				$("#subcert").hide();
+				$("#dateStarted").show();
+			
 			}else{
 				$("#send").hide();
 				$("#backuu").show();
@@ -342,13 +588,13 @@
 				$("#cert").hide();
 		  	}
 		}
-		var setStatus = "<?php echo $getStatus?>";
-		$('#status option[value='+setStatus+']').prop('selected', true);
-		if(document.getElementById('Completed').selected == true){
-			$("#cert").show();
-			$("#backuu").hide();
-			$("#conf").hide(); 
-		}
+		// var setStatus = "<?php echo $getStatus?>";
+		// $('#status option[value='+setStatus+']').prop('selected', true);
+		// if(document.getElementById('Completed').selected == true){
+		// 	$("#cert").show();
+		// 	$("#backuu").hide();
+		// 	$("#conf").hide(); 
+		// }
 	</script>
 </html>
 <script>
