@@ -678,7 +678,7 @@
 				$log_complete = mysqli_query($conn, $query_logcomplete);
 
 			if($query_db){ // CHECK IF NG UPDATE YUNG STATUS INTO COMPLETED
-
+				$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
 				// CHECK IF THE YEAR IS EXISTING THEN INSERT SA YEALY IF NONE
 				$dateStarted_select = "SELECT * FROM admin_student_data WHERE STUDENT_ID = '$getStudentID'";
 				$dateStarted_db = mysqli_query($conn, $dateStarted_select);

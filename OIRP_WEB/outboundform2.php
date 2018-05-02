@@ -25,31 +25,31 @@
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>	
 		</div>
 		
-			<nav class="navbar" id="bar">
-						<div class="container-fluid">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
-							        <span class="sr-only">Toggle navigation</span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							     </button>
-							</div>
-							<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
-										<ul class="nav navbar-nav navbar-right">
-											<li><a href="student_home.php">Home</a></li>
-											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
-									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
-									          <ul class="dropdown-menu">
-												<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
-											  </ul>
-									        </li>
-											
-											
-										</ul> 
-									</div>
-							</div>
-						</nav>
+		<!--START OF NAVBAR-->
+		<nav class="navbar" id="bar">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="student_home.php">Home</a></li>
+						<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="index.php" class="logoutbtn" >Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+							</ul>
+						</li>
+					</ul> 
+				</div>
+			</div>
+		</nav>			
+		<!--END OF NAVBAR-->
 		
 		<div class="container-fluid">
 			<nav class="col-sm-2 sidebar">
@@ -162,12 +162,12 @@
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btnSaveoutform2" class="btn btn-block btn-success shadowbtn" value="Save">
+							<input type="submit" name="btnSaveoutform2" class="btn btn-block btn-warning shadowbtn" value="Save">
 						</div>
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btn_form2" class="btn btn-block btn-primary shadowbtn" value="Next">
+							<input type="submit" name="btn_form2" class="btn btn-block btn-success shadowbtn" value="Next">
 						</div>
 					</div>
 				</form>

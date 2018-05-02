@@ -108,7 +108,7 @@
 					<p>*Note: for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password.</p>
 					<br>
 				</div>
-				<!-- div class="col-sm-3 login" style="background-color: #00a1e4;>
+				<! div class="col-sm-3 login" style="background-color: #00a1e4;>
 				<div class="col-sm-3 login info">
 					<br>
 					<h3 style="text-align: center">CONTACT US</h3><br>
