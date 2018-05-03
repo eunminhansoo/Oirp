@@ -73,6 +73,8 @@
 			$type_of_form = $row['type_of_form'];
 			$name_officer_contact_in_bila = $row['name_officer_contact_in_bila'];
 			$designation_in_bila = $row['designation_in_bila'];
+			$email_add_in_bila_oc = $row['email_add_in_bila'];
+			$telephone_num_bila_oc = $row['telephone_num_bila'];
 		}
 
 		if($scholarship_text_in_bila==null){
@@ -152,7 +154,7 @@
 			$this->SetFont('Arial','',8);
 			$this->Cell(0,3,'Office of International Relations and Programs',0,2,'C');
 			$this->Cell(0,3,'G/F Main Bldg., University of Santo Tomas',0,2,'C');
-			$this->Cell(0,3,'Espaï¿½a Blvd., Manila, Philippines, 1015',0,2,'C');
+			$this->Cell(0,3,'España Blvd., Manila, Philippines, 1015',0,2,'C');
 			$this->Cell(0,3,'406-1611 local 8658',0,2,'C');
 			$this->Cell(0,3,'international@ust.edu.ph',0,2,'C');
 		}
@@ -256,9 +258,9 @@
 		$pdf->Cell(30,7,'DESIGNATION','BR',0);
 		$pdf->Cell(35,7,$designation_in_bila,'B',1);
 		$pdf->Cell(50,7,'EMAIL ADDRESS OF OFFICER','BR',0);
-		$pdf->Cell(70,7,$email_add_in_bila,'BR',0);
+		$pdf->Cell(70,7,$email_add_in_bila_oc,'BR',0);
 		$pdf->Cell(35,7,'TELEPHONE NUMBER','BR',0);
-		$pdf->Cell(40,7,$telephone_num_in_bila,'B',1);
+		$pdf->Cell(40,7,$telephone_num_bila_oc,'B',1);
 		$pdf->Cell(50,7,'CURRENT PROGRAM OF STUDY','BR',0);
 		$pdf->Cell(65,7,$current_prog_study_in_bila,'BR',0);
 		$pdf->Cell(25,7,'SPECIALIZATION','BR',0);
