@@ -1,5 +1,7 @@
 <?php
 	include 'register_php.php';
+	error_reporting(0);
+ini_set('display_errors', 0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -101,7 +103,6 @@
 				</div>
 				</div>
 				<?php echo $message?>
-				<?php echo $message_captcha?>
 			</div>
 		</form>
 		</div>
