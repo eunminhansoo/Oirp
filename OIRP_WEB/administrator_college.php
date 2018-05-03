@@ -94,12 +94,60 @@
 	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
 	                        <thead>
 	                            <tr>
-	                                <th>NAME</th>
-	                                <th>TYPE OF PROGRAM</th>
-	                                <th>DURATION / SCHOLARSHIP</th>
-									<th>COURSE</th>
-	                                <th>DATE SUBMITTED</th>
-	                                <th>STATUS</th>
+	                                <th>
+										<button type="submit" name="name_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+										NAME
+										<button type="submit" name="name_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+									</th>
+	                                <th>
+										<button type="submit" name="prog_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+										TYPE OF PROGRAM
+										<button type="submit" name="prog_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+									</th>
+	                                <th>
+										<button type="submit" name="dura_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+										DURATION / SCHOLARSHIP
+										<button type="submit" name="duro_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+									</th>
+									<th>
+										<button type="submit" name="course_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+										COURSE
+										<button type="submit" name="course_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+									</th>
+	                                <th>
+										<button type="submit" name="date_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+										DATE SUBMITTED
+										<button type="submit" name="date_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+									</th>
+	                                <th>
+										<button type="submit" name="status_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+										STATUS
+										<button type="submit" name="status_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
+											<span class="fa fa-arrow-circle-o-up"></span>
+										</button>
+									</th>
 	                            </tr>
 	                        </thead>
 	                        <tbody>
@@ -111,6 +159,367 @@
 										$studentid = $col_row['STUDENT_ID'];
 										$getCollege = $col_row['COLLEGE'];
 									}
+									if(isset($_POST['name_sort_in_asc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY FAMILY_NAME ASC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else if(isset($_POST['name_sort_in_desc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY FAMILYL_NAME DESC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else if(isset($_POST['prog_sort_in_asc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY TYPE_OF_PROGRAM ASC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else if(isset($_POST['prog_sort_in_desc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY TYPE_OF_PROGRAM DESC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else if(isset($_POST['dura_sort_in_asc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY TYPE_OF_FORM, TYPE_OF_FORM_OTHER ASC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else if(isset($_POST['prog_sort_in_desc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY TYPE_OF_FORM, TYPE_OF_FORM_OTHER DESC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else if(isset($_POST['course_sort_in_asc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY COURSE ASC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else if(isset($_POST['course_sort_in_desc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY COURSE DESC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else if(isset($_POST['status_sort_in_asc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY STATUS ASC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else if(isset($_POST['status_sort_in_desc'])){
+										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
+										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college' ORDER BY STATUS DESC";
+										$sql_db = mysqli_query($conn, $sql_query);
+										while($sqlRow = mysqli_fetch_array($sql_db)){
+											$fullname = $sqlRow['FAMILY_NAME'].", ".$sqlRow['GIVEN_NAME']." ".$sqlRow['MIDDLE_NAME'];
+											$get_TYPE_OF_PROGRAM = $sqlRow['TYPE_OF_PROGRAM'];
+											$get_TYPE_OF_FORM = $sqlRow['TYPE_OF_FORM'];
+											$get_TYPE_OF_FORM_OTHER = $sqlRow['TYPE_OF_FORM_OTHER'];
+											$resultdate = $sqlRow['DATE_SUBMITTED'];
+											$status = $sqlRow['STATUS'];
+											$course = $sqlRow['COURSE'];
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}
+												echo "
+													<td>".$course."</td>
+													<td><".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}else {
 										$sql_query = "SELECT * FROM student a INNER JOIN admin_college b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c 
 										ON a.STUDENT_ID = c.STUDENT_ID INNER JOIN upload_pdf d ON d.STUDENT_ID = a.STUDENT_ID WHERE b.COLLEGE = '$college'";
 										$sql_db = mysqli_query($conn, $sql_query);
@@ -122,34 +531,33 @@
 											$resultdate = $sqlRow['DATE_SUBMITTED'];
 											$status = $sqlRow['STATUS'];
 											$course = $sqlRow['COURSE'];
-								?>
-	                            <tr>
-	                                <td><?php echo "<a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a>";?></td>
-									<?php 
-											echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+											echo "<tr>";
+												echo "<td><a href=admin_college_form.php?studentName=".$studentid."&course=".urlencode($course).">".$fullname."</a></td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
 
-											if($get_TYPE_OF_PROGRAM == "Scholarship"){
-												if($get_TYPE_OF_FORM  == "OTHERS"){
-													echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
-												}else{
-													echo "<td>".$get_TYPE_OF_FORM."</td>";
+												if($get_TYPE_OF_PROGRAM == "Scholarship"){
+													if($get_TYPE_OF_FORM  == "OTHERS"){
+														echo "<td>".$sqlRow['TYPE_OF_FORM_OTHER']."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
+												}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
+													if($get_TYPE_OF_FORM == "Others"){
+														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
+													}else{
+														echo "<td>".$get_TYPE_OF_FORM."</td>";
+													}
 												}
-											}else if($get_TYPE_OF_PROGRAM == "ShortStudy" || $get_TYPE_OF_PROGRAM == "StudyTour" || $get_TYPE_OF_PROGRAM == "ServiceLearning"){
-												if($get_TYPE_OF_FORM == "Others"){
-													echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-												}else{
-													echo "<td>".$get_TYPE_OF_FORM."</td>";
-												}
-											}
-									?>
-									<td><?php echo $course;?></td>
-									<td><?php echo $resultdate; ?></td>
-	                                <td><?php echo $status?></td>
-										
-									<?php }?>		
-	                            </tr>
-	                        
-	                        </tfoot> 
+												echo "
+													<td>".$course."</td>
+													<td>".$resultdate."</td>
+													<td>".$status."</td>
+												";
+											echo "</tr>";
+										}
+									}
+								?>	 
+	                        	</tfoot> 
 	                        </tbody>
 	                    </table>
 	                </div>

@@ -43,31 +43,32 @@
 			$admin_query->bind_param('ss', $email, $pass_word);
 			$admin_query->execute();
 			$admin_row = $admin_query->get_result();
-
-			if($admin_row == 1){
-				while($rrow = $admin_row->fetch_assoc()){
-					$id = $rrow['id'];
-					$college = $rrow['college'];
-					$_SESSION['superadmin'] =  $rrow['username'];
-					$_SESSION['admin'] = 'login';
-					$_SESSION['valid'] = 'valid';
+			$row_admin = $admin_query->num_rows();
+			echo $row_admin;
+			// if($admin_row == true){
+			// 	while($rrow = $admin_row->fetch_assoc()){
+			// 		$id = $rrow['id'];
+			// 		$college = $rrow['college'];
+			// 		$_SESSION['superadmin'] =  $rrow['username'];
+			// 		$_SESSION['admin'] = 'login';
+			// 		$_SESSION['valid'] = 'valid';
 					
-					if($_SESSION['valid'] == 'valid'){
-						if($_SESSION['admin'] == 'login'){
-							if($_SESSION['superadmin'] == 'oirp'){
-								header("Location: administrator.php");
-							}else{
-								$_SESSION['collegeName'] = 'college';
-								$_SESSION['collegeNames'] = $college;
-								header("Location: administrator_college.php");
-							}
-						}
-					}
-				}
+			// 		if($_SESSION['valid'] == 'valid'){
+			// 			if($_SESSION['admin'] == 'login'){
+			// 				if($_SESSION['superadmin'] == 'oirp'){
+			// 					header("Location: administrator.php");
+			// 				}else{
+			// 					$_SESSION['collegeName'] = 'college';
+			// 					$_SESSION['collegeNames'] = $college;
+			// 					header("Location: administrator_college.php");
+			// 				}
+			// 			}
+			// 		}
+			// 	}
 				
-			}else{
-				$error_message = "<script language='javascript'>(function(){alert('Invalid Username and Password');})();</script>";
-			}
+			// }else if($admin_row == false){
+			// 	$error_message = "<script language='javascript'>(function(){alert('Invalid Username and Password');})();</script>";
+			// }
 		}
 	}
 ?>

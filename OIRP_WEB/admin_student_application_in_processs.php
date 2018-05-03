@@ -14,13 +14,10 @@
     }
     $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
     $queryBD = mysqli_query($conn, $query);
-	// while($queryDBrow = mysqli_fetch_array($queryDB)){
-	// 	$studentAppPrgo = $queryDBrow['APPLICATION_PROG'];
-	// }
+	
     $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
     $queryCU = mysqli_query($conn, $query1);   
-	// $query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$getStudentID'";
-    // $queryPF = mysqli_query($conn, $query2);
+	
 	$selCollege = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$getStudentID'";
 	$setCollege = mysqli_query($conn, $selCollege);
 	while($colRow = mysqli_fetch_array($setCollege)){
@@ -39,95 +36,7 @@
 		$university = $row1['HOME_UNIV_IN_BILA'];
 	}
 
-	// IF STATUS DENIED, ONGOING, 
-	// if(isset($_POST['update_status'])){
-	// 	$status = $_POST['status']; 
-
-	// 	$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
-		
-	// 	$query_db = mysqli_query($conn, $query2);
-
-	// 	if($query_db){
-	// 		header("Location:admin_student_application_in.php?studentName=$getStudentID");
-	// 		$sel_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
-	// 		$queryy_db = mysqli_query($conn, $sel_query);
-	// 		while($rrow = mysqli_fetch_array($queryy_db)){
-	// 			$sel_query = $rrow['STATUS'];
-	// 		}
-	// 		if($sel_query == 'Approved'){
-
-				
-	// 			$sel_check_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
-	// 			$sel_check_db = mysqli_query($conn, $sel_check_query);
-	// 			if(mysqli_num_rows($sel_check_db) <= 0){
-	// 				$ins_query = "INSERT INTO admin_college ('STUDENT_COUNT', 'STUDENT_ID, 'PROPOSED_PROGRAM', 'COURSE_1', 'COURSE_2', 'COURSE_3', 'COURSE_4', 'COURSE_5') VALUES ('', '$getStudentID', '', '', '', '', '', '')";
-	// 				//add in audit
-	// 				//insert to audit log
-	// 				$approved = 'Approved';
-	// 				date_default_timezone_set('Asia/Manila');
-	// 				$date_approved = date('Y-m-d/H:i:s');
-	// 				$query_approved = "INSERT INTO audit_logs(STUDENT_COUNT,
-	// 				STUDENT_ID,
-	// 				LASTNAME,
-	// 				FIRSTNAME,
-	// 				APPLICATION_FORM,
-	// 				COLLEGE,
-	// 				COURSE,
-	// 				STATUS,
-	// 				DATE
-	// 				) VALUES (
-	// 					'',
-	// 					'$getStudentID',
-	// 					'',
-	// 					'',
-	// 					'',
-	// 					'',
-	// 					'',
-	// 					'$approved',
-	// 					'$date_approved'
-	// 				)";
-	// 				mysqli_query($conn, $query_approved);
-	// 				mysqli_query($conn, $ins_query);
-	// 			}
-	// 		}else{
-	// 			$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
-	// 			//add in audit
-	// 			//insert to audit log
-	// 			date_default_timezone_set('Asia/Manila');
-	// 			$date_rejected = date('Y-m-d/H:i:s');
-	// 			$rejected = 'Rejected';
-	// 			$query_rejected = "INSERT INTO audit_logs(STUDENT_COUNT,
-	// 			STUDENT_ID,
-	// 			LASTNAME,
-	// 			FIRSTNAME,
-	// 			APPLICATION_FORM,
-	// 			COLLEGE,
-	// 			COURSE,
-	// 			STATUS,
-	// 			DATE
-	// 			) VALUES (
-	// 				'',
-	// 				'$getStudentID',
-	// 				'',
-	// 				'',
-	// 				'',
-	// 				'',
-	// 				'',
-	// 				'$rejected',
-	// 				'$date_rejected'
-	// 			)";
-    // 	        mysqli_query($conn, $query_rejected);
-	// 			mysqli_query($conn, $del_query);
-	// 		}   
-	// 	}
-	// }
-	// while($pf_row = mysqli_fetch_array($queryPF)){
-	// 	$pf_COURSE_1_INBOUND = $pf_row['COURSE_1_INBOUN'];
-	// 	$pf_COURSE_2_INBOUND = $pf_row['COURSE_2_INBOUND'];
-	// 	$pf_COURSE_3_INBOUND = $pf_row['COURSE_3_INBOUND'];
-	// 	$pf_COURSE_4_INBOUND = $pf_row['COURSE_4_INBOUND'];
-	// 	$pf_COURSE_5_INBOUND = $pf_row['COURSE_5_INBOUND'];
-	// }
+	
 	$sql = "select college from colleges where id > 1 order by college asc";
 	$result = mysqli_query($conn, $sql);
 	
@@ -527,72 +436,6 @@
 			$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
 		}
 
-		// if($query_db){
-		// 	header("Location:admin_student_application_in.php?studentName=$getStudentID");
-		// 	$sel_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
-		// 	$queryy_db = mysqli_query($conn, $sel_query);
-		// 	while($rrow = mysqli_fetch_array($queryy_db)){
-		// 		$sel_query = $rrow['STATUS'];
-		// 	}
-		// }
-
-		// if($sel_query == 'Completed'){
-		// 	$prevyears = date('Y');
-		// 	$nextyears = date('Y', strtotime('+1 year'));
-					
-		// 	$cret_year = $prevyears."-".$nextyears;
-		// 	$sel_query = "SELECT * FROM yearly";
-		// 	$sel_db = mysqli_query($conn, $sel_query);
-		// 	while($selRow = mysqli_fetch_array($sel_db)){
-		// 		$yyear = $selRow['YEARLY'];
-		// 	}
-		// 	if($cret_year != $yyear){
-		// 		// echo "success"."<br>";
-		// 		// echo "you enrolled in first semester";
-		// 		$sql = "INSERT INTO yearly(COUNT, YEARLY) VALUES (' ', '$cret_year')";
-		// 		$query = mysqli_query($conn, $sql);
-		// 		// if($query){
-		// 		// 	echo "success";
-		// 		// }
-		// 	} else{
-		// 		// echo "doesnt match";
-		// 		header("Location: error_page.php");
-		// 	}	
-
-		// 	// CHECK IF THE NOT EXIST IN OUTBOUND GRAPH
-		// 	$yearlySel_query = "SELECT * FROM yearly";
-		// 	$yearlySel_db = mysqli_query($conn, $yearlySel_query);
-		// 	while($yearSel_row = mysqli_fetch_array($yearlySel_db)){
-		// 		$yearr = $yearSel_row['YEARLY'];
-		// 	}
-		// 	$sel_query = "SELECT * FROM instatistics WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-		// 	$sel_db = mysqli_query($conn, $sel_query);
-		// 	$countNum = mysqli_num_rows($sel_db);
-		// 	if($countNum == 1){
-		// 		while($seRow = mysqli_fetch_array($sel_db)){
-		// 			$num_student = $seRow['NUMBER_STUDENT'];
-		// 		}
-		// 		$num_student += 1;
-		// 		$statUp = "UPDATE instatistics SET NUMBER_STUDENT = '$num_student' WHERE COUNTRY = '$country' AND YEAR = '$yearr'";
-		// 		mysqli_fetch_array($conn, $statUp);
-		// 	}
-
-		// 	if($countNum == 0){
-		// 		$numStu = 1;
-		// 		$appform = "inbound";
-		// 		$statInt = "INSERT INTO instatistics(ID, NUMBER_STUDENT, YEAR, COUNTRY, APPLICATION_FORM) VALUES (
-		// 			'',
-		// 			'$numStu',
-		// 			'$yearr',
-		// 			'$country',
-		// 			'$appform'
-		// 		)";
-		// 		mysqli_query($conn, $statInt);
-		// 	}
-		// }else{
-		// 	$del_query = "DELETE FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
-		// 	mysqli_query($conn, $del_query);
-		// }   
 	}
 
 	// if THE SATUS IN ON-GOING
