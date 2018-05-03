@@ -64,11 +64,11 @@
 					<div class="form-group row">
 						<div class="col-sm-3">
 							<label>Nationality</label>
-							<input type="text" name="nationality" id="nationality" class="form-control" pattern="[^<>].{1,25}" maxlength="25" value="<?php echo $setSel_NATIONALITY_OUT?>" required>
+							<input type="text" name="nationality" id="nationality" class="form-control" pattern="[^<>=]{1,25}" maxlength="25" value="<?php echo $setSel_NATIONALITY_OUT?>" required>
 						</div>
 						<div class="col-sm-3">
 							<label>Passport No.</label>
-							<input type="text" name="passport" id="passport" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $setSel_PASSPORT_NUM_OUT ?>" required>
+							<input type="text" name="passport" id="passport" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" value="<?php echo $setSel_PASSPORT_NUM_OUT ?>" required>
 						</div>
 						<div class="col-sm-2">
 							<label>Date of Issuance</label>
@@ -82,7 +82,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Mailing Address</label>
-							<input type="text" name="address" id="address" class="form-control"  pattern="[^<>].{1,115}" maxlength="115" value="<?php echo $setSel_MAILING_ADD_OUT?>" required>
+							<input type="text" name="address" id="address" class="form-control"  pattern="[^<>=]{1,115}" maxlength="115" value="<?php echo $setSel_MAILING_ADD_OUT?>" required>
 						</div>					
 					</div>
 					<div class="form-group row">
@@ -98,11 +98,11 @@
 					<div class="form-group row break">
 						<div class="col-sm-4">
 							<label>College/Faculty/Institute</label>
-							<input type="text" name="college" id="college" class="form-control" pattern="[^<>].{1,50}" maxlength="50" value="<?php echo $setSel_COLLEGE_INSTITUTE_FACULTY_OUT?>" required>
+							<input type="text" name="college" id="college" class="form-control" pattern="[^<>=]{1,50}" maxlength="50" value="<?php echo $setSel_COLLEGE_INSTITUTE_FACULTY_OUT?>" required>
 						</div>
 						<div class="col-sm-4">
 							<label>Degree Program</label>
-							<input type="text" name="program" id="program" class="form-control" pattern="[^<>].{1,50}" maxlength="50" value="<?php echo $setSel_DEGREE_PROG_OUT?>" required>
+							<input type="text" name="program" id="program" class="form-control" pattern="[^<>=]{1,50}" maxlength="50" value="<?php echo $setSel_DEGREE_PROG_OUT?>" required>
 						</div>
 						<div class="col-sm-2">
 							<label>Year Level</label>

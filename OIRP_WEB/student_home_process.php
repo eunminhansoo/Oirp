@@ -9,9 +9,13 @@ include 'database_connection.php';
 
 		$get_studentID = $_SESSION['student_id_session'];
 		
-		$sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$get_studentID' ";
-		$db_query = mysqli_query($conn, $sql_query);
-		while($row = mysqli_fetch_array($db_query)){
+		//$sql_query = "SELECT * FROM student WHERE STUDENT_ID = '$get_studentID' ";
+		$sql_query = $conn->prepare('SELECT * FROM student WHERE STUDENT_ID = ?');
+		$sql_query->bind_param('s', $get_studentID);
+		$sql_query->execute();
+		$result = $sql_query->get_result();
+		//$db_query = mysqli_query($conn, $sql_query);
+		while($row = $result->fetch_assoc()){
 			$familyName = $row['FAMILY_NAME'];
 			$givenName = $row['GIVEN_NAME'];
 			$status = $row['STATUS'];
@@ -36,15 +40,23 @@ include 'database_connection.php';
 
 		$type_of_program = "";
 		if ($application_prog == 'outbound'){
-			$sql_query = "select type_of_program from proposed_field_study where student_id = '$get_studentID'";
-			$db_query = mysqli_query($conn, $sql_query);
-			while($row = mysqli_fetch_array($db_query)){
+			//$sql_query = "select type_of_program from proposed_field_study where student_id = '$get_studentID'";
+			//$db_query = mysqli_query($conn, $sql_query);
+			$sql_query = $conn->prepare('select type_of_program from proposed_field_study where student_id = ?');
+			$sql_query->bind_param('s', $get_studentID);
+			$sql_query->execute();
+			$result = $sql_query->get_result();
+			while($row = $result->fetch_assoc()){
 				$type_of_program = $row['type_of_program'];
 			}
 		} elseif ($application_prog == 'inbound'){
-			$sql_query = "select type_of_program from educ_background_inbound where student_id = '$get_studentID'";
-			$db_query = mysqli_query($conn, $sql_query);
-			while($row = mysqli_fetch_array($db_query)){
+			//$sql_query = "select type_of_program from educ_background_inbound where student_id = '$get_studentID'";
+			//$db_query = mysqli_query($conn, $sql_query);
+			$sql_query = $conn->prepare('select type_of_program from educ_background_inbound where student_id = ?');
+			$sql_query->bind_param('s', $get_studentID);
+			$sql_query->execute();
+			$result = $sql_query->get_result();
+			while($row = $result->fetch_assoc()){
 				$type_of_program = $row['type_of_program'];
 			}
 		} 

@@ -4,6 +4,36 @@
 	$message = '';
 	
 	if(isset($_POST['btn_register'])){
+		function post_captcha($user_response) {
+        $fields_string = '';
+        $fields = array(
+            'secret' => '6LeuFVcUAAAAAOQ8pti7ncWhQK285V6tmAzQ5THo',
+            'response' => $user_response
+        );
+        foreach($fields as $key=>$value)
+        $fields_string .= $key . '=' . $value . '&';
+        $fields_string = rtrim($fields_string, '&');
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
+        curl_setopt($ch, CURLOPT_POST, count($fields));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, True);
+
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        return json_decode($result, true);
+    }
+
+    // Call the function post_captcha
+    $res = post_captcha($_POST['g-recaptcha-response']);
+
+    if (!$res['success']) {
+        // What happens when the CAPTCHA wasn't checked
+        header("Location: register.php");
+		$message = "<script language='javascript'>(function(){alert('Please click the security checkbox!');})();</script>";
+    } else {
 		$email = htmlspecialchars($_POST['email']);
 		$familyName = htmlspecialchars( $_POST['family_name']);
 		$givenName = htmlspecialchars($_POST['given_name']);
@@ -50,6 +80,7 @@
 				$message = "<script language='javascript'>(function(){alert('Error 404');})();</script>";
 			}
 		}
+	}
 	}
 
 ?>

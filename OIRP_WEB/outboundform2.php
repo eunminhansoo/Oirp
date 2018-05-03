@@ -65,23 +65,23 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Father's Name</label>
-							<input type="text" name="father" id="father" class="form-control" pattern="[^0-9<>].{1,60}" maxlength="60" value="<?php echo $getSel_FATHER_NAME_OUT?>" required>
+							<input type="text" name="father" id="father" class="form-control" pattern="[^0-9<>=]{1,60}" maxlength="60" value="<?php echo $getSel_FATHER_NAME_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Occupation</label>
-							<input type="text" name="fOccupation" id="fOccupation" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $getSel_OCCUPATION_DADA_OUT?>">
+							<input type="text" name="fOccupation" id="fOccupation" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" value="<?php echo $getSel_OCCUPATION_DADA_OUT?>">
 						</div>
 						<div class="col-sm-5">
 							<label>Company</label>
-							<input type="text" name="fCompany" id="fCompany" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $getSel_COMPANY_DADA_OUT?>">
+							<input type="text" name="fCompany" id="fCompany" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" value="<?php echo $getSel_COMPANY_DADA_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Address</label>
-							<input type="text" name="fAddress" id="fAddress" class="form-control" pattern="[^<>].{1,115}" maxlength="115" value="<?php echo $getSel_ADDRESS_DADA_OUT?>">
+							<input type="text" name="fAddress" id="fAddress" class="form-control" pattern="[^<>=]{1,115}" maxlength="115" value="<?php echo $getSel_ADDRESS_DADA_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -111,23 +111,23 @@
 					<div class="form-group row break">
 						<div class="col-sm-10">
 							<label>Mother's Name</label>
-							<input type="text" name="mother" id="mother" class="form-control" pattern="[^0-9<>].{1,60}" maxlength="60" value="<?php echo $getSel_MOTHER_NAME_OUT?>" required>
+							<input type="text" name="mother" id="mother" class="form-control" pattern="[^0-9<>=]{1,60}" maxlength="60" value="<?php echo $getSel_MOTHER_NAME_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Occupation</label>
-							<input type="text" name="mOccupation" id="mOccupation" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $getSel_OCCUPATION_MOM_OUT?>">
+							<input type="text" name="mOccupation" id="mOccupation" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" value="<?php echo $getSel_OCCUPATION_MOM_OUT?>">
 						</div>
 						<div class="col-sm-5">
 							<label>Company</label>
-							<input type="text" name="mCompany" id="mCompany" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $getSel_COMPANY_MOM_OUT?>">
+							<input type="text" name="mCompany" id="mCompany" class="form-control" pattern="[^<>=].{1,20}" maxlength="20" value="<?php echo $getSel_COMPANY_MOM_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Address</label>
-							<input type="text" name="mAddress" id="mAddress" class="form-control" pattern="[^<>].{1,115}" maxlength="115" value="<?php echo $getSel_ADDRESS_MOM_OUT?>"> 
+							<input type="text" name="mAddress" id="mAddress" class="form-control" pattern="[^<>=].{1,115}" maxlength="115" value="<?php echo $getSel_ADDRESS_MOM_OUT?>"> 
 						</div>
 					</div>
 					<div class="form-group row">
