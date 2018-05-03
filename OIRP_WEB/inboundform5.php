@@ -77,12 +77,12 @@
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btnSaveinform5" class="btn btn-success btn-block shadowbtn" value="Save">
+							<input type="submit" name="btnSaveinform5" class="btn btn-warning btn-block shadowbtn" value="Save">
 						</div>
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btn_inform5" class="btn btn-warning btn-block shadowbtn" value="Submit">
+							<input type="submit" name="btn_inform5" class="btn btn-success btn-block shadowbtn" value="Submit">
 						</div>
 					</div>
 				</form>

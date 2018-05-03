@@ -27,7 +27,7 @@ ini_set('display_errors', 0);
 					<div class="col-sm-5" style="margin-top: 50px;">
 						<form method="post" class="navbar-form" >
 							<div class="form-group">
-								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="['/[\'^£$%&*()}{@#~?><>,|=_+¬-]/'].{1,30}" required/>
+								<input type="text" name="email" class="input form-control shadow" placeholder="Email or Username" pattern="[^<>=]{1,30}" maxlength="30" required/>
 							</div>
 							<div class="form-group">
 								<input type="password" name="password" class="input form-control shadow" placeholder="Password" required/>
@@ -109,7 +109,7 @@ ini_set('display_errors', 0);
 					<p>*Note: for students, please use your birthday <b>(mm/dd/yyyy)</b> as your password.</p>
 					<br>
 				</div>
-				<!-- div class="col-sm-3 login" style="background-color: #00a1e4;>
+				<! div class="col-sm-3 login" style="background-color: #00a1e4;>
 				<div class="col-sm-3 login info">
 					<br>
 					<h3 style="text-align: center">CONTACT US</h3><br>

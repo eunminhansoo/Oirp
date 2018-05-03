@@ -103,14 +103,14 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<div class="ui-widget">
-								<label>Country</label> <input type="text" name="country" id="country" class="form-control">
+								<label>Country</label> <input type="text" name="country" id="country" class="form-control" pattern="[^<>=]{1,50}">
 							</div>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>University</label>
-							<input type="text" name="university" id="university" class="form-control">
+							<input type="text" name="university" id="university" class="form-control" pattern="[^<>=]{1,100}">
 						</div>
 					</div>
 					<div class="form-group row">

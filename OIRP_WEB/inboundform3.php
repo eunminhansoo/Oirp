@@ -75,7 +75,7 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Proposed Program</label> (Refer to the <a onclick="window.open('http://www.ust.edu.ph/academics/programs/')">UST website </a>)
-							<input type="text" name="proposedProg" id="proposedProg" class="form-control" pattern="[^<>].{1,45}" maxlength="45" required value="<?php echo $getSel_PROPOSED_PROG_INBOUND?>">
+							<input type="text" name="proposedProg" id="proposedProg" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" required value="<?php echo $getSel_PROPOSED_PROG_INBOUND?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -83,31 +83,31 @@
 							<label>Courses to be taken at UST</label> 
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
-							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1_INBOUND?>">
+							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1_INBOUND?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">2.</span>
-							    <input type="text" name="course2" id="course2" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_2_INBOUND?>">
+							    <input type="text" name="course2" id="course2" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_2_INBOUND?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">3.</span>
-							    <input type="text" name="course3" id="course3" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_3_INBOUND?>">
+							    <input type="text" name="course3" id="course3" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_3_INBOUND?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">4.</span>
-							    <input type="text" name="course4" id="course4" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_4_INBOUND?>">
+							    <input type="text" name="course4" id="course4" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_4_INBOUND?>">
 							</div>
 						</div>
 						<div class="col-sm-10">
 							<div class="input-group">
 							    <span class="input-group-addon">5.</span>
-							    <input type="text" name="course5" id="course5" class="form-control" pattern="[^<>].{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_5_INBOUND?>">
+							    <input type="text" name="course5" id="course5" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_5_INBOUND?>">
 							</div>
 						</div>
 					</div>
@@ -123,17 +123,17 @@
 						</div>
 						<div class="col-sm-7">
 							<label>Research Topic (if applicable)</label>
-							<input type="text" name="research" id="research" class="form-control" pattern="[^<>].{1,50}" maxlength="50" value="<?php echo $getSel_RESEARCH_TOPIC_INBOUND?>">
+							<input type="text" name="research" id="research" class="form-control" pattern="[^<>=]{1,50}" maxlength="50" value="<?php echo $getSel_RESEARCH_TOPIC_INBOUND?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Reason for Application</label>
-							<input type="text" name="reason" id="reason" class="form-control" pattern="[^<>].{1,25}" maxlength="25" required value="<?php echo $getSel_REASON_STUDYING_INBOUND?>">
+							<input type="text" name="reason" id="reason" class="form-control" pattern="[^<>=]{1,25}" maxlength="25" required value="<?php echo $getSel_REASON_STUDYING_INBOUND?>">
 						</div>
 						<div class="col-sm-5">
 							<label>Disciplinary Status/Action</label>
-							<input type="text" name="disciplinary" id="disciplinary" class="form-control" pattern="[^<>].{1,25}" maxlength="25" required value="<?php echo $getSel_DESCRIPTION_ACTION_STATUS_INBOUND?>">
+							<input type="text" name="disciplinary" id="disciplinary" class="form-control" pattern="[^<>=]{1,25}" maxlength="25" required value="<?php echo $getSel_DESCRIPTION_ACTION_STATUS_INBOUND?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -155,12 +155,12 @@
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btnSaveinform3" class="btn btn-success btn-block shadowbtn" value="Save">
+							<input type="submit" name="btnSaveinform3" class="btn btn-warning btn-block shadowbtn" value="Save">
 						</div>
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btn_inform3" class="btn btn-primary btn-block shadowbtn" value="Next">
+							<input type="submit" name="btn_inform3" class="btn btn-success btn-block shadowbtn" value="Next">
 						</div>
 					</div>
 				</form>

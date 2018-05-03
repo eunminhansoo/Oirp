@@ -63,11 +63,11 @@
 						<div class="form-group row">
 							<div class="col-sm-3">
 								<label>Nationality</label>
-								<input type="text" name="nationality" id="nationality" class="form-control" pattern="[^0-9<>].{1,25}" maxlength="25" required value="<?php echo $geSel_NATIONALITY_IN?>">
+								<input type="text" name="nationality" id="nationality" class="form-control" pattern="[^0-9<>=]{1,25}" maxlength="25" required value="<?php echo $geSel_NATIONALITY_IN?>">
 							</div>
 							<div class="col-sm-3">
 								<label>Passport No.</label>
-								<input type="text" name="passport" id="passport" class="form-control" pattern="[^<>].{1,20}" maxlength="20" required value="<?php echo $geSel_PASSPORT_NUM_IN?>">
+								<input type="text" name="passport" id="passport" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" required value="<?php echo $geSel_PASSPORT_NUM_IN?>">
 							</div>
 							<div class="col-sm-2">
 								<label>Date of Issuance</label>
@@ -81,7 +81,7 @@
 						<div class="form-group row">
 							<div class="col-sm-10">
 								<label>Mailing Address</label>
-								<input type="text" name="address" id="address" class="form-control" pattern="[^<>].{1,115}" maxlength="115" required value="<?php echo $geSel_MAILING_ADD_IN?>">
+								<input type="text" name="address" id="address" class="form-control" pattern="[^<>=]{1,115}" maxlength="115" required value="<?php echo $geSel_MAILING_ADD_IN?>">
 							</div>					
 						</div>
 						<div class="form-group row">
@@ -98,17 +98,17 @@
 						<div class="form-group row break">
 							<div class="col-sm-6">
 								<label>Person to Contact (in case of emergency)</label>
-								<input type="text" name="contactperson" id="contactperson" class="form-control" pattern="[^<>].{1,20}" maxlength="60" required value="<?php echo $getSel_PERSONAL_CONTACT_IN_BILA?>"> 
+								<input type="text" name="contactperson" id="contactperson" class="form-control" pattern="[^<>=]{1,60}" maxlength="60" required value="<?php echo $getSel_PERSONAL_CONTACT_IN_BILA?>"> 
 							</div>
 							<div class="col-sm-4">
 								<label>Relationship</label>
-								<input type="text" name="relCP" id="relCP" class="form-control" pattern="[^<>].{1,20}" maxlength="20" required value="<?php echo $getSel_RELATIONSHIP_IN_BILA?>">
+								<input type="text" name="relCP" id="relCP" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" required value="<?php echo $getSel_RELATIONSHIP_IN_BILA?>">
 							</div>
 						</div>
 						<div class="form-group row">
 							<div class="col-sm-10">
 								<label>Address</label>
-								<input type="text" name="addressCP" id="addressCP" class="form-control" pattern="[^<>].{1,115}" maxlength="115" required  value="<?php echo $getSel_ADD_IN_BILA?>">
+								<input type="text" name="addressCP" id="addressCP" class="form-control" pattern="[^<>=]{1,115}" maxlength="115" required  value="<?php echo $getSel_ADD_IN_BILA?>">
 							</div>
 						</div>
 						<div class="form-group row">
@@ -124,12 +124,12 @@
 							
 						<div class="form-group row break col-xs-6" align="right">
 							<div class="col-sm-10">
-								<input type="submit" name="btnSaveinform1" class="btn btn-success btn-block shadowbtn" value="Save">
+								<input type="submit" name="btnSaveinform1" class="btn btn-warning btn-block shadowbtn" value="Save">
 							</div>
 						</div>
 						<div class="form-group row break col-xs-6" align="right">
 							<div class="col-sm-10">
-								<input type="submit" name="btn_inform1" class="btn btn-primary btn-block shadowbtn" value="Next">
+								<input type="submit" name="btn_inform1" class="btn btn-success btn-block shadowbtn" value="Next">
 							</div>
 						</div>
 					</form>

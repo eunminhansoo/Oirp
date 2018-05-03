@@ -34,32 +34,31 @@
 		<div class="header">
 			<img src='img/logo.png' class="img-responsive">
 		</div>
-		
-		<nav class="navbar" id="bar">
-						<div class="container-fluid">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
-							        <span class="sr-only">Toggle navigation</span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							        <span class="icon-bar"></span>
-							     </button>
-							</div>
-							<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
-										<ul class="nav navbar-nav navbar-right">
-											<li><a href="student_home.php">Home</a></li>
-											<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
-									          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
-									          <ul class="dropdown-menu">
-												<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>									         
-											  </ul>
-									        </li>
-											
-											
-										</ul> 
-									</div>
-							</div>
-						</nav>
+		<!-- START NAVIGATOR BAR -->
+			<nav class="navbar" id="bar">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-expand" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="student_home.php">Home</a></li>
+							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
+								</ul>
+							</li>
+						</ul> 
+					</div>
+				</div>
+			</nav>	
+		<!--START CONTENT -->
 		
 		<div class="container-fluid">
 			<nav class="col-sm-2 sidebar">
@@ -99,28 +98,28 @@
 						<div class="form-group row">
 							<div class="col-sm-5">
 									<label>Country of Origin</label>
-									<input type="text" name="countryText" id="countryText" class="form-control" pattern="[^<>].{1,30}" maxlength="30">
+									<input type="text" name="countryText" id="countryText" class="form-control" pattern="[^<>=]{1,30}" maxlength="30">
 								</div>
 								<div class="col-sm-5">
 									<label>Home University</label>
-									<input type="text" name="homeUniversityText" id="homeUniversityText" class="form-control" pattern="[^<>].{1,115}" maxlength="115">
+									<input type="text" name="homeUniversityText" id="homeUniversityText" class="form-control" pattern="[^<>=]{1,115}" maxlength="115">
 								</div>
 						</div>
 					</div>
 						<div class="form-group row">
 							<div class="col-sm-10">
 								<label>University Address</label>
-								<input type="text" name="univAddress" id="univAddress" class="form-control" pattern="[^<>].{1,115}" maxlength="115" required value="<?php echo $getSel_UNIV_ADD_IN_BILA?>">
+								<input type="text" name="univAddress" id="univAddress" class="form-control" pattern="[^<>=]{1,115}" maxlength="115" required value="<?php echo $getSel_UNIV_ADD_IN_BILA?>">
 							</div>
 						</div>
 					<div class="form-group row break">
 						<div class="col-sm-4">
 							<label>Degree Program</label>
-							<input type="text" name="program" id="program" class="form-control" pattern="[^<>].{1,45}" maxlength="45" required value="<?php echo $getSel_CURRENT_PROG_STUDY_IN_BILA?>">
+							<input type="text" name="program" id="program" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" required value="<?php echo $getSel_CURRENT_PROG_STUDY_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
 							<label>Major</label>
-							<input type="text" name="major" id="major" class="form-control" pattern="[^<>].{1,30}" maxlength="30" value=" <?php echo $getSel_SPECIALIZATION_IN_BILA?>">
+							<input type="text" name="major" id="major" class="form-control" pattern="[^<>=]{1,30}" maxlength="30" value=" <?php echo $getSel_SPECIALIZATION_IN_BILA?>">
 						</div>
 						<div class="col-sm-2">
 							<label>Year Level</label>
@@ -159,7 +158,7 @@
 								<input type="radio" name="bilateral" value="Others" id="othersBi" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="bilateralText" id="biText" class="form-control" pattern="[^<>].{1,20}" maxlength="20" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" disabled>
+								<input type="text" name="bilateralText" id="biText" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="bilateral" value="" checked="checked" hidden> 
@@ -184,7 +183,7 @@
 								<input type="radio" name="scholarship" id="scholarshipOthers" value="OTHERS" disabled> Others: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarshipText" id="scholarshipText" class="form-control" value="<?php echo $getSel_TYPE_OF_FORM_OTHER?>" pattern="[^<>=]{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" value="" checked="checked" hidden> 
@@ -206,7 +205,7 @@
 								Please specify: 
 							</div>
 							<div class="col-sm-2">
-								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_LOAN_OTHER?>" pattern="[^<>].{1,20}" maxlength="20" disabled>
+								<input type="text" name="scholarloanText" id="scholarloanText" class="form-control" value="<?php echo $getSel_SCHOLARSHIP_LOAN_OTHER?>" pattern="[^<>=]{1,20}" maxlength="20" disabled>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" value="" checked="checked" hidden> 
@@ -216,11 +215,11 @@
 					<div class="form-group row break">
 						<div class="col-sm-6">
 							<label>Person to Contact from International Office</label>
-							<input type="text" name="officer" id="officer" class="form-control" pattern="[^0-9<>].{1,20}" maxlength="60" required value="<?php echo $getSel_NAME_OFFICER_CONTACT_IN_BILA?>">
+							<input type="text" name="officer" id="officer" class="form-control" pattern="[^0-9<>=]{1,20}" maxlength="60" required value="<?php echo $getSel_NAME_OFFICER_CONTACT_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
 							<label>Designation</label>
-							<input type="text" name="designationO" id="designationO" class="form-control"  pattern="[^<>].{1,25}" maxlength="25" required value="<?php echo $getSel_DESIGNATION_IN_BILA?>">
+							<input type="text" name="designationO" id="designationO" class="form-control"  pattern="[^<>=]{1,25}" maxlength="25" required value="<?php echo $getSel_DESIGNATION_IN_BILA?>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -241,12 +240,12 @@
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btnSaveinform2" class="btn btn-success btn-block shadowbtn" value="Save">
+							<input type="submit" name="btnSaveinform2" class="btn btn-warning btn-block shadowbtn" value="Save">
 						</div>
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btn_inform2" class="btn btn-primary btn-block shadowbtn" value="Next">
+							<input type="submit" name="btn_inform2" class="btn btn-success btn-block shadowbtn" value="Next">
 						</div>
 					</div>
 				</form>

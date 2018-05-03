@@ -190,106 +190,123 @@
 					</div>
 							
 					<div class="appietxt1">
-					<div style="margin-left: 15px; margin-top: 25px;">
-						<?php 
-							if($pagination == 'submitted'){
-								if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" || $type_of_program == "ServiceLearning")){
-									echo '<a href="pdf/outboundBilateral.php" target="_blank"><span class="caf">Open PDF form</span></a>';
-								} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
-									echo '<a href="pdf/outbound.php" target="_blank"><span class="caf">Open PDF form</span></a>';
-								} elseif($application_prog == 'inbound' && ($type_of_program == 'ShortStudy' || $type_of_program == 'StudyTour' || $type_of_program == 'ServiceLearning')){
-									echo '<a href="pdf/inboundBilateral.php" target="_blank"><span class="caf">Open PDF form</span></a>';
-								} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
-									echo '<a href="pdf/inbound.php" target="_blank"><span class="caf">Open PDF form</span></a>';
+						<div style="margin-left: 15px; margin-top: 25px;">
+							<?php 
+								if($pagination == 'submitted'){
+									if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" || $type_of_program == "ServiceLearning")){
+										echo '<a href="pdf/outboundBilateral.php" target="_blank"><span class="caf">Open PDF form</span></a>';
+									} elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
+										echo '<a href="pdf/outbound.php" target="_blank"><span class="caf">Open PDF form</span></a>';
+									} elseif($application_prog == 'inbound' && ($type_of_program == 'ShortStudy' || $type_of_program == 'StudyTour' || $type_of_program == 'ServiceLearning')){
+										echo '<a href="pdf/inboundBilateral.php" target="_blank"><span class="caf">Open PDF form</span></a>';
+									} elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
+										echo '<a href="pdf/inbound.php" target="_blank"><span class="caf">Open PDF form</span></a>';
+									}
 								}
-							}
-						?>
-						
-					</div>
-						<a class="btn btn-secondary" id="btnClicksu">
+							?>
+							
+						</div>
+						<p>
 							<?php
-								if($pagination == NULL && $application_prog == 'outbound'){
-									echo '<a href=outboundform1.php><span class="caf"> Continue Application form</span></a>';
-								}else if($pagination == NULL && $application_prog == 'inbound'){
-									echo '<a href=inboundform1.php><span class="caf"> Continue Application form</span></a>';
-								}else if($pagination == 'inbound page 1'){
-									$_SESSION['inValidation'] = 'invalid';
-									echo '<span class="caf"> Continue Application form</span>';
-								}
-								else if($pagination == 'inbound page 2'){
-									$_SESSION['inValidation'] = 'invalid';
-									echo '<span class="caf"> Continue Application form</span>';
-								}else if($pagination == 'inbound page 3'){
-									$_SESSION['inValidation'] = 'invalid';
-									echo '<span class="caf"> Continue Application form</span>';
-								}else if($pagination == 'inbound page 4'){
-									$_SESSION['inValidation'] = 'invalid';
-									echo '<span class="caf"> Continue Application form</span>';
-								}else if($pagination == 'inbound page 5'){
-									$_SESSION['inValidation'] = 'invalid';
-									echo '<span class="caf"> Continue Application form</span>';
-								}else if($pagination == 'outbound page 1'){
-									$_SESSION['outValidaition'] = 'outvalid';
-									echo '<span class="caf"> Continue Application form</span>';
-								}else if($pagination == 'outbound page 2'){
-									$_SESSION['outValidaition'] = 'outvalid';
-									echo '<span class="caf"> Continue Application form</span>';
-								}else if($pagination == 'outbound page 3'){
-									$_SESSION['outValidaition'] = 'outvalid';
-									echo '<span class="caf"> Continue Application form</spapan>';
-								}else if($pagination == 'submitted'){
-									unset($_SESSION['outValidation']);
-									unset($_SESSION['inValidation']);
-									echo '<br><span class="caf" id>Upload Application form </span>';
-								}else{
-									if($pagination == 'Submitted PDF' && $status == 'Pending' || $pagination == 'Submitted PDF' && $status == 'Approved'|| $pagination == 'Submitted PDF' && $status == 'Denied'|| $pagination == 'Submitted PDF' && $status == 'On-going'){
-										echo '<span>Wait for Confirmation</span>';
-									}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
-										echo '<span style="color: red"><b>You are '.$status.'!!</b></span>';
-									}else if($pagination == 'Submitted PDF' && $status == 'Not-Qualified'){
-										echo '<span style="color: red"><b>Sorry you are '.$status.'!!</b></span>';
-									}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
-										$cocSel_query = "SELECT * FROM certificateofcompletion WHERE STUDENT_ID = '$get_studentID'";
-										$coc_db = mysqli_query($conn, $cocSel_query);
-										while($coc_row = mysqli_fetch_array($coc_db )){
-											$certCoc = $coc_row['CERTIFICATION'];
-											$exp = $coc_row['EXPIRATION_ACCESS'];
-										}
-										$todaydate = date("m/d/Y");
-										$datetoday = new DateTime($todaydate);
-										$dateresult = $datetoday->format('m/d/Y');
-										// echo $dateresult;
-										// echo $todaydate;
-										// if($todaydate == $dateresult ){
-										// 	echo '<br><div><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>';			
-										// }else{
-										// 	echo '<span> </span>';
-										// }
-										$timestamp = $todaydate;
-										$start_date = date($timestamp);
+								if($pagination == 'Submitted PDF' && $status == 'Not-Qualified' && $application_prog == 'intbound'){
+									echo '<span style="color: red"><b>Sorry you are '.$status.'</b></span>';
+								}else if($pagination == 'Submitted PDF' && $status == 'Not-Qualified' && $application_prog == 'outbound'){
+									echo '<span style="color: red"><b>Sorry you are '.$status.'</b></span>';
+								}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
+									echo '<span style="color: red"><b>You are '.$status.'!</b></span>';
+								}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
+									$cocSel_query = "SELECT * FROM certificateofcompletion WHERE STUDENT_ID = '$get_studentID'";
+									$coc_db = mysqli_query($conn, $cocSel_query);
+									while($coc_row = mysqli_fetch_array($coc_db )){
+										$certCoc = $coc_row['CERTIFICATION'];
+										$exp = $coc_row['EXPIRATION_ACCESS'];
+									}
+									$todaydate = date("m/d/Y");
+									$datetoday = new DateTime($todaydate);
+									$dateresult = $datetoday->format('m/d/Y');
+									// echo $dateresult;
+									// echo $todaydate;
+									// if($todaydate == $dateresult ){
+									// 	echo '<br><div><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>';			
+									// }else{
+									// 	echo '<span> </span>';
+									// }
+									$timestamp = $todaydate;
+									$start_date = date($timestamp);
 
-										$expires = strtotime($exp, strtotime($timestamp));
-										//$expires = date($expires);
+									$expires = strtotime($exp, strtotime($timestamp));
+									//$expires = date($expires);
 
-										$date_diff=($expires-strtotime($timestamp)) / 86400;
-										$dayleft = round($date_diff, 0);
-										if($dayleft == 0){
-											echo '<span></span>';
-										}else{
-											echo '<br><div id="cocDown"><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>';
-										}
-
+									$date_diff=($expires-strtotime($timestamp)) / 86400;
+									$dayleft = round($date_diff, 0);
+									if($dayleft <= 0){
+										echo '<span></span>';
+									}else{
+										echo '<br><div id="cocDown"><button class="btn btn-secondary"><a href=downloadCert.php?cOc='.$get_studentID.'>Download Certificate of Completion</a></button></span></div>';
+									}
 										// echo "Start: ".$timestamp."<br>";
 										// echo "Expire: ".date('Y-m-d H:i:s', $expires)."<br>";
 
 										// echo round($date_diff, 0)." days left";
-										
-									}
+												
 								}
 							?>
-							<!--<span>Upload Application form </span>-->
-							<!--<span class="caf"> Continue Application form</span>-->
-						</a>
+						</p>
+						<div id="poahh">
+							<a class="btn btn-success" id="btnClicksu" style="border: 2px solid black;">
+								<?php
+									if($pagination == NULL && $application_prog == 'outbound'){
+										echo '<a href=outboundform1.php><span class="caf"> Continue Application form</span></a>';
+									}else if($pagination == NULL && $application_prog == 'inbound'){
+										echo '<a href=inboundform1.php><span class="caf"> Continue Application form</span></a>';
+									}else if($pagination == 'inbound page 1'){
+										$_SESSION['inValidation'] = 'invalid';
+										echo '<span class="caf"> Continue Application form</span>';
+									}
+									else if($pagination == 'inbound page 2'){
+										$_SESSION['inValidation'] = 'invalid';
+										echo '<span class="caf"> Continue Application form</span>';
+									}else if($pagination == 'inbound page 3'){
+										$_SESSION['inValidation'] = 'invalid';
+										echo '<span class="caf"> Continue Application form</span>';
+									}else if($pagination == 'inbound page 4'){
+										$_SESSION['inValidation'] = 'invalid';
+										echo '<span class="caf"> Continue Application form</span>';
+									}else if($pagination == 'inbound page 5'){
+										$_SESSION['inValidation'] = 'invalid';
+										echo '<span class="caf"> Continue Application form</span>';
+									}else if($pagination == 'outbound page 1'){
+										$_SESSION['outValidaition'] = 'outvalid';
+										echo '<span class="caf"> Continue Application form</span>';
+									}else if($pagination == 'outbound page 2'){
+										$_SESSION['outValidaition'] = 'outvalid';
+										echo '<span class="caf"> Continue Application form</span>';
+									}else if($pagination == 'outbound page 3'){
+										$_SESSION['outValidaition'] = 'outvalid';
+										echo '<span class="caf"> Continue Application form</spapan>';
+									}else if($pagination == 'submitted'){
+										unset($_SESSION['outValidation']);
+										unset($_SESSION['inValidation']);
+										echo '<br><span class="caf" id>Upload Application form </span>';
+									}else if($pagination == 'Submitted PDF' && $status == 'Pending' || $pagination == 'Submitted PDF' && $status == 'Approved'|| $pagination == 'Submitted PDF' && $status == 'Denied'|| $pagination == 'Submitted PDF' && $status == 'On-going'){
+										echo '<span>Wait for Confirmation</span>';
+									}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
+										// echo '<span style="color: red"><b>You are '.$status.'!</b></span>';
+									}else if($pagination == 'Submitted PDF' && $status == 'Not-Qualified' && $application_prog == 'inbound'){
+										// echo '<span style="color: red"><b>Sorry you are '.$status.'</b></span>';
+										echo '<br><span class="caf" style="color: black">Apply Again </span>';
+									}else if($pagination == 'Submitted PDF' && $status == 'Not-Qualified' && $application_prog == 'outbound'){
+										// echo '<span style="color: red"><b>Sorry you are '.$status.'</b></span>';
+										$_SESSION['outValidaition'] = 'outvalid';
+										echo '<br><span style="color: black" class="caf">Apply Again </span>'; 
+									}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
+										echo '<br><span style="color: black" class="caf" id>Apply Again </span>';
+									}
+								?>
+								<!--<span>Upload Application form </span>-->
+								<!--<span class="caf"> Continue Application form</span>-->
+								</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -351,8 +368,12 @@
 		<script>
 		$(document).ready(function(){
 			var page = "<?php echo $pagination ?>";
+			var status = "<?php echo $status?>";
+			var app_prog = "<?php echo $application_prog?>";
 			$('#uploadbox').hide();
-
+			if(status == "Qualified"){
+				$('#poahh').hide();
+			}
 			$('#btnClicksu').click(function(){
 				if(page == "inbound page 1"){
 					window.location.href = "inboundform1.php";
@@ -372,6 +393,14 @@
 					window.location.href = "outboundform2.php";
 				}else if(page == "outbound page 3"){
 					window.location.href = "outboundform3.php";
+				}else if(page == "Submitted PDF" && status == "Not-Qualified" && app_prog == "inbound"){
+					window.location.href = "inboundform1.php";
+				}else if(page == "Submitted PDF" && status == "Not-Qualified" && app_prog == "outbound"){
+					window.location.href = "outboundform1.php";
+				}else if(page == "Submitted PDF" && status == "Completed" && app_prog == "intbound"){
+					window.location.href = "outboundform1.php";
+				}else if(page == "Submitted PDF" && status == "Not-Completed" && app_prog == "outbound"){
+					window.location.href = "outboundform1.php";
 				}else{
 					if(page == "submitted"){
 						$('#uploadbox').show();

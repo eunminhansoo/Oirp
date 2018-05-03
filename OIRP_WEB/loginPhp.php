@@ -34,7 +34,6 @@
 					$_SESSION['stuValid'] = 'yes';
 					if($_SESSION['stuValid'] == 'yes'){
 						header("Location: student_home.php");
-						// echo "pumasok ka!!!!";
 					}
 				}
 			}else{
