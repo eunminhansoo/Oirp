@@ -15,6 +15,7 @@
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
 	<body>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -90,6 +91,7 @@
 							<input type="radio" name="application_form" value="no"> No
 						</div>
 					</div>
+					<div class="g-recaptcha" data-sitekey="6LeuFVcUAAAAAAOo1j7nS9jSzJPtu6-htYkwDe3t"></div>
 				
 				<button type="submit" name="btn_register" class="btn btn-success shadowbtn" style="float: left;"><span class="glyphicon glyphicon-ok-sign"></span>  Submit</button>
 				&nbsp;&nbsp;&nbsp;<button onclick="location.href='index.php'" class="btn btn-danger shadowbtn">Cancel</button>
@@ -99,6 +101,7 @@
 				</div>
 				</div>
 				<?php echo $message?>
+				<?php echo $message_captcha?>
 			</div>
 		</form>
 		</div>
