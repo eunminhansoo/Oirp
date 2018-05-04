@@ -51,6 +51,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
     </head>
@@ -189,7 +190,7 @@
                 <div class="container col-xs-5" id="container" style="width:100%; height:400px;"></div>
             </div>
             <div class="table-responsive col-xs-12">
-                <table class="table table-striped table-bordered table-hover">
+                <table id="tbloutstat" class="table table-striped table-bordered table-hover">
                      <thead>
                         <tr>
                             <th>
@@ -224,8 +225,7 @@
                 </table>
             </div>
         </div>
-        
-        
+        <!-- HIGHCHARTS OPEN SOURCE-->
         <script type="text/javascript">
             $(document).ready(function(){
                 
@@ -297,10 +297,13 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
 </html>
-
-
 <script>
+    $('#tbloutstat').dataTable({
+
+    });
     $(document).ready(function(){
     
         function load_unseen_notification(view = '')

@@ -3,9 +3,10 @@
 	error_reporting(0);
 	
     $getStudentID = $_GET['studentName'];
+	$decryptStudentid = base64_decode($getStudentID);
 	include 'admin_student_application_in_processs.php';
 
-	$getStat_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+	$getStat_query = "SELECT * FROM student WHERE STUDENT_ID = '$decryptStudentid'";
 	$setStat_db = mysqli_query($conn, $getStat_query);
 	while($statRow = mysqli_fetch_array($setStat_db)){
 		$sstat = $statRow['STATUS'];

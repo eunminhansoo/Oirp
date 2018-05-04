@@ -6,8 +6,9 @@
 		header("Location: index.php");
 	}
     $getStudentID = $_GET['numnum']; 
+	$decryptstudentid = base64_decode($getStudentID);
 
-    $tor_query = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
+    $tor_query = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$decryptstudentid'";
     $tor_db = mysqli_query($conn, $tor_query);
     while($row = mysqli_fetch_array($tor_db)){
         $torscan = $row['TOR_SCAN'];

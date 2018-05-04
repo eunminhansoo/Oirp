@@ -55,6 +55,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
@@ -189,7 +190,7 @@
                 <div class="container col-xs-5" id="container" style="width:100%; height:400px;"></div>
             </div>
             <div class="table-responsive col-xs-12">
-                <table class="table table-striped table-bordered table-hover">
+                <table id="tblinstat" class="table table-striped table-bordered table-hover">
                      <thead>
                         <tr>
                             <th>
@@ -224,7 +225,7 @@
                 </table>
             </div>
         </div>
-
+        <!--HIGHCHARTS SOURCE CODE -->
         <script type="text/javascript">
             $(document).ready(function(){
                 
@@ -296,36 +297,39 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
 </html>
 
 <script>
-$(document).ready(function(){
- 
- function load_unseen_notification(view = '')
- {
-  $.ajax({
-   url:"fetch_comment.php",
-   method:"POST",
-   data:{view:view},
-   dataType:"json",
-   success:function(data)
-   {
-    $('#notif-down').html(data.notification);
-    if(data.unseen_notification > 0)
-    {
-     $('.count').html(data.unseen_notification);
-    }
-   }
-  });
- }
- 
- load_unseen_notification();
- 
- $(document).on('click', '#notif', function(){
-  $('.count').html('');
-  load_unseen_notification('yes');
- });
- 
- 
-});
+    $('#tblinstat').dataTable({
+        
+    });
+    $(document).ready(function(){
+    
+        function load_unseen_notification(view = '')
+        {
+            $.ajax({
+                url:"fetch_comment.php",
+                method:"POST",
+                data:{view:view},
+                dataType:"json",
+                success:function(data)
+                {
+                    $('#notif-down').html(data.notification);
+                    if(data.unseen_notification > 0)
+                    {
+                    $('.count').html(data.unseen_notification);
+                    }
+                }
+            });
+        }
+    
+        load_unseen_notification();
+        
+        $(document).on('click', '#notif', function(){
+            $('.count').html('');
+            load_unseen_notification('yes');
+        });
+    });
 </script>

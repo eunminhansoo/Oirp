@@ -23,6 +23,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
@@ -100,474 +101,63 @@
 	                        <thead>
 	                            <tr>
 	                                <th>
-										<button type="submit" name="name_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										NAME
-										<button type="submit" name="name_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 	                                <th>
-										<button type="submit" name="prog_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										TYPE OF PROGRAM
-										<button type="submit" name="prog_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 	                                <th>
-										<button type="submit" name="dura_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										DURATION / SCHOLARSHIP
-										<button type="submit" name="dura_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 	                                <th>
-										<button type="submit" name="date_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										DATE SUBMITTED
-										<button type="submit" name="date_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 	                                <th>
-										<button type="submit" name="status_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										STATUS
-										<button type="submit" name="status_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
-	                                <th><button type="submit" name="delete_inbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
+	                                <th><button type="submit" name="delete_outbound" class="btn btn-secondary" ><span class="glyphicon glyphicon-trash"></span></button></th>
 	                            </tr>
 	                        </thead>
 	                        <tbody>
 								<tfoot>
 								<?php
-									if(isset($_POST['name_sort_in_asc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY FAMILY_NAME ASC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
+									$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE b.STATUS ='Approved'";
+									$query = mysqli_query($conn, $sql_query);
+									while($row = mysqli_fetch_array($query)){ 
+										$studentID = $row['STUDENT_ID'];
+										$encryptstudentid = base64_encode($studentID);
+										$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
+										$ddate = $row['DATE_ENROLL'];
+										$date = new DateTime($ddate);
+										$status = $row['STATUS'];
+										$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
+										$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
+										$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
+										$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
+										$resultdate = $date->format('F j, Y');
+										echo "<tr>";
+											echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($encryptstudentid)."'>".$fullname."</a></td>";
+											if($get_TYPE_OF_PROGRAM == 'Scholarship'){
+												echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
+												if($get_TYPE_OF_FORM == 'OTHERS'){
+													echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
 												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
+													echo "<td>".$get_TYPE_OF_FORM."</td>";
 												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else if(isset($_POST['name_sort_in_desc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY FAMILY_NAME DESC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
+											}else{
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
+												if($get_TYPE_OF_FORM == 'Others'){
+													echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
 												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
+													echo "<td>".$get_TYPE_OF_FORM."</td>";
 												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else if(isset($_POST['prog_sort_in_asc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY TYPE_OF_PROGRAM ASC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else if(isset($_POST['prog_sort_in_desc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY TYPE_OF_PROGRAM DESC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else if(isset($_POST['dura_sort_in_asc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY TYPE_OF_FORM, TYPE_OF_FORM_OTHER ASC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else if(isset($_POST['dura_sort_in_desc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY TYPE_OF_FORM, TYPE_OF_FORM_OTHER DESC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else if(isset($_POST['date_sort_in_asc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY DATE_ENROLL ASC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else if(isset($_POST['date_sort_in_desc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY DATE_ENROLL DESC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else if(isset($_POST['satus_sort_in_asc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY STATUS ASC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else if(isset($_POST['status_sort_in_desc'])){
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved' ORDER BY STATUS DESC";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
-									}else{
-										$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE STATUS = 'Approved'";
-										$query = mysqli_query($conn, $sql_query);
-										while($row = mysqli_fetch_array($query)){ 
-											$studentID = $row['STUDENT_ID'];
-											$fullname = $row['FAMILY_NAME'].", ".$row['GIVEN_NAME']." ".$row['MIDDLE_NAME'];
-											$ddate = $row['DATE_ENROLL'];
-											$date = new DateTime($ddate);
-											$status = $row['STATUS'];
-											$get_TYPE_OF_PROGRAM = $row['TYPE_OF_PROGRAM'];
-											$get_TYPE_OF_PROG_OTHER = $row['TYPE_OF_PROG_OTHER'];
-											$get_TYPE_OF_FORM = $row['TYPE_OF_FORM'];
-											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
-											$resultdate = $date->format('F j, Y');
-											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
-												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
-													if($get_TYPE_OF_FORM == 'OTHERS'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}else{
-													echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
-													if($get_TYPE_OF_FORM == 'Others'){
-														echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
-													}else{
-														echo "<td>".$get_TYPE_OF_FORM."</td>";
-													}
-												}
-												echo "
-													<td>".$resultdate."</td>
-													<td>".$status."</td>
-													<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
-												";
-											echo "</tr>";
-										}
+											}
+											echo "
+												<td>".$resultdate."</td>
+												<td>".$status."</td>
+												<td><input type=\"checkbox\" name=\"cb_num_in[]\" value=".$studentID."></td>
+											";
+										echo "</tr>";
 									}
 								?>    
 								</tfoot> 
@@ -582,75 +172,81 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.superslides.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
 </html>
-
 <script>
-$(document).ready(function(){
+	$('#tbl_student_in').dataTable({
+		"searching": false
+	});
+</script>
+<script>
+	$(document).ready(function(){
+	
+		function load_unseen_notification(view = '')
+		{
+			$.ajax({
+				url:"fetch_comment.php",
+				method:"POST",
+				data:{view:view},
+				dataType:"json",
+				success:function(data)
+				{
+					$('#notif-down').html(data.notification);
+					if(data.unseen_notification > 0)
+					{
+					$('.count').html(data.unseen_notification);
+					}
+				}
+			});
+		}
  
- function load_unseen_notification(view = '')
- {
-  $.ajax({
-   url:"fetch_comment.php",
-   method:"POST",
-   data:{view:view},
-   dataType:"json",
-   success:function(data)
-   {
-    $('#notif-down').html(data.notification);
-    if(data.unseen_notification > 0)
-    {
-     $('.count').html(data.unseen_notification);
-    }
-   }
-  });
- }
- 
- load_unseen_notification();
- 
- $(document).on('click', '#notif', function(){
-  $('.count').html('');
-  load_unseen_notification('yes');
- });
- 
- 
-});
+		load_unseen_notification();
+		
+			$(document).on('click', '#notif', function(){
+				$('.count').html('');
+				load_unseen_notification('yes');
+			});
+		});
+		
+		function search() {
+			// Declare variables 
+			var input, filter, table, tr, td, i;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table_in = document.getElementById("tbl_student_in");
+			tr_in = table_in.getElementsByTagName("tr");
 
-function search() {
-	// Declare variables 
-	var input, filter, table, tr, td, i;
-	input = document.getElementById("myInput");
-	filter = input.value.toUpperCase();
-	table_in = document.getElementById("tbl_student_in");
-	tr_in = table_in.getElementsByTagName("tr");
-
-	// Loop through all table rows, and hide those who don't match the search query
-	for (i = 0; i < tr_in.length; i++) {
-		td = tr_in[i].getElementsByTagName("td")[0];
-		td1 = tr_in[i].getElementsByTagName("td")[1];
-		td2 = tr_in[i].getElementsByTagName("td")[2];
-		td3 = tr_in[i].getElementsByTagName("td")[3];
-		td4 = tr_in[i].getElementsByTagName("td")[4];
-		if (td) {
-			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-				tr_in[i].style.display = "";
-			} else {
-				if (td1) {
-					if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+			// Loop through all table rows, and hide those who don't match the search query
+			for (i = 0; i < tr_in.length; i++) {
+				td = tr_in[i].getElementsByTagName("td")[0];
+				td1 = tr_in[i].getElementsByTagName("td")[1];
+				td2 = tr_in[i].getElementsByTagName("td")[2];
+				td3 = tr_in[i].getElementsByTagName("td")[3];
+				td4 = tr_in[i].getElementsByTagName("td")[4];
+				if (td) {
+					if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
 						tr_in[i].style.display = "";
 					} else {
-						if(td2){
-							if (td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+						if (td1) {
+							if (td1.innerHTML.toUpperCase().indexOf(filter) > -1) {
 								tr_in[i].style.display = "";
-							} else{
-								if(td3){
-									if(td3.innerHTML.toUpperCase().indexOf(filter) > -1){
+							} else {
+								if(td2){
+									if (td2.innerHTML.toUpperCase().indexOf(filter) > -1) {
 										tr_in[i].style.display = "";
 									} else{
-										if(td4){
-											if(td4.innerHTML.toUpperCase().indexOf(filter) > -1){
+										if(td3){
+											if(td3.innerHTML.toUpperCase().indexOf(filter) > -1){
 												tr_in[i].style.display = "";
 											} else{
-												tr_in[i].style.display = "none";
+												if(td4){
+													if(td4.innerHTML.toUpperCase().indexOf(filter) > -1){
+														tr_in[i].style.display = "";
+													} else{
+														tr_in[i].style.display = "none";
+													}
+												}
 											}
 										}
 									}
@@ -658,9 +254,7 @@ function search() {
 							}
 						}
 					}
-				}
+				} 
 			}
-		} 
-	}
-}
+		}
 </script>

@@ -10,18 +10,18 @@
 	$errorCoCmsg = "";
 	$mssg = " "; 
     $getStudentID = $_GET['studentName'];
-    
-    $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
+    $encryptStudentid = base64_decode($getStudentID);
+    $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$encryptStudentid'";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
         $file = $row['PDF_IMG'];
 		$torScan = $row['TOR_SCAN'];
     }
-    $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
+    $query = "SELECT * FROM student WHERE STUDENT_ID= '$encryptStudentid'";
     $queryBD = mysqli_query($conn, $query);
-    $query1 = "SELECT * FROM country_univ_outbound WHERE STUDENT_ID = '$getStudentID'";
+    $query1 = "SELECT * FROM country_univ_outbound WHERE STUDENT_ID = '$encryptStudentid'";
     $queryCU = mysqli_query($conn, $query1);   
-	$query2 = "SELECT * FROM proposed_field_study WHERE STUDENT_ID = '$getStudentID' "; 
+	$query2 = "SELECT * FROM proposed_field_study WHERE STUDENT_ID = '$encryptStudentid' "; 
 	$queryPF = mysqli_query($conn, $query2);        
 	while($row1 = mysqli_fetch_array($queryCU)){
 		$country = $row1['COUNTRY_OUT'];
@@ -31,7 +31,7 @@
 		$status = $_POST['status'];
 
 		// UPDATE THE STATUS
-		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$encryptStudentid'";
 		$query_db = mysqli_query($conn, $query2);
 		if($query_db){
 			$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
@@ -81,14 +81,14 @@
 				mysqli_query($conn, $cert_query);
 
 				// UPDATE THE STATUS
-				$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+				$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$encryptStudentid'";
 				
 				$query_db = mysqli_query($conn, $query2);
 
 				// CHECK IF THE NOT EXIST IN OUTBOUND GRAPH
 				if($query_db){
 					// CHECK IF THE YEAR IS EXISTING THEN INSERT SA YEALY IF NONE
-					$dateStarted_select = "SELECT * FROM admin_student_data WHERE STUDENT_ID = '$getStudentID'";
+					$dateStarted_select = "SELECT * FROM admin_student_data WHERE STUDENT_ID = '$encryptStudentid'";
 					$dateStarted_db = mysqli_query($conn, $dateStarted_select);
 					while($row_datestarted = mysqli_fetch_array($dateStarted_db)){
 						$getDateStarted = $row_datestarted['DATE_STARTED'];
