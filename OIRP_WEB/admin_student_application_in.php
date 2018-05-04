@@ -195,7 +195,7 @@
 								<option value="Pending" id="Pending">Pending</option>
 								<option value="Approved" id="Approved">Approved</option>
 								<option value="Denied" id="Denied">Denied</option>
-								<option value="On-going" id="On-going">On-going</option>
+								<option value="On-Going" id="On-Going">On-going</option>
 								<option value="Completed" id="Completed">Completed</option>
 							</select>
 						</span>

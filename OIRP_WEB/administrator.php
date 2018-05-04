@@ -58,6 +58,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="bootstrap-3.3.7-dist/css//bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
@@ -201,7 +202,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -239,7 +240,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -277,7 +278,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -315,7 +316,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -353,7 +354,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -391,7 +392,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -429,7 +430,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -467,7 +468,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -505,7 +506,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -543,7 +544,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -581,7 +582,7 @@
 											$get_TYPE_OF_FORM_OTHER = $row['TYPE_OF_FORM_OTHER'];
 											$resultdate = $date->format('F j, Y');
 											echo "<tr>";
-												echo "<td><a href=admin_student_application_in.php?studentName=".urlencode($studentID).">".$fullname."</a></td>";
+												echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($studentID)."'>".$fullname."</a></td>";
 												if($get_TYPE_OF_PROGRAM == 'Scholarship'){
 													echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
 													if($get_TYPE_OF_FORM == 'OTHERS'){
@@ -680,7 +681,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\'admin_student_application_out.php?studentName=".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -712,7 +713,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\'admin_student_application_out.php?studentName=".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -744,7 +745,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\'admin_student_application_out.php?studentName=".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -776,7 +777,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\'admin_student_application_out.php?studentName=".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -808,7 +809,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\'admin_student_application_out.php?studentName=".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -840,7 +841,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\'admin_student_application_out.php?studentName=".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -872,7 +873,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\'admin_student_application_out.php?studentName=".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -904,7 +905,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\"admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -936,7 +937,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\'admin_student_application_out.php?studentName=".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -968,7 +969,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href=\'admin_student_application_out.php?studentName=".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -1000,7 +1001,7 @@
 											$date1 = new DateTime($ddate1);
 											$resultdate1 = $date1->format('F j, Y');
 											echo "<tr>";
-											echo "<td><a admin_student_application_out.php?studentName=".urlencode($studentID1).">".$fullname1."</a></td>";
+											echo "<td><a href='admin_student_application_out.php?studentName='".urlencode($studentID1)."'>".$fullname1."</a></td>";
 											if($get_TYPE_OF_PROGRAM1 == 'Others'){
 												echo "<td>Bilateral</td>";
 												echo "<td>".$row1['TYPE_OF_PROG_OTHER']."</td>";
@@ -1034,8 +1035,12 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
 </html>
+<script>
+</script>
 <script>
 	$(document).ready(function(){
 		//$('#tbl_student_in').DataTable(); 
