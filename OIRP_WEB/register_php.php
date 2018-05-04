@@ -31,7 +31,7 @@
 
     if (!$res['success']) {
         // What happens when the CAPTCHA wasn't checked
-        header("Location: register.php");
+        //header("Location: register.php");
 		$message = "<script language='javascript'>(function(){alert('Please click the security checkbox!');})();</script>";
     } else {
 		$email = htmlspecialchars($_POST['email']);
