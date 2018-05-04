@@ -272,6 +272,7 @@
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/dataTables.bootstrap.min.js"></script>
 
 </html>
 <script>

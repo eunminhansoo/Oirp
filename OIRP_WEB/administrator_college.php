@@ -34,6 +34,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
@@ -95,58 +97,22 @@
 	                        <thead>
 	                            <tr>
 	                                <th>
-										<button type="submit" name="name_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										NAME
-										<button type="submit" name="name_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 	                                <th>
-										<button type="submit" name="prog_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										TYPE OF PROGRAM
-										<button type="submit" name="prog_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 	                                <th>
-										<button type="submit" name="dura_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										DURATION / SCHOLARSHIP
-										<button type="submit" name="duro_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 									<th>
-										<button type="submit" name="course_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										COURSE
-										<button type="submit" name="course_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 	                                <th>
-										<button type="submit" name="date_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										DATE SUBMITTED
-										<button type="submit" name="date_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 	                                <th>
-										<button type="submit" name="status_sort_in_asc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 										STATUS
-										<button type="submit" name="status_sort_in_desc" class="btn btn-secondary" style="background-color: transparent; border: none">
-											<span class="fa fa-arrow-circle-o-up"></span>
-										</button>
 									</th>
 	                            </tr>
 	                        </thead>
@@ -570,7 +536,14 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.isotope.min.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/dataTables.bootstrap.min.js"></script>
+	
 	<script>
+		$('#tbl_student_in').dataTable({
+			"searching": false
+		});
 		$(document).ready(function(){
 			//$('#tbl_student_in').DataTable(); 
 			function load_unseen_notification(view = '')
