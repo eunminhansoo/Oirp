@@ -15,7 +15,7 @@ ini_set('display_errors', 0);
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/style.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
-	</head>
+	
 	<body>
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -27,6 +27,7 @@ ini_set('display_errors', 0);
 		<div class="header">
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
+		</head>
 		
 	<div style="height: 10px; background-color: #FDC601;     box-shadow: 2px 2px 4px #888888;
 ">
@@ -93,7 +94,7 @@ ini_set('display_errors', 0);
 							<input type="radio" name="application_form" value="no"> No
 						</div>
 					</div>
-					<div class="g-recaptcha" data-sitekey="6LeuFVcUAAAAAAOo1j7nS9jSzJPtu6-htYkwDe3t"></div>
+					<!-- div class="g-recaptcha" data-sitekey="6Lc1KlcUAAAAAHHT6sRF9Kp3EEDbXB2ltVQWYG9n"></div-->
 				
 				<button type="submit" name="btn_register" class="btn btn-success shadowbtn" style="float: left;"><span class="glyphicon glyphicon-ok-sign"></span>  Submit</button>
 				&nbsp;&nbsp;&nbsp;<button onclick="location.href='index.php'" class="btn btn-danger shadowbtn">Cancel</button>

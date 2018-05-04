@@ -4,10 +4,10 @@
 	$message = '';
 	
 	if(isset($_POST['btn_register'])){
-		function post_captcha($user_response) {
+		/*function post_captcha($user_response) {
         $fields_string = '';
         $fields = array(
-            'secret' => '6LeuFVcUAAAAAOQ8pti7ncWhQK285V6tmAzQ5THo',
+            'secret' => '6Lc1KlcUAAAAAB0kuLCSb90rTZGg3IbO6XmsZLqV',
             'response' => $user_response
         );
         foreach($fields as $key=>$value)
@@ -33,7 +33,7 @@
         // What happens when the CAPTCHA wasn't checked
         header("Location: register.php");
 		$message = "<script language='javascript'>(function(){alert('Please click the security checkbox!');})();</script>";
-    } else {
+    } else { */
 		$email = htmlspecialchars($_POST['email']);
 		$familyName = htmlspecialchars( $_POST['family_name']);
 		$givenName = htmlspecialchars($_POST['given_name']);
@@ -81,6 +81,6 @@
 			}
 		}
 	}
-	}
+	//}
 
 ?>
