@@ -216,6 +216,14 @@
 										echo '<span style="color: Black"><b>Wait for Confirmation</b></span>';
 								}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
 									echo '<span style="color: red"><b>You are '.$status.'!</b></span>';
+								}else if($pagination == NULL && $application_prog == 'outbound'){
+										echo '<a class="btn btn-success" href=outboundform1.php style="border: 2px solid black;"><span class="caf" style="color: black"> Continue Application form</span></a>';
+								}else if($pagination == NULL && $application_prog == 'inbound'){
+									echo '<a class="btn btn-success" href=inboundform1.php style="border: 2px solid black;"><span class="caf" style="color: black"> Continue Application form</span></a>';
+								}elseif($pagination == 'inbound page 1'){
+										$_SESSION['inValidation'] = 'invalid';
+										echo '<a id="page1" class="btn btn-success" href=inboundform1.php style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
+									
 								}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
 									$cocSel_query = "SELECT * FROM certificateofcompletion WHERE STUDENT_ID = '$get_studentID'";
 									$coc_db = mysqli_query($conn, $cocSel_query);
@@ -254,42 +262,35 @@
 								}
 							?>
 						</div>
-						<div id="poahh">
-							<a class="btn btn-success" id="btnClicksu" style="border: 2px solid black;">
+						<div>
+							<!--<a class="btn btn-success" id="" style="border: 2px solid black;">-->
 								<?php
-									if($pagination == NULL && $application_prog == 'outbound'){
-										echo '<a href=outboundform1.php><span class="caf"> Continue Application form</span></a>';
-									}else if($pagination == NULL && $application_prog == 'inbound'){
-										echo '<a href=inboundform1.php><span class="caf"> Continue Application form</span></a>';
-									}else if($pagination == 'inbound page 1'){
+							
+									if($pagination == 'inbound page 2'){
 										$_SESSION['inValidation'] = 'invalid';
-										echo '<span class="caf"> Continue Application form</span>';
-									}
-									else if($pagination == 'inbound page 2'){
-										$_SESSION['inValidation'] = 'invalid';
-										echo '<span class="caf" style="color: white"> Continue Application form</span>';
+										echo '<a class="btn btn-success" href="inboundform2.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'inbound page 3'){
 										$_SESSION['inValidation'] = 'invalid';
-										echo '<span class="caf" style="color: white"> Continue Application form</span>';
+										echo '<a class="btn btn-success" href="inboundform3.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'inbound page 4'){
 										$_SESSION['inValidation'] = 'invalid';
-										echo '<span class="caf" style="color: white"> Continue Application form</span>';
+										echo '<a class="btn btn-success" href="inboundform4.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'inbound page 5'){
 										$_SESSION['inValidation'] = 'invalid';
-										echo '<span class="caf" style="color: white"> Continue Application form</span>';
+										echo '<a class="btn btn-success" href="inboundform5.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'outbound page 1'){
 										$_SESSION['outValidaition'] = 'outvalid';
-										echo '<span class="caf" style="color: white"> Continue Application form</span>';
+										echo '<a class="btn btn-success" href="outboundform1.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'outbound page 2'){
 										$_SESSION['outValidaition'] = 'outvalid';
-										echo '<span class="caf" style="color: white"> Continue Application form</span>';
+										echo '<a class="btn btn-success" href="outboundform2.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'outbound page 3'){
 										$_SESSION['outValidaition'] = 'outvalid';
-										echo '<span class="caf" style="color: white"> Continue Application form</spapan>';
+										echo '<a class="btn btn-success" href="outboundform3.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'submitted'){
 										unset($_SESSION['outValidation']);
 										unset($_SESSION['inValidation']);
-										echo '<br><span class="caf" style="color: white">Upload Application form </span>';
+										echo '<br><a class="btn btn-success" id="uploa" style="border: 2px solid black;"><span class="caf" style="color: white">Upload Application form </span></a>';
 									
 									}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
 										// echo '<span style="color: red"><b>You are '.$status.'!</b></span>';
@@ -306,7 +307,7 @@
 								?>
 								<!--<span>Upload Application form </span>-->
 								<!--<span class="caf"> Continue Application form</span>-->
-								</a>
+								<!--</a>-->
 						</div>
 					</div>
 				</div>
@@ -373,47 +374,54 @@
 			var app_prog = "<?php echo $application_prog?>";
 			$('#uploadbox').hide();
 
-			if(status == "Approved" || status == "Pending" || status == "On-Going"){
+			if(status == "Approved" || status == "Pending" || status == "On-Going" || app_prog == "inbound"){
 				$('#poahh').hide();
 			}
+			$('#uploa').click(function(){
+				if(page == "submitted"){
+					$('#uploadbox').show();
+					$('#pdfscan').prop('disabled', false);
+					$('#taScan').prop('disabled', false);
+				}
+			});
 			if(status == "Qualified"){
 				$('#poahh').hide();
 			}
-			$('#btnClicksu').click(function(){
-				if(page == "inbound page 1"){
-					window.location.href = "inboundform1.php";
-				}else if(page == "inbound page 2"){
-					window.location.href = "inboundform2.php";
-				}else if(page == "inbound page 3"){
-					window.location.href = "inboundform3.php";
-				}else if(page == "inbound page 2"){
-					window.location.href = "inboundform3.php";
-				}else if(page == "inbound page 4"){
-					window.location.href = "inboundform4.php";
-				}else if(page == "inbound page 5"){
-					window.location.href = "inboundform5.php";
-				}else if(page == "outbound page 1"){
-					window.location.href = "outboundform1.php";
-				}else if(page == "outbound page 2"){
-					window.location.href = "outboundform2.php";
-				}else if(page == "outbound page 3"){
-					window.location.href = "outboundform3.php";
-				}else if(page == "Submitted PDF" && status == "Not-Qualified" && app_prog == "inbound"){
-					window.location.href = "inboundform1.php";
-				}else if(page == "Submitted PDF" && status == "Not-Qualified" && app_prog == "outbound"){
-					window.location.href = "outboundform1.php";
-				}else if(page == "Submitted PDF" && status == "Completed" && app_prog == "intbound"){
-					window.location.href = "outboundform1.php";
-				}else if(page == "Submitted PDF" && status == "Not-Completed" && app_prog == "outbound"){
-					window.location.href = "outboundform1.php";
-				}else{
-					if(page == "submitted"){
-						$('#uploadbox').show();
-						$('#pdfscan').prop('disabled', false);
-						$('#taScan').prop('disabled', false);
-					}
-				}
-			});
+			// $('#btnClicksu').click(function(){
+			// 	if(page == "inbound page 1"){
+			// 		window.location.href = "inboundform1.php";
+			// 	}else if(page == "inbound page 2"){
+			// 		window.location.href = "inboundform2.php";
+			// 	}else if(page == "inbound page 3"){
+			// 		window.location.href = "inboundform3.php";
+			// 	}else if(page == "inbound page 2"){
+			// 		window.location.href = "inboundform3.php";
+			// 	}else if(page == "inbound page 4"){
+			// 		window.location.href = "inboundform4.php";
+			// 	}else if(page == "inbound page 5"){
+			// 		window.location.href = "inboundform5.php";
+			// 	}else if(page == "outbound page 1"){
+			// 		window.location.href = "outboundform1.php";
+			// 	}else if(page == "outbound page 2"){
+			// 		window.location.href = "outboundform2.php";
+			// 	}else if(page == "outbound page 3"){
+			// 		window.location.href = "outboundform3.php";
+			// 	}else if(page == "Submitted PDF" && status == "Not-Qualified" && app_prog == "inbound"){
+			// 		window.location.href = "inboundform1.php";
+			// 	}else if(page == "Submitted PDF" && status == "Not-Qualified" && app_prog == "outbound"){
+			// 		window.location.href = "outboundform1.php";
+			// 	}else if(page == "Submitted PDF" && status == "Completed" && app_prog == "intbound"){
+			// 		window.location.href = "outboundform1.php";
+			// 	}else if(page == "Submitted PDF" && status == "Not-Completed" && app_prog == "outbound"){
+			// 		window.location.href = "outboundform1.php";
+			// 	}else{
+			// 		if(page == "submitted"){
+			// 			$('#uploadbox').show();
+			// 			$('#pdfscan').prop('disabled', false);
+			// 			$('#taScan').prop('disabled', false);
+			// 		}
+			// 	}
+			// });
 			
 			$('#toggelexus').click(function(){
 				$('#uploadbox').hide();
