@@ -206,12 +206,14 @@
 							?>
 							
 						</div>
-						<p>
+						<div>
 							<?php
 								if($pagination == 'Submitted PDF' && $status == 'Not-Qualified' && $application_prog == 'intbound'){
 									echo '<span style="color: red"><b>Sorry you are '.$status.'</b></span>';
 								}else if($pagination == 'Submitted PDF' && $status == 'Not-Qualified' && $application_prog == 'outbound'){
 									echo '<span style="color: red"><b>Sorry you are '.$status.'</b></span>';
+								}else if($pagination == 'Submitted PDF' && $status == 'Pending' || $pagination == 'Submitted PDF' && $status == 'Approved'|| $pagination == 'Submitted PDF' && $status == 'Denied'|| $pagination == 'Submitted PDF' && $status == 'On-Going'){
+										echo '<span style="color: Black"><b>Wait for Confirmation</b></span>';
 								}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
 									echo '<span style="color: red"><b>You are '.$status.'!</b></span>';
 								}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
@@ -251,7 +253,7 @@
 												
 								}
 							?>
-						</p>
+						</div>
 						<div id="poahh">
 							<a class="btn btn-success" id="btnClicksu" style="border: 2px solid black;">
 								<?php
@@ -265,42 +267,41 @@
 									}
 									else if($pagination == 'inbound page 2'){
 										$_SESSION['inValidation'] = 'invalid';
-										echo '<span class="caf"> Continue Application form</span>';
+										echo '<span class="caf" style="color: white"> Continue Application form</span>';
 									}else if($pagination == 'inbound page 3'){
 										$_SESSION['inValidation'] = 'invalid';
-										echo '<span class="caf"> Continue Application form</span>';
+										echo '<span class="caf" style="color: white"> Continue Application form</span>';
 									}else if($pagination == 'inbound page 4'){
 										$_SESSION['inValidation'] = 'invalid';
-										echo '<span class="caf"> Continue Application form</span>';
+										echo '<span class="caf" style="color: white"> Continue Application form</span>';
 									}else if($pagination == 'inbound page 5'){
 										$_SESSION['inValidation'] = 'invalid';
-										echo '<span class="caf"> Continue Application form</span>';
+										echo '<span class="caf" style="color: white"> Continue Application form</span>';
 									}else if($pagination == 'outbound page 1'){
 										$_SESSION['outValidaition'] = 'outvalid';
-										echo '<span class="caf"> Continue Application form</span>';
+										echo '<span class="caf" style="color: white"> Continue Application form</span>';
 									}else if($pagination == 'outbound page 2'){
 										$_SESSION['outValidaition'] = 'outvalid';
-										echo '<span class="caf"> Continue Application form</span>';
+										echo '<span class="caf" style="color: white"> Continue Application form</span>';
 									}else if($pagination == 'outbound page 3'){
 										$_SESSION['outValidaition'] = 'outvalid';
-										echo '<span class="caf"> Continue Application form</spapan>';
+										echo '<span class="caf" style="color: white"> Continue Application form</spapan>';
 									}else if($pagination == 'submitted'){
 										unset($_SESSION['outValidation']);
 										unset($_SESSION['inValidation']);
-										echo '<br><span class="caf" id>Upload Application form </span>';
-									}else if($pagination == 'Submitted PDF' && $status == 'Pending' || $pagination == 'Submitted PDF' && $status == 'Approved'|| $pagination == 'Submitted PDF' && $status == 'Denied'|| $pagination == 'Submitted PDF' && $status == 'On-going'){
-										echo '<span>Wait for Confirmation</span>';
+										echo '<br><span class="caf" style="color: white">Upload Application form </span>';
+									
 									}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
 										// echo '<span style="color: red"><b>You are '.$status.'!</b></span>';
 									}else if($pagination == 'Submitted PDF' && $status == 'Not-Qualified' && $application_prog == 'inbound'){
 										// echo '<span style="color: red"><b>Sorry you are '.$status.'</b></span>';
-										echo '<br><span class="caf" style="color: black">Apply Again </span>';
+										echo '<br><span class="caf" style="color: white">Apply Again </span>';
 									}else if($pagination == 'Submitted PDF' && $status == 'Not-Qualified' && $application_prog == 'outbound'){
 										// echo '<span style="color: red"><b>Sorry you are '.$status.'</b></span>';
 										$_SESSION['outValidaition'] = 'outvalid';
 										echo '<br><span style="color: black" class="caf">Apply Again </span>'; 
 									}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
-										echo '<br><span style="color: black" class="caf" id>Apply Again </span>';
+										echo '<br><span style="color: white" class="caf" id>Apply Again </span>';
 									}
 								?>
 								<!--<span>Upload Application form </span>-->
@@ -371,6 +372,10 @@
 			var status = "<?php echo $status?>";
 			var app_prog = "<?php echo $application_prog?>";
 			$('#uploadbox').hide();
+
+			if(status == "Approved" || status == "Pending" || status == "On-Going"){
+				$('#poahh').hide();
+			}
 			if(status == "Qualified"){
 				$('#poahh').hide();
 			}
@@ -409,6 +414,7 @@
 					}
 				}
 			});
+			
 			$('#toggelexus').click(function(){
 				$('#uploadbox').hide();
 				$('#pdfscan').prop('disabled', true);

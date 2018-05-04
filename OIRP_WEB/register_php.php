@@ -1,7 +1,7 @@
 <?php
 	include 'database_connection.php';
     
-	$message = '';
+	$message = ' ';
 	
 	if(isset($_POST['btn_register'])){
 		/*function post_captcha($user_response) {
