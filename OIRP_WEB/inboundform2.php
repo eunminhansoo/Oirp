@@ -1,5 +1,6 @@
 <?php
 	include 'inbound_application.php';
+	include 'logout.php';
 	
 	$familyName;
 	$givenName;
