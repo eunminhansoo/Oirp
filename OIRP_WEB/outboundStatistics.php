@@ -48,12 +48,11 @@
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
     </head>
     <style>
         /*DROPDOWN DESIGN*/
@@ -186,9 +185,47 @@
                     </div>
                 </form>
             </div>
+            <div class="col-xs-13">
+                <div class="container col-xs-5" id="container" style="width:100%; height:400px;"></div>
+            </div>
+            <div class="table-responsive col-xs-12">
+                <table class="table table-striped table-bordered table-hover">
+                     <thead>
+                        <tr>
+                            <th>
+                                COUNTRY
+                            </th>
+                            <th>
+                                NUMBER OF STUDENT
+                            </th>
+                            <th>
+                                YEAR
+                            </th>
+                        </tr>
+                    </thead>
+                     <tbody>
+                        <?php
+                            $outstat_query = "SELECT * FROM outstatistics WHERE YEAR = '$get_year'";
+                            $outstat_db = mysqli_query($conn, $outstat_query);
+                            while($outstat_row = mysqli_fetch_array($outstat_db)){
+                                $numStudent = $outstat_row['NUMBER_STUDENT'];
+                                $getCountry = $outstat_row['COUNTRY'];
+                                $getYear = $outstat_row['YEAR'];
+                                echo "
+                                <tr>
+                                    <td><span>".$getCountry."</span></td>
+                                    <td><span>".$numStudent."</span></td>
+                                    <td><span>". $getYear."</span></td>
+                                </tr>
+                                ";
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <div class="container col-xs-5" id="container" style="width:100%; height:400px;"></div>
+        
+        
         <script type="text/javascript">
             $(document).ready(function(){
                 
@@ -199,39 +236,39 @@
                 var data;
                 var getYear;
                 var options ={
-                chart: {
+                    chart: {
                         plotBackgroundColor: null,
                         plotBorderWidth: null,
                         plotShadow: false,
                         renderTo: 'container',
                         type: 'pie',
 
-                },
-                title: {
-                    text: title
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    },
+                    title: {
+                        text: title
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
                             }
                         }
-                    }
-                },
-                series: [{
-                }]
+                    },
+                    series: [{
+                    }]
                 };
                 $.getJSON('OutStatistics_process.php', function(data){
-                options.series[0].data = data;
-                var chart = new Highcharts.Chart(options);
+                    options.series[0].data = data;
+                    var chart = new Highcharts.Chart(options);
                 });
             });
 
@@ -264,33 +301,33 @@
 
 
 <script>
-$(document).ready(function(){
- 
- function load_unseen_notification(view = '')
- {
-  $.ajax({
-   url:"fetch_comment.php",
-   method:"POST",
-   data:{view:view},
-   dataType:"json",
-   success:function(data)
-   {
-    $('#notif-down').html(data.notification);
-    if(data.unseen_notification > 0)
-    {
-     $('.count').html(data.unseen_notification);
-    }
-   }
-  });
- }
- 
- load_unseen_notification();
- 
- $(document).on('click', '#notif', function(){
-  $('.count').html('');
-  load_unseen_notification('yes');
- });
- 
- 
-});
+    $(document).ready(function(){
+    
+        function load_unseen_notification(view = '')
+        {
+            $.ajax({
+                url:"fetch_comment.php",
+                method:"POST",
+                data:{view:view},
+                dataType:"json",
+                success:function(data)
+                {
+                    $('#notif-down').html(data.notification);
+                    if(data.unseen_notification > 0)
+                    {
+                    $('.count').html(data.unseen_notification);
+                    }
+                }
+            });
+        }
+        
+        load_unseen_notification();
+        
+        $(document).on('click', '#notif', function(){
+        $('.count').html('');
+        load_unseen_notification('yes');
+        });
+    
+    
+    });
 </script>

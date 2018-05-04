@@ -185,12 +185,46 @@
                     </div>
                 </form>
             </div>
-            <div class="col-xs-6 col-xs-pull-0">
-               
+            <div class="col-xs-13">
+                <div class="container col-xs-5" id="container" style="width:100%; height:400px;"></div>
+            </div>
+            <div class="table-responsive col-xs-12">
+                <table class="table table-striped table-bordered table-hover">
+                     <thead>
+                        <tr>
+                            <th>
+                                COUNTRY
+                            </th>
+                            <th>
+                                NUMBER OF STUDENT
+                            </th>
+                            <th>
+                                YEAR
+                            </th>
+                        </tr>
+                    </thead>
+                     <tbody>
+                        <?php
+                            $instat_query = "SELECT * FROM instatistics WHERE YEAR = '$get_year'";
+                            $instat_db = mysqli_query($conn, $instat_query);
+                            while($instat_row = mysqli_fetch_array($instat_db)){
+                                $numStudent = $instat_row['NUMBER_STUDENT'];
+                                $getCountry = $instat_row['COUNTRY'];
+                                $getYear = $instat_row['YEAR'];
+                                echo "
+                                <tr>
+                                    <td><span>".$getCountry."</span></td>
+                                    <td><span>".$numStudent."</span></td>
+                                    <td><span>". $getYear."</span></td>
+                                </tr>
+                                ";
+                            }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        <div class="container col-xs-5" id="container" style="width:100%; height:400px;"></div>
         <script type="text/javascript">
             $(document).ready(function(){
                 
