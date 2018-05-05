@@ -24,6 +24,12 @@ ini_set('display_errors', 0);
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 		<div class="">
+		<style>
+		.danger {
+    	background-color: #ffffcc;
+    	border-left: 6px solid #ffeb3b;
+		}
+		</style>
 		<div class="header">
 			<a href="index.php"><img src='img/logo.png' height=auto class="img-responsive"></a>
 		</div>
@@ -44,15 +50,18 @@ ini_set('display_errors', 0);
 				<div class="col-sm-3">
 				</div>
 				<div class="col-sm-6">
+				<div class="danger">
+  				<p><h3><strong>Notice!</strong></h3>You can only register once per semester.</p>
+				</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<label>Last Name</label>
+						<label>Last Name*</label>
 						<input type="text" name="family_name" class="input form-control" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
 					</div>
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<label>Given Name</label>
+						<label>Given Name*</label>
 						<input type="text" name="given_name" class="input form-control" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
 					</div>
 					</div>
@@ -64,30 +73,30 @@ ini_set('display_errors', 0);
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<label>Email</label>
+						<label>Email*</label>
 						<input type="email" name="email" class="input form-control" maxlength="60" required/>
 					</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-3">
-							<label>Gender</label>
+							<label>Gender*</label>
 							<select name="gender" class="form-control">
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
 							</select>
 						</div>
 						<div class="col-sm-4">	
-							<label>Birthdate</label>				
+							<label>Birthdate*</label>				
 							<input type="date" name="birthday" id="birthday" class="form-control" required/>
 						</div>
 		        		<div class="col-sm-5">
-		        			<label>Birthplace</label>					
+		        			<label>Birthplace*</label>					
 							<input type="text" name="birthplace" class="form-control" pattern="[^<>].{1,25}" maxlength="25" required/>
 						</div>
 					</div>
 					<div class="form-group row">					
 						<div class="col-sm-10">
-							<label>Are you a Student of UST? </label>
+							<label>Are you a Student of UST?*</label>
 						&nbsp;
 							<input type="radio" name="application_form" value="yes" required> Yes
 						&nbsp;
