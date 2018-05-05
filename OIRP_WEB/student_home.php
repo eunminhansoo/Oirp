@@ -115,7 +115,7 @@
 									echo '<a href="outboundform1.php">My Application</a>'; 
 								}else if($pagination == 'outbound page 2'){
 									$_SESSION['outValidaition'] = 'outvalid';
-									echo '<a href="outboundform3.php">My Application</a>';  
+									echo '<a href="outboundform2.php">My Application</a>';  
 								}else if($pagination == 'outbound page 3'){
 									$_SESSION['outValidaition'] = 'outvalid';
 									echo '<a href="outboundform3.php">My Application</a>';  
@@ -217,12 +217,14 @@
 								}else if($pagination == 'Submitted PDF' && $status == 'Qualified'){
 									echo '<span style="color: red"><b>You are '.$status.'!</b></span>';
 								}else if($pagination == NULL && $application_prog == 'outbound'){
-										echo '<a class="btn btn-success" href=outboundform1.php style="border: 2px solid black;"><span class="caf" style="color: black"> Continue Application form</span></a>';
+									$_SESSION['outValidaition'] = 'outvalid';
+									echo '<a class="btn btn-success" href="outboundform1.php" style="border: 2px solid black;"><span class="caf" style="color: black"> Continue Application form</span></a>';
 								}else if($pagination == NULL && $application_prog == 'inbound'){
-									echo '<a class="btn btn-success" href=inboundform1.php style="border: 2px solid black;"><span class="caf" style="color: black"> Continue Application form</span></a>';
+									$_SESSION['inValidation'] = 'invalid';
+									echo '<a class="btn btn-success" href="inboundform1.php" style="border: 2px solid black;"><span class="caf" style="color: black"> Continue Application form</span></a>';
 								}elseif($pagination == 'inbound page 1'){
 										$_SESSION['inValidation'] = 'invalid';
-										echo '<a id="page1" class="btn btn-success" href=inboundform1.php style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
+										echo '<a id="page1" class="btn btn-success" href="inboundform1.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									
 								}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
 									$cocSel_query = "SELECT * FROM certificateofcompletion WHERE STUDENT_ID = '$get_studentID'";
@@ -375,9 +377,9 @@
 			var app_prog = "<?php echo $application_prog?>";
 			$('#uploadbox').hide();
 
-			if(status == "Approved" || status == "Pending" || status == "On-Going" || app_prog == "inbound"){
-				$('#poahh').hide();
-			}
+			// if(status == "Approved" || status == "Pending" || status == "On-Going" || app_prog == "inbound"){
+			// 	$('#poahh').hide();
+			// }
 			$('#uploa').click(function(){
 				if(page == "submitted"){
 					$('#uploadbox').show();
@@ -385,9 +387,9 @@
 					$('#taScan').prop('disabled', false);
 				}
 			});
-			if(status == "Qualified"){
-				$('#poahh').hide();
-			}
+			// if(status == "Qualified"){
+			// 	$('#poahh').hide();
+			// }
 			// $('#btnClicksu').click(function(){
 			// 	if(page == "inbound page 1"){
 			// 		window.location.href = "inboundform1.php";

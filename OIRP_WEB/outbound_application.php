@@ -582,7 +582,7 @@
 
 					$query_db3 = "UPDATE student SET
 					PAGINATION = 'outbound page 2' 
-					WHERE STUDENT_ID =''
+					WHERE STUDENT_ID = '$getses_StudentID'
 					";
 
 					$checkQuery3 = mysqli_query($conn, $query_db3);
