@@ -73,7 +73,7 @@
 					EXPIRATION_ACCESS
 				) values (
 					'',
-					'$getStudentID',
+					'$encryptStudentid',
 					'$inn',
 					'$cert',
 					'$expireCert'

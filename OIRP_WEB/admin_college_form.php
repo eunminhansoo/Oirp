@@ -6,31 +6,32 @@
 		header("Location: index.php");
 	}
     $getStudentID = $_GET['studentName'];
+	$decryptStudentid = base64_decode($getStudentID);
 	$course = $_GET['course'];
 	$college = $_SESSION['collegeNames'];
 
-	$stu_query = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+	$stu_query = "SELECT * FROM student WHERE STUDENT_ID = '$decryptStudentid'";
 	$stu_db = mysqli_query($conn, $stu_query);
 	while($stuRow = mysqli_fetch_array($stu_db)){
 		$stu_status = $stuRow['STATUS'];
 	}
-	$get_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID' AND COURSE = '$course'";
+	$get_query = "SELECT * FROM admin_college WHERE STUDENT_ID = '$decryptStudentid' AND COURSE = '$course'";
 	$set_query = mysqli_query($conn, $get_query);
 	while($rroww = mysqli_fetch_array($set_query)){
 		$setCourse = $rroww['COURSE'];
 	}
-    $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
+    $sql = "SELECT PDF_IMG FROM upload_pdf WHERE STUDENT_ID = '$decryptStudentid'";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
         $file = $row['PDF_IMG'];
     }
     
-    $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
+    $query = "SELECT * FROM student WHERE STUDENT_ID= '$decryptStudentid'";
     $queryBD = mysqli_query($conn, $query);
-    $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
+    $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$decryptStudentid'";
     $queryCU = mysqli_query($conn, $query1);  
 
-	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$getStudentID'";
+	$query2 = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID= '$decryptStudentid'";
     $queryPF = mysqli_query($conn, $query2); 
     
     while($row = mysqli_fetch_array($queryBD)){
@@ -59,7 +60,7 @@
 		STATUS
 		) VALUES (
 			'',
-			'$getStudentID',
+			'$decryptStudentid',
 			'$familyName',
 			'$givenName',
 			'',
@@ -86,7 +87,7 @@
 		DATE
 		) VALUES (
 			'',
-			'$getStudentID',
+			'$decryptStudentid',
 			'$familyName',
 			'$givenName',
 			'',

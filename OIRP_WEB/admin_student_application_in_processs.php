@@ -5,20 +5,20 @@
 		header("Location: index.php");
 	}
 	$errorCoCmsg = "";
-    $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$getStudentID'";
+    $sql = "SELECT * FROM upload_pdf WHERE STUDENT_ID = '$decryptStudentid'";
     $mssg = ' ';
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result)){
         $file = $row['PDF_IMG'];
 		$torScan = $row['TOR_SCAN'];
     }
-    $query = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
+    $query = "SELECT * FROM student WHERE STUDENT_ID= '$decryptStudentid'";
     $queryBD = mysqli_query($conn, $query);
 	
-    $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$getStudentID'";
+    $query1 = "SELECT * FROM educ_background_inbound WHERE STUDENT_ID= '$decryptStudentid'";
     $queryCU = mysqli_query($conn, $query1);   
 	
-	$selCollege = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$getStudentID'";
+	$selCollege = "SELECT * FROM proposed_field_study_in_bila WHERE STUDENT_ID = '$decryptStudentid'";
 	$setCollege = mysqli_query($conn, $selCollege);
 	while($colRow = mysqli_fetch_array($setCollege)){
 		$set_COURSE_1_INBOUND = $colRow['COURSE_1_INBOUND'];
@@ -49,7 +49,7 @@
 		$status = $_POST['status'];
 
 		// UPDATE THE STATUS
-		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$decryptStudentid'";
 		$query_db = mysqli_query($conn, $query2);
 		//insert to audit log
 		$approved = 'Approved';
@@ -66,7 +66,7 @@
 			DATE
 			) VALUES (
 				'',
-				'$getStudentID',
+				'$decryptStudentid',
 				'',
 				'',
 				'',
@@ -93,7 +93,7 @@
 		$course_5 = $_POST['course5'];
 		$status = $_POST['status']; 
 		
-		$queryName = "SELECT * FROM student WHERE STUDENT_ID= '$getStudentID'";
+		$queryName = "SELECT * FROM student WHERE STUDENT_ID= '$decryptStudentid'";
 		$queryName2 = mysqli_query($conn, $queryName);
 		
 		while($row_name = mysqli_fetch_array($queryName2)){
@@ -112,7 +112,7 @@
 				STATUS
 			) VALUES (
 				' ',
-				'$getStudentID',
+				'$decryptStudentid',
 				' ',
 				'$set_COURSE_1_INBOUND',
 				'$course_1',
@@ -176,7 +176,7 @@
 				STATUS
 			) VALUES (
 				' ',
-				'$getStudentID',
+				'$decryptStudentid',
 				' ',
 				'$set_COURSE_2_INBOUND',
 				'$course_2',
@@ -242,7 +242,7 @@
 				STATUS
 			) VALUES (
 				' ',
-				'$getStudentID',
+				'$decryptStudentid',
 				' ',
 				'$set_COURSE_3_INBOUND',
 				'$course_3',
@@ -310,7 +310,7 @@
 				STATUS
 			) VALUES (
 				' ',
-				'$getStudentID',
+				'$decryptStudentid',
 				' ',
 				'$set_COURSE_4_INBOUND',
 				'$course_4',
@@ -374,7 +374,7 @@
 				STATUS
 			) VALUES (
 				' ',
-				'$getStudentID',
+				'$decryptStudentid',
 				' ',
 				'$set_COURSE_5_INBOUND',
 				'$course_5',
@@ -427,7 +427,7 @@
 			$ddbb4 = mysqli_query($conn, $course_query4);
 		}
 		
-		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+		$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$decryptStudentid'";
 		
 		$query_db = mysqli_query($conn, $query2);
 
@@ -443,10 +443,10 @@
 		$dateStrat = $_POST['dateStrat'];
 		$goinstatus = $_POST['status'];
 
-		$datstart_query = "UPDATE admin_student_data SET DATE_STARTED = '$dateStrat' WHERE STUDENT_ID = '$getStudentID'";
+		$datstart_query = "UPDATE admin_student_data SET DATE_STARTED = '$dateStrat' WHERE STUDENT_ID = '$decryptStudentid'";
 		$datstart_db = mysqli_query($conn, $datstart_query);
 
-		$update_start_query = "UPDATE student SET STATUS = '$goinstatus' WHERE STUDENT_ID = '$getStudentID'";
+		$update_start_query = "UPDATE student SET STATUS = '$goinstatus' WHERE STUDENT_ID = '$decryptStudentid'";
 		$update_db = mysqli_query($conn, $update_start_query);
 		if($datstart_db && $update_db){
 			$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
@@ -474,7 +474,7 @@
 				EXPIRATION_ACCESS
 			) values (
 				'',
-				'$getStudentID',
+				'$decryptStudentid',
 				'$inn',
 				'$cert',
 				'$expireCert'
@@ -483,12 +483,12 @@
 
 			// UPDATE THE STATUS NA COMPLETED
 
-			$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+			$query2 = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$decryptStudentid'";
 			$query_completed = "";
 			$query_db = mysqli_query($conn, $query2);
 
 			// FOR AUDIT LOG
-			$query_name = "SELECT * FROM student WHERE STUDENT_ID = '$getStudentID'";
+			$query_name = "SELECT * FROM student WHERE STUDENT_ID = '$decryptStudentid'";
 			$name_db = mysqli_query($conn, $query_name);
 			while($row_complete = mysqli_fetch_array($name_db)){
 				$surname = $row_complete['FAMILY_NAME'];
@@ -509,7 +509,7 @@
 				DATE
 				) VALUES (
 					'',
-					'$getStudentID',
+					'$decryptStudentid',
 					'$surname',
 					'$givenname',
 					'',
@@ -523,7 +523,7 @@
 			if($query_db){ // CHECK IF NG UPDATE YUNG STATUS INTO COMPLETED
 				$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
 				// CHECK IF THE YEAR IS EXISTING THEN INSERT SA YEALY IF NONE
-				$dateStarted_select = "SELECT * FROM admin_student_data WHERE STUDENT_ID = '$getStudentID'";
+				$dateStarted_select = "SELECT * FROM admin_student_data WHERE STUDENT_ID = '$decryptStudentid'";
 				$dateStarted_db = mysqli_query($conn, $dateStarted_select);
 				while($row_datestarted = mysqli_fetch_array($dateStarted_db)){
 					$getDateStarted = $row_datestarted['DATE_STARTED'];
