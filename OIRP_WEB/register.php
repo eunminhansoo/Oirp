@@ -55,13 +55,13 @@ ini_set('display_errors', 0);
 				</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<label>Last Name*</label>
+						<label>Last Name<span style="color: red;">*</span></label>
 						<input type="text" name="family_name" class="input form-control" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
 					</div>
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<label>Given Name*</label>
+						<label>Given Name<span style="color: red;">*</span></label>
 						<input type="text" name="given_name" class="input form-control" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
 					</div>
 					</div>
@@ -73,30 +73,30 @@ ini_set('display_errors', 0);
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<label>Email*</label>
+						<label>Email<span style="color: red;">*</span></label>
 						<input type="email" name="email" class="input form-control" maxlength="60" required/>
 					</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-3">
-							<label>Gender*</label>
+							<label>Gender<span style="color: red;">*</span></label>
 							<select name="gender" class="form-control">
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
 							</select>
 						</div>
 						<div class="col-sm-4">	
-							<label>Birthdate*</label>				
+							<label>Birthdate<span style="color: red;">*</span></label>				
 							<input type="date" name="birthday" id="birthday" class="form-control" required/>
 						</div>
 		        		<div class="col-sm-5">
-		        			<label>Birthplace*</label>					
+		        			<label>Birthplace<span style="color: red;">*</span></label>					
 							<input type="text" name="birthplace" class="form-control" pattern="[^<>].{1,25}" maxlength="25" required/>
 						</div>
 					</div>
 					<div class="form-group row">					
 						<div class="col-sm-10">
-							<label>Are you a Student of UST?*</label>
+							<label>Are you a Student of UST?<span style="color: red;">*</span></label>
 						&nbsp;
 							<input type="radio" name="application_form" value="yes" required> Yes
 						&nbsp;
