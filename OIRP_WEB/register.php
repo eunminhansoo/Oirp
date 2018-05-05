@@ -1,7 +1,7 @@
 <?php
 	include 'register_php.php';
 	error_reporting(0);
-ini_set('display_errors', 0);
+	ini_set('display_errors', 0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,18 +50,18 @@ ini_set('display_errors', 0);
 				<div class="col-sm-3">
 				</div>
 				<div class="col-sm-6">
-				<div class="danger">
-  				<p><h3><strong>Notice!</strong></h3>You can only register once per semester.</p>
+				<div class="danger" style="padding-left:15px; padding-top: 1px; padding-bottom: 1px; margin-bottom: 30px;">
+  					<p><h3><strong>Notice!</strong></h3>You can only register once per semester.</p>
 				</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<label>Last Name<span style="color: red;">*</span></label>
+						<label>Last Name <span class="required">*</span></label>
 						<input type="text" name="family_name" class="input form-control" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
 					</div>
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<label>Given Name<span style="color: red;">*</span></label>
+						<label>Given Name <span class="required">*</span></label>
 						<input type="text" name="given_name" class="input form-control" pattern="[^0-9<>].{1,50}" maxlength="50" required/>
 					</div>
 					</div>
@@ -73,30 +73,30 @@ ini_set('display_errors', 0);
 					</div>
 					<div class="form-group row">
 					<div class="col-sm-12">
-						<label>Email<span style="color: red;">*</span></label>
+						<label>Email <span class="required">*</span></label>
 						<input type="email" name="email" class="input form-control" maxlength="60" required/>
 					</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-3">
-							<label>Gender<span style="color: red;">*</span></label>
+							<label>Gender <span class="required">*</span></label>
 							<select name="gender" class="form-control">
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
 							</select>
 						</div>
 						<div class="col-sm-4">	
-							<label>Birthdate<span style="color: red;">*</span></label>				
+							<label>Birthdate <span class="required">*</span></label>				
 							<input type="date" name="birthday" id="birthday" class="form-control" required/>
 						</div>
 		        		<div class="col-sm-5">
-		        			<label>Birthplace<span style="color: red;">*</span></label>					
-							<input type="text" name="birthplace" class="form-control" pattern="[^<>].{1,25}" maxlength="25" required/>
+		        			<label>Birthplace <span class="required">*</span></label>					
+							<input type="text" name="birthplace" class="form-control" pattern="[^<>].{1,30}" maxlength="30" required/>
 						</div>
 					</div>
 					<div class="form-group row">					
 						<div class="col-sm-10">
-							<label>Are you a Student of UST?<span style="color: red;">*</span></label>
+							<label>Are you a student of UST? <span class="required">*</span></label>
 						&nbsp;
 							<input type="radio" name="application_form" value="yes" required> Yes
 						&nbsp;
@@ -104,9 +104,10 @@ ini_set('display_errors', 0);
 						</div>
 					</div>
 					<!--<div class="g-recaptcha" data-sitekey="6LeuFVcUAAAAAAOo1j7nS9jSzJPtu6-htYkwDe3t"></div>-->
-				
-				<button type="submit" name="btn_register" class="btn btn-success shadowbtn" style="float: left;"><span class="glyphicon glyphicon-ok-sign"></span>  Submit</button>
-				&nbsp;&nbsp;&nbsp;<button onclick="location.href='index.php'" class="btn btn-danger shadowbtn">Cancel</button>
+				<div style="margin-top: 30px;">
+					<button type="submit" name="btn_register" class="btn btn-success shadowbtn" style="float: left;"><span class="glyphicon glyphicon-ok-sign"></span>  Submit</button>
+					&nbsp;&nbsp;&nbsp;<button onclick="location.href='index.php'" class="btn btn-danger shadowbtn">Cancel</button>
+				</div>
 				</div>
 				</div>
 				<div class="col-sm-3">

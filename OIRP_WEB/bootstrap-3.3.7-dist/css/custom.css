@@ -20,6 +20,10 @@ table{
 
 }
 
+.required{
+	color: red;
+}
+
 .active{
 	background-color: #dcf0f7;
 }

@@ -77,13 +77,13 @@
 					<div id="dropdownCU">
 						<div class="form-group row">
 							<div class="col-sm-5">
-								<label>Country of Origin</label>
+								<label>Country of Origin <span class="required">*</span></label>
 								<select name="country" id="country" class="form-control">
 									
 								</select>
 							</div>
 							<div class="col-sm-5">
-								<label>Home University</label>
+								<label>Home University <span class="required">*</span></label>
 								<select name="homeUniversity" id="homeUniversity" class="form-control">
 									
 								</select>
@@ -98,38 +98,38 @@
 					<div id="textCU">
 						<div class="form-group row">
 							<div class="col-sm-5">
-									<label>Country of Origin</label>
+									<label>Country of Origin <span class="required">*</span></label>
 									<input type="text" name="countryText" id="countryText" class="form-control" pattern="[^<>=]{1,30}" maxlength="30">
 								</div>
 								<div class="col-sm-5">
-									<label>Home University</label>
+									<label>Home University <span class="required">*</span></label>
 									<input type="text" name="homeUniversityText" id="homeUniversityText" class="form-control" pattern="[^<>=]{1,115}" maxlength="115">
 								</div>
 						</div>
 					</div>
 						<div class="form-group row">
 							<div class="col-sm-10">
-								<label>University Address</label>
+								<label>University Address <span class="required">*</span></label>
 								<input type="text" name="univAddress" id="univAddress" class="form-control" pattern="[^<>=]{1,115}" maxlength="115" required value="<?php echo $getSel_UNIV_ADD_IN_BILA?>">
 							</div>
 						</div>
 					<div class="form-group row break">
 						<div class="col-sm-4">
-							<label>Degree Program</label>
+							<label>Degree Program <span class="required">*</span></label>
 							<input type="text" name="program" id="program" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" required value="<?php echo $getSel_CURRENT_PROG_STUDY_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
-							<label>Major</label>
+							<label>Major <span class="required">*</span></label>
 							<input type="text" name="major" id="major" class="form-control" pattern="[^<>=]{1,30}" maxlength="30" value=" <?php echo $getSel_SPECIALIZATION_IN_BILA?>">
 						</div>
 						<div class="col-sm-2">
-							<label>Year Level</label>
+							<label>Year Level <span class="required">*</span></label>
 							<input type="number" name="yearlevel" id="yearlevel" class="form-control" min="1" max="10" required value="<?php echo $getSel_YEAR_LEVEL?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-2">
-							<label>Type of program:</label>
+							<label>Type of program: <span class="required">*</span></label>
 						</div>
 						<div class="col-sm-2">
 							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through Scholarship
@@ -150,7 +150,7 @@
 					<div id="bilateralOptions">
 						<div class="form-group row">
 							<div class="col-sm-2">
-								<label>Duration:</label>
+								<label>Duration: <span class="required">*</span></label>
 							</div>
 							<div class="col-sm-2">
 								<input type="radio" name="bilateral" value="1 Sem" id="1sem" disabled> 1 Sem
@@ -169,7 +169,7 @@
 					<div id="scholarshipOptions">	
 						<div class="form-group row">
 							<div class="col-sm-2">
-								<label>Scholarship:</label>
+								<label>Scholarship: <span class="required">*</span></label>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarship" id="scholarshipAIMS" value="AIMS" disabled> AIMS
@@ -194,7 +194,7 @@
 					<div class="form-group row">
 						<div id="scholarloanrow">
 							<div class="col-sm-4">
-								<label>Are you a recipient of scholarship?: </label>
+								<label>Are you a recipient of scholarship?: <span class="required">*</span></label>
 							</div>
 							<div class="col-sm-1">
 								<input type="radio" name="scholarloan" id="scholarloanYes" value="Yes" disabled> Yes
@@ -215,21 +215,21 @@
 					</div>
 					<div class="form-group row break">
 						<div class="col-sm-6">
-							<label>Person to Contact from International Office</label>
+							<label>Person to Contact from International Office <span class="required">*</span></label>
 							<input type="text" name="officer" id="officer" class="form-control" pattern="[^0-9<>=]{1,20}" maxlength="60" required value="<?php echo $getSel_NAME_OFFICER_CONTACT_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
-							<label>Designation</label>
+							<label>Designation <span class="required">*</span></label>
 							<input type="text" name="designationO" id="designationO" class="form-control"  pattern="[^<>=]{1,25}" maxlength="25" required value="<?php echo $getSel_DESIGNATION_IN_BILA?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-6">
-							<label>Email Address</label>
+							<label>Email Address <span class="required">*</span></label>
 							<input type="email" name="emailO" id="emailO" class="form-control" required value="<?php echo $getSel_EMAIL_ADD_IN_BILA_OFFIC?>">
 						</div>
 						<div class="col-sm-4">
-							<label>Phone Number</label>
+							<label>Phone Number <span class="required">*</span></label>
 							<input type="text" name="numberO" id="numberO" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 required value="<?php echo $getSel_TELEPHONE_NUM_BILA?>">
 						</div>	
 					</div>				
