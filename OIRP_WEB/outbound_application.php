@@ -11,7 +11,6 @@
 		$getses_StudentID = $_SESSION['student_id_session'];
 		$message = '';
 
-		
 		$query = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$getses_StudentID'");
 		while($rows = mysqli_fetch_array($query))
 		{
@@ -561,63 +560,29 @@
 					
 					//QUERY
 					
-					$sql_query = "UPDATE guardian_info_outbound SET
-						FATHER_NAME_OUT = '$father',
-						OCCUPATION_DADA_OUT = '$fOccupation',
-						COMPANY_DADA_OUT = '$fCompany',
-						ADDRESS_DADA_OUT = '$fAddress',
-						EMAIL_ADD_DADA_OUT = '$fEmail',
-						CONTACT_NUM_DADA_OUT = '$fNumber',
-						ANNUAL_INCOME_DADA_OUT = '$fIncome',
-						MOTHER_NAME_OUT = '$mother',
-						OCCUPATION_MOM_OUT = '$mOccupation',
-						COMPANY_MOM_OUT = '$mCompany',
-						ADDRESS_MOM_OUT = '$mAddress',
-						EMAIL_ADD_MOM_OUT = '$mEmail',
-						CONTACT_NUM_MOM_OUT = '$mNumber',
-						ANNUAL_INCOME_MOM_OUT = '$mIncome'
-						WHERE STUDENT_ID = '$getses_StudentID'
+					$sql_query = "UPDATE `guardian_info_outbound` SET
+						`FATHER_NAME_OUT` = '$father',
+						`OCCUPATION_DADA_OUT` = '$fOccupation',
+						`COMPANY_DADA_OUT` = '$fCompany',
+						`ADDRESS_DADA_OUT` = '$fAddress',
+						`EMAIL_ADD_DADA_OUT` = '$fEmail',
+						`CONTACT_NUM_DADA_OUT` = '$fNumber',
+						`ANNUAL_INCOME_DADA_OUT` =' $fIncome',
+						`MOTHER_NAME_OUT` = '$mother',
+						`OCCUPATION_MOM_OUT` = '$mOccupation',
+						`COMPANY_MOM_OUT` = '$mCompany',
+						`ADDRESS_MOM_OUT` = '$mAddress',
+						`EMAIL_ADD_MOM_OUT` = '$mEmail',
+						`CONTACT_NUM_MOM_OUT` = '$mNumber',
+						`ANNUAL_INCOME_MOM_OUT` = '$mIncome'
+						WHERE `STUDENT_ID` = '$getses_StudentID'
 					";
-					// $sql_query = "INSERT INTO guardian_info_outbound(
-					// 	STUDENT_COUNT, 
-					// 	STUDENT_ID,
-					// 	FATHER_NAME_OUT,
-					// 	OCCUPATION_DADA_OUT,
-					// 	COMPANY_DADA_OUT,
-					// 	ADDRESS_DADA_OUT,
-					// 	EMAIL_ADD_DADA_OUT,
-					// 	CONTACT_NUM_DADA_OUT,
-					// 	ANNUAL_INCOME_DADA_OUT,
-					// 	MOTHER_NAME_OUT,
-					// 	OCCUPATION_MOM_OUT,
-					// 	COMPANY_MOM_OUT,
-					// 	ADDRESS_MOM_OUT,
-					// 	EMAIL_ADD_MOM_OUT,
-					// 	CONTACT_NUM_MOM_OUT,
-					// 	ANNUAL_INCOME_MOM_OUT
-					// 	) VALUES (
-					// 	'',
-					// 	'$getses_StudentID',
-					// 	'$father',
-					// 	'$fOccupation',
-					// 	'$fCompany',
-					// 	'$fAddress',
-					// 	'$fEmail',
-					// 	'$fNumber',
-					// 	'$fIncome',
-					// 	'$mother',
-					// 	'$mOccupation',
-					// 	'$mCompany',
-					// 	'$mAddress',
-					// 	'$mEmail',
-					// 	'$mNumber',
-					// 	'$mIncome')";
 
 					$query_db = mysqli_query($conn, $sql_query);
 
 					$query_db3 = "UPDATE student SET
 					PAGINATION = 'outbound page 2' 
-					WHERE STUDENT_ID ='$getses_StudentID'
+					WHERE STUDENT_ID =''
 					";
 
 					$checkQuery3 = mysqli_query($conn, $query_db3);

@@ -22,8 +22,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
     </head>
@@ -174,6 +174,7 @@
 	<script src="bootstrap-3.3.7-dist/js/jquery.nicescroll.js"></script>
 	<script src="bootstrap-3.3.7-dist/js/jquery-1.12.4.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/dataTables.bootstrap.min.js"></script>
 </html>
 <script>
 	$('#tbl_student_in').dataTable({

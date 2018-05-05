@@ -61,7 +61,7 @@
 			</nav>
 			
 			<div class="col-sm-9 container-fluid">
-				<form method="post" action="outboundform2.php">
+				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-3">
 							<label>Nationality</label>
