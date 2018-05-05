@@ -131,7 +131,7 @@
 	            <div class="col-sm-6">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
-	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
+	                    <table class="table table-striped table-bordered table-hover display" id="tbl_student_in" >
 	                        <thead>
 	                            <tr>
 	                                <th>
@@ -153,7 +153,6 @@
 	                            </tr>
 	                        </thead>
 	                        <tbody>
-								<tfoot>
 								<?php
 									$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID";
 									$query = mysqli_query($conn, $sql_query);
@@ -172,7 +171,7 @@
 										echo "<tr>";
 											echo "<td><a href='admin_student_application_in.php?studentName=".urlencode($encryptstudentid)."'>".$fullname."</a></td>";
 											if($get_TYPE_OF_PROGRAM == 'Scholarship'){
-												echo "<td>".$get_TYPE_OF_PROGRAM ."</td>";
+												echo "<td>".$get_TYPE_OF_PROGRAM."</td>";
 												if($get_TYPE_OF_FORM == 'OTHERS'){
 													echo "<td>".$get_TYPE_OF_FORM_OTHER."</td>";
 												}else{
@@ -194,7 +193,6 @@
 										echo "</tr>";
 									}
 								?>    
-								</tfoot> 
 	                        </tbody>
 	                    </table>
 	                </div>
