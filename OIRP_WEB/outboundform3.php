@@ -82,7 +82,7 @@
 				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-2">
-							<label>Type of program:</label>
+							<label>Type of program: <span class="required">*</span></label>
 						</div>
 						<div class="col-sm-2">
 							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through Scholarship
@@ -168,13 +168,13 @@
 					</div>
 					<div class="form-group row" id="countrydiv">
 						<div class="col-sm-5">
-							<label>Chosen Country</label>
+							<label>Chosen Country <span class="required">*</span></label>
 							<select name="country" id="country" class="form-control">
 							
 							</select>
 						</div>
 						<div class="col-sm-5">
-							<label>Chosen University</label>
+							<label>Chosen University <span class="required">*</span></label>
 							<select name="university" id="university" class="form-control">
 								
 							</select>
@@ -182,13 +182,13 @@
 					</div>
 					<div class="form-group row" id="sharediv">
 						<div class="col-sm-5">
-							<label>Chosen Country</label>
+							<label>Chosen Country <span class="required">*</span></label>
 							<select name="shcountry" id="shcountry" class="form-control">
 							
 							</select>
 						</div>
 						<div class="col-sm-5">
-							<label>Chosen University</label>
+							<label>Chosen University <span class="required">*</span></label>
 							<select name="shuniversity" id="shuniversity" class="form-control">
 							
 							</select>
@@ -196,13 +196,13 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Proposed Program</label>
+							<label>Proposed Program <span class="required">*</span></label>
 							<input type="text" name="proposedProg" id="proposedProg" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_PROPOSED_PROG?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Courses</label>
+							<label>Courses <span class="required">*</span></label>
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
 							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1?>">

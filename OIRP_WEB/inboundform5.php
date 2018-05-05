@@ -65,7 +65,7 @@
 				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Expectations from the Program (express in 1000 characters or less)</label>
+							<label>Expectations from the Program (express in 1000 characters or less) <span class="required">*</span></label>
 							<textarea rows="5" cols="75" name="expectation_area" maxLength="1000" class="form-control" required><?php echo $getSel_EXPECTATION_PROG?></textarea>
 						</div>
 					</div>

@@ -75,13 +75,13 @@
 				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Proposed Program</label> (Refer to the <a onclick="window.open('http://www.ust.edu.ph/academics/programs/')">UST website </a>)
+							<label>Proposed Program <span class="required">*</span></label> (Refer to the <a onclick="window.open('http://www.ust.edu.ph/academics/programs/')">UST website </a>)
 							<input type="text" name="proposedProg" id="proposedProg" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" required value="<?php echo $getSel_PROPOSED_PROG_INBOUND?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Courses to be taken at UST</label> 
+							<label>Courses to be taken at UST <span class="required">*</span></label> 
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
 							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1_INBOUND?>">
@@ -115,7 +115,7 @@
 					
 					<div class="form-group row">
 						<div class="col-sm-3">
-							<label>Semester to Study</label>
+							<label>Semester to Study <span class="required">*</span></label>
 							<select name="sem" class="form-control">
 								<option value="1st Semester">1st Semester (August to December)</option>
 								<option value="2nd Semester">2nd Semester (January to May)</option>
@@ -123,7 +123,7 @@
 							</select>
 						</div>
 						<div class="col-sm-7">
-							<label>Research Topic (if applicable)</label>
+							<label>Research Topic</label>
 							<input type="text" name="research" id="research" class="form-control" pattern="[^<>=]{1,50}" maxlength="50" value="<?php echo $getSel_RESEARCH_TOPIC_INBOUND?>">
 						</div>
 					</div>
@@ -139,7 +139,7 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-6">
-							<label>Do you need accommodation during the program? (subject to availability)</label>
+							<label>Do you need accommodation during the program? (subject to availability) <span class="required">*</span></label>
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="accomodation" value="Yes" required> Yes

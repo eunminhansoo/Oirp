@@ -87,7 +87,11 @@
 				$("#scholarloanText").prop('disabled', false);
 				document.getElementById('scholarshipText').value = " ";
 			});
-
+			
+			$('#scholarloanNo').click(function(){
+				$("#scholarloanText").prop('disabled', true);
+			});
+			
 			var radioBilaOption = "<?php echo $getSel_TYPE_OF_FORM?>";
 			var radioBilaOther = "<?php echo $getSel_TYPE_OF_FORM_OTHER ?>"
 			var radioscholarBilaOption = "<?php echo $getSel_SCHOLARSHIP_LOAN?>";

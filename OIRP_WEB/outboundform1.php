@@ -64,49 +64,49 @@
 				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-3">
-							<label>Nationality</label>
+							<label>Nationality <span class="required">*</span></label>
 							<input type="text" name="nationality" id="nationality" class="form-control" pattern="[^<>=]{1,25}" maxlength="25" value="<?php echo $setSel_NATIONALITY_OUT?>" required>
 						</div>
 						<div class="col-sm-3">
-							<label>Passport No.</label>
+							<label>Passport No. <span class="required">*</span></label>
 							<input type="text" name="passport" id="passport" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" value="<?php echo $setSel_PASSPORT_NUM_OUT ?>" required>
 						</div>
 						<div class="col-sm-2">
-							<label>Date of Issuance</label>
+							<label>Date of Issuance <span class="required">*</span></label>
 							<input type="date" name="issuance" id="issuance" class="form-control" value="<?php echo $setSel_DATE_ISSUANCE_OUT?>"  required>
 						</div>
 						<div class="col-sm-2">
-							<label>Validity Date</label>
+							<label>Validity Date <span class="required">*</span></label>
 							<input type="date" name="validity" id="validity" class="form-control" value="<?php echo $setSel_VALIDITY_DATE_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Mailing Address</label>
+							<label>Mailing Address <span class="required">*</span></label>
 							<input type="text" name="address" id="address" class="form-control"  pattern="[^<>=]{1,115}" maxlength="115" value="<?php echo $setSel_MAILING_ADD_OUT?>" required>
 						</div>					
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
-							<label>Telephone Number</label>
+							<label>Telephone Number <span class="required">*</span></label>
 							<input type="text" name="telephone" id="telephone" class="form-control" placeholder="ex: +63 2-406-1611" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 value="<?php echo $setSel_TELEPHONE_NUM_OUT?>" required>
 						</div>
 						<div class="col-sm-5">
-							<label>Mobile Number</label>
+							<label>Mobile Number <span class="required">*</span></label>
 							<input type="text" name="mobile" id="mobile" class="form-control" placeholder="ex: +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=40 value="<?php echo $setSel_MOBILE_NUM_OUT?>" required>
 						</div>
 					</div>
 					<div class="form-group row break">
 						<div class="col-sm-4">
-							<label>College/Faculty/Institute</label>
+							<label>College/Faculty/Institute <span class="required">*</span></label>
 							<input type="text" name="college" id="college" class="form-control" pattern="[^<>=]{1,50}" maxlength="50" value="<?php echo $setSel_COLLEGE_INSTITUTE_FACULTY_OUT?>" required>
 						</div>
 						<div class="col-sm-4">
-							<label>Degree Program</label>
+							<label>Degree Program <span class="required">*</span></label>
 							<input type="text" name="program" id="program" class="form-control" pattern="[^<>=]{1,50}" maxlength="50" value="<?php echo $setSel_DEGREE_PROG_OUT?>" required>
 						</div>
 						<div class="col-sm-2">
-							<label>Year Level</label>
+							<label>Year Level <span class="required">*</span></label>
 							<input type="number" name="yearlevel" id="yearlevel" class="form-control" min="1" max="10" value="<?php echo $setSel_YEAR_LEVEL_OUT?>">
 						</div>
 					</div>

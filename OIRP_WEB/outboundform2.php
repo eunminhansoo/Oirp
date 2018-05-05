@@ -65,7 +65,7 @@
 				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Father's Name</label>
+							<label>Father's Name <span class="required">*</span></label>
 							<input type="text" name="father" id="father" class="form-control" pattern="[^0-9<>=]{1,60}" maxlength="60" value="<?php echo $getSel_FATHER_NAME_OUT?>" required>
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Annual Income</label>
+							<label>Annual Income <span class="required">*</span></label>
 							<select name="fIncome" id="fIncome" class="form-control">
 								<option value="PHP 8,001 - PHP 135,000">PHP 8,001 - PHP 135,000</option>
 								<option value="PHP 135,001 - PHP 250,000">PHP 135,001 - PHP 250,000</option>
@@ -111,7 +111,7 @@
 					
 					<div class="form-group row break">
 						<div class="col-sm-10">
-							<label>Mother's Name</label>
+							<label>Mother's Name <span class="required">*</span></label>
 							<input type="text" name="mother" id="mother" class="form-control" pattern="[^0-9<>=]{1,60}" maxlength="60" value="<?php echo $getSel_MOTHER_NAME_OUT?>" required>
 						</div>
 					</div>
@@ -143,7 +143,7 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Annual Income</label>
+							<label>Annual Income <span class="required">*</span></label>
 							<select name="mIncome" id="mIncome" class="form-control">
 								<option value="PHP 8,001 - PHP 135,000" >PHP 8,001 - PHP 135,000</option>
 								<option value="PHP 135,001 - PHP 250,000" >PHP 135,001 - PHP 250,000</option>

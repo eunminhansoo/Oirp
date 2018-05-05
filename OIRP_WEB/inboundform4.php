@@ -65,7 +65,7 @@
 				<form method="post">
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Have you completed a TOEFL/ELTS test or equivalent in the last twelve months?</label>
+							<label>Have you completed a TOEFL/ELTS test or equivalent in the last twelve months? <span class="required">*</span></label>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -84,7 +84,7 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Do you intend to take a TOEFL/ELTS test or equivalent in the immediate future?</label>
+							<label>Do you intend to take a TOEFL/ELTS test or equivalent in the immediate future? <span class="required">*</span></label>
 						</div> 
 					</div>
 					<div class="form-group row">
@@ -113,7 +113,7 @@
 					
 					<div class="form-group row break">
 						<div class="col-sm-3">
-							<label>Are you a smoker?</label>
+							<label>Are you a smoker? <span class="required">*</span></label>
 						</div>
 						<div class="col-sm-2">
 							<input type="radio" name="smoker" id="smokerYes" value="Yes" required> Yes
@@ -125,13 +125,13 @@
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Any physical disabilities or personal problems?</label>
-							<input type="text" name="disabilities" id="disabilities" class="form-control" pattern="[^<>=]{1,40}" maxlength="40" required value="<?php echo $getSel_DESCRIBE_DISABILI_INBOUND ?>">
+							<input type="text" name="disabilities" id="disabilities" class="form-control" pattern="[^<>=]{1,40}" maxlength="40" value="<?php echo $getSel_DESCRIBE_DISABILI_INBOUND ?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<label>Any serious illness, conditions, or allergies?</label>
-							<input type="text" name="illness" id="illness" class="form-control" pattern="[^<>=]{1,75}" maxlength="75" required value="<?php echo $getSel_DESCRIBE_ILL_INBOUND?>">
+							<input type="text" name="illness" id="illness" class="form-control" pattern="[^<>=]{1,75}" maxlength="75" value="<?php echo $getSel_DESCRIBE_ILL_INBOUND?>">
 						</div>
 					</div>
 					
