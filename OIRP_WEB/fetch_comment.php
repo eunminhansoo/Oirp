@@ -17,6 +17,7 @@ if(isset($_POST["view"]))
         {
             $app_form = $row['APPLICATION_FORM'];
             $studentId = $row['STUDENT_ID'];
+            $encryptStudentId = base64_encode($studentId);
             $fullname = $row['LASTNAME'].", ".$row['FIRSTNAME']." ";
         	$college = $row['COLLEGE'];
         	$course = $row['COURSE'];
@@ -228,7 +229,7 @@ if(isset($_POST["view"]))
             if($app_form == "inbound"){
                 $output .= '
                     <li>
-                        <a href=admin_student_application_in.php?studentName='.urlencode($studentId).'>
+                        <a href=admin_student_application_in.php?studentName='.urlencode($encryptStudentId).'>
                              '.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf <br />
                         </a>
                     </li>
