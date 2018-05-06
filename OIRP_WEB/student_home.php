@@ -2,7 +2,6 @@
 	include 'student_home_process.php';
 	include 'logout.php';
 	
-										
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -148,7 +147,6 @@
 									}
 								
 								?>
-							</li>	
 							</li>
 							<!-- STATUS -->
 							<li style="padding-right: 30px;">
@@ -161,17 +159,16 @@
 									|| $pagination == 'submitted summary' || $pagination == 'save summary pdf'
 									){
 										echo "(Please finish application)";
-									}else if($pagination == "submitted"){
+									}else if($pagination == "submited"){
 										if($status == 'Approved'){
-											$status = "Pending";
+											$status = " ";
 											echo $status; 
 										}else{
-											$status = "(Upload form)";
 											echo $status;
 										}
 									}else if($pagination == "Submitted PDF"){
 										if($status == 'Approved'){
-											$status = "Pending";
+											$status = " ";
 											echo $status; 
 										}else{
 											echo $status;
@@ -183,14 +180,11 @@
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li style="text-align: center">
+									<li>
 										<?php
-											if($pagination == 'submitted' && $application_prog == 'outbound'){
-												echo '<form method="post"><button name="outbtn" class="btn-logout float-center">Edit My Application</button></form>';
-											}else if($pagination == 'submitted' && $application_prog == 'inbound'){
-												echo '<form method="post"><button name="inbtn" class="btn-logout float-center">Edit My Application</button></form>';
-											}else{
-												echo ' '; 
+											if($pagination == 'submitted'){
+												$_SESSION['inValidation'] = 'invalid';
+												echo '<a href="inboundform1.php">Edit My Application</a>';
 											}
 										?>
 									</li>
@@ -255,7 +249,6 @@
 										$_SESSION['validSummarypdf_out'] = 'sumpdfvalid_out';
 										echo '<a class="btn btn-success" href="summary_pdf_out.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue to Summary Application form</span></a>';
 									}else if($pagination == 'submitted' && $application_prog == 'outbound'){
-										$_SESSION['validSummarypdf_out'] = 'empty';
 										echo '<br><a class="btn btn-success" id="uploa" style="border: 2px solid black;"><span class="caf" style="color: white">Upload Application form </span></a>';
 									}else	
 								// END OUTBOUND
@@ -295,12 +288,6 @@
 										$_SESSION['validSummarypdf'] = 'sumpdfvalid';
 										echo '<a class="btn btn-success" href="summary_pdf_in.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue to Summary Application form</span></a>';
 									}else if($pagination == 'submitted' && $application_prog == 'inbound'){
-										// if(isset($_POST['inbtn'])){
-										// 	$_SESSION['inValidaition'] = 'invalid';
-										// 	header("Location: inboundform1.php");
-										// }else{
-										// 	$_SESSION['validSummarypdf'] = 'empty';
-										// }
 									 	echo '<br><a class="btn btn-success" id="uploa" style="border: 2px solid black;"><span class="caf" style="color: white">Upload Application form </span></a>';
 									}else
 								// END INBOUND
@@ -382,10 +369,10 @@
 						<br>
 						<div id="fileType">
 							<div class="form-group" style="padding-top: 20px;">
-								<div class="col-xs-6">
-									<span><b>Upload Application Form:</b></span>
+								<div class="col-xs-4 col-xs-push-1">
+									<span><b>Upload PDF:</b></span>
 								</div>
-								<div class="col-xs-4 col-xs-pull-1">
+								<div class="col-xs-4 col-xs-push-1">
 									<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" accept="application/pdf" disabled>
 								</div>
 							</div>
@@ -394,7 +381,7 @@
 								<div class="col-xs-6">
 									<span><b>Upload Transcript of Records:</b></span>
 								</div>
-								<div class="col-xs-4 col-xs-pull-1">
+								<div class="col-xs-3 col-xs-pull-1">
 									<input type="file" name="TAscan" id="taScan" class="custom-file-input form-control-file" disabled/>
 								</div>
 								
@@ -403,7 +390,7 @@
 						<br>
 						<br>
 						<div class="col-xs-12">
-							<button type="submit" name="btn_submit" class="btn btn-info">Submit</button>
+							<button type="submit" name="btn_submit" class="btn">Submit</button>
 						</div>
 					</div>
 				</div>
@@ -497,12 +484,3 @@
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
 
 </html>
-<?php
-	if(isset($_POST['outbtn'])){
-		$_SESSION['outValidaition'] = 'outvalid';
-		header("Location: outboundform1.php");
-	}else if(isset($_POST['intbtn'])){
-		$_SESSION['inValidaition'] = 'invalid';
-		header("Location: inboundform1.php");
-	}
-?>
