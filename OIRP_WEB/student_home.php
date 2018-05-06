@@ -295,7 +295,12 @@
 										$_SESSION['validSummarypdf'] = 'sumpdfvalid';
 										echo '<a class="btn btn-success" href="summary_pdf_in.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue to Summary Application form</span></a>';
 									}else if($pagination == 'submitted' && $application_prog == 'inbound'){
-										$_SESSION['validSummarypdf'] = 'empty';
+										// if(isset($_POST['inbtn'])){
+										// 	$_SESSION['inValidaition'] = 'invalid';
+										// 	header("Location: inboundform1.php");
+										// }else{
+										// 	$_SESSION['validSummarypdf'] = 'empty';
+										// }
 									 	echo '<br><a class="btn btn-success" id="uploa" style="border: 2px solid black;"><span class="caf" style="color: white">Upload Application form </span></a>';
 									}else
 								// END INBOUND
@@ -494,10 +499,9 @@
 </html>
 <?php
 	if(isset($_POST['outbtn'])){
-			$_SESSION['outValidaition'] = 'outvalid';
-			header("Location: outboundform1.php");
-		}
-	if(isset($_POST['intbtn'])){
+		$_SESSION['outValidaition'] = 'outvalid';
+		header("Location: outboundform1.php");
+	}else if(isset($_POST['intbtn'])){
 		$_SESSION['inValidaition'] = 'invalid';
 		header("Location: inboundform1.php");
 	}

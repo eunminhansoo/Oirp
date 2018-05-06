@@ -72,6 +72,13 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/custom.css">
         <link rel="icon" href="img/ust.png" type="image/png" sizes="196x196">
 	</head>
+    <style>
+        .danger {
+			background-color: lightgrey;
+			border-left: 6px solid #ffeb3b;
+            color: red;
+		}
+    </style>
 	<body>
 		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
@@ -118,6 +125,9 @@
             <div class="col-sm-9 container-fluid">
                 <div class="form-group row">
                     <div class="col-sm-10">
+                    <div class="danger" style="padding-left:15px; padding-top: 1px; padding-bottom: 1px; margin-bottom: 30px;">
+                        <p><h3><strong>Notice!</strong></h3>You can only register once per semester.</p>
+                    </div>
                         <h1>Summary Application form</h1>
                         <div class="col-sm-6 col-sm-push-1">
                             <span class="glyphicon glyphicon-chevron-right" style="font-size: 23px;">

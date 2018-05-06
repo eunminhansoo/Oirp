@@ -26,8 +26,8 @@
 		<div class="">
 		<style>
 		.danger {
-    	background-color: #ffffcc;
-    	border-left: 6px solid #ffeb3b;
+			background-color: #ffffcc;
+			border-left: 6px solid #ffeb3b;
 		}
 		</style>
 		<div class="header">
