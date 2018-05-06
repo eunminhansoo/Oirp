@@ -24,7 +24,6 @@
 			background-color: #f44336;
 			color: white;
 		}
-
 		.closebtn {
 			margin-left: 15px;
 			color: white;
@@ -35,7 +34,6 @@
 			cursor: pointer;
 			transition: 0.3s;
 		}
-
 		.closebtn:hover {
 			color: black;
 		}
@@ -176,14 +174,6 @@
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li>
-										<?php
-											if($pagination == 'submitted'){
-												$_SESSION['inValidation1'] = 'invalid';
-												echo '<a href="inboundform1.php">Edit My Application</a>';
-											}
-										?>
-									</li>
 									<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
 								</ul>
 							</li>
@@ -330,10 +320,8 @@
 										// }
 										$timestamp = $todaydate;
 										$start_date = date($timestamp);
-
 										$expires = strtotime($exp, strtotime($timestamp));
 										//$expires = date($expires);
-
 										$date_diff=($expires-strtotime($timestamp)) / 86400;
 										$dayleft = round($date_diff, 0);
 										if($dayleft <= 0){
@@ -343,7 +331,6 @@
 										}
 											// echo "Start: ".$timestamp."<br>";
 											// echo "Expire: ".date('Y-m-d H:i:s', $expires)."<br>";
-
 											// echo round($date_diff, 0)." days left";
 													
 									}
@@ -418,7 +405,6 @@
 			var status = "<?php echo $status?>";
 			var app_prog = "<?php echo $application_prog?>";
 			$('#uploadbox').hide();
-
 			// if(status == "Approved" || status == "Pending" || status == "On-Going" || app_prog == "inbound"){
 			// 	$('#poahh').hide();
 			// }
