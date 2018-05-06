@@ -119,7 +119,7 @@
 		<div class="container-fluid">
 			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
-                    <li class="active"><a href="summary_pdf_in.php">Expectations from the Program</a></li>
+                    
 				</ul>
 			</nav>
             <div class="col-sm-9 container-fluid">
@@ -130,17 +130,16 @@
                     </div>
                         <h1>Summary Application form</h1>
                         <div class="col-sm-6 col-sm-push-1">
-                            <span class="glyphicon glyphicon-chevron-right" style="font-size: 23px;">
+                            <span class="glyphicon glyphicon-chevron-right" style="font-size: 15px;"></span>
                                 <?php
                                     if($pagination == 'submitted summary' || $pagination == 'save summary pdf'){
                                         if($application_prog == 'outbound' && ($type_of_program == 'ShortStudy' || $type_of_program == 'StudyTour' || $type_of_program == 'ServiceLearning')){
-                                            echo '<a href="pdf/outboundBilateral.php" target="_blank"><span class="caf">Open Summary PDF</span></a>';
+                                            echo '<a href="pdf/outboundBilateral.php" target="_blank"><span class="caf" style="font-size: 15px;">Open Summary PDF</span></a>';
                                         } elseif ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
-                                            echo '<a href="pdf/outbound.php" target="_blank"><span class="caf">Open Summary PDF</span></a>';
+                                            echo '<a href="pdf/outbound.php" target="_blank"><span class="caf" style="font-size: 15px;">Open Summary PDF</span></a>';
                                         }
 								    }
                                 ?>
-                            </span>
                         </div>
                     </div>
                 </div>
