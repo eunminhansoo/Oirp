@@ -66,6 +66,8 @@
 
 		if(mysqli_num_rows($check_email) >= 1){
 			$message = "<script language='javascript'>(function(){alert('Email already exists! Try again?');})();</script>";
+		}else if($email == " " || $familyName == " " || $givenName == " " || $birthplace == " "){
+			$message = "<script language='javascript'>(function(){alert('Warning: Empty Text!');})();</script>";
 		}else{
 			$insert_query = "INSERT INTO student(STUDENT_COUNT, DATE_ENROLL, APPLICATION_PROG, STUDENT_ID, EMAIL, PASSWORD, FAMILY_NAME,".
 						" GIVEN_NAME, MIDDLE_NAME, GENDER, BIRTHDAY, AGE, BIRTHPLACE, STATUS, PAGINATION) VALUES ('', '$date', '$appForm', '', '$email', '$birth_enc', '$familyName', '$givenName', '$middleName', '$gender', '$birth_enc', '$age', '$birthplace', '', '')";

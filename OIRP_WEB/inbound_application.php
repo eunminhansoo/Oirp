@@ -2,11 +2,7 @@
 	include 'database_connection.php';
 
 	session_start();
-	if($_SESSION['inValidation'] != 'invalid' && $_SESSION['stuValid'] != 'yes'){
-		header("Location: index.php");
-	}else if($_SESSION['inValidation'] != 'invalid' && $_SESSION['stuValid'] == 'yes'){
-		header("Location: student_home.php");
-	}else{
+	if($_SESSION['inValidation'] = 'invalid' && $_SESSION['stuValid'] == 'yes'){
 		$getSes_studentID = $_SESSION['student_id_session'];
 		
 		$query = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$getSes_studentID'");
@@ -1266,6 +1262,10 @@
 			// end for inboundform5
 
 		// end FOR SAVE BUTTON!!!!!!!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	}else if($_SESSION['inValidation'] != 'invalid' && $_SESSION['stuValid'] != 'yes'){
+		header("Location: index.php");
+	}else if($_SESSION['inValidation'] != 'invalid' && $_SESSION['stuValid'] == 'yes'){
+		header("Location: student_home.php");
 	}
 
 ?>

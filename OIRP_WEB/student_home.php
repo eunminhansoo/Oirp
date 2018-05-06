@@ -118,7 +118,10 @@
 									echo '<a href="outboundform2.php">My Application</a>';  
 								}else if($pagination == 'outbound page 3'){
 									$_SESSION['outValidaition'] = 'outvalid';
-									echo '<a href="outboundform3.php">My Application</a>';  
+									echo '<a href="outboundform3.php">My Application</a>';
+								}else if($pagination == 'submitted summary' || $pagination == 'save summary pdf'){
+									$_SESSION['validSummarypdf'] = 'sumpdfvalid';  
+									echo '<a href="summary_pdf_in.php">My Application</a>';
 								}else if($pagination == 'submitted' || $pagination == 'Submitted PDF'){
 									unset($_SESSION['outValidation']);
 									unset($_SESSION['inValidation']);
@@ -141,6 +144,14 @@
 								
 							?>
 							</li>
+							<li>
+								<?php
+									if($pagination == 'submitted'){
+										$_SESSION['inValidation'] = 'invalid';
+										echo '<a href="inboundform1.php">Edit My Application</a>';
+									}
+								?>
+							</li>
 							<li style="padding-right: 30px;">
 								<a ><b>Status:</b> <span style="color: red">
 								<?php 
@@ -148,6 +159,7 @@
 									|| $pagination == 'inbound page 3' || $pagination == 'inbound page 4' || $pagination == 'inbound page 5'
 									|| $pagination == 'outbound page 1' || $pagination == 'outbound page 2'
 									|| $pagination == 'outbound page 3' || $pagination == 'outbound page 4' || $pagination == 'outbound page 5'
+									|| $pagination == 'submitted summary' || $pagination == 'save summary pdf'
 									){
 										echo "(Please finish application)";
 									}else if($pagination == "submited"){
