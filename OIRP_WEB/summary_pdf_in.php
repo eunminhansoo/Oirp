@@ -2,9 +2,9 @@
     include 'database_connection.php';
 	include 'logout.php';
     session_start();
-    if(empty($_SESSION['inValidation']) && $_SESSION['stuValid'] != 'yes'){
+    if(empty($_SESSION['inValidation1']) && $_SESSION['stuValid'] != 'yes'){
 		header("Location: index.php");
-	}else if(empty($_SESSION['inValidation']) && $_SESSION['stuValid'] == 'yes' && $_SESSION['validSummarypdf'] != 'sumpdfvalid'){
+	}else if(empty($_SESSION['inValidation1']) && $_SESSION['stuValid'] == 'yes' && $_SESSION['validSummarypdf'] != 'sumpdfvalid'){
 		header("Location: student_home.php");
     }else{
         if($_SESSION['validSummarypdf'] == 'sumpdfvalid'){
@@ -56,7 +56,7 @@
                     header("Location: student_home.php");
                 }
             }else if(isset($_POST['btnEdit'])){
-                $_SESSION['inValidation'] = 'invalid';
+                $_SESSION['inValidation1'] = 'invalid';
                 header("Location: inboundform1.php");
             }
         }else{

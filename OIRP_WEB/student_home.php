@@ -96,19 +96,19 @@
 										}
 									} 
 								}else if($pagination == 'inbound page 1'){
-									$_SESSION['inValidation'] = 'invalid';
+									$_SESSION['inValidation1'] = 'invalid';
 									echo '<a href="inboundform1.php">My Application</a>';
 								}else if($pagination == 'inbound page 2'){
-									$_SESSION['inValidation'] = 'invalid';
+									$_SESSION['inValidation1'] = 'invalid';
 									echo '<a href="inboundform2.php">My Application</a>';
 								}else if($pagination == 'inbound page 3'){
-									$_SESSION['inValidation'] = 'invalid';
+									$_SESSION['inValidation1'] = 'invalid';
 									echo '<a href="inboundform3.php">My Application</a>'; 
 								}else if($pagination == 'inbound page 4'){
-									$_SESSION['inValidation'] = 'invalid';
+									$_SESSION['inValidation1'] = 'invalid';
 									echo '<a href="inboundform4.php">My Application</a>';
 								}else if($pagination == 'inbound page 5'){
-									$_SESSION['inValidation'] = 'invalid';
+									$_SESSION['inValidation1'] = 'invalid';
 									echo '<a href="inboundform5.php">My Application</a>';
 								}else if($pagination == 'outbound page 1'){
 									$_SESSION['outValidaition'] = 'outvalid';
@@ -144,14 +144,7 @@
 								
 							?>
 							</li>
-							<li>
-								<?php
-									if($pagination == 'submitted'){
-										$_SESSION['inValidation'] = 'invalid';
-										echo '<a href="inboundform1.php">Edit My Application</a>';
-									}
-								?>
-							</li>
+							
 							<li style="padding-right: 30px;">
 								<a ><b>Status:</b> <span style="color: red">
 								<?php 
@@ -182,6 +175,14 @@
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 								<ul class="dropdown-menu">
+									<li>
+										<?php
+											if($pagination == 'submitted'){
+												$_SESSION['inValidation1'] = 'invalid';
+												echo '<a href="inboundform1.php">Edit My Application</a>';
+											}
+										?>
+									</li>
 									<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
 								</ul>
 							</li>
@@ -232,10 +233,10 @@
 									$_SESSION['outValidaition'] = 'outvalid';
 									echo '<a class="btn btn-success" href="outboundform1.php" style="border: 2px solid black;"><span class="caf" style="color: black"> Continue Application form</span></a>';
 								}else if($pagination == NULL && $application_prog == 'inbound'){
-									$_SESSION['inValidation'] = 'invalid';
+									$_SESSION['inValidation1'] = 'invalid';
 									echo '<a class="btn btn-success" href="inboundform1.php" style="border: 2px solid black;"><span class="caf" style="color: black"> Continue Application form</span></a>';
 								}elseif($pagination == 'inbound page 1'){
-										$_SESSION['inValidation'] = 'invalid';
+										$_SESSION['inValidation1'] = 'invalid';
 										echo '<a id="page1" class="btn btn-success" href="inboundform1.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									
 								}else if($pagination == 'Submitted PDF' && $status == 'Completed'){
@@ -281,16 +282,16 @@
 								<?php
 							
 									if($pagination == 'inbound page 2'){
-										$_SESSION['inValidation'] = 'invalid';
+										$_SESSION['inValidation1'] = 'invalid';
 										echo '<a class="btn btn-success" href="inboundform2.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'inbound page 3'){
-										$_SESSION['inValidation'] = 'invalid';
+										$_SESSION['inValidation1'] = 'invalid';
 										echo '<a class="btn btn-success" href="inboundform3.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'inbound page 4'){
-										$_SESSION['inValidation'] = 'invalid';
+										$_SESSION['inValidation1'] = 'invalid';
 										echo '<a class="btn btn-success" href="inboundform4.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'inbound page 5'){
-										$_SESSION['inValidation'] = 'invalid';
+										$_SESSION['inValidation1'] = 'invalid';
 										echo '<a class="btn btn-success" href="inboundform5.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
 									}else if($pagination == 'outbound page 1'){
 										$_SESSION['outValidaition'] = 'outvalid';
