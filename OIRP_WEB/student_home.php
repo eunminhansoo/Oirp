@@ -2,7 +2,6 @@
 	include 'student_home_process.php';
 	include 'logout.php';
 	
-										
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -25,7 +24,6 @@
 			background-color: #f44336;
 			color: white;
 		}
-
 		.closebtn {
 			margin-left: 15px;
 			color: white;
@@ -36,7 +34,6 @@
 			cursor: pointer;
 			transition: 0.3s;
 		}
-
 		.closebtn:hover {
 			color: black;
 		}
@@ -66,91 +63,86 @@
 					<div class="collapse navbar-collapse" id="nav-expand" aria-expanded="true">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="student_home.php">Home</a></li>
-							<!-- MY APPLICATION -->
 							<li>
 								<?php
-									if($pagination == NULL && $application_prog == 'outbound'){
-										if($pagination == 'submited' || $pagination == 'Submitted PDF'){
-											if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
-												echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
-											} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
-												echo '<a href="pdf/outbound.php" target="_blank">My Application</a>';
-											} else if($application_prog == 'inbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
-												echo '<a href="pdf/inboundBilateral.php" target="_blank">My Application</a>';
-											} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
-												echo '<a href="pdf/inbound.php" target="_blank">My Application</a>';
-											}else{
-												echo '<a href="#">My Application</a>';
-											}
-										} 
-									}else if($pagination == NULL && $application_prog == 'inbound'){
-										if($pagination == 'submited' || $pagination == 'Submitted PDF'){
-											if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
-												echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
-											} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
-												echo '<a href="pdf/outbound.php" target="_blank">My Application</a>';
-											} else if($application_prog == 'inbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
-												echo '<a href="pdf/inboundBilateral.php" target="_blank">My Application</a>';
-											} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
-												echo '<a href="pdf/inbound.php" target="_blank">My Application</a>';
-											}else{
-												echo '<a href="#">My Application</a>';
-											}
-										} 
-									}else if($pagination == 'inbound page 1'){
-										$_SESSION['inValidation'] = 'invalid';
-										echo '<a href="inboundform.php">My Application</a>';
-									}else if($pagination == 'inbound page 2'){
-										$_SESSION['inValidation'] = 'invalid';
-										echo '<a href="inboundform2.php">My Application</a>';
-									}else if($pagination == 'inbound page 3'){
-										$_SESSION['inValidation'] = 'invalid';
-										echo '<a href="inboundform3.php">My Application</a>'; 
-									}else if($pagination == 'inbound page 4'){
-										$_SESSION['inValidation'] = 'invalid';
-										echo '<a href="inboundform4.php">My Application</a>';
-									}else if($pagination == 'inbound page 5'){
-										$_SESSION['inValidation'] = 'invalid';
-										echo '<a href="inboundform5.php">My Application</a>';
-									}else if($pagination == 'outbound page 1'){
-										$_SESSION['outValidaition'] = 'outvalid';
-										echo '<a href="outboundform1.php">My Application</a>'; 
-									}else if($pagination == 'outbound page 2'){
-										$_SESSION['outValidaition'] = 'outvalid';
-										echo '<a href="outboundform2.php">My Application</a>';  
-									}else if($pagination == 'outbound page 3'){
-										$_SESSION['outValidaition'] = 'outvalid';
-										echo '<a href="outboundform3.php">My Application</a>';
-									}else if($pagination == 'submitted summary' || $pagination == 'save summary pdf' && $application_prog = 'inbound'){
-										$_SESSION['validSummarypdf'] = 'sumpdfvalid';  
-										echo '<a href="summary_pdf_in.php">My Application</a>';
-									}else if($pagination == 'submitted summary' || $pagination == 'save summary pdf' && $application_prog = 'outbound'){
-										$_SESSION['validSummarypdf'] = 'sumpdfvalid';  
-										echo '<a href="summary_pdf_in.php">My Application</a>';
-									}else if($pagination == 'Submitted PDF'){
-										$_SESSION['outValidation'] = " ";
-										$_SESSION['inValidation'] = " ";
-										if($pagination == 'submitted' || $pagination == 'Submitted PDF'){
-											if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
-												echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
-											} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
-												echo '<a href="pdf/outbound.php" target="_blank">My Application</a>';
-											} else if($application_prog == 'inbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
-												echo '<a href="pdf/inboundBilateral.php" target="_blank">My Application</a>';
-											} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
-												echo '<a href="pdf/inbound.php" target="_blank">My Application</a>';
-											}else{
-												echo '<a href="#">My Application</a>';
-											}
-										} 
-									}else{
-										echo '<a href="#">My Application</a>';
-									}
+								if($pagination == NULL && $application_prog == 'outbound'){
+									if($pagination == 'submited' || $pagination == 'Submitted PDF'){
+										if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
+											echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
+										} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
+											echo '<a href="pdf/outbound.php" target="_blank">My Application</a>';
+										} else if($application_prog == 'inbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
+											echo '<a href="pdf/inboundBilateral.php" target="_blank">My Application</a>';
+										} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
+											echo '<a href="pdf/inbound.php" target="_blank">My Application</a>';
+										}else{
+											echo '<a href="#">My Application</a>';
+										}
+									} 
+								}else if($pagination == NULL && $application_prog == 'inbound'){
+									if($pagination == 'submited' || $pagination == 'Submitted PDF'){
+										if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
+											echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
+										} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
+											echo '<a href="pdf/outbound.php" target="_blank">My Application</a>';
+										} else if($application_prog == 'inbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
+											echo '<a href="pdf/inboundBilateral.php" target="_blank">My Application</a>';
+										} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
+											echo '<a href="pdf/inbound.php" target="_blank">My Application</a>';
+										}else{
+											echo '<a href="#">My Application</a>';
+										}
+									} 
+								}else if($pagination == 'inbound page 1'){
+									$_SESSION['inValidation1'] = 'invalid';
+									echo '<a href="inboundform1.php">My Application</a>';
+								}else if($pagination == 'inbound page 2'){
+									$_SESSION['inValidation1'] = 'invalid';
+									echo '<a href="inboundform2.php">My Application</a>';
+								}else if($pagination == 'inbound page 3'){
+									$_SESSION['inValidation1'] = 'invalid';
+									echo '<a href="inboundform3.php">My Application</a>'; 
+								}else if($pagination == 'inbound page 4'){
+									$_SESSION['inValidation1'] = 'invalid';
+									echo '<a href="inboundform4.php">My Application</a>';
+								}else if($pagination == 'inbound page 5'){
+									$_SESSION['inValidation1'] = 'invalid';
+									echo '<a href="inboundform5.php">My Application</a>';
+								}else if($pagination == 'outbound page 1'){
+									$_SESSION['outValidaition'] = 'outvalid';
+									echo '<a href="outboundform1.php">My Application</a>'; 
+								}else if($pagination == 'outbound page 2'){
+									$_SESSION['outValidaition'] = 'outvalid';
+									echo '<a href="outboundform2.php">My Application</a>';  
+								}else if($pagination == 'outbound page 3'){
+									$_SESSION['outValidaition'] = 'outvalid';
+									echo '<a href="outboundform3.php">My Application</a>';
+								}else if($pagination == 'submitted summary' || $pagination == 'save summary pdf'){
+									$_SESSION['validSummarypdf'] = 'sumpdfvalid';  
+									echo '<a href="summary_pdf_in.php">My Application</a>';
+								}else if($pagination == 'submitted' || $pagination == 'Submitted PDF'){
+									unset($_SESSION['outValidation']);
+									unset($_SESSION['inValidation']);
+									if($pagination == 'submitted' || $pagination == 'Submitted PDF'){
+										if($application_prog == 'outbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
+											echo '<a href="pdf/outboundBilateral.php" target="_blank">My Application</a>';
+										} else if ($application_prog == 'outbound' && $type_of_program == "Scholarship"){
+											echo '<a href="pdf/outbound.php" target="_blank">My Application</a>';
+										} else if($application_prog == 'inbound' && ($type_of_program == "ShortStudy" || $type_of_program == "StudyTour" ||  $type_of_program == "ServiceLearning")){
+											echo '<a href="pdf/inboundBilateral.php" target="_blank">My Application</a>';
+										} else if ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
+											echo '<a href="pdf/inbound.php" target="_blank">My Application</a>';
+										}else{
+											echo '<a href="#">My Application</a>';
+										}
+									} 
+								}else{
+									echo '<a href="#">My Application</a>';
+								}
 								
-								?>
-							</li>	
+							?>
 							</li>
-							<!-- STATUS -->
+							
 							<li style="padding-right: 30px;">
 								<a ><b>Status:</b> <span style="color: red">
 								<?php 
@@ -179,21 +171,9 @@
 									}
 								?></span></a>
 							</li>
-							<!-- FULL NAME AND DROPDOWN-->
 							<li class="dropdown" style="border-left: 1px solid #333333; padding-left: 30px;">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $familyName.", ".$givenName ?><span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li style="text-align: center">
-										<?php
-											if($pagination == 'submitted' && $application_prog == 'outbound'){
-												echo '<form method="post"><button name="outbtn" class="btn-logout float-center">Edit My Application</button></form>';
-											}else if($pagination == 'submitted' && $application_prog == 'inbound'){
-												echo '<form method="post"><button name="inbtn" class="btn-logout float-center">Edit My Application</button></form>';
-											}else{
-												echo ' '; 
-											}
-										?>
-									</li>
 									<li style="text-align: center"><form method="post"><button name="logoutbtn" class="btn-logout float-center">Logout <span class="glyphicon glyphicon-log-out"></span></button></form></li>
 								</ul>
 							</li>
@@ -228,6 +208,7 @@
 									}
 								}
 							?>
+							
 						</div>
 						<div>
 							<?php
@@ -255,7 +236,6 @@
 										$_SESSION['validSummarypdf_out'] = 'sumpdfvalid_out';
 										echo '<a class="btn btn-success" href="summary_pdf_out.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue to Summary Application form</span></a>';
 									}else if($pagination == 'submitted' && $application_prog == 'outbound'){
-										$_SESSION['validSummarypdf_out'] = 'empty';
 										echo '<br><a class="btn btn-success" id="uploa" style="border: 2px solid black;"><span class="caf" style="color: white">Upload Application form </span></a>';
 									}else	
 								// END OUTBOUND
@@ -295,12 +275,6 @@
 										$_SESSION['validSummarypdf'] = 'sumpdfvalid';
 										echo '<a class="btn btn-success" href="summary_pdf_in.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue to Summary Application form</span></a>';
 									}else if($pagination == 'submitted' && $application_prog == 'inbound'){
-										// if(isset($_POST['inbtn'])){
-										// 	$_SESSION['inValidaition'] = 'invalid';
-										// 	header("Location: inboundform1.php");
-										// }else{
-										// 	$_SESSION['validSummarypdf'] = 'empty';
-										// }
 									 	echo '<br><a class="btn btn-success" id="uploa" style="border: 2px solid black;"><span class="caf" style="color: white">Upload Application form </span></a>';
 									}else
 								// END INBOUND
@@ -346,10 +320,8 @@
 										// }
 										$timestamp = $todaydate;
 										$start_date = date($timestamp);
-
 										$expires = strtotime($exp, strtotime($timestamp));
 										//$expires = date($expires);
-
 										$date_diff=($expires-strtotime($timestamp)) / 86400;
 										$dayleft = round($date_diff, 0);
 										if($dayleft <= 0){
@@ -359,12 +331,14 @@
 										}
 											// echo "Start: ".$timestamp."<br>";
 											// echo "Expire: ".date('Y-m-d H:i:s', $expires)."<br>";
-
 											// echo round($date_diff, 0)." days left";
 													
 									}
 								// END COMMON IN & OUT
-							?>
+								?>
+								<!--<span>Upload Application form </span>-->
+								<!--<span class="caf"> Continue Application form</span>-->
+								<!--</a>-->
 						</div>
 					</div>
 				</div>
@@ -431,7 +405,6 @@
 			var status = "<?php echo $status?>";
 			var app_prog = "<?php echo $application_prog?>";
 			$('#uploadbox').hide();
-
 			// if(status == "Approved" || status == "Pending" || status == "On-Going" || app_prog == "inbound"){
 			// 	$('#poahh').hide();
 			// }
@@ -468,7 +441,7 @@
 			// 		window.location.href = "inboundform1.php";
 			// 	}else if(page == "Submitted PDF" && status == "Not-Qualified" && app_prog == "outbound"){
 			// 		window.location.href = "outboundform1.php";
-			// 	}else if(page == "Submitted PDF" && status == "Completed" && app_prog == "intbound"){
+			// 	}else if(page == "Submitted PDF" && status == "Completed" && app_prog == "inbound"){
 			// 		window.location.href = "outboundform1.php";
 			// 	}else if(page == "Submitted PDF" && status == "Not-Completed" && app_prog == "outbound"){
 			// 		window.location.href = "outboundform1.php";
@@ -497,12 +470,3 @@
 	<script src="bootstrap-3.3.7-dist/js/style.js"></script>
 
 </html>
-<?php
-	if(isset($_POST['outbtn'])){
-		$_SESSION['outValidaition'] = 'outvalid';
-		header("Location: outboundform1.php");
-	}else if(isset($_POST['intbtn'])){
-		$_SESSION['inValidaition'] = 'invalid';
-		header("Location: inboundform1.php");
-	}
-?>

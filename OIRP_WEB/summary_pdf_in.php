@@ -119,7 +119,7 @@
 		<div class="container-fluid">
 			<nav class="col-sm-2 sidebar">
 				<ul class="nav nav-stacked">
-                    <li class="active"><a href="summary_pdf_in.php">Expectations from the Program</a></li>
+					
 				</ul>
 			</nav>
             <div class="col-sm-9 container-fluid">
