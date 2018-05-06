@@ -638,20 +638,11 @@
 					EXPECTATION_PROG = '$expectation_area' 
 					WHERE STUDENT_ID = '$getSes_studentID' ";
 
-					// $sql_query = "INSERT INTO expectation_prog_inbound(
-					// 	STUDENT_COUNT,
-					// 	STUDENT_ID,
-					// 	EXPECTATION_PROG
-					// ) VALUES (
-					// 	'',
-					// 	'$getSes_studentID',
-					// 	'$expectation_area'
-					// )";
 					$query_db = mysqli_query($conn, $sql_query);
 
 					$query_db = mysqli_query($conn, $sql_query);
 						$query_db3 = "UPDATE student SET
-						PAGINATION = 'submitted' 
+						PAGINATION = 'submitted summary' 
 						WHERE STUDENT_ID ='$getSes_studentID'
 						";
 
@@ -663,30 +654,16 @@
 							header("Location: index.php");
 						}else if($_SESSION['inValidation'] == 'invalid'){
 							unset($_SESSION['inValidation']);
-							header("Location: student_home.php");
+							$_SESSION['validSummarypdf'] = 'sumpdfvalid';
+							header("Location: summary_pdf_in.php");
 						}
 					}else{
 						header("Location: error_page.php");
 
 					}
-
-					// $sql_query1 = "SELECT APPLICATION_TYPE_PROG FROM educ_background_inbound WHERE STUDENT_ID = '$getSes_studentID' ";
-					// $query_db2 = mysqli_query($conn, $sql_query1);
-
-					// echo $query_db2;
-
-					// if($query_db2 == 'Bilateral')
-					// {
-					// 	header("Location: pdf/inboundBilateral.php");
-					// }else if($query_db2 == 'Scholarship'){
-					// 	header("Location: pdf/inbound.php");
-					// }else
-					// {
-					// 	header("Location: error_page.php");	
-					// }
-
 				}
 			// end for inboundform5
+
 		// END UPDATE THE TABLE ONCE THEY SUBMIT OR NEXT IT
 		
 		// FOR SAVE BUTTON!!!!!!!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -47,6 +47,7 @@
 					</div>
 				</div>
 			</nav>	
+		<!-- END NAVIGATOR BAR -->
 		<!--START CONTENT -->
 			<div class="container-fluid">
 				<nav class="col-sm-2 sidebar">
@@ -135,8 +136,9 @@
 					</form>
 				</div>
 			</div>
-			<!-- END OF CONTENT -->
+		<!-- END OF CONTENT -->
 		</div>
+		<!--END CONTENT -->
 	</body>
 	<script>
 		$(document).ready(function(){

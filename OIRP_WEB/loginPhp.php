@@ -26,15 +26,19 @@
 			$stmt = $conn->prepare('SELECT * FROM student WHERE EMAIL = ? and PASSWORD = ?');
 			$stmt->bind_param('ss', $email, $pass_word_enc); // 's' specifies the variable type => 'string'
 			$stmt->execute();
-			$result = $stmt->get_result();
-
-			if($result == 1){
-				while ($row = $result->fetch_assoc()){
-					$_SESSION['student_id_session'] = $row['STUDENT_ID'];
-					$_SESSION['stuValid'] = 'yes';
-					if($_SESSION['stuValid'] == 'yes'){
-						header("Location: student_home.php");
+			if($stmt->execute()){
+				$result = $stmt->get_result();
+				$num_rows = $result->num_rows;
+				if($num_rows == 1){
+					while ($row = $result->fetch_assoc()){
+						$_SESSION['student_id_session'] = $row['STUDENT_ID'];
+						$_SESSION['stuValid'] = 'yes';
+						if($_SESSION['stuValid'] == 'yes'){
+							header("Location: student_home.php");
+						}
 					}
+				}else{
+					$error_message = "<script language='javascript'>(function(){alert('Incorrect Email or Password or Both');})();</script>";
 				}
 			}else{
 				$error_message = "<script language='javascript'>(function(){alert('Incorrect Email or Password or Both');})();</script>";

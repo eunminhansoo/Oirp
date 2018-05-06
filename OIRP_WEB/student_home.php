@@ -289,6 +289,9 @@
 									}else if($pagination == 'outbound page 3'){
 										$_SESSION['outValidaition'] = 'outvalid';
 										echo '<a class="btn btn-success" href="outboundform3.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue Application form</span></a>';
+									}else if($pagination == 'submitted summary' || $pagination == 'save summary pdf'){
+										$_SESSION['validSummarypdf'] = 'sumpdfvalid';
+										echo '<a class="btn btn-success" href="summary_pdf_in.php" style="border: 2px solid black;"><span class="caf" style="color: white"> Continue to Summary Application form</span></a>';
 									}else if($pagination == 'submitted'){
 										unset($_SESSION['outValidation']);
 										unset($_SESSION['inValidation']);
