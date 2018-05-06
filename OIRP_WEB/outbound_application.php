@@ -1,7 +1,6 @@
 <?php
 	include 'database_connection.php';
 	session_start();
-	echo $_SESSION['outValidaition'];
 
 	if($_SESSION['outValidaition'] == 'empty' && $_SESSION['stuValid'] != 'yes'){
 		header("Location: index.php");
