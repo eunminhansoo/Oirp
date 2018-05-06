@@ -126,7 +126,9 @@
                 <div class="form-group row">
                     <div class="col-sm-10">
                         <div class="danger" style="padding-left:15px; padding-top: 1px; padding-bottom: 1px; margin-bottom: 30px;">
-                            <p><h3><strong>Notice!</strong></h3>You can only register once per semester.</p>
+                        <h3><strong>Warning! All information you typed will be uneditable once you click the Submit button</strong></h3>
+                        <p>Please click the link "Open PDF summary" to verify if all informations are correct. Should there be any changes in the information, please click the Edit button.</p>
+                        <p>You can resume and submit it later by clicking the Save button.</p>
                         </div>
                         <h1>Summary Application form</h1>
                         <div class="col-sm-6 col-sm-push-1">
