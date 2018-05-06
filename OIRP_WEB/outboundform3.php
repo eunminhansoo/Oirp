@@ -248,7 +248,7 @@
 					</div>
 					<div class="form-group row break col-xs-4">
 						<div class="col-sm-10">
-							<input type="submit" name="btn_form3" class="btn btn-success btn-block shadowbtn" value="Next">
+							<input type="submit" name="btn_form3" class="btn btn-success btn-block shadowbtn" value="Submit">
 						</div>
 					</div>
 					
