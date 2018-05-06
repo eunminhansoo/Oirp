@@ -155,16 +155,17 @@
 									|| $pagination == 'submitted summary' || $pagination == 'save summary pdf'
 									){
 										echo "(Please finish application)";
-									}else if($pagination == "submited"){
+									}else if($pagination == "submitted"){
 										if($status == 'Approved'){
-											$status = " ";
+											$status = "Pending";
 											echo $status; 
 										}else{
+											$status = "(Upload form)";
 											echo $status;
 										}
 									}else if($pagination == "Submitted PDF"){
 										if($status == 'Approved'){
-											$status = " ";
+											$status = "Pending";
 											echo $status; 
 										}else{
 											echo $status;
@@ -343,10 +344,10 @@
 						<br>
 						<div id="fileType">
 							<div class="form-group" style="padding-top: 20px;">
-								<div class="col-xs-4 col-xs-push-1">
-									<span><b>Upload PDF:</b></span>
+								<div class="col-xs-6">
+									<span><b>Upload Application Form:</b></span>
 								</div>
-								<div class="col-xs-4 col-xs-push-1">
+								<div class="col-xs-4 col-xs-pull-1">
 									<input type="file" name="pdfScan" id="pdfscan" class="custom-file-input form-control-file" accept="application/pdf" disabled>
 								</div>
 							</div>
@@ -355,7 +356,7 @@
 								<div class="col-xs-6">
 									<span><b>Upload Transcript of Records:</b></span>
 								</div>
-								<div class="col-xs-3 col-xs-pull-1">
+								<div class="col-xs-4 col-xs-pull-1">
 									<input type="file" name="TAscan" id="taScan" class="custom-file-input form-control-file" disabled/>
 								</div>
 								
@@ -364,7 +365,7 @@
 						<br>
 						<br>
 						<div class="col-xs-12">
-							<button type="submit" name="btn_submit" class="btn">Submit</button>
+							<button type="submit" name="btn_submit" class="btn btn-info">Submit</button>
 						</div>
 					</div>
 				</div>
