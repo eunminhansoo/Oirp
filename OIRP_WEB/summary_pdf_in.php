@@ -120,17 +120,16 @@
                     <div class="col-sm-10">
                         <h1>Summary Application form</h1>
                         <div class="col-sm-6 col-sm-push-1">
-                            <span class="glyphicon glyphicon-chevron-right" style="font-size: 23px;">
-                                <?php
+                            <span class="glyphicon glyphicon-chevron-right" style="font-size: 15px;"></span>
+                             	<?php
                                     if($pagination == 'submitted summary' || $pagination == 'save summary pdf'){
                                         if($application_prog == 'inbound' && ($type_of_program == 'ShortStudy' || $type_of_program == 'StudyTour' || $type_of_program == 'ServiceLearning')){
-                                            echo '<a href="pdf/inboundBilateral.php" target="_blank"><span class="caf">Open Summary PDF</span></a>';
+                                            echo '<a href="pdf/inboundBilateral.php" target="_blank"><span class="caf" style="font-size: 15px;">Open Summary PDF</span></a>';
                                         } elseif ($application_prog == 'inbound' && $type_of_program == "Scholarship"){
-                                            echo '<a href="pdf/inbound.php" target="_blank"><span class="caf">Open Summary PDF</span></a>';
+                                            echo '<a href="pdf/inbound.php" target="_blank"><span class="caf" style="font-size: 15px;">Open Summary PDF</span></a>';
                                         }
 								    }
                                 ?>
-                            </span>
                         </div>
                     </div>
                 </div>
