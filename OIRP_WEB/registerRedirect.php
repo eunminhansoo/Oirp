@@ -294,7 +294,7 @@
 		header("Location: outboundform1.php");
 	}else{
 		if($appPROG == "in"){
-			$_SESSION['inValidation1'] = 'invalid';
+			$_SESSION['inValidation'] = 'invalid';
 			header("Location: inboundform1.php");
 		}
 	}

@@ -1,14 +1,16 @@
 <?php
 	include 'database_connection.php';
 	session_start();
-	if($_SESSION['outValidaition'] != 'outvalid' && $_SESSION['stuValid'] != 'yes'){
+	echo $_SESSION['outValidaition'];
+
+	if($_SESSION['outValidaition'] == 'empty' && $_SESSION['stuValid'] != 'yes'){
 		header("Location: index.php");
 		// echo "pumasok ka!!!!";
-	}else if($_SESSION['outValidaition'] != 'outvalid' && $_SESSION['stuValid'] == 'yes'){
+	}else if($_SESSION['outValidaition'] == 'empty' && $_SESSION['stuValid'] == 'yes' ){
 		header("Location: student_home.php");
-	}else{
+	}elseif($_SESSION['outValidaition'] == 'outvalid' && $_SESSION['stuValid'] == 'yes'){
 
-		$getses_StudentID = $_SESSION['student_id_session'];
+		$getses_StudentID =  $_SESSION['student_id_session'];
 		$message = '';
 
 		$query = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$getses_StudentID'");
@@ -456,7 +458,7 @@
 
 
 					$query_db3 = "UPDATE student SET
-						PAGINATION = 'submitted' 
+						PAGINATION = 'submitted summary' 
 						WHERE STUDENT_ID ='$getses_StudentID'
 					";
 					$checkQuery3 = mysqli_query($conn, $query_db3);
@@ -464,8 +466,9 @@
 					if($query_db && $checkQuery3)
 					{
 						if($_SESSION['outValidaition'] == 'outvalid'){
-							unset($_SESSION['outValidation']);
-							header("Location: student_home.php");
+							$_SESSION['outValidaition'] == 'empty';
+							$_SESSION['validSummarypdf_out'] = 'sumpdfvalid_out';
+							header("Location: summary_pdf_out.php");
 						}else if($_SESSION['inValidation'] == 'invalid'){
 							header("Location: index.php");
 						}

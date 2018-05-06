@@ -2,11 +2,11 @@
 	include 'database_connection.php';
 
 	session_start();
-	 if($_SESSION['inValidation1'] !== 'invalid' && $_SESSION['stuValid'] !== 'yes'){
+	if($_SESSION['inValidation'] == 'empty' && $_SESSION['stuValid'] != 'yes'){
 		header("Location: index.php");
-	// }else if($_SESSION['inValidation'] !== 'invalid' && $_SESSION['stuValid'] == 'yes' || $_SESSION['inValidation1'] !== 'invalid' && $_SESSION['stuValid'] == 'yes'){
-	// 	header("Location: student_home.php");
-	}elseif(!empty($_SESSION['inValidation1']) == 'invalid' && $_SESSION['stuValid'] == 'yes'){
+	}else if($_SESSION['inValidation'] == 'empty' && $_SESSION['stuValid'] == 'yes'){
+		header("Location: student_home.php");
+	}elseif($_SESSION['inValidation'] == 'invalid' && $_SESSION['stuValid'] == 'yes'){
 		$getSes_studentID = $_SESSION['student_id_session'];
 		
 		$query = mysqli_query($conn, "SELECT * FROM student WHERE STUDENT_ID = '$getSes_studentID'");
@@ -650,10 +650,8 @@
 
 					if($query_db && $checkQuery3)
 					{
-						if($_SESSION['outValidaition'] == 'outvalid'){
-							header("Location: index.php");
-						}else if($_SESSION['inValidation1'] == 'invalid'){
-							unset($_SESSION['inValidation']);
+						if($_SESSION['inValidation'] == 'invalid'){
+							$_SESSION['inValidation'] = 'empty';
 							$_SESSION['validSummarypdf'] = 'sumpdfvalid';
 							header("Location: summary_pdf_in.php");
 						}
@@ -1266,6 +1264,8 @@
 			// end for inboundform5
 
 		// end FOR SAVE BUTTON!!!!!!!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	}else{
+		header("Location: index.php");
 	}
 
 ?>

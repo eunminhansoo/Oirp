@@ -212,6 +212,10 @@ include 'database_connection.php';
 			}
 		}
 		
+		if(isset($_POST['outbtn'])){
+			$_SESSION['outValidaition'] = 'outvalid';
+			header("Location: outboundform1.php");
+		}
 	}
     	
    

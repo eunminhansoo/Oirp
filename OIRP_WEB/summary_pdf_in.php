@@ -2,67 +2,63 @@
     include 'database_connection.php';
 	include 'logout.php';
     session_start();
-    if(empty($_SESSION['inValidation1']) && $_SESSION['stuValid'] != 'yes'){
-		header("Location: index.php");
-	}else if(empty($_SESSION['inValidation1']) && $_SESSION['stuValid'] == 'yes' && $_SESSION['validSummarypdf'] != 'sumpdfvalid'){
-		header("Location: student_home.php");
-    }else{
-        if($_SESSION['validSummarypdf'] == 'sumpdfvalid'){
-            $getSes_studentID = $_SESSION['student_id_session'];
+    if($_SESSION['validSummarypdf'] == 'sumpdfvalid' && $_SESSION['stuValid'] == 'yes'){
+        $getSes_studentID = $_SESSION['student_id_session'];
             
-            $sql_query = $conn->prepare('SELECT * FROM student WHERE STUDENT_ID = ?');
-            $sql_query->bind_param('s', $getSes_studentID);
-            $sql_query->execute();
-            $result = $sql_query->get_result();
-            //$db_query = mysqli_query($conn, $sql_query);
-            while($row = $result->fetch_assoc()){
-                $familyName = $row['FAMILY_NAME'];
-                $givenName = $row['GIVEN_NAME'];
-                $status = $row['STATUS'];
-                $application_prog = $row['APPLICATION_PROG'];
-                $pagination = $row['PAGINATION'];
-                $gender = $row['GENDER'];
+        $sql_query = $conn->prepare('SELECT * FROM student WHERE STUDENT_ID = ?');
+        $sql_query->bind_param('s', $getSes_studentID);
+        $sql_query->execute();
+        $result = $sql_query->get_result();
+        //$db_query = mysqli_query($conn, $sql_query);
+        while($row = $result->fetch_assoc()){
+            $familyName = $row['FAMILY_NAME'];
+            $givenName = $row['GIVEN_NAME'];
+            $status = $row['STATUS'];
+            $application_prog = $row['APPLICATION_PROG'];
+            $pagination = $row['PAGINATION'];
+            $gender = $row['GENDER'];
+        }
+
+        $sql_query = $conn->prepare('select type_of_program from educ_background_inbound where student_id = ?');
+        $sql_query->bind_param('s', $getSes_studentID);
+        $sql_query->execute();
+        $result = $sql_query->get_result();
+        while($row = $result->fetch_assoc()){
+            $type_of_program = $row['type_of_program'];
+        }
+
+        if(isset($_POST['btn_informsummary'])){
+            $query_db = mysqli_query($conn, $sql_query);
+            $query_db3 = "UPDATE student SET
+                PAGINATION = 'submitted' 
+                WHERE STUDENT_ID ='$getSes_studentID'
+            ";
+
+            $checkQuery3 = mysqli_query($conn, $query_db3);
+            if($checkQuery3){
+                $_SESSION['inValidation'] = 'empty';
+                $_SESSION['validSummarypdf'] = " ";
+                header("Location: student_home.php");
             }
+        }else if(isset($_POST['btnSaveinformsummary'])){
+            $query_db = mysqli_query($conn, $sql_query);
+            $query_db3 = "UPDATE student SET
+                PAGINATION = 'save summary pdf' 
+                WHERE STUDENT_ID ='$getSes_studentID'
+            ";
 
-            $sql_query = $conn->prepare('select type_of_program from educ_background_inbound where student_id = ?');
-            $sql_query->bind_param('s', $getSes_studentID);
-            $sql_query->execute();
-            $result = $sql_query->get_result();
-            while($row = $result->fetch_assoc()){
-                $type_of_program = $row['type_of_program'];
+            $checkQuery3 = mysqli_query($conn, $query_db3);
+            if($checkQuery3){
+                header("Location: student_home.php");
             }
-
-            if(isset($_POST['btn_informsummary'])){
-                $query_db = mysqli_query($conn, $sql_query);
-                $query_db3 = "UPDATE student SET
-                    PAGINATION = 'submitted' 
-                    WHERE STUDENT_ID ='$getSes_studentID'
-                ";
-
-                $checkQuery3 = mysqli_query($conn, $query_db3);
-                if($checkQuery3){
-                    unset($_SESSION['validSummarypdf']);
-                    header("Location: student_home.php");
-                }
-            }else if(isset($_POST['btnSaveinformsummary'])){
-                $query_db = mysqli_query($conn, $sql_query);
-                $query_db3 = "UPDATE student SET
-                    PAGINATION = 'save summary pdf' 
-                    WHERE STUDENT_ID ='$getSes_studentID'
-                ";
-
-                $checkQuery3 = mysqli_query($conn, $query_db3);
-                if($checkQuery3){
-                    header("Location: student_home.php");
-                }
-            }else if(isset($_POST['btnEdit'])){
-                $_SESSION['inValidation1'] = 'invalid';
-                header("Location: inboundform1.php");
-            }
-        }else{
-            header("Location: student_home.php");
-        } 
-    }
+        }else if(isset($_POST['btnEdit'])){
+            $_SESSION['inValidation'] = 'invalid';
+            header("Location: inboundform1.php");
+        }
+    }else{
+        header("Location: student_home.php");
+    } 
+    // }
 	$familyName;
 	$givenName;
 ?>
