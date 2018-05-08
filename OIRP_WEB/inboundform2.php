@@ -119,7 +119,7 @@
 							<input type="text" name="program" id="program" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" required value="<?php echo $getSel_CURRENT_PROG_STUDY_IN_BILA?>">
 						</div>
 						<div class="col-sm-4">
-							<label>Major <span class="required">*</span></label>
+							<label>Major</label>
 							<input type="text" name="major" id="major" class="form-control" pattern="[^<>=]{1,30}" maxlength="30" value=" <?php echo $getSel_SPECIALIZATION_IN_BILA?>">
 						</div>
 						<div class="col-sm-2">
@@ -132,16 +132,16 @@
 							<label>Type of program: <span class="required">*</span></label>
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="Scholarship" id="proScholar"> Exchange through Scholarship
+							<input type="radio" name="type_program" value="Scholarship" id="proScholar" required> Exchange through Scholarship
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="ShortStudy" id="ShortStudy" required> Short Study Abroad 
+							<input type="radio" name="type_program" value="ShortStudy" id="ShortStudy" > Short Study Abroad 
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="StudyTour" id="StudyTour" required> Study Tour 
+							<input type="radio" name="type_program" value="StudyTour" id="StudyTour" > Study Tour 
 						</div>
 						<div class="col-sm-2">
-							<input type="radio" name="type_program" value="ServiceLearning" id="ServiceLearning" required> Service Learning
+							<input type="radio" name="type_program" value="ServiceLearning" id="ServiceLearning" > Service Learning
 						</div>
 						<div class="col-sm-1">
 							<input type="radio" name="type_program" value="" checked="checked" hidden> 

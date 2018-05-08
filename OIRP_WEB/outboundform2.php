@@ -71,27 +71,27 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
-							<label>Occupation</label>
+							<label>Occupation <span class="required">*</span></label>
 							<input type="text" name="fOccupation" id="fOccupation" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" value="<?php echo $getSel_OCCUPATION_DADA_OUT?>">
 						</div>
 						<div class="col-sm-5">
-							<label>Company</label>
+							<label>Company <span class="required">*</span></label>
 							<input type="text" name="fCompany" id="fCompany" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" value="<?php echo $getSel_COMPANY_DADA_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Address</label>
+							<label>Address <span class="required">*</span></label>
 							<input type="text" name="fAddress" id="fAddress" class="form-control" pattern="[^<>=]{1,115}" maxlength="115" value="<?php echo $getSel_ADDRESS_DADA_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-4">
-							<label>Contact Number</label>
+							<label>Contact Number <span class="required">*</span></label>
 							<input type="text" name="fNumber" id="fNumber" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})"  maxlength=30 value="<?php echo $getSel_CONTACT_NUM_DADA_OUT?>">
 						</div>
 						<div class="col-sm-6">
-							<label>Email Address</label>
+							<label>Email Address <span class="required">*</span></label>
 							<input type="email" name="fEmail" id="fEmail" class="form-control" maxlength="50" value="<?php echo $getSel_EMAIL_ADD_DADA_OUT?>">
 						</div>
 					</div>
@@ -117,27 +117,27 @@
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-5">
-							<label>Occupation</label>
+							<label>Occupation <span class="required">*</span></label>
 							<input type="text" name="mOccupation" id="mOccupation" class="form-control" pattern="[^<>=]{1,20}" maxlength="20" value="<?php echo $getSel_OCCUPATION_MOM_OUT?>">
 						</div>
 						<div class="col-sm-5">
-							<label>Company</label>
+							<label>Company <span class="required">*</span></label>
 							<input type="text" name="mCompany" id="mCompany" class="form-control" pattern="[^<>=].{1,20}" maxlength="20" value="<?php echo $getSel_COMPANY_MOM_OUT?>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<label>Address</label>
+							<label>Address <span class="required">*</span></label>
 							<input type="text" name="mAddress" id="mAddress" class="form-control" pattern="[^<>=].{1,115}" maxlength="115" value="<?php echo $getSel_ADDRESS_MOM_OUT?>"> 
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-4">
-							<label>Contact Number</label>
+							<label>Contact Number <span class="required">*</span></label>
 							<input type="text" name="mNumber" id="mNumber" class="form-control" placeholder="ex: +63 2-406-1611 or +63 974-887-6512" pattern="([+]\d{1,4})([\d\s-+]{7,15})" maxlength=30 value="<?php echo $getSel_CONTACT_NUM_MOM_OUT?>">
 						</div>
 						<div class="col-sm-6">
-							<label>Email Address</label>
+							<label>Email Address <span class="required">*</span></label>
 							<input type="email" name="mEmail" id="mEmail" class="form-control" maxlength="50" value="<?php echo $getSel_EMAIL_ADD_MOM_OUT?>">
 						</div>
 					</div>

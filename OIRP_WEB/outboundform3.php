@@ -205,7 +205,7 @@
 							<label>Courses <span class="required">*</span></label>
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
-							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1?>">
+							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1?>" required>
 							</div>
 						</div>
 						<div class="col-sm-10">

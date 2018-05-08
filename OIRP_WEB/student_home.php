@@ -354,6 +354,11 @@
 							<a class="btn btn-secondary" id="toggelexus"><span class="glyphicon glyphicon-remove"></span></a>
 						</div>
 						<br>
+						<b>Note:</b> Please use the following file formats:
+						<ul>
+							<li>&nbsp;&nbsp;&nbsp;For the application form: <i>lastname_firstname</i></li>
+							<li>&nbsp;&nbsp;&nbsp;For the transcript of records: <i>lastname_firstname_TOR</i></li>
+						</ul>
 						<div id="fileType">
 							<div class="form-group" style="padding-top: 20px;">
 								<div class="col-xs-6">

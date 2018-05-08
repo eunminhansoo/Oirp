@@ -230,7 +230,7 @@ if(isset($_POST["view"]))
                 $output .= '
                     <li>
                         <a href=admin_student_application_in.php?studentName='.urlencode($encryptStudentId).'>
-                             '.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf <br />
+                             '.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf <br />
                         </a>
                     </li>
                     <li class="divider"></li>
@@ -240,7 +240,7 @@ if(isset($_POST["view"]))
                     $output .= '
                     <li>
                         <a href=admin_student_application_out.php?studentName='.urlencode($studentId).'>
-                             '.$row["LASTNAME"].' '.$row["FIRSTNAME"].' has uploaded a pdf <br />
+                             '.$row["LASTNAME"].', '.$row["FIRSTNAME"].' has uploaded a pdf <br />
                         </a>
                     </li>
                     <li class="divider"></li>

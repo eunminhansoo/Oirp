@@ -84,7 +84,7 @@
 							<label>Courses to be taken at UST <span class="required">*</span></label> 
 							<div class="input-group">
 							    <span class="input-group-addon">1.</span>
-							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1_INBOUND?>">
+							    <input type="text" name="course1" id="course1" class="form-control" pattern="[^<>=]{1,45}" maxlength="45" value="<?php echo $getSel_COURSE_1_INBOUND?>" required>
 							</div>
 						</div>
 						<div class="col-sm-10">
@@ -130,11 +130,11 @@
 					<div class="form-group row">
 						<div class="col-sm-5">
 							<label>Reason for Application</label>
-							<input type="text" name="reason" id="reason" class="form-control" pattern="[^<>=]{1,25}" maxlength="25" required value="<?php echo $getSel_REASON_STUDYING_INBOUND?>">
+							<input type="text" name="reason" id="reason" class="form-control" pattern="[^<>=]{1,25}" maxlength="25" value="<?php echo $getSel_REASON_STUDYING_INBOUND?>">
 						</div>
 						<div class="col-sm-5">
 							<label>Disciplinary Status/Action</label>
-							<input type="text" name="disciplinary" id="disciplinary" class="form-control" pattern="[^<>=]{1,25}" maxlength="25" required value="<?php echo $getSel_DESCRIPTION_ACTION_STATUS_INBOUND?>">
+							<input type="text" name="disciplinary" id="disciplinary" class="form-control" pattern="[^<>=]{1,25}" maxlength="25" value="<?php echo $getSel_DESCRIPTION_ACTION_STATUS_INBOUND?>">
 						</div>
 					</div>
 					<div class="form-group row">
