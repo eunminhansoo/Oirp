@@ -136,6 +136,7 @@
 		} else if($application_form == "ServiceLearning"){
 			$application_form = "Service Learning";
 		}
+		
 
 		class PDF extends FPDF
 		{
@@ -154,7 +155,7 @@
 			$this->SetFont('Arial','',8);
 			$this->Cell(0,3,'Office of International Relations and Programs',0,2,'C');
 			$this->Cell(0,3,'G/F Main Bldg., University of Santo Tomas',0,2,'C');
-			$this->Cell(0,3,'España Blvd., Manila, Philippines, 1015',0,2,'C');
+			$this->Cell(0,3, 'Espana Blvd., Manila, Philippines' , 1015,0,2,'C');
 			$this->Cell(0,3,'406-1611 local 8658',0,2,'C');
 			$this->Cell(0,3,'international@ust.edu.ph',0,2,'C');
 		}
