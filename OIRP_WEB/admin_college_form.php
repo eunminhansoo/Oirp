@@ -5,6 +5,7 @@
 	if($_SESSION['collegeName'] != 'college'){
 		header("Location: index.php");
 	}
+	$mssg = ' ';
     $getStudentID = $_GET['studentName'];
 	$decryptStudentid = base64_decode($getStudentID);
 	$course = $_GET['course'];
@@ -45,7 +46,7 @@
 
 		$status = $_POST['status']; 
 		$query2 = "UPDATE admin_college SET STATUS = '$status'
-		WHERE STUDENT_ID = '$getStudentID' AND COURSE = '$course'";
+		WHERE STUDENT_ID = '$decryptStudentid' AND COURSE = '$course'";
 
 		
 		//insert to comment
@@ -102,8 +103,11 @@
 
 		// UPDATE THE STUDENT TABLE
 		if($status = 'Qualified'){
-			$std_query = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$getStudentID'";
+			$std_query = "UPDATE student SET STATUS = '$status' WHERE STUDENT_ID = '$decryptStudentid'";
 			mysqli_query($conn, $std_query);
+		}
+		if($query_db){
+			$mssg = "<script language='javascript'>(function(){alert('Has been Sent!!');})();</script>";
 		}
 	}        
 
@@ -161,6 +165,7 @@
 		<!--NAV BART END-->
 		<div class="col-xs-5">
 			<?php 
+			echo $mssg;
 				echo "<embed src='images/".$file."' width='800px' height='100%'>";
 			?>
 		</div>

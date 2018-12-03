@@ -93,7 +93,7 @@
 				<div class="">
 	                <h2>INBOUND</h2>
 	                <div class="table-responsive">
-	                    <table class="table table-striped table-bordered table-hover" id="tbl_student_in" >
+	                    <table class="table table-striped table-bordered table-hover display" id="tbl_student_in" >
 	                        <thead>
 	                            <tr>
 	                                <th>
@@ -117,7 +117,6 @@
 	                            </tr>
 	                        </thead>
 	                        <tbody>
-	                            <tfoot>
 								<?php
 									$col_query = "SELECT * FROM admin_college WHERE COLLEGE = '$college' ";
 									$col_db = mysqli_query($conn, $col_query);
@@ -164,7 +163,6 @@
 									
 									
 								?>	 
-	                        	</tfoot> 
 	                        </tbody>
 	                    </table>
 	                </div>

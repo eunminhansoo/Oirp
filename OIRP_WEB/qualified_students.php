@@ -123,7 +123,6 @@
 	                            </tr>
 	                        </thead>
 	                        <tbody>
-								<tfoot>
 								<?php
 									$sql_query = "SELECT * FROM admin_student_data a INNER JOIN student b ON a.STUDENT_ID = b.STUDENT_ID INNER JOIN educ_background_inbound c ON b.STUDENT_ID = c.STUDENT_ID WHERE b.STATUS ='Qualified'";
 									$query = mysqli_query($conn, $sql_query);
@@ -164,7 +163,6 @@
 										echo "</tr>";
 									}
 								?>    
-								</tfoot> 
 	                        </tbody>
 	                    </table>
 	                </div>

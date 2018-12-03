@@ -462,7 +462,7 @@
 									<th>STATUS</th>
 								</tr>
 								<?php
-									$colle = "SELECT * FROM admin_college WHERE STUDENT_ID = '$getStudentID'";
+									$colle = "SELECT * FROM admin_college WHERE STUDENT_ID = '$decryptStudentid'";
 									$setColle = mysqli_query($conn, $colle);
 									while($colleRow = mysqli_fetch_array($setColle)){
 
